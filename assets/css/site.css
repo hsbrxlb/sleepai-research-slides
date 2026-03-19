@@ -4,6 +4,7 @@
   --bg-0: #07101a;
   --bg-1: #0c1729;
   --text: #eef3ff;
+  --text-strong: #f7fbff;
   --muted: rgba(238, 243, 255, 0.74);
   --faint: rgba(238, 243, 255, 0.48);
   --line: rgba(238, 243, 255, 0.1);
@@ -31,10 +32,7 @@ body {
 
 a {
   color: inherit;
-}
-
-.hero-copy {
-  max-width: 760px;
+  text-decoration: none;
 }
 
 .hero-stats {
@@ -181,15 +179,18 @@ h1 {
   margin: 0 0 10px;
   font-size: 22px;
   line-height: 1.28;
+  color: var(--text-strong);
 }
 
-.card a {
-  text-decoration: none;
-  color: var(--text);
+.card a,
+.card a:visited,
+.card a:hover,
+.card a:active {
+  color: var(--text-strong) !important;
 }
 
 .card a:hover {
-  color: #f7fbff;
+  text-shadow: 0 0 18px rgba(120, 240, 214, 0.14);
 }
 
 .card .meta {
@@ -233,12 +234,13 @@ h1 {
 }
 
 .footer a {
-  text-decoration: none;
-  color: var(--muted);
+  color: var(--muted) !important;
 }
 
-.footer a:hover {
-  color: var(--text);
+.footer a:visited,
+.footer a:hover,
+.footer a:active {
+  color: var(--text-strong) !important;
 }
 
 @media (max-width: 900px) {
@@ -249,5 +251,50 @@ h1 {
   .section-head {
     align-items: start;
     flex-direction: column;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 72px 0 20px;
+  }
+
+  h1 {
+    max-width: none;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 18px;
+  }
+
+  .hero-stats {
+    gap: 8px;
+  }
+
+  .chip,
+  .tag {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .section {
+    padding: 22px 0 44px;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .footer {
+    padding: 4px 0 40px;
   }
 }

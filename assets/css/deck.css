@@ -57,6 +57,12 @@ a {
   color: inherit;
 }
 
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+
 .topbar {
   position: sticky;
   top: 0;

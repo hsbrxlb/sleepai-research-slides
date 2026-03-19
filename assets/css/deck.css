@@ -208,12 +208,13 @@ a:active {
 .closing strong {
   font-family: var(--serif);
   letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(46px, 7vw, 74px);
-  line-height: 0.95;
+  font-size: clamp(40px, 5vw, 58px);
+  line-height: 0.98;
   max-width: 10.5ch;
 }
 
@@ -235,6 +236,16 @@ a:active {
 .decision-grid {
   display: grid;
   gap: 24px;
+}
+
+.hero-grid > *,
+.two-col > *,
+.three-col > *,
+.cards > *,
+.matrix > *,
+.roadmap > *,
+.decision-grid > * {
+  min-width: 0;
 }
 
 .hero-grid {
@@ -267,6 +278,7 @@ a:active {
   box-shadow: var(--shadow);
   padding: 24px;
   backdrop-filter: blur(14px);
+  min-width: 0;
 }
 
 .card.strong {
@@ -275,8 +287,11 @@ a:active {
 }
 
 .stat {
-  font: 600 clamp(34px, 5vw, 58px)/1 var(--mono);
+  font: 600 clamp(28px, 3.4vw, 42px)/1.04 var(--mono);
   margin: 0 0 10px;
+  letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .stat small {
@@ -288,8 +303,8 @@ a:active {
 
 .section-title {
   margin: 0 0 12px;
-  font-size: clamp(32px, 4vw, 50px);
-  line-height: 0.98;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.02;
   max-width: 12ch;
 }
 
@@ -300,8 +315,8 @@ a:active {
 
 .big-line {
   margin: 0;
-  font-size: clamp(34px, 5vw, 62px);
-  line-height: 1.02;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.08;
   max-width: 14ch;
 }
 
@@ -410,7 +425,7 @@ a:active {
 
 .note {
   color: var(--faint);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.55;
 }
 
@@ -424,8 +439,8 @@ a:active {
 
 .closing strong {
   display: block;
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 0.98;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.04;
   max-width: 14ch;
 }
 
@@ -510,6 +525,21 @@ a:active {
 
   .tags {
     grid-template-columns: 1fr;
+  }
+
+  .hero h1,
+  .section-title,
+  .big-line,
+  .closing strong {
+    max-width: none;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .stat {
+    font-size: clamp(26px, 9.6vw, 38px);
   }
 }
 

@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Regular.min.css");
+@import url("https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Medium.min.css");
+@import url("https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css");
+@import url("https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Bold.min.css");
 
 :root {
   --bg-0: #070a12;
@@ -17,9 +20,9 @@
   --shadow: 0 28px 72px rgba(0, 0, 0, 0.42);
   --radius: 22px;
   --max: 1180px;
-  --sans: "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --serif: "Fraunces", "Times New Roman", serif;
-  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "MiSans", "MiSans Global", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --serif: "MiSans", "MiSans Global", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "MiSans", "MiSans Global", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -96,8 +99,7 @@ a:active {
 
 .brand .kicker {
   font: 500 11px/1 var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   color: var(--accent);
 }
 
@@ -188,8 +190,7 @@ a:active {
   background: rgba(255, 255, 255, 0.04);
   color: var(--muted);
   font: 500 11px/1 var(--mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
   margin-bottom: 18px;
 }
 

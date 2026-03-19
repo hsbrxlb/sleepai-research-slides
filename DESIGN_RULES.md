@@ -31,13 +31,14 @@
 - 主色只保留一组核心信号：`mint/cyan` 作为强调，`soft blue` 作为辅助
 - 背景保持“深色渐变 + 轻网格/光斑”语言，避免纯黑纯色平铺
 - 卡片统一使用半透明深色面板、细线框、高斯感阴影，不做厚重拟物
+- 首页列表默认纵向单列，不做横向双列卡片墙
 
 ## 5. 设计 Token
 
 - 优先复用 `assets/css/deck.css` 与 `assets/css/site.css` 中的变量
 - 常用最大宽度保持在 `1160px-1180px`
 - 圆角保持在 `22px-24px`
-- 正文用 `Noto Sans SC`，标题用 `Fraunces`，数据与标签用 `IBM Plex Mono`
+- 全站统一使用 `MiSans / MiSans Global` 作为主要字体
 - 新 deck 若必须写内联样式，也要沿用同一套 token 命名
 - 链接必须显式定义 `default / visited / hover / active` 四种状态，禁止出现浏览器默认蓝紫色
 - 字号层级遵循克制规则：Hero 约 `40-60px`，Section title 约 `28-38px`，Big number 约 `28-42px`，Body 约 `16px`
@@ -94,6 +95,7 @@
 - 品牌名、产品名、少数行业缩写可保留英文，例如 `Web`、`App`、`PWA`
 - 如保留英文术语，应确保中文读者不看英文也能理解结论
 - 按钮、导航、图表标签、提示语优先全部中文
+- 若使用 MiSans，需在项目中明确注明使用了 MiSans Fonts
 
 ## 13. GitHub Pages 友好规范
 

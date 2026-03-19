@@ -21,3 +21,4 @@
 - 对外分享优先发 `reports/` 中的 HTML 页面或 Pages 首页
 - 内容更新先改 `sources/`，再同步对应 HTML deck
 - 新增 deck 时同时更新 `index.html`
+- 全站当前使用 `MiSans Fonts`

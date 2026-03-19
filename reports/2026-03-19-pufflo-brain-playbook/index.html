@@ -2045,6 +2045,10 @@
           <table class="spec-table">
             <tbody>
               <tr>
+                <th>生成方式边界</th>
+                <td>首页固定摘要、报告页固定卡片或服务端模板，不写成 Pufflo prompt；只有 Pufflo 在 chat / voice 里解释昨夜数据时，才使用本节中的对答与提示词。</td>
+              </tr>
+              <tr>
                 <th>统一原则</th>
                 <td>
                   <ul>
@@ -2083,7 +2087,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>内部提示词</th>
+                  <th>对话 / 语音提示词</th>
                   <td>
                     <div class="prompt-block">
                       <p><span class="bilingual">Generate a soft morning summary using plain language. Start with one calm headline, then mention likely sleep continuity, notable sounds or movement, and one low-pressure next step. Avoid scores, shame, and diagnosis.（用普通人能懂的话生成一份柔和的晨间摘要。先给一句平静标题，再提睡眠连续性、值得注意的声音或动作模式，以及一个低压力的小下一步。避免打分、羞耻感与诊断化表达。）</span></p>
@@ -2125,7 +2129,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>内部提示词</th>
+                  <th>对话 / 语音提示词</th>
                   <td>
                     <div class="prompt-block">
                       <p><span class="bilingual">Answer the user's sleep-status question with descriptive, not diagnostic, language. Use phrases like looked calmer, seemed more interrupted, possible short sound events, and a gentle interpretation.（当用户问“我昨晚睡得怎样”时，用描述性而非诊断性的语言回答。可以使用“后半段更稳”“似乎有几次被打断”“可能出现了短时声音事件”“一个温和的解释”这类表达。）</span></p>
@@ -2168,7 +2172,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>内部提示词</th>
+                  <th>对话 / 语音提示词</th>
                   <td>
                     <div class="prompt-block">
                       <p><span class="bilingual">When answering sleep-problem questions, describe observed patterns conservatively and clearly separate observation from interpretation. Never diagnose, prescribe, or reassure away a serious issue.（当回答睡眠问题时，要保守描述观察到的模式，并清楚区分“观察”与“解释”。绝不能做诊断、给出处方建议，或轻率地把严重问题安抚掉。）</span></p>
@@ -2492,19 +2496,42 @@
           </table>
 
           <div class="subsection">
-            <h3>Push / Notification 提示词</h3>
-            <div class="prompt-block">
-              <p><span class="bilingual">You are writing a single Pufflo push notification. Output one short push line only, not an explanation, feature summary, or mini-paragraph.（你现在是在写一条 Pufflo push 通知。只输出一条短 push 文案，不要写解释、功能说明或小段正文。）</span></p>
-              <p><span class="bilingual">Keep the tone calm, low-pressure, and invitational. Never use shame, urgency, guilt, emotional dependency, or a chasing tone to pull the user back.（语气必须平静、低压力、像邀请而不是催促。绝不能用羞耻、紧迫感、内疚、情感绑架或追着拉回访的口气。）</span></p>
-              <p><span class="bilingual">The 3:00 PM caring check-in is only for returning users with real memory or chat history. You may gently reference a pattern, but never quote or paraphrase a past message so specifically that it feels like surveillance.（下午 3 点的主动关心只适用于非首次用户，且系统确实有真实记忆或聊天历史。可以温和提及一种模式，但绝不能具体复述旧对话，不能让人感觉像被监视。）</span></p>
-              <p><span class="bilingual">If memory is weak or unavailable, fall back to a generic gentle check-in rather than inventing familiarity. Never pretend you remember something you do not have.（如果记忆不足或不可用，就退回普通的温和关心，不要捏造熟悉感。绝不能假装记得并不存在的内容。）</span></p>
-              <p><span class="bilingual">Format bilingual examples as one English line followed by Chinese in parentheses. Keep it brief enough for a push surface.（双语示例统一写成英文一行、中文括号在后，并保持足够短，适合 push 展示。）</span></p>
-            </div>
-
-            <div class="prompt-block">
-              <p><span class="bilingual">How is your afternoon going? If today already feels heavy, we can make tonight gentler before bedtime.（今天下午过得怎么样？如果今天已经有点重了，我们可以在睡前就先把今晚调轻一点。）</span></p>
-              <p><span class="bilingual">Still carrying too much from today? We can make tonight softer before bed.（今天的东西还压在身上吗？我们可以在睡前就先把今晚调轻一点。）</span></p>
-            </div>
+            <h3>Push / Notification 固定文案规则</h3>
+            <table class="spec-table">
+              <tbody>
+                <tr>
+                  <th>生成方式</th>
+                  <td>Push / Notification 文案由产品、运营与开发固定配置，不走 Pufflo 对话模型实时生成。</td>
+                </tr>
+                <tr>
+                  <th>文案原则</th>
+                  <td>
+                    <ul>
+                      <li>每条只保留一行短文案，不写解释、功能说明或小段正文。</li>
+                      <li>语气保持平静、低压力、像邀请而不是催促；不用羞耻、紧迫感、内疚或情感绑架。</li>
+                      <li>双语文案统一写成英文在前、中文括号在后，长度适合通知栏展示。</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th>下午 3 点主动关心</th>
+                  <td>
+                    <ul>
+                      <li>只适用于非首次用户，且系统存在真实可用的 chat history / memory。</li>
+                      <li>可以温和引用一种既有状态模式，但不能逐字复述旧对话，不能让人感觉像被监视。</li>
+                      <li>如果记忆不足或不可用，就退回普通的温和关心，不伪造熟悉感。</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th>开发可直接使用文案</th>
+                  <td>
+                    <p><span class="bilingual">How is your afternoon going? If today already feels heavy, we can make tonight gentler before bedtime.（今天下午过得怎么样？如果今天已经有点重了，我们可以在睡前就先把今晚调轻一点。）</span></p>
+                    <p><span class="bilingual">Still carrying too much from today? We can make tonight softer before bed.（今天的东西还压在身上吗？我们可以在睡前就先把今晚调轻一点。）</span></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           <div class="subsection">

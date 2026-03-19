@@ -214,9 +214,9 @@ a:active {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(34px, 4.2vw, 50px);
+  font-size: clamp(30px, 3.8vw, 42px);
   line-height: 1.02;
-  max-width: 11.5ch;
+  max-width: 12.5ch;
 }
 
 .hero p,
@@ -288,7 +288,7 @@ a:active {
 }
 
 .stat {
-  font: 600 clamp(28px, 3.4vw, 42px)/1.04 var(--mono);
+  font: 600 clamp(24px, 2.8vw, 34px)/1.08 var(--mono);
   margin: 0 0 10px;
   letter-spacing: -0.04em;
   overflow-wrap: anywhere;
@@ -304,8 +304,8 @@ a:active {
 
 .section-title {
   margin: 0 0 12px;
-  font-size: clamp(26px, 2.6vw, 34px);
-  line-height: 1.08;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.12;
   max-width: 12ch;
 }
 
@@ -316,9 +316,9 @@ a:active {
 
 .big-line {
   margin: 0;
-  font-size: clamp(24px, 2.6vw, 34px);
-  line-height: 1.14;
-  max-width: 16ch;
+  font-size: clamp(21px, 2.1vw, 28px);
+  line-height: 1.2;
+  max-width: 18ch;
 }
 
 .metrics,
@@ -440,9 +440,9 @@ a:active {
 
 .closing strong {
   display: block;
-  font-size: clamp(24px, 2.6vw, 32px);
-  line-height: 1.14;
-  max-width: 20ch;
+  font-size: clamp(21px, 2.2vw, 28px);
+  line-height: 1.2;
+  max-width: 22ch;
 }
 
 .reveal {
@@ -540,7 +540,7 @@ a:active {
   }
 
   .stat {
-    font-size: clamp(26px, 9.6vw, 38px);
+    font-size: clamp(22px, 8vw, 30px);
   }
 }
 

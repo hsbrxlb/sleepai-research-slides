@@ -81,8 +81,8 @@ a {
 h1 {
   margin: 18px 0 12px;
   font-family: var(--serif);
-  font-size: clamp(40px, 5vw, 56px);
-  line-height: 0.98;
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.04;
   letter-spacing: -0.04em;
   max-width: 11ch;
   overflow-wrap: anywhere;
@@ -128,8 +128,8 @@ h1 {
 .section-head h2 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(24px, 3vw, 32px);
-  line-height: 0.98;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.08;
   letter-spacing: -0.04em;
   overflow-wrap: anywhere;
 }
@@ -179,8 +179,8 @@ h1 {
 
 .card h3 {
   margin: 0 0 10px;
-  font-size: clamp(20px, 2vw, 24px);
-  line-height: 1.28;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.34;
   color: var(--text-strong);
   overflow-wrap: anywhere;
 }
@@ -225,26 +225,6 @@ h1 {
   border-radius: 50%;
   flex: 0 0 auto;
   background: var(--accent);
-}
-
-.footer {
-  padding: 8px 0 56px;
-  color: var(--faint);
-  font-size: 13px;
-}
-
-.footer p {
-  margin: 0;
-}
-
-.footer a {
-  color: var(--muted) !important;
-}
-
-.footer a:visited,
-.footer a:hover,
-.footer a:active {
-  color: var(--text-strong) !important;
 }
 
 @media (max-width: 900px) {

@@ -89,11 +89,18 @@ h1 {
 }
 
 .hero p,
+.hero-copy,
 .section-sub,
 .card p,
 .card li {
   color: var(--muted);
   line-height: 1.7;
+}
+
+.hero-copy {
+  margin: 8px 0 0;
+  max-width: 28ch;
+  font-size: 15px;
 }
 
 .chips,
@@ -132,6 +139,14 @@ h1 {
   line-height: 1.08;
   letter-spacing: -0.04em;
   overflow-wrap: anywhere;
+}
+
+.section-head p {
+  margin: 0;
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.68;
 }
 
 .grid {
@@ -272,7 +287,4 @@ h1 {
     font-size: 19px;
   }
 
-  .footer {
-    padding: 4px 0 40px;
-  }
 }

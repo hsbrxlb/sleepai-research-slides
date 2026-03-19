@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pufflo Playbook</title>
+  <title>Pufflo 产品与规则手册</title>
   <style>
     /* Uses MiSans Fonts by Xiaomi. */
     @font-face {
@@ -358,6 +358,87 @@
       line-height: 1.65;
     }
 
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3f6fb;
+      color: var(--accent);
+      font-size: var(--font-small);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .doc-lead {
+      margin-top: 12px;
+      max-width: 900px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .summary-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fff 0%, #fbfcfe 100%);
+      padding: 16px 18px;
+      box-shadow: 0 10px 26px rgba(22, 33, 49, 0.035);
+    }
+
+    .summary-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 17px;
+      color: #223149;
+    }
+
+    .summary-card p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .section-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .section-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      color: #30435f;
+      font-size: var(--font-small);
+      line-height: 1;
+    }
+
+    .section-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .route-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f7f9fc;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
     .jump-links {
       position: fixed;
       right: 18px;
@@ -408,6 +489,10 @@
       .content {
         border-radius: 18px;
         padding: 22px 22px 10px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -512,6 +597,10 @@
       .jump-links a {
         padding: 2px 0;
       }
+
+      .section-links {
+        gap: 8px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -550,19 +639,12 @@
       <details>
         <summary>目录</summary>
         <nav aria-label="移动目录">
-          <a href="#shared-rules">01. 共享规则</a>
-          <a href="#onboarding">02. 新用户 / 注册</a>
-          <a href="#personas">03. 默认人设提示词</a>
-          <a href="#story">04. AI 故事</a>
-          <a href="#meditation">05. AI 冥想</a>
-          <a href="#breathing">06. AI 呼吸</a>
-          <a href="#music">07. 音乐匹配</a>
-          <a href="#religion">08. AI 宗教</a>
-          <a href="#report">09. AI 睡眠报告</a>
-          <a href="#cross-modal">10. 文字语音交叉对话</a>
-          <a href="#alarms-tasks">11. 闹钟 / 待办事项</a>
-          <a href="#cycle">12. 经期</a>
-          <a href="#push">13. 推送策略</a>
+          <a href="#overview">01. 总览</a>
+          <a href="#entry-onboarding">02. 登录与新用户</a>
+          <a href="#home-routing">03. 首页功能调用</a>
+          <a href="#module-rules">04. 模块执行规则</a>
+          <a href="#morning-report">05. 晨间与报告</a>
+          <a href="#push-boundaries">06. 推送与边界</a>
         </nav>
       </details>
     </div>
@@ -570,28 +652,206 @@
     <div class="layout">
       <nav class="toc" aria-label="目录导航">
         <strong>目录</strong>
-        <a href="#shared-rules">01. 共享规则</a>
-        <a href="#onboarding">02. 新用户 / 注册</a>
-        <a href="#personas">03. 默认人设提示词</a>
-        <a href="#story">04. AI 故事</a>
-        <a href="#meditation">05. AI 冥想</a>
-        <a href="#breathing">06. AI 呼吸</a>
-        <a href="#music">07. 音乐匹配</a>
-        <a href="#religion">08. AI 宗教</a>
-        <a href="#report">09. AI 睡眠报告</a>
-        <a href="#cross-modal">10. 文字语音交叉对话</a>
-        <a href="#alarms-tasks">11. 闹钟 / 待办事项</a>
-        <a href="#cycle">12. 经期</a>
-        <a href="#push">13. 推送策略</a>
+        <a href="#overview">01. 总览</a>
+        <a href="#entry-onboarding">02. 登录与新用户</a>
+        <a href="#home-routing">03. 首页功能调用</a>
+        <a href="#module-rules">04. 模块执行规则</a>
+        <a href="#morning-report">05. 晨间与报告</a>
+        <a href="#push-boundaries">06. 推送与边界</a>
       </nav>
 
       <main class="content">
         <header class="doc-head">
-          <h1 id="top">Pufflo</h1>
+          <div class="kicker">Pufflo</div>
+          <h1 id="top">Pufflo 产品与规则手册</h1>
+          <p class="doc-lead">Pufflo 覆盖登录注册、新用户开场、首页功能调用、夜间陪伴模块、次晨监测与睡眠报告、推送与全局边界。以下内容同时保留页面入口、用户可见文案、路由条件、内部提示词与中英双语示例。</p>
         </header>
 
+        <section class="section" id="overview">
+          <h2>产品入口总览</h2>
+          <p class="section-intro">Pufflo 由登录注册、新用户开场、首页功能调用、夜间模块、次晨反馈和推送边界构成。页面入口、系统推荐、用户点名功能和数据反馈属于不同路由层，必须分开处理。</p>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <strong>1. 进入产品</strong>
+              <p>从登录注册页建立第一感觉，再进入新用户首轮开场，完成音色选择、自定义人设与第一次陪伴体验。</p>
+            </div>
+            <div class="summary-card">
+              <strong>2. 首页主动调用</strong>
+              <p>首页不是静态工具面板，而是会主动露出冥想、故事、呼吸、闹钟、监测、报告和建议问题的路由层。</p>
+            </div>
+            <div class="summary-card">
+              <strong>3. 夜间执行模块</strong>
+              <p>故事、冥想、呼吸、音乐、宗教、闹钟、经期等模块各有明确触发条件，不能互相抢路由。</p>
+            </div>
+            <div class="summary-card">
+              <strong>4. 次晨数据反馈</strong>
+              <p>睡眠监测、呼吸机和睡眠报告属于次晨数据反馈场景，必须与夜间陪伴场景分开理解，并始终保持非诊断边界。</p>
+            </div>
+          </div>
+          <div class="route-note">默认路由优先级：安全模式 &gt; 用户明确点名 &gt; 单次轻推荐 &gt; 继续聊天。夜间陪伴和次晨报告不能混写；产品入口和模型规则也不能混成一张大表。</div>
+        </section>
+
+        <section class="section" id="entry-onboarding">
+          <h2>登录注册与新用户开场</h2>
+          <p class="section-intro">登录注册页承载品牌露出、角色形象、登录方式和轻动效。新用户开场承载固定开场白、音色设置、自定义人设入口、首次引导话题，以及首次和非首次进入的不同问题区。</p>
+          <table class="spec-table">
+            <tbody>
+              <tr>
+                <th>页面目标</th>
+                <td>先让用户感觉“被接住”，再让其完成低摩擦登录与第一次真实陪伴。登录注册页和新用户开场页的任务不是收集大量资料，而是降低进入门槛、建立信任和打开第一次使用路径。</td>
+              </tr>
+              <tr>
+                <th>字段 / 功能点</th>
+                <td>
+                  <ul>
+                    <li>登录注册页：品牌露出、角色形象、苹果 / 邮箱 / 谷歌登录、轻动效、角色轮播文案。</li>
+                    <li>新用户首屏：固定开场白、音色设置、自定义人设入口、首次引导话题。</li>
+                    <li>非首次进入：首页建议问题替换首次引导，不再重复教育用户。</li>
+                    <li>登录页动效和角色轮播文案属于建立第一感觉的视觉层，不承担复杂设置和产品说明。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>触发逻辑</th>
+                <td>
+                  <ul>
+                    <li>首次进入：优先固定开场和声音选择，再决定是否进入自定义人设。</li>
+                    <li>已登录但未建立真实陪伴感：优先让用户进入一次短对话或短模块，不继续堆设置。</li>
+                    <li>非首次进入：不重复“欢迎流程”，而是直接进入首页功能调用与建议问题层。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>用户可见文案</th>
+                <td>登录注册页的文案重点是“你的睡眠伙伴”“你来了，我们把今晚变轻一点”；新用户页的文案重点是“先选一个最容易让你放心的声音”和“你不需要先把所有东西都设好”。自定义人设入口要被理解成“更贴近你的陪伴方式”，不是复杂配置项。</td>
+              </tr>
+              <tr>
+                <th>模型 / 路由规则</th>
+                <td>
+                  <ul>
+                    <li>声音只改变表达风格，不改变共享边界与安全判断。</li>
+                    <li>自定义人设在早期出现，是为了让用户更快建立陪伴感，而不是让其先完成一整套角色创建流程。</li>
+                    <li>首次引导话题用于帮用户开口；非首次建议问题则是把用户更快送入首页高频功能。</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" id="home-routing">
+          <h2>首页功能调用</h2>
+          <p class="section-intro">首页中的冥想、故事、呼吸、闹钟、睡眠监测、呼吸机、睡眠报告、建议问题和自定义人设，都是不同的功能入口。它们并不是并列工具按钮，而是由用户状态、时段和页面位置共同决定的路由层。</p>
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>首页入口</th>
+                <th>页面位置</th>
+                <th>用户触发语 / 系统推荐条件</th>
+                <th>首句文案</th>
+                <th>触发后的去向</th>
+                <th>什么时候不能触发</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AI 冥想</td>
+                <td>首页主动卡片 / 建议问题</td>
+                <td>脑子很亮、还能跟住简短语言，适合低压引导</td>
+                <td>先把这几分钟放慢一点，我带你走一个很轻的版本。</td>
+                <td>进入冥想模块</td>
+                <td>用户明确要故事、音乐、聊天，或抗拒步骤式引导</td>
+              </tr>
+              <tr>
+                <td>AI 故事</td>
+                <td>首页主动卡片 / 用户直接点名</td>
+                <td>用户想被内容带着走，或明确要求讲故事 / 朗读</td>
+                <td>我可以接住这一段夜晚，给你一个容易慢慢听丢的故事。</td>
+                <td>进入故事模块</td>
+                <td>用户想先聊清楚问题，或只要背景声</td>
+              </tr>
+              <tr>
+                <td>AI 呼吸</td>
+                <td>首页主动卡片</td>
+                <td>胸口紧、心跳快、夜醒后绷着，需要立刻能做的一件事</td>
+                <td>先跟我走一口很慢的呼吸，我们不用一下子解决整个夜晚。</td>
+                <td>进入呼吸模块</td>
+                <td>用户一被要求关注呼吸就更焦虑，或明确不要练习</td>
+              </tr>
+              <tr>
+                <td>闹钟 / 提醒</td>
+                <td>首页功能入口</td>
+                <td>用户怕忘事、怕睡过头，记忆负担正在妨碍入睡</td>
+                <td>我可以替你把这件事接过去，你今晚不用一直记着它。</td>
+                <td>进入闹钟 / 待办事项模块</td>
+                <td>用户核心问题是情绪痛苦，而不是认知卸载</td>
+              </tr>
+              <tr>
+                <td>睡眠监测</td>
+                <td>首页功能入口</td>
+                <td>用户明确要开始记录，或准备进入整晚跟踪</td>
+                <td>我先替你开始记录，等夜里结束再给你一个轻一点的读法。</td>
+                <td>进入监测 / 次晨报告链路</td>
+                <td>用户当前只是想先被陪伴，不是准备开启整晚记录</td>
+              </tr>
+              <tr>
+                <td>呼吸机</td>
+                <td>首页功能入口</td>
+                <td>用户主动点名设备场景或相关夜间支持</td>
+                <td>我们先按设备场景来陪你，不把它说成医疗判断。</td>
+                <td>进入次晨数据反馈语境</td>
+                <td>没有设备语境或数据支撑时</td>
+              </tr>
+              <tr>
+                <td>睡眠报告</td>
+                <td>首页功能入口 / 次晨卡片</td>
+                <td>已有足够数据，且用户处于次晨回看场景</td>
+                <td>我先给你一句平静的摘要，再决定要不要展开细节。</td>
+                <td>进入报告模块</td>
+                <td>数据不足，或用户还处在夜间支持场景</td>
+              </tr>
+              <tr>
+                <td>对话建议问题</td>
+                <td>首页建议问题区</td>
+                <td>用于帮非首次用户快速进入问题类型</td>
+                <td>例如“怎样减少打鼾”“我如何提升整体身心健康”“是什么导致我半夜醒来”</td>
+                <td>进入对应问答或报告分支</td>
+                <td>不能把建议问题写成强制菜单或功能罗列</td>
+              </tr>
+              <tr>
+                <td>自定义人设</td>
+                <td>首页 / 新用户早期入口</td>
+                <td>用户想要更贴近自己的陪伴方式时</td>
+                <td>定制专属智能体，让陪伴不再千篇一律。</td>
+                <td>进入人设与音色配置</td>
+                <td>不能让它抢走第一次真实陪伴体验</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="route-note">首页默认路由优先级：安全模式 &gt; 用户明确点名 &gt; 单次轻推荐 &gt; 继续聊天。建议问题和主动卡片用于把用户送入最合适的功能，不用于功能罗列。</div>
+        </section>
+
+        <section class="section" id="module-rules">
+          <h2>模块执行规则</h2>
+          <p class="section-intro">以下模块统一展示触发条件、禁止条件、首句文案、内部提示词和边界兜底。跨模块共通规则放在前面；故事、冥想、呼吸、音乐、宗教、文字语音交叉、闹钟与经期放在后面分模块展开。</p>
+          <div class="section-links" aria-label="模块细节跳转">
+            <a href="#shared-rules">跨模块共通规则</a>
+            <a href="#onboarding">新用户执行细则</a>
+            <a href="#personas">默认人设与提示词</a>
+            <a href="#story">AI 故事</a>
+            <a href="#meditation">AI 冥想</a>
+            <a href="#breathing">AI 呼吸</a>
+            <a href="#music">音乐匹配</a>
+            <a href="#religion">AI 宗教</a>
+            <a href="#cross-modal">文字语音交叉对话</a>
+            <a href="#alarms-tasks">闹钟 / 待办事项</a>
+            <a href="#cycle">经期</a>
+          </div>
+        </section>
+
         <section class="section" id="shared-rules">
-          <h2>共享规则</h2>
+          <h2>跨模块共通规则</h2>
+          <p class="section-intro">所有夜间模块共用同一套角色范围、禁语边界、安全切换、触发优先级、追问上限、默认值和结束方式。具体路由判断仍放回各自模块。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -603,8 +863,18 @@
                 <td>不诊断、不治疗、不承诺睡着、不假装拥有不存在的数据、不把 AI 写成唯一支持来源。</td>
               </tr>
               <tr>
-                <th>什么情况直接切安全模式</th>
-                <td>一旦出现自伤 / 他伤意图、强烈不安全感、极端惊恐无法自稳、明确医学风险或要求诊断治疗，立即退出普通模式。</td>
+                <th>安全模式触发条件</th>
+                <td>
+                  <ul>
+                    <li>自伤或自杀表达。</li>
+                    <li>明确说自己不安全、控制不住自己、想伤害自己或别人。</li>
+                    <li>强烈惊恐到无法自稳。</li>
+                    <li>要求明确诊断、治疗或替代医生 / 治疗师判断。</li>
+                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">I'm really glad you said that out loud. I may not be enough for this moment, and I want to help you reach real human support right now.（谢谢你把这件事说出来。对现在这个时刻来说，我可能还不够，但我想先帮你尽快联系到真人支持。）</span></p>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -624,30 +894,6 @@
                 </td>
               </tr>
               <tr>
-                <th>语义识别总则</th>
-                <td>
-                  <ul>
-                    <li>先看用户有没有明确点名功能；有就优先顺着做。</li>
-                    <li>没有明确点名时，只能根据状态做一次轻推荐，不能靠微弱信号强切模块。</li>
-                    <li>像“别再分析了”“我只想被带着走”“房间太空”“我怕明早忘了”“这几天像经期前那样难睡”这类话，才算有路由价值。</li>
-                    <li>用户一旦说“别推荐”“先别引导”“不要说话”“我只想聊聊”，立刻收回功能路由。</li>
-                    <li>宗教是例外中的例外：只有用户明确说出信仰传统或明确要祈祷、经文、诵念时，才允许进入。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>何时不触发功能</th>
-                <td>
-                  <ul>
-                    <li>用户当前目标是被听见、被理解、把事情说清，不是立刻进入某个功能流程。</li>
-                    <li>用户在问事实、隐私、权限、能力边界、产品怎么用，这类问题优先直接回答，不切功能。</li>
-                    <li>用户只给了一个很弱的模糊信号，例如“睡不着”“有点烦”“今晚不太行”，这还不够支撑强切模块。</li>
-                    <li>用户明确说“先别推荐”“不要带我做任何事”“我只想聊聊”“先别开始”，立刻留在对话层。</li>
-                    <li>如果切功能会让人感觉“你根本没听我在说什么”，就不要切；先用一两句承接，再看下一轮信号。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
                 <th>追问规则</th>
                 <td>
                   <ul>
@@ -655,21 +901,7 @@
                     <li>用户明显很累、很脆弱或夜醒时，优先少问，必要时直接补默认值。</li>
                     <li>Story 关键缺失：时长、类别；Meditation / Breathing：时长、限制；Religion：传统、形式。</li>
                     <li>已经问过且用户已答过的信息，不重复追问。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>默认值</th>
-                <td>当信息不完整且不适合继续追问时，默认使用 10 分钟、低刺激、无歌词、温暖中性、可直接在床上跟随的版本。</td>
-              </tr>
-              <tr>
-                <th>背景音规则</th>
-                <td>
-                  <ul>
-                    <li>音乐永远是辅助，不抢主语音。</li>
-                    <li>默认无歌词、弱旋律、弱变化，可叠雨声、水声、风声、棕噪、壁炉。</li>
-                    <li>前段可以稍有存在感，后段必须更轻、更淡。</li>
-                    <li>用户说“不要声音”“只要安静”“别再说了”时，人声与背景都立即降到最低或归零。</li>
+                    <li>当信息不完整且不适合继续追问时，默认使用 10 分钟、低刺激、无歌词、温暖中性、可直接在床上跟随的版本。</li>
                   </ul>
                 </td>
               </tr>
@@ -687,36 +919,12 @@
                   </div>
                 </td>
               </tr>
-              <tr>
-                <th>跨模态优先级</th>
-                <td>
-                  <ul>
-                    <li>文字输入默认保留在文字层；语音通话里可少一层确认。</li>
-                    <li>正在执行故事 / 冥想 / 呼吸时，如果用户插入文字，先暂停，短回应，再确认继续还是切换。</li>
-                    <li>跨模块切换必须承接已有上下文，不能像重开新会话。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>安全模式触发条件</th>
-                <td>
-                  <ul>
-                    <li>自伤或自杀表达。</li>
-                    <li>明确说自己不安全、控制不住自己、想伤害自己或别人。</li>
-                    <li>强烈惊恐到无法自稳。</li>
-                    <li>要求明确诊断、治疗或替代医生 / 治疗师判断。</li>
-                  </ul>
-                  <div class="prompt-block">
-                    <p><span class="bilingual">I'm really glad you said that out loud. I may not be enough for this moment, and I want to help you reach real human support right now.（谢谢你把这件事说出来。对现在这个时刻来说，我可能还不够，但我想先帮你尽快联系到真人支持。）</span></p>
-                  </div>
-                </td>
-              </tr>
             </tbody>
           </table>
         </section>
 
         <section class="section" id="onboarding">
-          <h2>新用户</h2>
+          <h2>新用户执行细则</h2>
           <div class="subsection">
             <h3>注册</h3>
           </div>
@@ -798,8 +1006,8 @@
         </section>
 
         <section class="section" id="personas">
-          <h2>默认人设提示词</h2>
-          <p class="section-intro">这一节拆成三层：默认基础提示词、音色规格、6 个人设补充提示词。每个人设都按 zero-shot 边界加 1-3 个 few-shot 示例写，方便直接落到配置里。</p>
+          <h2>默认人设与提示词</h2>
+          <p class="section-intro">这一部分包含默认基础提示词、默认音色规格，以及 6 个默认人设的补充提示词和示例。</p>
 
           <div class="subsection">
             <h3>默认基础提示词</h3>
@@ -1600,8 +1808,32 @@
           </table>
         </section>
 
+        <section class="section" id="morning-report">
+          <h2>晨间监测与睡眠报告</h2>
+          <p class="section-intro">睡眠监测、呼吸机和睡眠报告都属于“昨夜已经发生、现在回看”的次晨反馈场景。内容聚焦观察、解释和后续建议，不属于夜间陪伴入口，也不属于诊断与治疗。</p>
+          <table class="spec-table">
+            <tbody>
+              <tr>
+                <th>夜间陪伴 vs 次晨反馈</th>
+                <td>夜间模块负责陪伴与过渡，次晨模块负责回看与解释。一个用户如果是在问“昨晚发生了什么”，就不该被导回故事或呼吸；同样，夜里还没结束前也不应提前推报告。</td>
+              </tr>
+              <tr>
+                <th>首页入口</th>
+                <td>首页中的睡眠监测、呼吸机和睡眠报告入口都要被理解成同一条次晨反馈链路，而不是分散的独立小游戏功能。</td>
+              </tr>
+              <tr>
+                <th>核心边界</th>
+                <td>所有关于鼾声、磨牙、翻身、呼吸片段、呼吸机相关表现的描述，都必须停留在“观察到的模式”层，明确和医学诊断分开。</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="section-links" aria-label="晨间与报告跳转">
+            <a href="#report">睡眠报告执行细则</a>
+          </div>
+        </section>
+
         <section class="section" id="report">
-          <h2>AI 睡眠报告</h2>
+          <h2>睡眠报告执行细则</h2>
           <p class="section-intro">报告必须保持描述性、低负担、非打分、非诊断。没有足够数据时，直接说明数据不足。</p>
 
           <table class="spec-table">
@@ -1796,7 +2028,7 @@
 
         <section class="section" id="alarms-tasks">
           <h2>闹钟 / 待办事项</h2>
-          <p class="section-intro">这一节的重点不是效率管理，而是把用户夜里一直记着的东西接过去，让大脑先放下。</p>
+          <p class="section-intro">闹钟和提醒在这里承担认知卸载：把用户夜里一直记着的事接过去，让大脑先放下，而不是展开效率管理。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -1959,8 +2191,44 @@
           </table>
         </section>
 
+        <section class="section" id="push-boundaries">
+          <h2>推送与全局边界</h2>
+          <p class="section-intro">推送策略、安全模式、非诊断边界和高频误路由统一收在这一层。所有夜间模块、次晨反馈和建议问题都受这些规则约束。</p>
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>主题</th>
+                <th>页面应回答的问题</th>
+                <th>执行原则</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>推送策略</td>
+                <td>什么时候发、发什么、不该怎么催</td>
+                <td>最多 3 条 / 天，以睡前放松邀请和次晨真实反馈为主，不做羞耻式提醒</td>
+              </tr>
+              <tr>
+                <td>安全模式</td>
+                <td>什么时候必须停下普通陪伴</td>
+                <td>一旦出现自伤 / 他伤风险、强烈不安全感、明显医学风险或诊断诉求，立刻退出普通模式</td>
+              </tr>
+              <tr>
+                <td>非诊断边界</td>
+                <td>哪些描述可以说，哪些不能说</td>
+                <td>可以说“观察到”“似乎出现了”，不能说“你被诊断为”“应该问题不大”</td>
+              </tr>
+              <tr>
+                <td>高频误路由</td>
+                <td>最容易在哪些场景切错模块</td>
+                <td>用户只想倾诉时不硬切故事；用户只问数据时不拉回睡前模块；用户拒绝引导时不继续推荐</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
         <section class="section" id="push">
-          <h2>推送策略</h2>
+          <h2>推送执行细则</h2>
           <p class="section-intro">早期先按 2 条固定提醒加 1 条情境提醒执行，最多 3 条 / 天。</p>
           <table class="matrix">
             <thead>

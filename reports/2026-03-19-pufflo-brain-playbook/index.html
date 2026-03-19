@@ -164,6 +164,21 @@
       color: var(--muted);
     }
 
+    .mobile-toc .toc-group {
+      margin: 2px 0 6px;
+    }
+
+    .mobile-toc .toc-sub {
+      margin: 4px 0 0 12px;
+      padding-left: 10px;
+      border-left: 1px solid var(--line);
+    }
+
+    .mobile-toc .toc-sub a {
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
     .layout {
       display: grid;
       grid-template-columns: var(--toc) minmax(0, 1fr);
@@ -204,6 +219,33 @@
       color: var(--accent);
       border-left-color: var(--accent);
       font-weight: 700;
+    }
+
+    .toc-group {
+      margin: 2px 0 6px;
+    }
+
+    .toc-parent {
+      font-weight: 700;
+      color: #30435f;
+    }
+
+    .toc-sub {
+      margin: 4px 0 0 10px;
+      padding-left: 10px;
+      border-left: 1px solid #dfe5ee;
+    }
+
+    .toc-sub a {
+      padding: 5px 0 5px 10px;
+      margin-left: -10px;
+      font-size: 14px;
+      border-left-width: 1.5px;
+    }
+
+    .toc-group.is-active > .toc-parent {
+      color: var(--accent);
+      border-left-color: var(--accent);
     }
 
     .content {
@@ -379,33 +421,6 @@
       line-height: 1.7;
     }
 
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .summary-card {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: linear-gradient(180deg, #fff 0%, #fbfcfe 100%);
-      padding: 16px 18px;
-      box-shadow: 0 10px 26px rgba(22, 33, 49, 0.035);
-    }
-
-    .summary-card strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 17px;
-      color: #223149;
-    }
-
-    .summary-card p {
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
     .section-links {
       display: flex;
       flex-wrap: wrap;
@@ -491,9 +506,6 @@
         padding: 22px 22px 10px;
       }
 
-      .summary-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 768px) {
@@ -639,12 +651,26 @@
       <details>
         <summary>目录</summary>
         <nav aria-label="移动目录">
-          <a href="#overview">01. 总览</a>
-          <a href="#entry-onboarding">02. 登录与新用户</a>
-          <a href="#home-routing">03. 首页功能调用</a>
-          <a href="#module-rules">04. 模块执行规则</a>
-          <a href="#morning-report">05. 晨间与报告</a>
-          <a href="#push-boundaries">06. 推送与边界</a>
+          <a href="#entry-onboarding">01. 登录注册与新用户</a>
+          <a href="#home-routing">02. 首页功能调用</a>
+          <div class="toc-group">
+            <a href="#module-rules" class="toc-parent">03. 模块执行规则</a>
+            <div class="toc-sub">
+              <a href="#shared-rules">跨模块共通规则</a>
+              <a href="#onboarding">新用户执行细则</a>
+              <a href="#personas">默认人设与提示词</a>
+              <a href="#story">AI 故事</a>
+              <a href="#meditation">AI 冥想</a>
+              <a href="#breathing">AI 呼吸</a>
+              <a href="#music">音乐匹配</a>
+              <a href="#religion">AI 宗教</a>
+              <a href="#cross-modal">文字语音交叉对话</a>
+              <a href="#alarms-tasks">闹钟 / 待办事项</a>
+              <a href="#cycle">经期</a>
+            </div>
+          </div>
+          <a href="#morning-report">04. 晨间监测与睡眠报告</a>
+          <a href="#push-boundaries">05. 推送与全局边界</a>
         </nav>
       </details>
     </div>
@@ -652,12 +678,26 @@
     <div class="layout">
       <nav class="toc" aria-label="目录导航">
         <strong>目录</strong>
-        <a href="#overview">01. 总览</a>
-        <a href="#entry-onboarding">02. 登录与新用户</a>
-        <a href="#home-routing">03. 首页功能调用</a>
-        <a href="#module-rules">04. 模块执行规则</a>
-        <a href="#morning-report">05. 晨间与报告</a>
-        <a href="#push-boundaries">06. 推送与边界</a>
+        <a href="#entry-onboarding">01. 登录注册与新用户</a>
+        <a href="#home-routing">02. 首页功能调用</a>
+        <div class="toc-group" data-group="module-rules">
+          <a href="#module-rules" class="toc-parent">03. 模块执行规则</a>
+          <div class="toc-sub">
+            <a href="#shared-rules">跨模块共通规则</a>
+            <a href="#onboarding">新用户执行细则</a>
+            <a href="#personas">默认人设与提示词</a>
+            <a href="#story">AI 故事</a>
+            <a href="#meditation">AI 冥想</a>
+            <a href="#breathing">AI 呼吸</a>
+            <a href="#music">音乐匹配</a>
+            <a href="#religion">AI 宗教</a>
+            <a href="#cross-modal">文字语音交叉对话</a>
+            <a href="#alarms-tasks">闹钟 / 待办事项</a>
+            <a href="#cycle">经期</a>
+          </div>
+        </div>
+        <a href="#morning-report">04. 晨间监测与睡眠报告</a>
+        <a href="#push-boundaries">05. 推送与全局边界</a>
       </nav>
 
       <main class="content">
@@ -666,30 +706,6 @@
           <h1 id="top">Pufflo 产品与规则手册</h1>
           <p class="doc-lead">Pufflo 覆盖登录注册、新用户开场、首页功能调用、夜间陪伴模块、次晨监测与睡眠报告、推送与全局边界。以下内容同时保留页面入口、用户可见文案、路由条件、内部提示词与中英双语示例。</p>
         </header>
-
-        <section class="section" id="overview">
-          <h2>产品入口总览</h2>
-          <p class="section-intro">Pufflo 由登录注册、新用户开场、首页功能调用、夜间模块、次晨反馈和推送边界构成。页面入口、系统推荐、用户点名功能和数据反馈属于不同路由层，必须分开处理。</p>
-          <div class="summary-grid">
-            <div class="summary-card">
-              <strong>1. 进入产品</strong>
-              <p>从登录注册页建立第一感觉，再进入新用户首轮开场，完成音色选择、自定义人设与第一次陪伴体验。</p>
-            </div>
-            <div class="summary-card">
-              <strong>2. 首页主动调用</strong>
-              <p>首页不是静态工具面板，而是会主动露出冥想、故事、呼吸、闹钟、监测、报告和建议问题的路由层。</p>
-            </div>
-            <div class="summary-card">
-              <strong>3. 夜间执行模块</strong>
-              <p>故事、冥想、呼吸、音乐、宗教、闹钟、经期等模块各有明确触发条件，不能互相抢路由。</p>
-            </div>
-            <div class="summary-card">
-              <strong>4. 次晨数据反馈</strong>
-              <p>睡眠监测、呼吸机和睡眠报告属于次晨数据反馈场景，必须与夜间陪伴场景分开理解，并始终保持非诊断边界。</p>
-            </div>
-          </div>
-          <div class="route-note">默认路由优先级：安全模式 &gt; 用户明确点名 &gt; 单次轻推荐 &gt; 继续聊天。夜间陪伴和次晨报告不能混写；产品入口和模型规则也不能混成一张大表。</div>
-        </section>
 
         <section class="section" id="entry-onboarding">
           <h2>登录注册与新用户开场</h2>
@@ -723,7 +739,12 @@
               </tr>
               <tr>
                 <th>用户可见文案</th>
-                <td>登录注册页的文案重点是“你的睡眠伙伴”“你来了，我们把今晚变轻一点”；新用户页的文案重点是“先选一个最容易让你放心的声音”和“你不需要先把所有东西都设好”。自定义人设入口要被理解成“更贴近你的陪伴方式”，不是复杂配置项。</td>
+                <td>
+                  <p><span class="bilingual">Your sleep companion.（你的睡眠伙伴。）</span></p>
+                  <p><span class="bilingual">You're here. We can make tonight softer.（你来了。我们把今晚变轻一点。）</span></p>
+                  <p><span class="bilingual">Choose the voice that feels easiest to trust tonight.（先选一个今晚最容易让你放心的声音。）</span></p>
+                  <p><span class="bilingual">Build a companion that feels closer to the way you want to be accompanied.（定制一个更贴近你的陪伴方式。）</span></p>
+                </td>
               </tr>
               <tr>
                 <th>模型 / 路由规则</th>
@@ -741,7 +762,7 @@
 
         <section class="section" id="home-routing">
           <h2>首页功能调用</h2>
-          <p class="section-intro">首页中的冥想、故事、呼吸、闹钟、睡眠监测、呼吸机、睡眠报告、建议问题和自定义人设，都是不同的功能入口。它们并不是并列工具按钮，而是由用户状态、时段和页面位置共同决定的路由层。</p>
+          <p class="section-intro">首页中的冥想、故事、呼吸、音乐、宗教、闹钟、睡眠监测、呼吸机、睡眠报告、建议问题和自定义人设，都是不同的功能入口。它们并不是并列工具按钮，而是由用户状态、时段和页面位置共同决定的路由层。</p>
           <table class="matrix">
             <thead>
               <tr>
@@ -758,7 +779,7 @@
                 <td>AI 冥想</td>
                 <td>首页主动卡片 / 建议问题</td>
                 <td>脑子很亮、还能跟住简短语言，适合低压引导</td>
-                <td>先把这几分钟放慢一点，我带你走一个很轻的版本。</td>
+                <td><span class="bilingual">Let's slow these next few minutes down. I'll guide a very light version.（先把这几分钟放慢一点，我带你走一个很轻的版本。）</span></td>
                 <td>进入冥想模块</td>
                 <td>用户明确要故事、音乐、聊天，或抗拒步骤式引导</td>
               </tr>
@@ -766,7 +787,7 @@
                 <td>AI 故事</td>
                 <td>首页主动卡片 / 用户直接点名</td>
                 <td>用户想被内容带着走，或明确要求讲故事 / 朗读</td>
-                <td>我可以接住这一段夜晚，给你一个容易慢慢听丢的故事。</td>
+                <td><span class="bilingual">I can hold this part of the night and tell you a story that's easy to drift away from.（我可以接住这一段夜晚，给你一个容易慢慢听丢的故事。）</span></td>
                 <td>进入故事模块</td>
                 <td>用户想先聊清楚问题，或只要背景声</td>
               </tr>
@@ -774,15 +795,31 @@
                 <td>AI 呼吸</td>
                 <td>首页主动卡片</td>
                 <td>胸口紧、心跳快、夜醒后绷着，需要立刻能做的一件事</td>
-                <td>先跟我走一口很慢的呼吸，我们不用一下子解决整个夜晚。</td>
+                <td><span class="bilingual">Stay with me for one slow breath. We do not need to solve the whole night at once.（先跟我走一口很慢的呼吸。我们不用一下子解决整个夜晚。）</span></td>
                 <td>进入呼吸模块</td>
                 <td>用户一被要求关注呼吸就更焦虑，或明确不要练习</td>
+              </tr>
+              <tr>
+                <td>音乐匹配</td>
+                <td>首页主动卡片 / 功能入口</td>
+                <td>用户不要说话、只要背景声，或房间太空、需要轻声景陪伴</td>
+                <td><span class="bilingual">I can put something soft underneath and keep the room quieter from here.（我可以先垫一层柔和的背景，把房间慢慢调安静一点。）</span></td>
+                <td>进入音乐匹配模块</td>
+                <td>用户更想先被理解、想听故事，或明确要求保持完全安静</td>
+              </tr>
+              <tr>
+                <td>AI 宗教</td>
+                <td>首页建议问题 / 用户直接点名</td>
+                <td>用户明确要求祈祷、经文、诵念或宗教式陪伴，且传统清晰</td>
+                <td><span class="bilingual">I can stay with you carefully in that tradition if that's the way you want tonight.（如果今晚你想沿着那个信仰传统走，我可以很谨慎地这样陪你。）</span></td>
+                <td>进入宗教模块</td>
+                <td>只有模糊灵性诉求、传统不清晰、或用户明确不要宗教内容时</td>
               </tr>
               <tr>
                 <td>闹钟 / 提醒</td>
                 <td>首页功能入口</td>
                 <td>用户怕忘事、怕睡过头，记忆负担正在妨碍入睡</td>
-                <td>我可以替你把这件事接过去，你今晚不用一直记着它。</td>
+                <td><span class="bilingual">I can hold that for you so you do not need to keep carrying it tonight.（我可以替你把这件事接过去，你今晚不用一直记着它。）</span></td>
                 <td>进入闹钟 / 待办事项模块</td>
                 <td>用户核心问题是情绪痛苦，而不是认知卸载</td>
               </tr>
@@ -790,7 +827,7 @@
                 <td>睡眠监测</td>
                 <td>首页功能入口</td>
                 <td>用户明确要开始记录，或准备进入整晚跟踪</td>
-                <td>我先替你开始记录，等夜里结束再给你一个轻一点的读法。</td>
+                <td><span class="bilingual">I'll start the recording first and keep the reading calm for tomorrow morning.（我先替你开始记录，等夜里结束再给你一个更平静的读法。）</span></td>
                 <td>进入监测 / 次晨报告链路</td>
                 <td>用户当前只是想先被陪伴，不是准备开启整晚记录</td>
               </tr>
@@ -798,7 +835,7 @@
                 <td>呼吸机</td>
                 <td>首页功能入口</td>
                 <td>用户主动点名设备场景或相关夜间支持</td>
-                <td>我们先按设备场景来陪你，不把它说成医疗判断。</td>
+                <td><span class="bilingual">Let's stay inside the device context and keep this descriptive, not medical.（我们先留在设备场景里陪你，不把它说成医疗判断。）</span></td>
                 <td>进入次晨数据反馈语境</td>
                 <td>没有设备语境或数据支撑时</td>
               </tr>
@@ -806,7 +843,7 @@
                 <td>睡眠报告</td>
                 <td>首页功能入口 / 次晨卡片</td>
                 <td>已有足够数据，且用户处于次晨回看场景</td>
-                <td>我先给你一句平静的摘要，再决定要不要展开细节。</td>
+                <td><span class="bilingual">I'll give you one calm headline first, then we can decide whether to open the details.（我先给你一句平静的摘要，再决定要不要展开细节。）</span></td>
                 <td>进入报告模块</td>
                 <td>数据不足，或用户还处在夜间支持场景</td>
               </tr>
@@ -814,7 +851,7 @@
                 <td>对话建议问题</td>
                 <td>首页建议问题区</td>
                 <td>用于帮非首次用户快速进入问题类型</td>
-                <td>例如“怎样减少打鼾”“我如何提升整体身心健康”“是什么导致我半夜醒来”</td>
+                <td><span class="bilingual">What caused me to wake up in the middle of the night?（是什么导致我半夜醒来？）</span></td>
                 <td>进入对应问答或报告分支</td>
                 <td>不能把建议问题写成强制菜单或功能罗列</td>
               </tr>
@@ -822,7 +859,7 @@
                 <td>自定义人设</td>
                 <td>首页 / 新用户早期入口</td>
                 <td>用户想要更贴近自己的陪伴方式时</td>
-                <td>定制专属智能体，让陪伴不再千篇一律。</td>
+                <td><span class="bilingual">Build a companion that feels closer to the way you want to be accompanied.（定制一个更贴近你自己的陪伴方式。）</span></td>
                 <td>进入人设与音色配置</td>
                 <td>不能让它抢走第一次真实陪伴体验</td>
               </tr>
@@ -833,7 +870,7 @@
 
         <section class="section" id="module-rules">
           <h2>模块执行规则</h2>
-          <p class="section-intro">以下模块统一展示触发条件、禁止条件、首句文案、内部提示词和边界兜底。跨模块共通规则放在前面；故事、冥想、呼吸、音乐、宗教、文字语音交叉、闹钟与经期放在后面分模块展开。</p>
+          <p class="section-intro">跨模块共通规则先定义角色范围、禁语边界、安全切换、追问上限和结束方式；后续各模块分别列出字段、交互、触发条件、首句文案、内部提示词和边界兜底。</p>
           <div class="section-links" aria-label="模块细节跳转">
             <a href="#shared-rules">跨模块共通规则</a>
             <a href="#onboarding">新用户执行细则</a>
@@ -1195,6 +1232,28 @@
                 <td>用低认知负担的叙事替代继续思考，让用户从卡在脑内，转成被稳定地往下带。</td>
               </tr>
               <tr>
+                <th>字段 / 功能点</th>
+                <td>
+                  <ul>
+                    <li>故事内容及对话：根据用户明确意图或当前路由判断，生成适合睡前聆听的故事内容。</li>
+                    <li>进入睡眠监测播放：当前故事可被直接带入睡眠监测链路继续播放，不要求用户重新选内容。</li>
+                    <li>点赞 / 分享：内容支持轻反馈，用于沉淀偏好和后续复用。</li>
+                    <li>悬浮播放器：故事正在朗读时，主播放器滑出可视范围后保留悬浮控制。</li>
+                    <li>背景音乐匹配：从预设背景音池中随机或按偏好匹配低刺激声景，不让背景抢走故事主体。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>交互 / 进入下一步</th>
+                <td>
+                  <ul>
+                    <li>故事开始后，用户可以留在当前内容页，也可以直接把当前故事带入睡眠监测播放。</li>
+                    <li>点赞 / 分享属于轻操作，不应打断当前播放节奏。</li>
+                    <li>如果用户反馈“太有剧情”“太清醒”，当前内容应立即收轻，不强行播放完。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
                 <th>何时触发</th>
                 <td>
                   <ul>
@@ -1313,6 +1372,28 @@
                 <td>把过亮、过满、过快的状态带回更缓的节奏，让用户躺着就能跟。</td>
               </tr>
               <tr>
+                <th>字段 / 功能点</th>
+                <td>
+                  <ul>
+                    <li>冥想内容及对话：根据用户意图或当前路由判断，生成低压力、可直接跟随的引导内容。</li>
+                    <li>进入睡眠监测播放：当前冥想可直接接续到睡眠监测，不要求重新开启另一个流程。</li>
+                    <li>点赞 / 分享：保留内容反馈入口，用于沉淀偏好。</li>
+                    <li>悬浮播放器：冥想播放时，主播放器离开视区后保留悬浮控制。</li>
+                    <li>背景音乐匹配：从预设池中匹配极轻、无歌词、低存在感的背景声。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>交互 / 进入下一步</th>
+                <td>
+                  <ul>
+                    <li>冥想过程中的主目标是继续陪走，而不是频繁弹出操作选择。</li>
+                    <li>用户若在中段已经变安静，可继续让内容留在背景，或转入睡眠监测播放。</li>
+                    <li>反馈动作和分享动作不能打断冥想节奏。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
                 <th>何时触发</th>
                 <td>
                   <ul>
@@ -1425,6 +1506,28 @@
                 <td>给用户一个比“自己硬睡”更容易执行的身体入口，重点是降激活，不是做漂亮练习。</td>
               </tr>
               <tr>
+                <th>字段 / 功能点</th>
+                <td>
+                  <ul>
+                    <li>呼吸内容及对话：结构固定为开场白、吸呼节奏循环、结束词，确保进入门槛足够低。</li>
+                    <li>进入睡眠监测播放：呼吸结束或用户稳定后，可把当前陪伴无缝带入睡眠监测。</li>
+                    <li>点赞 / 分享：保留轻反馈，不在高压时把它做成强交互。</li>
+                    <li>悬浮播放器：呼吸播放过程中离开主界面时，保留悬浮播放器以便继续跟拍。</li>
+                    <li>背景音乐匹配：以低频、极轻风声或棕噪为主，跟随节奏逐步变薄。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>交互 / 进入下一步</th>
+                <td>
+                  <ul>
+                    <li>呼吸是最短链路的执行模块，开始后要尽量少打断、少解释。</li>
+                    <li>用户如果已经稳定下来，可继续静音留底，或转入睡眠监测播放。</li>
+                    <li>如果用户一边做一边更紧张，应允许即时切成无计数、无节拍或更外部的安抚方式。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
                 <th>何时触发</th>
                 <td>
                   <ul>
@@ -1532,6 +1635,28 @@
               <tr>
                 <th>模块目标</th>
                 <td>根据用户主动要求、当前情绪或所处流程，匹配最适合的 BGM / ambience / soundscape。</td>
+              </tr>
+              <tr>
+                <th>字段 / 功能点</th>
+                <td>
+                  <ul>
+                    <li>音乐及对话：根据用户明确要求或系统判断，匹配合适的音乐、白噪或环境声。</li>
+                    <li>进入睡眠监测播放：已匹配的背景声可直接带入睡眠监测，不要求重新选声景。</li>
+                    <li>点赞 / 分享：允许记录偏好和分享当前声景。</li>
+                    <li>悬浮播放器：音乐播放时，主播放器离开视区后保留悬浮控制。</li>
+                    <li>背景音乐匹配：以声景池匹配为主，不把用户逼回版权曲目搜索。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>交互 / 进入下一步</th>
+                <td>
+                  <ul>
+                    <li>音乐匹配的第一目标是把空间调柔，不是让用户继续做选择题。</li>
+                    <li>当用户明确进入“只要背景、不要说话”模式时，后续控制应尽量收敛成悬浮播放器和轻反馈。</li>
+                    <li>如果音乐只是其他模块的后半段背景，默认沿用当前 mood，不强制重选。</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th>三种模式</th>
@@ -1700,6 +1825,27 @@
               <tr>
                 <th>模块目标</th>
                 <td>只在用户明确想要带信仰内容的安抚时，提供尊重其传统的睡前陪伴方式，例如祈祷、核准过的经文、诵念或安静默想。</td>
+              </tr>
+              <tr>
+                <th>字段 / 功能点</th>
+                <td>
+                  <ul>
+                    <li>宗教对答：根据用户明确点名的传统和形式，进入祈祷、经文、诵念或安静反思。</li>
+                    <li>经典引用样式：如果引用经文或宗教经典内容，必须用单独引用样式展示，不与普通对话混排。</li>
+                    <li>进入睡眠监测：用户若已经明显放松下来，可轻量引导进入睡眠监测或继续静音陪伴。</li>
+                    <li>背景声景：仅做极弱底噪，不让背景盖过祈祷、诵念或引文主体。</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>交互 / 进入下一步</th>
+                <td>
+                  <ul>
+                    <li>宗教内容开始前先确认 tradition 与 form，避免误入错误传统。</li>
+                    <li>如果用户在当前内容里已经放松，不继续延长解释，可顺势把节奏收轻并引向睡眠监测。</li>
+                    <li>经典引用的展示需要和普通安抚句有清晰层级差异，避免看起来像随口编造。</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th>何时触发</th>
@@ -2193,44 +2339,56 @@
 
         <section class="section" id="push-boundaries">
           <h2>推送与全局边界</h2>
-          <p class="section-intro">推送策略、安全模式、非诊断边界和高频误路由统一收在这一层。所有夜间模块、次晨反馈和建议问题都受这些规则约束。</p>
-          <table class="matrix">
-            <thead>
-              <tr>
-                <th>主题</th>
-                <th>页面应回答的问题</th>
-                <th>执行原则</th>
-              </tr>
-            </thead>
+          <table class="spec-table">
             <tbody>
               <tr>
-                <td>推送策略</td>
-                <td>什么时候发、发什么、不该怎么催</td>
-                <td>最多 3 条 / 天，以睡前放松邀请和次晨真实反馈为主，不做羞耻式提醒</td>
+                <th>推送总则</th>
+                <td>
+                  <ul>
+                    <li>最多 3 条 / 天，以睡前放松邀请、次晨真实反馈和必要的情境关心为主。</li>
+                    <li>推送只做轻提醒，不把产品写成催促器，不用羞耻、责备或错过恐惧来逼回访。</li>
+                    <li>有真实数据才发数据型推送；没有真实记忆就不做“我记得你...”式主动关心。</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
-                <td>安全模式</td>
-                <td>什么时候必须停下普通陪伴</td>
-                <td>一旦出现自伤 / 他伤风险、强烈不安全感、明显医学风险或诊断诉求，立刻退出普通模式</td>
+                <th>安全模式</th>
+                <td>
+                  <ul>
+                    <li>一旦出现自伤 / 他伤风险、强烈不安全感、明显医学风险或诊断诉求，立刻退出普通陪伴模式。</li>
+                    <li>此时不再继续故事、冥想、呼吸、宗教或报告解释，优先转为现实支持与安全优先话术。</li>
+                    <li>推送层也不能在高风险用户状态下继续发送普通唤回文案。</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
-                <td>非诊断边界</td>
-                <td>哪些描述可以说，哪些不能说</td>
-                <td>可以说“观察到”“似乎出现了”，不能说“你被诊断为”“应该问题不大”</td>
+                <th>非诊断边界</th>
+                <td>
+                  <ul>
+                    <li>可以说“观察到”“似乎出现了”“可能有几次被打断”；不能说“你被诊断为”“应该问题不大”。</li>
+                    <li>监测、呼吸机、睡眠报告的语言都必须停留在观察与温和解释层，不越过医学边界。</li>
+                    <li>如果用户追问“那是不是病”“严不严重”，必须明确说明不能做医学判断。</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
-                <td>高频误路由</td>
-                <td>最容易在哪些场景切错模块</td>
-                <td>用户只想倾诉时不硬切故事；用户只问数据时不拉回睡前模块；用户拒绝引导时不继续推荐</td>
+                <th>高频误路由</th>
+                <td>
+                  <ul>
+                    <li>用户只想倾诉时，不硬切故事或冥想。</li>
+                    <li>用户只问次晨数据时，不把其拉回睡前模块。</li>
+                    <li>用户明确拒绝引导、呼吸、宗教或故事时，不继续推荐相同类型内容。</li>
+                    <li>没有真实记忆支撑时，不冒充“了解你今天状态”的主动关心。</li>
+                  </ul>
+                </td>
               </tr>
             </tbody>
           </table>
-        </section>
 
-        <section class="section" id="push">
-          <h2>推送执行细则</h2>
-          <p class="section-intro">早期先按 2 条固定提醒加 1 条情境提醒执行，最多 3 条 / 天。</p>
-          <table class="matrix">
+          <div class="subsection" id="push">
+            <h3>推送执行细则</h3>
+            <p class="section-intro">固定提醒与情境提醒混排执行，最多 3 条 / 天。</p>
+            <table class="matrix">
             <thead>
               <tr>
                 <th>场景</th>
@@ -2245,6 +2403,12 @@
                 <td>用户当地时间 16:30-18:30</td>
                 <td>轻提醒，不催睡；让用户更早想起今晚可以慢下来</td>
                 <td><span class="bilingual">Start your wind-down earlier tonight.（今晚早点开始放松。）</span></td>
+              </tr>
+              <tr>
+                <td>下午主动关心</td>
+                <td>用户当地时间 15:00</td>
+                <td>仅限非首次用户，且存在可用 chat history / memory；允许温和引用既有状态模式，但不暴露具体记忆原句</td>
+                <td><span class="bilingual">How is your afternoon going? If today already feels heavy, we can make tonight gentler before bedtime.（今天下午过得怎么样？如果今天已经有点重了，我们可以在睡前就先把今晚调轻一点。）</span></td>
               </tr>
               <tr>
                 <td>睡前放松邀请</td>
@@ -2272,6 +2436,7 @@
             <ul class="plain-list">
               <li>用户正在使用 app 时，不再发送普通提醒。</li>
               <li>用户刚结束夜间会话 90 分钟内，不发夜间提醒。</li>
+              <li>下午 3 点主动关心只在存在真实可用记忆、且不是首次用户时才发；没有可引用的上下文就不发。</li>
               <li>当天如果已经发过情境提醒，就只保留最重要的一条固定提醒。</li>
               <li>不要用让人有负担、像在责备人的提醒文案，例如“你又熬夜了”“你今天还没来”“你怎么不睡”。</li>
             </ul>
@@ -2290,6 +2455,21 @@
   <script>
     (() => {
       const tocLinks = [...document.querySelectorAll('.toc a')];
+      const moduleGroup = document.querySelector('.toc-group[data-group="module-rules"]');
+      const moduleIds = new Set([
+        'module-rules',
+        'shared-rules',
+        'onboarding',
+        'personas',
+        'story',
+        'meditation',
+        'breathing',
+        'music',
+        'religion',
+        'cross-modal',
+        'alarms-tasks',
+        'cycle'
+      ]);
       const sections = tocLinks
         .map((link) => document.querySelector(link.getAttribute('href')))
         .filter(Boolean);
@@ -2308,6 +2488,10 @@
         tocLinks.forEach((link) => {
           link.classList.toggle("is-active", link.getAttribute("href") === `#${currentId}`);
         });
+
+        if (moduleGroup) {
+          moduleGroup.classList.toggle('is-active', moduleIds.has(currentId));
+        }
       };
 
       setActive();

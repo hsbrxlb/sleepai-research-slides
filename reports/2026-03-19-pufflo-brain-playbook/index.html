@@ -478,6 +478,31 @@
       color: var(--accent);
     }
 
+    .site-home-fab {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 28;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 10px 26px rgba(22, 33, 49, 0.08);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .site-home-fab:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     @media (max-width: 1080px) {
       :root {
         --font-body: 16px;
@@ -604,6 +629,14 @@
         gap: 6px;
         padding: 7px 8px;
         font-size: 0.84rem;
+      }
+
+      .site-home-fab {
+        left: 8px;
+        bottom: 8px;
+        min-width: 44px;
+        padding: 8px 10px;
+        font-size: 11px;
       }
 
       .jump-links a {
@@ -2489,6 +2522,8 @@
       </main>
     </div>
   </div>
+
+  <a class="site-home-fab" href="../../index.html" aria-label="返回主页">主页</a>
 
   <div class="jump-links" aria-label="页面跳转">
     <a href="#top">顶部</a>

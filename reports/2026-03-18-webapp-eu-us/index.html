@@ -146,6 +146,33 @@
       transform: translateY(-1px);
     }
 
+    .site-home-fab {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(238, 243, 255, 0.12);
+      background: rgba(7, 10, 18, 0.7);
+      backdrop-filter: blur(14px);
+      color: var(--faint);
+      text-decoration: none;
+      font: 500 11px/1 var(--sans);
+      letter-spacing: 0.04em;
+      transition: 180ms ease;
+    }
+
+    .site-home-fab:hover {
+      color: var(--text);
+      border-color: rgba(120, 240, 214, 0.28);
+      background: rgba(14, 22, 38, 0.86);
+    }
+
     .brand {
       display: flex;
       align-items: center;
@@ -1290,6 +1317,14 @@
         justify-content: center;
       }
 
+      .site-home-fab {
+        left: 10px;
+        bottom: 10px;
+        min-width: 44px;
+        padding: 8px 10px;
+        font-size: 10px;
+      }
+
       .deck-footer {
         padding: 10px 18px 26px;
       }
@@ -1942,6 +1977,8 @@
         </div>
       </section>
     </main>
+
+    <a class="site-home-fab" href="../../index.html" aria-label="返回主页">主页</a>
 
     <footer class="deck-footer">
       <div class="deck-footer-inner">

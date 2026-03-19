@@ -42,20 +42,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelectorAll("[data-copy]").forEach((button) => {
-    button.addEventListener("click", async () => {
-      const text = button.getAttribute("data-copy");
-      if (!text) return;
-      try {
-        await navigator.clipboard.writeText(text);
-        const original = button.textContent;
-        button.textContent = "已复制";
-        setTimeout(() => {
-          button.textContent = original;
-        }, 1500);
-      } catch (error) {
-        button.textContent = "复制失败";
-      }
-    });
-  });
 });

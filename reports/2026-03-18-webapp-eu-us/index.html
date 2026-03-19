@@ -197,8 +197,7 @@
     .segmented button,
     .market-switch button,
     .scenario-switch button,
-    .priority-switch button,
-    .copy-btn {
+    .priority-switch button {
       appearance: none;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.04);
@@ -221,8 +220,7 @@
     .scenario-switch button:hover,
     .scenario-switch button.active,
     .priority-switch button:hover,
-    .priority-switch button.active,
-    .copy-btn:hover {
+    .priority-switch button.active {
       color: var(--text);
       border-color: var(--line-strong);
       background: rgba(120, 240, 214, 0.1);
@@ -528,6 +526,11 @@
       gap: 18px;
       align-items: end;
       margin-bottom: 28px;
+    }
+
+    .build-header {
+      align-items: start;
+      flex-direction: column;
     }
 
     .section-title {
@@ -934,77 +937,41 @@
     }
 
     .proof-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       align-items: start;
-    }
-
-    .proof-rail {
-      display: grid;
-      gap: 16px;
     }
 
     .case-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
     .case-card {
-      perspective: 1100px;
-      min-height: 200px;
-      cursor: pointer;
-    }
-
-    .case-card button {
-      all: unset;
-      display: block;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-    }
-
-    .case-inner {
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 560ms cubic-bezier(0.2, 0.9, 0.2, 1);
-      min-height: 200px;
-    }
-
-    .case-card.flipped .case-inner {
-      transform: rotateY(180deg);
-    }
-
-    .case-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
+      min-height: auto;
       border-radius: 20px;
-      padding: 20px;
+      padding: 22px;
       display: grid;
-      gap: 14px;
+      gap: 16px;
       align-content: start;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(234, 240, 255, 0.1);
-    }
-
-    .case-face.back {
-      transform: rotateY(180deg);
-      background: rgba(120, 240, 214, 0.08);
-      border-color: rgba(120, 240, 214, 0.24);
     }
 
     .case-top {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      align-items: center;
+      align-items: start;
+      flex-wrap: wrap;
     }
 
     .case-name {
       font-family: var(--serif);
-      font-size: 28px;
-      line-height: 1;
+      font-size: 24px;
+      line-height: 1.06;
       margin: 0;
+      letter-spacing: -0.03em;
     }
 
     .badge-row {
@@ -1020,16 +987,32 @@
       border: 1px solid rgba(234, 240, 255, 0.08);
       color: var(--muted);
       font-size: 12px;
+      line-height: 1.3;
     }
 
     .case-metric {
-      font: 600 34px/1 var(--mono);
+      font: 600 clamp(28px, 3vw, 36px)/1.04 var(--mono);
       letter-spacing: -0.04em;
-      margin: 6px 0 0;
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .case-source {
+      margin: -6px 0 0;
+      color: var(--faint);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .case-summary {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     .build-grid {
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: 1fr;
       align-items: start;
     }
 
@@ -1065,7 +1048,7 @@
 
     .phase {
       position: relative;
-      padding: 22px 24px 22px 90px;
+      padding: 22px 24px 22px 84px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(234, 240, 255, 0.1);
       border-radius: 22px;
@@ -1168,17 +1151,17 @@
 
     .closing strong {
       font-family: var(--serif);
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 0.98;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.14;
       letter-spacing: -0.04em;
-      max-width: 15ch;
+      max-width: 24ch;
       display: block;
     }
 
     .note {
       color: var(--faint);
-      font-size: 12px;
-      line-height: 1.55;
+      font-size: 15px;
+      line-height: 1.7;
       margin-top: 12px;
     }
 
@@ -1190,35 +1173,25 @@
       z-index: 1;
     }
 
-    .source-drawer details {
+    .source-panel {
       border: 1px solid rgba(234, 240, 255, 0.1);
       border-radius: 24px;
       background: rgba(255, 255, 255, 0.04);
-      overflow: hidden;
-    }
-
-    .source-drawer summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .source-drawer summary::-webkit-details-marker {
-      display: none;
+      padding: 22px 24px 24px;
     }
 
     .source-content {
-      padding: 0 24px 24px;
       color: var(--muted);
       display: grid;
       gap: 14px;
       line-height: 1.6;
+    }
+
+    .source-label {
+      margin: 0 0 16px;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.3;
     }
 
     .source-content a {
@@ -1418,7 +1391,7 @@
           <a href="#audio">音频</a>
           <a href="#proof">案例</a>
           <a href="#build">路线</a>
-          <a href="#decision">拍板</a>
+          <a href="#decision">决策</a>
         </nav>
         <div class="topbar-actions">
           <button class="toggle-btn" id="focusToggle" type="button">专注模式</button>
@@ -1460,11 +1433,11 @@
 
       <section class="section" id="claim">
         <div class="wrap">
-          <div class="eyebrow reveal"><span class="dot"></span>一句话判断</div>
+          <div class="eyebrow reveal"><span class="dot"></span>核心判断</div>
           <div class="claim-grid">
             <div class="reveal">
               <h2 class="big-claim">做 WebApp 是加速器，不是替代品。</h2>
-              <p class="section-sub">把转化放在 Web，把体验放在移动端。对助眠音频而言，这是目前最稳妥的欧美产品结构。</p>
+              <p class="section-sub">把转化放在 Web，把体验放在移动端。对助眠音频而言，这是当前更适合欧美市场的产品结构。</p>
             </div>
             <div class="claim-grid">
               <article class="card split-card reveal">
@@ -1743,11 +1716,11 @@
               <div class="eyebrow"><span class="dot"></span>案例验证</div>
               <h2 class="section-title">Web 付费是成熟打法</h2>
             </div>
-            <p class="section-sub">Calm、Headspace、Insight Timer、BetterSleep、Endel、Brain.fm 以及 Spotify / Netflix 都在说明同一件事：网页端不是备胎，而是结算与账号层。</p>
+            <p class="section-sub">Calm、Insight Timer、BetterSleep 以及 Spotify / Netflix 反复证明：网页端承担结算、账号和高客单价 SKU，是成熟结构，而不是过渡方案。</p>
           </div>
           <div class="proof-grid">
             <article class="card reveal">
-              <h3 class="section-title-small">共性模式</h3>
+              <h3 class="section-title-small">验证结论</h3>
               <ul class="decision-list">
                 <li>Web 做主获客、主支付、主账号体系</li>
                 <li>App 做高频消费与留存，不必独占支付</li>
@@ -1757,94 +1730,58 @@
               <p class="support-note">典型案例：Calm 的官网独占终身会员；Spotify 官方说明 iOS app 内无法订阅 Premium。</p>
             </article>
             <div class="case-grid reveal">
-              <div class="case-card">
-                <button type="button" aria-label="Flip Calm card">
-                  <div class="case-inner">
-                    <div class="case-face front">
-                      <div class="case-top">
-                        <h3 class="case-name">Calm</h3>
-                        <span class="badge">官网独占 SKU</span>
-                      </div>
-                      <div class="badge-row">
-                        <span class="badge">网页支付</span>
-                        <span class="badge">跨端权益</span>
-                      </div>
-                      <p class="case-metric">4.5M+</p>
-                      <p class="ghost">订阅用户 / Axios 2024</p>
-                    </div>
-                    <div class="case-face back">
-                      <h3 class="case-name">启示</h3>
-                      <p>终身会员只在官网卖。高客单 SKU 放网页端，是被验证过的成熟动作。</p>
-                    </div>
-                  </div>
-                </button>
-              </div>
-              <div class="case-card">
-                <button type="button" aria-label="Flip Insight Timer card">
-                  <div class="case-inner">
-                    <div class="case-face front">
-                      <div class="case-top">
-                        <h3 class="case-name">Insight Timer</h3>
-                        <span class="badge">网页端</span>
-                      </div>
-                      <div class="badge-row">
-                        <span class="badge">网页支付</span>
-                        <span class="badge">MemberPlus</span>
-                      </div>
-                      <p class="case-metric">30M</p>
-                      <p class="ghost">成员规模 / 官方帮助中心</p>
-                    </div>
-                    <div class="case-face back">
-                      <h3 class="case-name">启示</h3>
-                      <p>大规模冥想平台也把网站订阅与 Web app 放进标准路径，不依赖单一移动端。</p>
-                    </div>
-                  </div>
-                </button>
-              </div>
-              <div class="case-card">
-                <button type="button" aria-label="Flip BetterSleep card">
-                  <div class="case-inner">
-                    <div class="case-face front">
-                      <div class="case-top">
-                        <h3 class="case-name">BetterSleep</h3>
-                        <span class="badge">网页支付</span>
-                      </div>
-                      <div class="badge-row">
-                        <span class="badge">Web</span>
-                        <span class="badge">跨端权益</span>
-                      </div>
-                      <p class="case-metric">65M</p>
-                      <p class="ghost">下载量 / 官方</p>
-                    </div>
-                    <div class="case-face back">
-                      <h3 class="case-name">启示</h3>
-                      <p>官网购买订阅后可跨 iOS / Android 使用。助眠类产品已验证网页支付路线。</p>
-                    </div>
-                  </div>
-                </button>
-              </div>
-              <div class="case-card">
-                <button type="button" aria-label="Flip Spotify card">
-                  <div class="case-inner">
-                    <div class="case-face front">
-                      <div class="case-top">
-                        <h3 class="case-name">Spotify / Netflix</h3>
-                        <span class="badge">产业级验证</span>
-                      </div>
-                      <div class="badge-row">
-                        <span class="badge">网页支付</span>
-                        <span class="badge">App 使用</span>
-                      </div>
-                      <p class="case-metric">网页优先</p>
-                      <p class="ghost">支付留在网页端</p>
-                    </div>
-                    <div class="case-face back">
-                      <h3 class="case-name">启示</h3>
-                      <p>订阅巨头长期把支付留在 Web，以降低平台限制、保留定价权并减少抽成。</p>
-                    </div>
-                  </div>
-                </button>
-              </div>
+              <article class="case-card">
+                <div class="case-top">
+                  <h3 class="case-name">Calm</h3>
+                  <span class="badge">官网独占 SKU</span>
+                </div>
+                <div class="badge-row">
+                  <span class="badge">网页支付</span>
+                  <span class="badge">跨端权益</span>
+                </div>
+                <p class="case-metric">4.5M+</p>
+                <p class="case-source">订阅用户 / Axios 2024</p>
+                <p class="case-summary">终身会员只在官网销售。高客单价 SKU 放在网页端，是已被验证的成熟动作。</p>
+              </article>
+              <article class="case-card">
+                <div class="case-top">
+                  <h3 class="case-name">Insight Timer</h3>
+                  <span class="badge">网页端</span>
+                </div>
+                <div class="badge-row">
+                  <span class="badge">网页支付</span>
+                  <span class="badge">MemberPlus</span>
+                </div>
+                <p class="case-metric">30M</p>
+                <p class="case-source">成员规模 / 官方帮助中心</p>
+                <p class="case-summary">大规模冥想平台也把网站订阅与 Web app 放进标准路径，不依赖单一移动端完成转化。</p>
+              </article>
+              <article class="case-card">
+                <div class="case-top">
+                  <h3 class="case-name">BetterSleep</h3>
+                  <span class="badge">网页支付</span>
+                </div>
+                <div class="badge-row">
+                  <span class="badge">Web</span>
+                  <span class="badge">跨端权益</span>
+                </div>
+                <p class="case-metric">65M</p>
+                <p class="case-source">下载量 / 官方</p>
+                <p class="case-summary">官网购买订阅后可跨 iOS / Android 使用。助眠类产品已经验证网页支付与跨端权益的组合。</p>
+              </article>
+              <article class="case-card">
+                <div class="case-top">
+                  <h3 class="case-name">Spotify / Netflix</h3>
+                  <span class="badge">产业级验证</span>
+                </div>
+                <div class="badge-row">
+                  <span class="badge">网页支付</span>
+                  <span class="badge">App 使用</span>
+                </div>
+                <p class="case-metric">网页优先</p>
+                <p class="case-source">支付保留在网页端</p>
+                <p class="case-summary">订阅平台长期把支付留在 Web，以降低平台限制、保留定价权，并减少分发抽成。</p>
+              </article>
             </div>
           </div>
         </div>
@@ -1852,12 +1789,12 @@
 
       <section class="section" id="build">
         <div class="wrap">
-          <div class="section-header reveal">
+          <div class="section-header build-header reveal">
             <div>
               <div class="eyebrow"><span class="dot"></span>该做什么</div>
-              <h2 class="section-title">Web 该承接什么</h2>
+              <h2 class="section-title">Web 应承担的职责</h2>
             </div>
-            <p class="section-sub">Web 做获客、试听、注册、支付、订阅管理与跨端账号层；播放体验做到“够用”，夜间深体验交给 App / PWA。</p>
+            <p class="section-sub">Web 负责获客、试听、注册、支付与订阅管理；播放体验做到可用即可，夜间深体验交给 App / PWA。</p>
           </div>
           <div class="build-grid">
             <article class="card reveal architecture">
@@ -1880,12 +1817,12 @@
                   </ul>
                 </div>
               </div>
-              <p class="support-note">这不是技术偏好，而是场景分工：白天转化在 Web 更顺，夜间助眠在移动端更稳。</p>
+              <p class="support-note">这不是技术路线偏好，而是场景分工：白天转化在 Web 更顺，夜间助眠在移动端更稳。</p>
             </article>
             <article class="card reveal roadmap">
               <div class="phase">
                 <div class="phase-index">01</div>
-                <h3>先做 Web 转化层</h3>
+                <h3>阶段一｜建立 Web 转化层</h3>
                 <p>上试听、订阅、账号和支付，把 SEO / 流量到付费的链路跑通。</p>
                 <ul class="roadmap-tags">
                   <li>试听播放器</li>
@@ -1896,7 +1833,7 @@
               </div>
               <div class="phase">
                 <div class="phase-index">02</div>
-                <h3>补 PWA</h3>
+                <h3>阶段二｜补齐 PWA 能力</h3>
                 <p>增强 Add to Home Screen、基础缓存和部分播放连续性，把移动 Web 做到可日用。</p>
                 <ul class="roadmap-tags">
                   <li>添加到主屏幕</li>
@@ -1907,7 +1844,7 @@
               </div>
               <div class="phase">
                 <div class="phase-index">03</div>
-                <h3>原生强化夜间体验</h3>
+                <h3>阶段三｜强化原生夜间体验</h3>
                 <p>当转化被验证后，再把预算集中投入锁屏控制、后台播放、离线和通知。</p>
                 <ul class="roadmap-tags">
                   <li>后台稳定性</li>
@@ -1973,13 +1910,13 @@
           <div class="section-header reveal">
             <div>
               <div class="eyebrow"><span class="dot"></span>决策建议</div>
-              <h2 class="section-title">现在可以拍板什么</h2>
+              <h2 class="section-title">当前决策建议</h2>
             </div>
-            <p class="section-sub">结论已经足够支持第一阶段决策。下一步应围绕转化与夜间体验做验证，而不是继续停留在渠道争论。</p>
+            <p class="section-sub">现有证据已经足以支持第一阶段产品与市场决策。下一步应集中验证转化、定价与夜间留存，而不是继续停留在渠道争论。</p>
           </div>
           <div class="decision-grid">
             <article class="card highlight reveal">
-              <h3 class="section-title-small">高置信动作</h3>
+              <h3 class="section-title-small">优先执行事项</h3>
               <ul class="decision-list">
                 <li>做官网里的独立 WebApp，并让它承担试听、注册、支付与账号层</li>
                 <li>把助眠包装成音频内容订阅，而不是工具软件</li>
@@ -1987,7 +1924,7 @@
               </ul>
             </article>
             <article class="card reveal">
-              <h3 class="section-title-small">下一步必须验证</h3>
+              <h3 class="section-title-small">关键待验证事项</h3>
               <ul class="decision-list warn">
                 <li>你的首发主场景到底是夜间助眠还是白天专注</li>
                 <li>Web 年付、月付、终身之间的真实转化差</li>
@@ -1999,10 +1936,9 @@
           </div>
           <div class="closing reveal">
             <div>
-              <strong>先以 “Web 转化层 + 移动深体验” 启动，用 4 周验证增长与付费，再决定 Web 是否升级为完整播放端。</strong>
-              <p class="note">如果只押一个方向，建议先押能更快拿到订单和反馈的网页转化层，而不是一开始就重做全栈原生体验。</p>
+              <strong>建议以“Web 转化层 + 移动深体验”作为首阶段架构，用 4 周验证转化与付费，再决定 Web 是否继续扩展为完整播放端。</strong>
+              <p class="note">若只能优先投入一个方向，应先把网页端的试听、注册、支付与订阅管理跑通，再评估原生体验的追加投入。</p>
             </div>
-            <button class="copy-btn" id="copySummary" type="button">复制摘要</button>
           </div>
         </div>
       </section>
@@ -2016,11 +1952,8 @@
     </footer>
 
     <div class="source-drawer">
-      <details>
-        <summary>
-          <span>来源清单 / 简版参考带</span>
-          <span class="ghost">点击展开</span>
-        </summary>
+      <div class="source-panel">
+        <h2 class="source-label">参考来源</h2>
         <div class="source-content">
           <div>StatCounter：<a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/worldwide" target="_blank" rel="noreferrer">全球</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/united-states-of-america" target="_blank" rel="noreferrer">美国</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/germany" target="_blank" rel="noreferrer">德国</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/france" target="_blank" rel="noreferrer">法国</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/united-kingdom" target="_blank" rel="noreferrer">英国</a></div>
           <div>Digital 2025 / GWI Q3 2024: <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_United_States.pdf" target="_blank" rel="noreferrer">US</a> / <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_United_Kingdom.pdf" target="_blank" rel="noreferrer">UK</a> / <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_German.pdf" target="_blank" rel="noreferrer">Germany</a> / <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_France.pdf" target="_blank" rel="noreferrer">France</a></div>
@@ -2029,7 +1962,7 @@
           <div>Ofcom: <a href="https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2024/audio-report-2024/ofcom-audio-report.pdf?v=320716" target="_blank" rel="noreferrer">Audio Report 2024</a> / <a href="https://www.ofcom.org.uk/media-use-and-attitudes/online-habits/from-apps-to-ai-search-how-the-uk-goes-online-in-2025" target="_blank" rel="noreferrer">How the UK goes online in 2025</a></div>
           <div>可比案例：<a href="https://support.calm.com/hc/en-us/articles/360012060634-Calm-Lifetime-Membership-Price-Upgrade-Steps-Cancellation-Warning" target="_blank" rel="noreferrer">Calm</a>, <a href="https://help.headspace.com/hc/en-us/articles/215035998-How-do-I-purchase-a-subscription" target="_blank" rel="noreferrer">Headspace</a>, <a href="https://help.insighttimer.com/support/solutions/articles/67000664573-does-insight-timer-offer-a-web-application-" target="_blank" rel="noreferrer">Insight Timer</a>, <a href="https://support.bettersleep.com/en/articles/5371738-how-much-does-bettersleep-cost" target="_blank" rel="noreferrer">BetterSleep</a>, <a href="https://www.brain.fm/pricing" target="_blank" rel="noreferrer">Brain.fm</a>, <a href="https://support.spotify.com/at/article/cant-subscribe-to-premium-in-the-ios-app/" target="_blank" rel="noreferrer">Spotify</a>, <a href="https://techcrunch.com/2022/07/25/netflixs-ios-app-now-has-a-sign-up-button-that-takes-you-to-its-website/" target="_blank" rel="noreferrer">Netflix</a></div>
         </div>
-      </details>
+      </div>
     </div>
   </div>
 
@@ -2251,14 +2184,6 @@
       });
     }
 
-    function setupCaseCards() {
-      document.querySelectorAll(".case-card").forEach(card => {
-        card.addEventListener("click", () => {
-          card.classList.toggle("flipped");
-        });
-      });
-    }
-
     function setupReveal() {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -2299,25 +2224,6 @@
       });
     }
 
-    function setupCopy() {
-      const button = document.getElementById("copySummary");
-      button.addEventListener("click", async () => {
-        const text = "SleepAI 欧美 WebApp 结论：网页端拿增长与订单，App/PWA 拿夜间体验与留存。美国和德国的桌面网页仍强，四国移动上网时长占比约 47%–51%，最适合先做网页转化层，再补 PWA 与原生深体验。";
-        try {
-          await navigator.clipboard.writeText(text);
-          button.textContent = "已复制";
-          setTimeout(() => {
-            button.textContent = "复制摘要";
-          }, 1600);
-        } catch (error) {
-          button.textContent = "复制失败";
-          setTimeout(() => {
-            button.textContent = "复制摘要";
-          }, 1600);
-        }
-      });
-    }
-
     renderDeviceMini();
     renderTimeChart();
     updateDeviceChart("global");
@@ -2329,11 +2235,9 @@
     activateButtons("paymentSwitch", updatePaymentChart);
     activateButtons("scenarioSwitch", updateScenario);
     activateButtons("prioritySwitch", setPriority);
-    setupCaseCards();
     setupReveal();
     setupNav();
     setupFocusMode();
-    setupCopy();
   </script>
 </body>
 </html>

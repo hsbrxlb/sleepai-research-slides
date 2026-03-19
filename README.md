@@ -1,41 +1,23 @@
-# SleepAI 调研幻灯片库
+# SleepAI Research Slides
 
-这个目录已按“未来可直接上 GitHub Pages”的方式整理。
+这是一个用于展示 SleepAI 调研幻灯片的静态站仓库。
 
-## 目录说明
+在线访问：
 
-- `index.html`
-  - 站点入口页，列出所有可分享的 HTML 幻灯片
-- `reports/`
-  - 每份可分享的调研幻灯片一个独立目录
-  - 目录名统一使用 ASCII slug，便于稳定 URL
-- `sources/md/`
-  - 保留每份主报告的 Markdown 源稿
-- `sources/notes/`
-  - 保留量化备忘录、可比案例笔记等证据底稿
-- `assets/`
-  - 通用样式与脚本
+- GitHub Pages: `https://hsbrxlb.github.io/sleepai-research-slides/`
+- GitHub Repo: `https://github.com/hsbrxlb/sleepai-research-slides`
 
-## 未来放到 GitHub Pages 的建议
+## 目录
 
-1. 新建一个 repo。
-2. 把当前这个目录的全部内容作为 repo 根目录。
-3. 推送后，在 GitHub Pages 里选择 `Deploy from branch`，目录选 `root`。
-4. 默认入口就是 `/index.html`。
+- `index.html`：站点首页
+- `reports/`：可直接分享的 HTML 幻灯片
+- `sources/md/`：主报告 Markdown 源稿
+- `sources/notes/`：量化与案例附录源稿
+- `assets/`：共享样式与脚本
+- `DESIGN_RULES.md`：后续新增 deck 的设计规则
 
-## 新增一份报告时怎么做
+## 维护原则
 
-1. 把 Markdown 源稿放进 `sources/md/`。
-2. 在 `reports/<yyyy-mm-dd-topic>/index.html` 新建对应 HTML 幻灯片。
-3. 在根目录 `index.html` 增加一张入口卡片。
-
-## 命名规范
-
-- 对外目录：`YYYY-MM-DD-topic-slug`
-- 展示标题：用中文
-- Markdown 源稿：尽量与对应 topic slug 保持一致
-
-## 备注
-
-- 根目录不再堆放 Markdown 原稿，避免同事点进来时只看到“丑文件”。
-- 真正可分享的是 `reports/` 里的 HTML 幻灯片。
+- 对外分享优先发 `reports/` 中的 HTML 页面或 Pages 首页
+- 内容更新先改 `sources/`，再同步对应 HTML deck
+- 新增 deck 时同时更新 `index.html`

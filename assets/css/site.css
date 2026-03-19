@@ -29,6 +29,25 @@ body {
     linear-gradient(180deg, var(--bg-0), var(--bg-1) 42%, #070b12 100%);
 }
 
+a {
+  color: inherit;
+}
+
+.hero-copy {
+  max-width: 760px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.section-compact {
+  padding-top: 8px;
+}
+
 .wrap {
   max-width: var(--max);
   margin: 0 auto;
@@ -36,10 +55,10 @@ body {
 }
 
 .hero {
-  min-height: 82vh;
+  min-height: 72vh;
   display: flex;
   align-items: center;
-  padding: 72px 0 40px;
+  padding: 88px 0 28px;
 }
 
 .eyebrow {
@@ -100,7 +119,7 @@ h1 {
 }
 
 .section {
-  padding: 32px 0 64px;
+  padding: 28px 0 56px;
 }
 
 .section-head {
@@ -108,7 +127,7 @@ h1 {
   justify-content: space-between;
   gap: 20px;
   align-items: end;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .section-head h2 {
@@ -131,15 +150,46 @@ h1 {
   border-radius: 24px;
   padding: 22px;
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(520px 180px at 0% 0%, rgba(120, 240, 214, 0.08), transparent 55%),
+    radial-gradient(520px 180px at 100% 0%, rgba(154, 176, 255, 0.08), transparent 55%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(120, 240, 214, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card h3 {
   margin: 0 0 10px;
   font-size: 22px;
+  line-height: 1.28;
 }
 
 .card a {
   text-decoration: none;
+  color: var(--text);
+}
+
+.card a:hover {
+  color: #f7fbff;
 }
 
 .card .meta {
@@ -173,9 +223,22 @@ h1 {
 }
 
 .footer {
-  padding: 20px 0 60px;
+  padding: 8px 0 56px;
   color: var(--faint);
   font-size: 13px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.footer a:hover {
+  color: var(--text);
 }
 
 @media (max-width: 900px) {

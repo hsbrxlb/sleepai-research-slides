@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SleepAI 欧美 WebApp 可行性与变现路径：结论版</title>
+  <meta name="description" content="SleepAI 欧美 WebApp 可行性与变现路径：结论版。面向 CEO / 创始人的单页决策展示。">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
+
+    :root {
+      --bg-0: #070a12;
+      --bg-1: #0b1222;
+      --bg-2: #0f1931;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-2: rgba(255, 255, 255, 0.09);
+      --card-3: rgba(120, 240, 214, 0.09);
+      --text: #eaf0ff;
+      --muted: rgba(234, 240, 255, 0.72);
+      --faint: rgba(234, 240, 255, 0.46);
+      --line: rgba(234, 240, 255, 0.12);
+      --line-strong: rgba(120, 240, 214, 0.28);
+      --accent: #78f0d6;
+      --accent-2: #9ab0ff;
+      --warn: #ffb020;
+      --danger: #ff8474;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      --radius: 22px;
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --serif: "Fraunces", "Times New Roman", serif;
+      --sans: "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max: 1180px;
+      --nav-h: 72px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-0);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 8%, rgba(120, 240, 214, 0.12), transparent 60%),
+        radial-gradient(1000px 540px at 82% 12%, rgba(154, 176, 255, 0.12), transparent 55%),
+        linear-gradient(180deg, #070a12 0%, #09101d 35%, #05070d 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background:
+        linear-gradient(transparent 96%, rgba(255, 255, 255, 0.03) 100%),
+        linear-gradient(90deg, transparent 96%, rgba(255, 255, 255, 0.03) 100%);
+      background-size: 100% 160px, 160px 100%;
+      opacity: 0.16;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 90%);
+    }
+
+    body::after {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), transparent 36%),
+        repeating-linear-gradient(90deg, rgba(120, 240, 214, 0.02) 0 2px, transparent 2px 14px);
+      opacity: 0.28;
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 10, 18, 0.72);
+      border-bottom: 1px solid rgba(234, 240, 255, 0.08);
+    }
+
+    .topbar-inner {
+      max-width: calc(var(--max) + 48px);
+      margin: 0 auto;
+      min-height: var(--nav-h);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      justify-content: space-between;
+    }
+
+    .topbar-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 10px 14px;
+      font: 500 12px/1 var(--sans);
+      transition: 180ms ease;
+    }
+
+    .home-link:hover {
+      color: var(--text);
+      border-color: var(--line-strong);
+      background: rgba(120, 240, 214, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(120, 240, 214, 0.8), transparent 38%),
+        linear-gradient(145deg, rgba(120, 240, 214, 0.22), rgba(154, 176, 255, 0.12));
+      border: 1px solid rgba(120, 240, 214, 0.25);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-kicker {
+      font: 500 11px/1.2 var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-pills a,
+    .toggle-btn,
+    .segmented button,
+    .market-switch button,
+    .scenario-switch button,
+    .priority-switch button,
+    .copy-btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: 500 12px/1 var(--sans);
+      text-decoration: none;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+
+    .nav-pills a:hover,
+    .nav-pills a.active,
+    .toggle-btn:hover,
+    .segmented button:hover,
+    .segmented button.active,
+    .market-switch button:hover,
+    .market-switch button.active,
+    .scenario-switch button:hover,
+    .scenario-switch button.active,
+    .priority-switch button:hover,
+    .priority-switch button.active,
+    .copy-btn:hover {
+      color: var(--text);
+      border-color: var(--line-strong);
+      background: rgba(120, 240, 214, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .topbar-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .deck-footer {
+      position: relative;
+      z-index: 1;
+      padding: 16px 24px 34px;
+    }
+
+    .deck-footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 20px;
+      color: var(--faint);
+      font: 500 12px/1.6 var(--mono);
+    }
+
+    .deck-footer a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .page {
+      scroll-snap-type: y proximity;
+    }
+
+    .section {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      padding: 72px 24px;
+      scroll-snap-align: start;
+      position: relative;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 7% 6% auto 6%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(234, 240, 255, 0.12), transparent);
+      pointer-events: none;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(234, 240, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font: 500 11px/1 var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(120, 240, 214, 0.7);
+    }
+
+    .headline {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(44px, 7vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      max-width: 10.5ch;
+    }
+
+    .subhead {
+      margin: 18px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.65;
+    }
+
+    .hero-grid,
+    .claim-grid,
+    .device-grid,
+    .time-grid,
+    .payment-grid,
+    .audio-grid,
+    .proof-grid,
+    .build-grid,
+    .pricing-grid,
+    .decision-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: end;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .chip {
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(234, 240, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card.highlight {
+      background: var(--card-2);
+      box-shadow: 0 0 0 1px rgba(120, 240, 214, 0.18) inset, var(--shadow);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -24% -34% auto;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(120, 240, 214, 0.14), transparent 65%);
+      pointer-events: none;
+    }
+
+    .stat-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat-card {
+      padding: 22px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(234, 240, 255, 0.1);
+      position: relative;
+    }
+
+    .stat-value {
+      font-family: var(--mono);
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .stat-value small {
+      color: var(--faint);
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .support-note {
+      margin-top: 14px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .claim-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .big-claim {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 0 0 20px;
+      max-width: 14ch;
+    }
+
+    .split-card h3,
+    .section-title,
+    .section-title-small {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    .split-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+    }
+
+    .split-card ul,
+    .mini-list,
+    .decision-list,
+    .roadmap-tags {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .split-card li,
+    .decision-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .split-card li::before,
+    .decision-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      margin-top: 9px;
+      flex: 0 0 auto;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(120, 240, 214, 0.6);
+    }
+
+    .split-card.app li::before,
+    .decision-list.warn li::before {
+      background: var(--warn);
+      box-shadow: 0 0 18px rgba(255, 176, 32, 0.5);
+    }
+
+    .device-grid,
+    .payment-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      max-width: 12ch;
+    }
+
+    .section-sub {
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .market-switch,
+    .scenario-switch,
+    .priority-switch,
+    .segmented {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chart-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .large-bar {
+      position: relative;
+      height: 72px;
+      border-radius: 20px;
+      border: 1px solid rgba(234, 240, 255, 0.08);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .large-bar .seg {
+      position: absolute;
+      inset: 0 auto 0 0;
+      transition: width 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .large-bar .seg.desktop {
+      background: linear-gradient(90deg, rgba(154, 176, 255, 0.92), rgba(96, 121, 255, 0.7));
+    }
+
+    .large-bar .seg.mobile {
+      background: linear-gradient(90deg, rgba(120, 240, 214, 0.92), rgba(48, 188, 156, 0.7));
+    }
+
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font: 500 13px/1.4 var(--mono);
+      color: var(--muted);
+    }
+
+    .big-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .mini-chart {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 74px 1fr 60px;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .mini-track {
+      position: relative;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .mini-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(120, 240, 214, 0.9), rgba(154, 176, 255, 0.78));
+      transition: width 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .time-grid {
+      grid-template-columns: 1fr 0.88fr;
+      align-items: center;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stack-item {
+      display: grid;
+      grid-template-columns: 78px 1fr 74px;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .stack-bar {
+      position: relative;
+      height: 26px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .stack-mobile,
+    .stack-computer {
+      position: absolute;
+      inset: 0 auto 0 0;
+    }
+
+    .stack-mobile {
+      background: linear-gradient(90deg, rgba(120, 240, 214, 0.88), rgba(65, 212, 178, 0.72));
+    }
+
+    .stack-computer {
+      background: linear-gradient(90deg, rgba(154, 176, 255, 0.92), rgba(118, 138, 226, 0.72));
+    }
+
+    .stack-mobile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .time-kpis {
+      display: grid;
+      gap: 16px;
+      align-self: stretch;
+    }
+
+    .time-kpi {
+      display: grid;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(234, 240, 255, 0.1);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .time-kpi strong {
+      font: 600 34px/1 var(--mono);
+    }
+
+    .payment-chart {
+      height: 290px;
+      display: flex;
+      align-items: end;
+      gap: 16px;
+      padding-top: 28px;
+    }
+
+    .pay-col {
+      flex: 1 1 0;
+      min-width: 0;
+      display: grid;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .pay-bar-wrap {
+      height: 210px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      gap: 10px;
+      background:
+        linear-gradient(180deg, rgba(234, 240, 255, 0.07) 1px, transparent 1px);
+      background-size: 100% 42px;
+      border-radius: 16px;
+    }
+
+    .pay-bar {
+      width: 56px;
+      border-radius: 18px 18px 10px 10px;
+      background: linear-gradient(180deg, rgba(154, 176, 255, 0.95), rgba(92, 110, 220, 0.66));
+      transition: height 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .pay-bar.stream {
+      background: linear-gradient(180deg, rgba(120, 240, 214, 0.98), rgba(36, 177, 145, 0.74));
+    }
+
+    .pay-bar.web {
+      background: linear-gradient(180deg, rgba(255, 176, 32, 0.98), rgba(212, 130, 20, 0.72));
+    }
+
+    .pay-bar.iap {
+      background: linear-gradient(180deg, rgba(255, 132, 116, 0.92), rgba(220, 92, 82, 0.72));
+    }
+
+    .pay-value {
+      position: absolute;
+      inset: -24px 0 auto;
+      text-align: center;
+      font: 600 12px/1 var(--mono);
+      color: var(--text);
+    }
+
+    .pay-label {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .scenario-shell {
+      display: grid;
+      gap: 22px;
+    }
+
+    .scenario-visual {
+      position: relative;
+      height: 320px;
+      display: grid;
+      place-items: center;
+    }
+
+    .ring {
+      width: min(82vw, 320px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        conic-gradient(from -70deg, rgba(120, 240, 214, 0.9) 0 34%, rgba(154, 176, 255, 0.85) 34% 68%, rgba(255, 176, 32, 0.92) 68% 100%);
+      padding: 26px;
+      box-shadow: 0 0 0 1px rgba(234, 240, 255, 0.08), 0 40px 80px rgba(0, 0, 0, 0.44);
+    }
+
+    .ring::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(120, 240, 214, 0.18), transparent 44%),
+        linear-gradient(180deg, rgba(7, 10, 18, 0.98), rgba(11, 18, 34, 0.95));
+      box-shadow: inset 0 0 0 1px rgba(234, 240, 255, 0.08);
+    }
+
+    .ring-caption {
+      position: absolute;
+      text-align: center;
+      display: grid;
+      gap: 8px;
+    }
+
+    .ring-caption strong {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.04em;
+    }
+
+    .scenario-copy {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .scenario-card {
+      min-height: 210px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .scenario-keyline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(234, 240, 255, 0.1);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .audio-grid {
+      grid-template-columns: 0.88fr 1.12fr;
+      align-items: center;
+    }
+
+    .habit-panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .donut-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .donut {
+      --yes: 60;
+      --rare: 13;
+      --no: 27;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(7, 10, 18, 0.95) 0 51%, transparent 52%),
+        conic-gradient(
+          rgba(120, 240, 214, 0.98) 0 calc(var(--yes) * 1%),
+          rgba(154, 176, 255, 0.95) calc(var(--yes) * 1%) calc((var(--yes) + var(--rare)) * 1%),
+          rgba(255, 132, 116, 0.96) calc((var(--yes) + var(--rare)) * 1%) 100%
+        );
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 1px rgba(234, 240, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.34);
+    }
+
+    .donut-center {
+      text-align: center;
+      display: grid;
+      gap: 6px;
+    }
+
+    .donut-center strong {
+      font: 600 38px/1 var(--mono);
+    }
+
+    .legend {
+      display: grid;
+      gap: 10px;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .legend-row span:first-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .legend-row i {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .audio-minis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-donut-card {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .mini-donut {
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(7, 10, 18, 0.96) 0 55%, transparent 56%),
+        conic-gradient(rgba(120, 240, 214, 0.95) 0 var(--angle), rgba(255, 255, 255, 0.08) var(--angle) 100%);
+    }
+
+    .mini-donut strong {
+      font: 600 20px/1 var(--mono);
+    }
+
+    .proof-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .proof-rail {
+      display: grid;
+      gap: 16px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .case-card {
+      perspective: 1100px;
+      min-height: 200px;
+      cursor: pointer;
+    }
+
+    .case-card button {
+      all: unset;
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .case-inner {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 560ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      min-height: 200px;
+    }
+
+    .case-card.flipped .case-inner {
+      transform: rotateY(180deg);
+    }
+
+    .case-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(234, 240, 255, 0.1);
+    }
+
+    .case-face.back {
+      transform: rotateY(180deg);
+      background: rgba(120, 240, 214, 0.08);
+      border-color: rgba(120, 240, 214, 0.24);
+    }
+
+    .case-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .case-name {
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(234, 240, 255, 0.08);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .case-metric {
+      font: 600 34px/1 var(--mono);
+      letter-spacing: -0.04em;
+      margin: 6px 0 0;
+    }
+
+    .build-grid {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: start;
+    }
+
+    .architecture {
+      display: grid;
+      gap: 18px;
+    }
+
+    .arch-card {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .arch-block {
+      border-radius: 20px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(234, 240, 255, 0.1);
+    }
+
+    .arch-arrow {
+      font: 600 26px/1 var(--mono);
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    .roadmap {
+      display: grid;
+      gap: 16px;
+    }
+
+    .phase {
+      position: relative;
+      padding: 22px 24px 22px 90px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(234, 240, 255, 0.1);
+      border-radius: 22px;
+    }
+
+    .phase-index {
+      position: absolute;
+      left: 24px;
+      top: 22px;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(120, 240, 214, 0.1);
+      border: 1px solid rgba(120, 240, 214, 0.22);
+      font: 600 16px/1 var(--mono);
+      color: var(--accent);
+    }
+
+    .phase h3,
+    .section-title-small {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .phase p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .roadmap-tags {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 12px;
+    }
+
+    .roadmap-tags li {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 13px;
+      border: 1px solid rgba(234, 240, 255, 0.08);
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .pricing-card {
+      min-height: 260px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(234, 240, 255, 0.1);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .pricing-card.featured {
+      background: rgba(120, 240, 214, 0.09);
+      border-color: rgba(120, 240, 214, 0.28);
+    }
+
+    .pricing-card h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .pricing-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .priority-copy {
+      margin-top: 16px;
+      color: var(--muted);
+      min-height: 74px;
+      line-height: 1.6;
+    }
+
+    .decision-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .closing {
+      margin-top: 34px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+
+    .closing strong {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      max-width: 15ch;
+      display: block;
+    }
+
+    .note {
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.55;
+      margin-top: 12px;
+    }
+
+    .source-drawer {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .source-drawer details {
+      border: 1px solid rgba(234, 240, 255, 0.1);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+    }
+
+    .source-drawer summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .source-drawer summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .source-content {
+      padding: 0 24px 24px;
+      color: var(--muted);
+      display: grid;
+      gap: 14px;
+      line-height: 1.6;
+    }
+
+    .source-content a {
+      color: var(--accent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .focus .topbar {
+      transform: translateY(-120%);
+      transition: transform 240ms ease;
+    }
+
+    .focus .source-drawer,
+    .focus .support-note,
+    .focus .note {
+      opacity: 0.25;
+    }
+
+    .ghost {
+      opacity: 0.74;
+    }
+
+    .spacer {
+      display: block;
+      height: 14px;
+    }
+
+    @media (max-width: 1080px) {
+      .topbar-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .topbar-group {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-pills {
+        order: 3;
+      }
+
+      .hero-grid,
+      .claim-grid,
+      .device-grid,
+      .time-grid,
+      .payment-grid,
+      .audio-grid,
+      .proof-grid,
+      .build-grid,
+      .decision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .section {
+        min-height: auto;
+        padding: 56px 18px;
+      }
+
+      .wrap,
+      .source-drawer {
+        padding: 0 0;
+      }
+
+      .topbar-inner {
+        padding: 12px 16px;
+      }
+
+      .topbar-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .home-link {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .deck-footer {
+        padding: 10px 18px 26px;
+      }
+
+      .headline {
+        max-width: none;
+      }
+
+      .section-header {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .big-pair,
+      .audio-minis,
+      .decision-grid,
+      .claim-grid,
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .donut-card {
+        grid-template-columns: 1fr;
+      }
+
+      .donut {
+        margin-inline: auto;
+      }
+
+      .arch-card {
+        grid-template-columns: 1fr;
+      }
+
+      .arch-arrow {
+        display: none;
+      }
+
+      .roadmap-tags {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-item,
+      .mini-row {
+        grid-template-columns: 66px 1fr 54px;
+      }
+
+      .payment-chart {
+        gap: 10px;
+      }
+
+      .pay-bar {
+        width: 100%;
+        max-width: 62px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-group">
+          <a class="home-link" href="../../index.html">返回总览</a>
+          <div class="brand">
+            <div class="brand-mark"></div>
+            <div class="brand-text">
+              <span class="brand-kicker">主报告</span>
+              <p class="brand-title">欧美 WebApp 可行性与变现路径：结论版</p>
+            </div>
+          </div>
+        </div>
+        <nav class="nav-pills" id="nav">
+          <a href="#hero">封面</a>
+          <a href="#claim">结论</a>
+          <a href="#device">设备</a>
+          <a href="#payment">付费</a>
+          <a href="#audio">音频</a>
+          <a href="#proof">案例</a>
+          <a href="#build">路线</a>
+          <a href="#decision">拍板</a>
+        </nav>
+        <div class="topbar-actions">
+          <button class="toggle-btn" id="focusToggle" type="button">专注模式</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="section" id="hero">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div class="reveal">
+              <div class="eyebrow"><span class="dot"></span>核心结论 / 2026-03-18</div>
+              <h1 class="headline">SleepAI 欧美 WebApp 可行性与变现路径</h1>
+              <p class="subhead">Web 拿增长与订单，App / PWA 拿夜间体验与留存。对于助眠音频，这不是替代关系，而是分工关系。</p>
+              <div class="hero-meta">
+                <span class="chip">市场：美国 / 英国 / 德国 / 法国</span>
+                <span class="chip">数据截止：2026-02</span>
+                <span class="chip">仅保留结论版</span>
+              </div>
+            </div>
+            <div class="stat-stack reveal">
+              <div class="stat-card highlight">
+                <p class="stat-value">55.03% <small>美国 / 桌面网页</small></p>
+                <p class="stat-label">美国 Web 流量仍由桌面端主导。白天发现、注册和支付不应只押移动端。</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-value">50.5% <small>美国 / 移动时长</small></p>
+                <p class="stat-label">美国日均上网时长中，移动端已占约一半。床上使用体验必须过线。</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-value">42.0% <small>美国 / 流媒体付费</small></p>
+                <p class="stat-label">影视流媒体月付费渗透远高于网页服务付费。助眠应更像内容订阅。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="claim">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="dot"></span>一句话判断</div>
+          <div class="claim-grid">
+            <div class="reveal">
+              <h2 class="big-claim">做 WebApp 是加速器，不是替代品。</h2>
+              <p class="section-sub">把转化放在 Web，把体验放在移动端。对助眠音频而言，这是目前最稳妥的欧美产品结构。</p>
+            </div>
+            <div class="claim-grid">
+              <article class="card split-card reveal">
+                <h3><span class="dot"></span>Web 负责什么</h3>
+                <ul>
+                  <li>SEO 内容落地、广告承接、试听与注册</li>
+                  <li>年付、终身、礼品卡、优惠码与网页结算</li>
+                  <li>轻播放、历史、收藏、跨端账号层</li>
+                  <li>白天场景与工作时段的发现和转化</li>
+                </ul>
+              </article>
+              <article class="card split-card app reveal">
+                <h3><span class="dot"></span>App / PWA 负责什么</h3>
+                <ul>
+                  <li>睡前长时播放、锁屏控制、后台稳定性</li>
+                  <li>离线、定时器、断点续播与通知习惯</li>
+                  <li>夜间体验和长期留存闭环</li>
+                  <li>把助眠场景做成真正的低摩擦习惯</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="device">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>设备现实</div>
+              <h2 class="section-title">不是全移动化</h2>
+            </div>
+            <p class="section-sub">欧美 Web 流量仍有强 Desktop 盘子，尤其美国与德国。Web 端不能缺席，但移动端体验也不能妥协。</p>
+          </div>
+          <div class="device-grid">
+            <article class="card reveal">
+              <div class="market-switch" id="deviceSwitch">
+                <button class="active" type="button" data-market="global">全球</button>
+                <button type="button" data-market="us">US</button>
+                <button type="button" data-market="de">DE</button>
+                <button type="button" data-market="fr">FR</button>
+                <button type="button" data-market="uk">UK</button>
+              </div>
+              <span class="spacer"></span>
+              <div class="chart-shell">
+                <div>
+                  <div class="bar-labels">
+                    <span id="deviceTitle">全球</span>
+                    <span id="deviceDate">2026-02</span>
+                  </div>
+                  <div class="large-bar" aria-label="device split chart">
+                    <div class="seg desktop" id="deviceDesktop"></div>
+                    <div class="seg mobile" id="deviceMobile"></div>
+                  </div>
+                  <div class="bar-labels">
+                    <span id="deviceDesktopLabel">桌面 47.52%</span>
+                    <span id="deviceMobileLabel">移动 52.48%</span>
+                  </div>
+                </div>
+                <div class="big-pair">
+                  <div class="stat-card">
+                    <p class="stat-value" id="deviceLead">52.48%</p>
+                    <p class="stat-label" id="deviceLeadLabel">当前市场中占比更高的一端</p>
+                  </div>
+                  <div class="stat-card">
+                    <p class="stat-value" id="deviceRole">移动优先</p>
+                    <p class="stat-label" id="deviceRoleLabel">产品落点判断</p>
+                  </div>
+                </div>
+                <p class="support-note" id="deviceNote">StatCounter 网页流量份额。口径是网页流量 / 页面请求，不等于使用时长。</p>
+              </div>
+            </article>
+            <article class="card reveal">
+              <h3 class="section-title-small">核心市场对照</h3>
+              <div class="mini-chart" id="deviceMiniChart"></div>
+              <p class="support-note">英国数据月份为 2025-10，其余为 2026-02。结论不变：美国 / 德国桌面端更强，法国 / 英国更偏移动端。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="time">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>时间预算</div>
+              <h2 class="section-title">移动端占到一半</h2>
+            </div>
+            <p class="section-sub">四国日均上网时长中，移动端占比约 47%–51%。如果核心场景发生在床上，移动端体验就是硬门槛。</p>
+          </div>
+          <div class="time-grid">
+            <article class="card reveal">
+              <div class="stack-list" id="timeChart"></div>
+              <p class="support-note">口径：GWI Q3 2024，自报数据，经 We Are Social / Digital 2025 发布。这里展示的是手机与电脑+平板的日均时间拆分。</p>
+            </article>
+            <aside class="time-kpis reveal">
+              <div class="time-kpi">
+                <strong>6h40m</strong>
+                <span>美国日均上网总时长</span>
+                <span class="ghost">其中移动端 3h22m / 50.5%</span>
+              </div>
+              <div class="time-kpi">
+                <strong>47%–51%</strong>
+                <span>四国移动端占比区间</span>
+                <span class="ghost">助眠音频必须移动优先</span>
+              </div>
+              <div class="time-kpi">
+                <strong>双端共存</strong>
+                <span>Web 负责白天转化，移动端负责夜间体验</span>
+                <span class="ghost">这不是二选一</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="payment">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>付费心智</div>
+              <h2 class="section-title">订阅内容最顺</h2>
+            </div>
+            <p class="section-sub">用户更习惯为流媒体类内容持续付费。助眠音频应包装成订阅型内容库，而不是“工具型软件”。</p>
+          </div>
+          <div class="payment-grid">
+            <article class="card reveal">
+              <div class="market-switch" id="paymentSwitch">
+                <button class="active" type="button" data-market="us">US</button>
+                <button type="button" data-market="uk">UK</button>
+                <button type="button" data-market="de">DE</button>
+                <button type="button" data-market="fr">FR</button>
+              </div>
+              <span class="spacer"></span>
+              <div class="payment-chart" id="paymentChart"></div>
+              <p class="support-note" id="paymentNote">Digital 2025 / GWI Q3 2024。口径：每月为该类数字内容付费的 16+ 网民比例。</p>
+            </article>
+            <article class="card highlight reveal">
+              <h3 class="section-title-small">设计含义</h3>
+              <div class="mini-list">
+                <div class="pill">音频流媒体订阅</div>
+                <div class="pill">个性化助眠内容库</div>
+                <div class="pill">睡前引导流程</div>
+              </div>
+              <p class="section-sub">最自然的表达不是“一个助眠工具”，而是“一个可持续订阅的音频内容库”。</p>
+              <div class="big-pair">
+                <div class="stat-card">
+                  <p class="stat-value" id="paymentHeadline">42.0%</p>
+                  <p class="stat-label" id="paymentHeadlineLabel">美国 / 影视流媒体</p>
+                </div>
+                <div class="stat-card">
+                  <p class="stat-value" id="paymentGap">+33.3pt</p>
+                  <p class="stat-label" id="paymentGapLabel">相对网页服务付费的差值</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="scenario">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>场景拆分</div>
+              <h2 class="section-title">夜间 vs 白天</h2>
+            </div>
+            <p class="section-sub">夜间追求稳定与低摩擦，白天追求可发现与可分享。两个场景需要不同的产品重心。</p>
+          </div>
+          <div class="device-grid">
+            <article class="card reveal">
+              <div class="scenario-visual">
+                <div class="ring"></div>
+                <div class="ring-caption">
+                  <strong id="scenarioTitle">夜间助眠</strong>
+                  <span id="scenarioStat">移动深体验优先</span>
+                </div>
+              </div>
+            </article>
+            <article class="card reveal scenario-card">
+              <div class="scenario-switch" id="scenarioSwitch">
+                <button class="active" type="button" data-scenario="night">夜间助眠</button>
+                <button type="button" data-scenario="day">白天放松</button>
+                <button type="button" data-scenario="work">工作 / 学习</button>
+              </div>
+              <h3 class="section-title-small" id="scenarioPunch">夜间体验要把摩擦降到最低。</h3>
+              <p class="section-sub" id="scenarioBody">睡前、半夜醒来和床上使用，决定了锁屏控制、后台播放、定时关闭和断点续播的重要性。</p>
+              <div class="scenario-keyline" id="scenarioTags"></div>
+              <div class="big-pair">
+                <div class="stat-card">
+                  <p class="stat-value" id="scenarioLeft">App / PWA</p>
+                  <p class="stat-label" id="scenarioLeftLabel">更强载体</p>
+                </div>
+                <div class="stat-card">
+                  <p class="stat-value" id="scenarioRight">网页端</p>
+                  <p class="stat-label" id="scenarioRightLabel">辅助职责</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="audio">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>工作音频</div>
+              <h2 class="section-title">有规模，但非默认</h2>
+            </div>
+            <p class="section-sub">工作配乐是常见行为，但不是全民习惯。产品和营销都应该分层，不要默认所有人都会戴耳机听。</p>
+          </div>
+          <div class="audio-grid">
+            <article class="card reveal habit-panel">
+              <div class="donut-card">
+                <div class="donut">
+                  <div class="donut-center">
+                    <strong>60%</strong>
+                    <span class="ghost">美国 / 经常或有时</span>
+                  </div>
+                </div>
+                <div class="legend">
+                  <div class="legend-row"><span><i style="background:#78f0d6"></i>经常 / 有时</span><strong>60%</strong></div>
+                  <div class="legend-row"><span><i style="background:#9ab0ff"></i>很少</span><strong>13%</strong></div>
+                  <div class="legend-row"><span><i style="background:#ff8474"></i>从不</span><strong>27%</strong></div>
+                  <p class="support-note">Ipsos，美国成年人，2022-05-23 至 2022-05-25。可确认“常见”，但不能推断“人人都有耳机习惯”。</p>
+                </div>
+              </div>
+              <div class="big-pair">
+                <div class="stat-card">
+                  <p class="stat-value">3h54m</p>
+                  <p class="stat-label">美国每日总音频时长，2025Q4</p>
+                </div>
+                <div class="stat-card">
+                  <p class="stat-value">38%</p>
+                  <p class="stat-label">美国音频时间来自移动设备，2025Q2</p>
+                </div>
+              </div>
+            </article>
+            <article class="card reveal">
+              <div class="audio-minis">
+                <div class="mini-donut-card">
+                  <div class="mini-donut" style="--angle: 115.2deg;"><strong>32%</strong></div>
+                  <div>IFPI 多国样本：工作时听音乐</div>
+                </div>
+                <div class="mini-donut-card">
+                  <div class="mini-donut" style="--angle: 162deg;"><strong>45%</strong></div>
+                  <div>IFPI 多国样本：通勤去工作/学校时听音乐</div>
+                </div>
+                <div class="mini-donut-card">
+                  <div class="mini-donut" style="--angle: 75.6deg;"><strong>21%</strong></div>
+                  <div>英国月度播客听众：工作时听播客</div>
+                </div>
+              </div>
+              <span class="spacer"></span>
+              <div class="big-pair">
+                <div class="stat-card">
+                  <p class="stat-value">16%</p>
+                  <p class="stat-label">英国月度播客听众会为助眠而听</p>
+                </div>
+                <div class="stat-card">
+                  <p class="stat-value">4成+</p>
+                  <p class="stat-label">不是稳定“工作配乐用户”</p>
+                </div>
+              </div>
+              <p class="support-note">直接拆出“耳机 vs 外放 vs 静默”的公开权威口径较少。当前只适合做谨慎判断，不宜过度外推。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>案例验证</div>
+              <h2 class="section-title">Web 付费是成熟打法</h2>
+            </div>
+            <p class="section-sub">Calm、Headspace、Insight Timer、BetterSleep、Endel、Brain.fm 以及 Spotify / Netflix 都在说明同一件事：网页端不是备胎，而是结算与账号层。</p>
+          </div>
+          <div class="proof-grid">
+            <article class="card reveal">
+              <h3 class="section-title-small">共性模式</h3>
+              <ul class="decision-list">
+                <li>Web 做主获客、主支付、主账号体系</li>
+                <li>App 做高频消费与留存，不必独占支付</li>
+                <li>高客单 SKU 更适合放在 Web 端</li>
+                <li>跨端权益统一，比单端订阅更有价值</li>
+              </ul>
+              <p class="support-note">典型案例：Calm 的官网独占终身会员；Spotify 官方说明 iOS app 内无法订阅 Premium。</p>
+            </article>
+            <div class="case-grid reveal">
+              <div class="case-card">
+                <button type="button" aria-label="Flip Calm card">
+                  <div class="case-inner">
+                    <div class="case-face front">
+                      <div class="case-top">
+                        <h3 class="case-name">Calm</h3>
+                        <span class="badge">官网独占 SKU</span>
+                      </div>
+                      <div class="badge-row">
+                        <span class="badge">网页支付</span>
+                        <span class="badge">跨端权益</span>
+                      </div>
+                      <p class="case-metric">4.5M+</p>
+                      <p class="ghost">订阅用户 / Axios 2024</p>
+                    </div>
+                    <div class="case-face back">
+                      <h3 class="case-name">启示</h3>
+                      <p>终身会员只在官网卖。高客单 SKU 放网页端，是被验证过的成熟动作。</p>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="case-card">
+                <button type="button" aria-label="Flip Insight Timer card">
+                  <div class="case-inner">
+                    <div class="case-face front">
+                      <div class="case-top">
+                        <h3 class="case-name">Insight Timer</h3>
+                        <span class="badge">网页端</span>
+                      </div>
+                      <div class="badge-row">
+                        <span class="badge">网页支付</span>
+                        <span class="badge">MemberPlus</span>
+                      </div>
+                      <p class="case-metric">30M</p>
+                      <p class="ghost">成员规模 / 官方帮助中心</p>
+                    </div>
+                    <div class="case-face back">
+                      <h3 class="case-name">启示</h3>
+                      <p>大规模冥想平台也把网站订阅与 Web app 放进标准路径，不依赖单一移动端。</p>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="case-card">
+                <button type="button" aria-label="Flip BetterSleep card">
+                  <div class="case-inner">
+                    <div class="case-face front">
+                      <div class="case-top">
+                        <h3 class="case-name">BetterSleep</h3>
+                        <span class="badge">网页支付</span>
+                      </div>
+                      <div class="badge-row">
+                        <span class="badge">Web</span>
+                        <span class="badge">跨端权益</span>
+                      </div>
+                      <p class="case-metric">65M</p>
+                      <p class="ghost">下载量 / 官方</p>
+                    </div>
+                    <div class="case-face back">
+                      <h3 class="case-name">启示</h3>
+                      <p>官网购买订阅后可跨 iOS / Android 使用。助眠类产品已验证网页支付路线。</p>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="case-card">
+                <button type="button" aria-label="Flip Spotify card">
+                  <div class="case-inner">
+                    <div class="case-face front">
+                      <div class="case-top">
+                        <h3 class="case-name">Spotify / Netflix</h3>
+                        <span class="badge">产业级验证</span>
+                      </div>
+                      <div class="badge-row">
+                        <span class="badge">网页支付</span>
+                        <span class="badge">App 使用</span>
+                      </div>
+                      <p class="case-metric">网页优先</p>
+                      <p class="ghost">支付留在网页端</p>
+                    </div>
+                    <div class="case-face back">
+                      <h3 class="case-name">启示</h3>
+                      <p>订阅巨头长期把支付留在 Web，以降低平台限制、保留定价权并减少抽成。</p>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="build">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>该做什么</div>
+              <h2 class="section-title">Web 该承接什么</h2>
+            </div>
+            <p class="section-sub">Web 做获客、试听、注册、支付、订阅管理与跨端账号层；播放体验做到“够用”，夜间深体验交给 App / PWA。</p>
+          </div>
+          <div class="build-grid">
+            <article class="card reveal architecture">
+              <div class="arch-card">
+                <div class="arch-block">
+                  <h3 class="section-title-small">网页转化层</h3>
+                  <ul class="decision-list">
+                    <li>SEO 落地页与试听页</li>
+                    <li>邮箱收集与优惠体系</li>
+                    <li>网页支付与账号管理</li>
+                  </ul>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-block">
+                  <h3 class="section-title-small">移动深体验层</h3>
+                  <ul class="decision-list warn">
+                    <li>睡前长时播放与锁屏控制</li>
+                    <li>离线、通知、定时器</li>
+                    <li>夜间留存与低摩擦习惯闭环</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="support-note">这不是技术偏好，而是场景分工：白天转化在 Web 更顺，夜间助眠在移动端更稳。</p>
+            </article>
+            <article class="card reveal roadmap">
+              <div class="phase">
+                <div class="phase-index">01</div>
+                <h3>先做 Web 转化层</h3>
+                <p>上试听、订阅、账号和支付，把 SEO / 流量到付费的链路跑通。</p>
+                <ul class="roadmap-tags">
+                  <li>试听播放器</li>
+                  <li>Stripe / PayPal 支付</li>
+                  <li>年付为主</li>
+                  <li>优惠码 / 礼品卡</li>
+                </ul>
+              </div>
+              <div class="phase">
+                <div class="phase-index">02</div>
+                <h3>补 PWA</h3>
+                <p>增强 Add to Home Screen、基础缓存和部分播放连续性，把移动 Web 做到可日用。</p>
+                <ul class="roadmap-tags">
+                  <li>添加到主屏幕</li>
+                  <li>最近播放同步</li>
+                  <li>睡眠定时器</li>
+                  <li>收藏历史</li>
+                </ul>
+              </div>
+              <div class="phase">
+                <div class="phase-index">03</div>
+                <h3>原生强化夜间体验</h3>
+                <p>当转化被验证后，再把预算集中投入锁屏控制、后台播放、离线和通知。</p>
+                <ul class="roadmap-tags">
+                  <li>后台稳定性</li>
+                  <li>离线下载</li>
+                  <li>通知与习惯</li>
+                  <li>更深的系统集成</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>付费点设计</div>
+              <h2 class="section-title">首选付费点</h2>
+            </div>
+            <p class="section-sub">Web 端更适合年付、终身、礼品卡与优惠体系。IAP 作为补充入口，不应是唯一入口。</p>
+          </div>
+          <article class="card reveal">
+            <div class="priority-switch" id="prioritySwitch">
+              <button class="active" type="button" data-market="us">US</button>
+              <button type="button" data-market="uk">UK</button>
+              <button type="button" data-market="de">DE</button>
+            </div>
+            <div class="pricing-grid">
+              <div class="pricing-card featured">
+                <h3>Web 年付</h3>
+                <p>主售卖点。适合把产品包装成音频内容订阅，并拉高留存与回款。</p>
+                <div class="badge-row">
+                  <span class="badge">默认主推</span>
+                  <span class="badge">费率更低</span>
+                </div>
+              </div>
+              <div class="pricing-card">
+                <h3>Web 高客单 SKU</h3>
+                <p>终身、家庭包、礼品卡、学生计划放 Web，更利于定价试验与优惠体系。</p>
+                <div class="badge-row">
+                  <span class="badge">终身</span>
+                  <span class="badge">礼品</span>
+                  <span class="badge">学生</span>
+                </div>
+              </div>
+              <div class="pricing-card">
+                <h3>IAP 备选</h3>
+                <p>保留省事入口，但不把平台内购作为唯一通路。核心增长和大单留在 Web。</p>
+                <div class="badge-row">
+                  <span class="badge">备选入口</span>
+                  <span class="badge">更省事</span>
+                </div>
+              </div>
+            </div>
+            <p class="priority-copy" id="priorityCopy">美国优先。订阅文化成熟，工作场景 Desktop Web 强，最适合先验证“Web 转化层 + 移动深体验”的组合。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="decision">
+        <div class="wrap">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>决策建议</div>
+              <h2 class="section-title">现在可以拍板什么</h2>
+            </div>
+            <p class="section-sub">结论已经足够支持第一阶段决策。下一步应围绕转化与夜间体验做验证，而不是继续停留在渠道争论。</p>
+          </div>
+          <div class="decision-grid">
+            <article class="card highlight reveal">
+              <h3 class="section-title-small">高置信动作</h3>
+              <ul class="decision-list">
+                <li>做官网里的独立 WebApp，并让它承担试听、注册、支付与账号层</li>
+                <li>把助眠包装成音频内容订阅，而不是工具软件</li>
+                <li>首发市场优先美国，其次英国，再到德国</li>
+              </ul>
+            </article>
+            <article class="card reveal">
+              <h3 class="section-title-small">下一步必须验证</h3>
+              <ul class="decision-list warn">
+                <li>你的首发主场景到底是夜间助眠还是白天专注</li>
+                <li>Web 年付、月付、终身之间的真实转化差</li>
+                <li>移动 Web 是否足够支撑目标留存，还是必须更快上原生</li>
+                <li>不同流量来源对网页付费的接受度差异</li>
+                <li>不同地区对外部支付引导的实际合规边界</li>
+              </ul>
+            </article>
+          </div>
+          <div class="closing reveal">
+            <div>
+              <strong>先以 “Web 转化层 + 移动深体验” 启动，用 4 周验证增长与付费，再决定 Web 是否升级为完整播放端。</strong>
+              <p class="note">如果只押一个方向，建议先押能更快拿到订单和反馈的网页转化层，而不是一开始就重做全栈原生体验。</p>
+            </div>
+            <button class="copy-btn" id="copySummary" type="button">复制摘要</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="deck-footer">
+      <div class="deck-footer-inner">
+        <span>SleepAI 调研幻灯片库 · 欧美 WebApp 主报告</span>
+        <span>源稿：<a href="../../sources/md/2026-03-18-webapp-eu-us.md">sources/md/2026-03-18-webapp-eu-us.md</a></span>
+      </div>
+    </footer>
+
+    <div class="source-drawer">
+      <details>
+        <summary>
+          <span>来源清单 / 简版参考带</span>
+          <span class="ghost">点击展开</span>
+        </summary>
+        <div class="source-content">
+          <div>StatCounter：<a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/worldwide" target="_blank" rel="noreferrer">全球</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/united-states-of-america" target="_blank" rel="noreferrer">美国</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/germany" target="_blank" rel="noreferrer">德国</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/france" target="_blank" rel="noreferrer">法国</a> / <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-worldwide/united-kingdom" target="_blank" rel="noreferrer">英国</a></div>
+          <div>Digital 2025 / GWI Q3 2024: <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_United_States.pdf" target="_blank" rel="noreferrer">US</a> / <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_United_Kingdom.pdf" target="_blank" rel="noreferrer">UK</a> / <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_German.pdf" target="_blank" rel="noreferrer">Germany</a> / <a href="https://wearesocial.com/wp-content/uploads/2025/02/Digital_2025_France.pdf" target="_blank" rel="noreferrer">France</a></div>
+          <div>Ipsos：<a href="https://www.ipsos.com/sites/default/files/Ipsos_WTF_Music_Topline.pdf" target="_blank" rel="noreferrer">What the Future: Music</a> / IFPI：<a href="https://www.ifpi.org/wp-content/uploads/2023/12/IFPI-Engaging-With-Music-2023_full-report.pdf" target="_blank" rel="noreferrer">Engaging with Music 2023</a></div>
+          <div>Nielsen / Edison: <a href="https://www.nielsen.com/insights/2025/the-record-q2-audio-listening-trends-2/" target="_blank" rel="noreferrer">Nielsen Q2 2025</a> / <a href="https://www.edisonresearch.com/the-record-q4-2025-u-s-audio-listening-trends/" target="_blank" rel="noreferrer">Edison Q4 2025</a> / <a href="https://www.edisonresearch.com/time-spent-listening-on-an-am-fm-radio-resonates-in-rural-communities/" target="_blank" rel="noreferrer">Share of Ear 2025Q2</a></div>
+          <div>Ofcom: <a href="https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/data/statistics/2024/audio-report-2024/ofcom-audio-report.pdf?v=320716" target="_blank" rel="noreferrer">Audio Report 2024</a> / <a href="https://www.ofcom.org.uk/media-use-and-attitudes/online-habits/from-apps-to-ai-search-how-the-uk-goes-online-in-2025" target="_blank" rel="noreferrer">How the UK goes online in 2025</a></div>
+          <div>可比案例：<a href="https://support.calm.com/hc/en-us/articles/360012060634-Calm-Lifetime-Membership-Price-Upgrade-Steps-Cancellation-Warning" target="_blank" rel="noreferrer">Calm</a>, <a href="https://help.headspace.com/hc/en-us/articles/215035998-How-do-I-purchase-a-subscription" target="_blank" rel="noreferrer">Headspace</a>, <a href="https://help.insighttimer.com/support/solutions/articles/67000664573-does-insight-timer-offer-a-web-application-" target="_blank" rel="noreferrer">Insight Timer</a>, <a href="https://support.bettersleep.com/en/articles/5371738-how-much-does-bettersleep-cost" target="_blank" rel="noreferrer">BetterSleep</a>, <a href="https://www.brain.fm/pricing" target="_blank" rel="noreferrer">Brain.fm</a>, <a href="https://support.spotify.com/at/article/cant-subscribe-to-premium-in-the-ios-app/" target="_blank" rel="noreferrer">Spotify</a>, <a href="https://techcrunch.com/2022/07/25/netflixs-ios-app-now-has-a-sign-up-button-that-takes-you-to-its-website/" target="_blank" rel="noreferrer">Netflix</a></div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <script>
+    const deviceData = {
+      global: { label: "全球", date: "2026-02", desktop: 47.52, mobile: 52.48, lead: "52.48%", leadLabel: "网页流量中移动端更高", role: "移动优先", roleLabel: "获客入口更偏移动端" },
+      us: { label: "美国", date: "2026-02", desktop: 55.03, mobile: 44.97, lead: "55.03%", leadLabel: "网页流量中桌面端更高", role: "桌面端更强", roleLabel: "白天转化尤其适合网页端" },
+      de: { label: "德国", date: "2026-02", desktop: 54.15, mobile: 45.85, lead: "54.15%", leadLabel: "网页流量中桌面端更高", role: "桌面端更强", roleLabel: "桌面网页端不能缺席" },
+      fr: { label: "法国", date: "2026-02", desktop: 49.97, mobile: 50.03, lead: "50.03%", leadLabel: "两端几乎持平", role: "双端均衡", roleLabel: "更适合移动优先 + 网页支付" },
+      uk: { label: "英国", date: "2025-10", desktop: 46.01, mobile: 53.99, lead: "53.99%", leadLabel: "网页流量中移动端更高", role: "移动优先", roleLabel: "移动端承接更重要" }
+    };
+
+    const timeData = [
+      { market: "US", total: "6h40m", mobilePct: 50.5, mobile: "3h22m", computer: "3h18m" },
+      { market: "UK", total: "5h36m", mobilePct: 47.2, mobile: "2h39m", computer: "2h57m" },
+      { market: "DE", total: "5h28m", mobilePct: 49.3, mobile: "2h42m", computer: "2h46m" },
+      { market: "FR", total: "5h23m", mobilePct: 47.6, mobile: "2h34m", computer: "2h49m" }
+    ];
+
+    const paymentData = {
+      us: {
+        label: "美国",
+        values: [
+          { key: "stream", name: "影视流媒体", value: 42.0 },
+          { key: "stream", name: "音乐流媒体", value: 31.8 },
+          { key: "web", name: "网页服务", value: 8.7 },
+          { key: "iap", name: "应用内购", value: 11.6 }
+        ],
+        headline: "42.0%",
+        headlineLabel: "美国 / 影视流媒体",
+        gap: "+33.3pt",
+        gapLabel: "相对网页服务付费的差值",
+        note: "美国最适合先验证“内容订阅型付费墙”。"
+      },
+      uk: {
+        label: "英国",
+        values: [
+          { key: "stream", name: "影视流媒体", value: 36.0 },
+          { key: "stream", name: "音乐流媒体", value: 27.8 },
+          { key: "web", name: "网页服务", value: 6.8 },
+          { key: "iap", name: "应用内购", value: 7.1 }
+        ],
+        headline: "36.0%",
+        headlineLabel: "英国 / 影视流媒体",
+        gap: "+29.2pt",
+        gapLabel: "相对网页服务付费的差值",
+        note: "英国对内容订阅的接受度强，语言优势也更利于测试。"
+      },
+      de: {
+        label: "德国",
+        values: [
+          { key: "stream", name: "影视流媒体", value: 42.9 },
+          { key: "stream", name: "音乐流媒体", value: 33.5 },
+          { key: "web", name: "网页服务", value: 5.6 },
+          { key: "iap", name: "应用内购", value: 10.5 }
+        ],
+        headline: "42.9%",
+        headlineLabel: "德国 / 影视流媒体",
+        gap: "+37.3pt",
+        gapLabel: "相对网页服务付费的差值",
+        note: "德国桌面 Web 强，且 streaming 付费心智成熟，但价值表达要更理性。"
+      },
+      fr: {
+        label: "法国",
+        values: [
+          { key: "stream", name: "影视流媒体", value: 30.6 },
+          { key: "stream", name: "音乐流媒体", value: 22.1 },
+          { key: "web", name: "网页服务", value: 5.4 },
+          { key: "iap", name: "应用内购", value: 4.0 }
+        ],
+        headline: "30.6%",
+        headlineLabel: "法国 / 影视流媒体",
+        gap: "+25.2pt",
+        gapLabel: "相对网页服务付费的差值",
+        note: "法国更偏 mobile web，但音频付费心智略弱于美国和德国。"
+      }
+    };
+
+    const scenarioData = {
+      night: {
+        title: "夜间助眠",
+        stat: "移动深体验优先",
+        punch: "夜间体验要把摩擦降到最低。",
+        body: "睡前、半夜醒来和床上使用，决定了锁屏控制、后台播放、定时关闭和断点续播的重要性。",
+        tags: ["锁屏控制", "后台播放", "离线", "低光界面"],
+        left: "App / PWA",
+        leftLabel: "更强载体",
+        right: "网页端",
+        rightLabel: "负责注册 / 续费 / 轻试听"
+      },
+      day: {
+        title: "白天放松",
+        stat: "双端都可承接",
+        punch: "白天恢复场景更适合轻量进入与快速分享。",
+        body: "午休、通勤、情绪恢复更看重打开快、链接可分享、播放无需复杂引导，因此 Web 与 App 均可承接。",
+        tags: ["快速进入", "链接分享", "轻播放", "即时恢复"],
+        left: "网页端 + App",
+        leftLabel: "都能承担播放",
+        right: "网页端",
+        rightLabel: "更适合流量承接"
+      },
+      work: {
+        title: "工作 / 学习",
+        stat: "桌面转化更强",
+        punch: "白天工作与学习时段，是 Web 发挥价值的高密度窗口。",
+        body: "办公、学习与 WFH 场景下，桌面 Web 更适合完成发现、注册、订阅和轻播放，移动端则补充延续性使用。",
+        tags: ["桌面网页", "试听转化", "远程办公", "多端同步"],
+        left: "网页端",
+        leftLabel: "发现 / 转化 / 管理",
+        right: "App / PWA",
+        rightLabel: "做深体验补位"
+      }
+    };
+
+    const priorityData = {
+      us: "美国优先。订阅文化成熟，工作场景 Desktop Web 强，最适合先验证“Web 转化层 + 移动深体验”的组合。",
+      uk: "英国第二。语言与媒体环境更利于快速测试内容和付费表达，数据透明度也高。",
+      de: "德国第三。桌面 Web 强、streaming 付费成熟，但文案和价值承诺需要更理性、更克制。"
+    };
+
+    function updateDeviceChart(market) {
+      const current = deviceData[market];
+      const desktopEl = document.getElementById("deviceDesktop");
+      const mobileEl = document.getElementById("deviceMobile");
+      desktopEl.style.width = current.desktop + "%";
+      mobileEl.style.left = current.desktop + "%";
+      mobileEl.style.width = current.mobile + "%";
+      document.getElementById("deviceTitle").textContent = current.label;
+      document.getElementById("deviceDate").textContent = current.date;
+      document.getElementById("deviceDesktopLabel").textContent = "桌面 " + current.desktop.toFixed(2) + "%";
+      document.getElementById("deviceMobileLabel").textContent = "移动 " + current.mobile.toFixed(2) + "%";
+      document.getElementById("deviceLead").textContent = current.lead;
+      document.getElementById("deviceLeadLabel").textContent = current.leadLabel;
+      document.getElementById("deviceRole").textContent = current.role;
+      document.getElementById("deviceRoleLabel").textContent = current.roleLabel;
+    }
+
+    function renderDeviceMini() {
+      const mini = document.getElementById("deviceMiniChart");
+      mini.innerHTML = Object.entries(deviceData).map(([key, item]) => {
+        const lead = item.desktop >= item.mobile ? item.desktop : item.mobile;
+        return `
+          <div class="mini-row">
+            <span>${item.label.replace("United ", "")}</span>
+            <div class="mini-track">
+              <div class="mini-fill" style="width:${lead}%;"></div>
+            </div>
+            <strong>${lead.toFixed(2)}%</strong>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderTimeChart() {
+      const node = document.getElementById("timeChart");
+      node.innerHTML = timeData.map(item => {
+        const computerPct = +(100 - item.mobilePct).toFixed(1);
+        return `
+          <div class="stack-item">
+            <span>${item.market}</span>
+            <div class="stack-bar">
+              <div class="stack-mobile" style="width:${item.mobilePct}%;"></div>
+              <div class="stack-computer" style="left:${item.mobilePct}%; width:${computerPct}%;"></div>
+            </div>
+            <strong>${item.mobilePct}%</strong>
+          </div>
+          <div class="note" style="margin-top:-6px; margin-bottom:6px;">${item.market}: 移动端 ${item.mobile} / 电脑+平板 ${item.computer} / 总计 ${item.total}</div>
+        `;
+      }).join("");
+    }
+
+    function updatePaymentChart(market) {
+      const current = paymentData[market];
+      const chart = document.getElementById("paymentChart");
+      chart.innerHTML = current.values.map(item => `
+        <div class="pay-col">
+          <div class="pay-bar-wrap">
+            <div class="pay-bar ${item.key}" style="height:${item.value * 4.4}px;">
+              <span class="pay-value">${item.value.toFixed(1)}%</span>
+            </div>
+          </div>
+          <div class="pay-label">${item.name}</div>
+        </div>
+      `).join("");
+      document.getElementById("paymentHeadline").textContent = current.headline;
+      document.getElementById("paymentHeadlineLabel").textContent = current.headlineLabel;
+      document.getElementById("paymentGap").textContent = current.gap;
+      document.getElementById("paymentGapLabel").textContent = current.gapLabel;
+      document.getElementById("paymentNote").textContent = "Digital 2025 / GWI Q3 2024。口径：每月为该类数字内容付费的 16+ 网民比例。 " + current.note;
+    }
+
+    function updateScenario(mode) {
+      const current = scenarioData[mode];
+      document.getElementById("scenarioTitle").textContent = current.title;
+      document.getElementById("scenarioStat").textContent = current.stat;
+      document.getElementById("scenarioPunch").textContent = current.punch;
+      document.getElementById("scenarioBody").textContent = current.body;
+      document.getElementById("scenarioLeft").textContent = current.left;
+      document.getElementById("scenarioLeftLabel").textContent = current.leftLabel;
+      document.getElementById("scenarioRight").textContent = current.right;
+      document.getElementById("scenarioRightLabel").textContent = current.rightLabel;
+      document.getElementById("scenarioTags").innerHTML = current.tags.map(tag => `<span class="pill">${tag}</span>`).join("");
+    }
+
+    function setPriority(market) {
+      document.getElementById("priorityCopy").textContent = priorityData[market];
+    }
+
+    function activateButtons(containerId, callback) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.addEventListener("click", event => {
+        const btn = event.target.closest("button[data-market], button[data-scenario]");
+        if (!btn) return;
+        [...container.querySelectorAll("button")].forEach(el => el.classList.remove("active"));
+        btn.classList.add("active");
+        if (btn.dataset.market) callback(btn.dataset.market);
+        if (btn.dataset.scenario) callback(btn.dataset.scenario);
+      });
+    }
+
+    function setupCaseCards() {
+      document.querySelectorAll(".case-card").forEach(card => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("flipped");
+        });
+      });
+    }
+
+    function setupReveal() {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      }, { threshold: 0.18 });
+
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    }
+
+    function setupNav() {
+      const links = [...document.querySelectorAll("#nav a")];
+      const sections = links.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          links.forEach(link => {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+          });
+        });
+      }, { threshold: 0.44 });
+      sections.forEach(section => observer.observe(section));
+    }
+
+    function setupFocusMode() {
+      const btn = document.getElementById("focusToggle");
+      const toggle = () => {
+        document.body.classList.toggle("focus");
+        btn.textContent = document.body.classList.contains("focus") ? "退出专注" : "专注模式";
+      };
+      btn.addEventListener("click", toggle);
+      document.addEventListener("keydown", event => {
+        if (event.key.toLowerCase() === "f" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
+          toggle();
+        }
+      });
+    }
+
+    function setupCopy() {
+      const button = document.getElementById("copySummary");
+      button.addEventListener("click", async () => {
+        const text = "SleepAI 欧美 WebApp 结论：网页端拿增长与订单，App/PWA 拿夜间体验与留存。美国和德国的桌面网页仍强，四国移动上网时长占比约 47%–51%，最适合先做网页转化层，再补 PWA 与原生深体验。";
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = "已复制";
+          setTimeout(() => {
+            button.textContent = "复制摘要";
+          }, 1600);
+        } catch (error) {
+          button.textContent = "复制失败";
+          setTimeout(() => {
+            button.textContent = "复制摘要";
+          }, 1600);
+        }
+      });
+    }
+
+    renderDeviceMini();
+    renderTimeChart();
+    updateDeviceChart("global");
+    updatePaymentChart("us");
+    updateScenario("night");
+    setPriority("us");
+
+    activateButtons("deviceSwitch", updateDeviceChart);
+    activateButtons("paymentSwitch", updatePaymentChart);
+    activateButtons("scenarioSwitch", updateScenario);
+    activateButtons("prioritySwitch", setPriority);
+    setupCaseCards();
+    setupReveal();
+    setupNav();
+    setupFocusMode();
+    setupCopy();
+  </script>
+</body>
+</html>

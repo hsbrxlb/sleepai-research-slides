@@ -464,6 +464,36 @@
       line-height: 1;
     }
 
+    .bubble-card.future {
+      border-color: #cbb2bd;
+      background: linear-gradient(180deg, #fff8fb 0%, #fbeff4 100%);
+      box-shadow: 0 10px 28px rgba(128, 72, 96, 0.07);
+    }
+
+    .bubble-card.future strong {
+      color: #8d4c58;
+    }
+
+    .bubble-card.future .bubble-route {
+      background: rgba(141, 76, 88, 0.1);
+      color: #7d4350;
+    }
+
+    .future-note {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border: 1px solid #dcc7d0;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff9fb 0%, #fef3f6 100%);
+      color: #4d2c34;
+    }
+
+    .future-note strong {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #8d4c58;
+    }
+
     .cta-preview {
       margin-top: 18px;
       padding: 22px 22px 24px;
@@ -774,14 +804,14 @@
       <details>
         <summary>目录</summary>
         <nav aria-label="移动目录">
-          <a href="#entry-onboarding">01. 登录注册与新用户</a>
-          <a href="#home-routing">02. 首页功能调用</a>
+          <a href="#entry-onboarding">01. 新用户</a>
+          <a href="#home-routing">02. 首页入口</a>
           <div class="toc-group">
-            <a href="#module-rules" class="toc-parent">03. 模块执行规则</a>
+            <a href="#module-rules" class="toc-parent">03. 模块规则</a>
             <div class="toc-sub">
-              <a href="#shared-rules">跨模块共通规则</a>
-              <a href="#onboarding">新用户执行细则</a>
-              <a href="#personas">默认人设与提示词</a>
+              <a href="#shared-rules">通用规则</a>
+              <a href="#onboarding">新用户文案</a>
+              <a href="#personas">人设与提示词</a>
               <a href="#story">AI 故事</a>
               <a href="#meditation">AI 冥想</a>
               <a href="#breathing">AI 呼吸</a>
@@ -792,8 +822,8 @@
               <a href="#cycle">经期</a>
             </div>
           </div>
-          <a href="#morning-report">04. 晨间监测与睡眠报告</a>
-          <a href="#push-boundaries">05. 推送与全局边界</a>
+          <a href="#morning-report">04. 晨间反馈</a>
+          <a href="#push-boundaries">05. 推送</a>
         </nav>
       </details>
     </div>
@@ -801,14 +831,14 @@
     <div class="layout">
       <nav class="toc" aria-label="目录导航">
         <strong>目录</strong>
-        <a href="#entry-onboarding">01. 登录注册与新用户</a>
-        <a href="#home-routing">02. 首页功能调用</a>
+        <a href="#entry-onboarding">01. 新用户</a>
+        <a href="#home-routing">02. 首页入口</a>
         <div class="toc-group" data-group="module-rules">
-          <a href="#module-rules" class="toc-parent">03. 模块执行规则</a>
+          <a href="#module-rules" class="toc-parent">03. 模块规则</a>
           <div class="toc-sub">
-            <a href="#shared-rules">跨模块共通规则</a>
-            <a href="#onboarding">新用户执行细则</a>
-            <a href="#personas">默认人设与提示词</a>
+            <a href="#shared-rules">通用规则</a>
+            <a href="#onboarding">新用户文案</a>
+            <a href="#personas">人设与提示词</a>
             <a href="#story">AI 故事</a>
             <a href="#meditation">AI 冥想</a>
             <a href="#breathing">AI 呼吸</a>
@@ -819,20 +849,18 @@
             <a href="#cycle">经期</a>
           </div>
         </div>
-        <a href="#morning-report">04. 晨间监测与睡眠报告</a>
-        <a href="#push-boundaries">05. 推送与全局边界</a>
+        <a href="#morning-report">04. 晨间反馈</a>
+        <a href="#push-boundaries">05. 推送</a>
       </nav>
 
       <main class="content">
         <header class="doc-head">
           <div class="kicker">Pufflo</div>
-          <h1 id="top">Pufflo 产品与规则手册</h1>
-          <p class="doc-lead">这里保留固定文案、语义路由规则、功能调用条件、LLM prompt 和边界约束。</p>
+          <h1 id="top">Pufflo 规则手册</h1>
         </header>
 
         <section class="section" id="entry-onboarding">
-          <h2>登录注册与新用户开场</h2>
-          <p class="section-intro">只保留首轮体验里真正要落地的固定文案和分流规则。</p>
+          <h2>新用户</h2>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -849,7 +877,6 @@
 
           <div class="subsection">
             <h3>首次首页气泡与自定义人设卡片</h3>
-            <p class="section-intro">首次首页保留 4 个固定气泡，其中一个显式承接“闭眼即启动”的极低摩擦入口。</p>
             <div class="bubble-grid">
               <article class="bubble-card">
                 <strong>气泡 01</strong>
@@ -863,14 +890,20 @@
               </article>
               <article class="bubble-card">
                 <strong>气泡 03</strong>
-                <p><span class="bilingual">My eyes are closed. Start sleep now.（我已闭眼，开始助眠吧。）</span></p>
-                <span class="bubble-route">进入闭眼即启动流程</span>
+                <p><span class="bilingual">Help my whole body unclench and sink deeper.（带我松开全身紧绷，慢慢沉下去。）</span></p>
+                <span class="bubble-route">进入 AI 冥想 / AI 呼吸</span>
               </article>
               <article class="bubble-card">
                 <strong>气泡 04</strong>
                 <p><span class="bilingual">Start sleep tracking and help me read the night tomorrow.（开始睡眠监测，明早帮我读懂这一夜。）</span></p>
                 <span class="bubble-route">进入睡眠监测 / 次晨报告</span>
               </article>
+            </div>
+
+            <div class="future-note">
+              <strong>未来版本</strong>
+              <p><span class="bilingual">My eyes are closed. Start sleep now.（我已闭眼，开始助眠吧。）</span></p>
+              <p>预留为语义启动入口。当前版本不启用。</p>
             </div>
 
             <div class="cta-preview">
@@ -887,15 +920,15 @@
                 </tr>
                 <tr>
                   <th>点击行为</th>
-                  <td>4 个气泡分别直达故事、舒缓陪伴、闭眼即启动、睡眠监测；自定义人设卡片点击后跳转至自定义人设设置页。</td>
+                  <td>4 个气泡分别直达故事、舒缓陪伴、冥想 / 呼吸、睡眠监测；自定义人设卡片点击后跳转至自定义人设设置页。</td>
                 </tr>
                 <tr>
                   <th>文案要求</th>
                   <td>气泡文案必须短、可一眼看懂、像用户会直接点的请求；避免抽象口号、避免过长导致气泡高度失控。</td>
                 </tr>
                 <tr>
-                  <th>闭眼即启动</th>
-                  <td>“我已闭眼”这类气泡要足够显眼，让用户知道只要按住语音说出这句话，系统就可以立刻进入预设助眠链路，减少睡前最后几步操作。</td>
+                  <th>未来版本预留</th>
+                  <td>“我已闭眼”相关语义启动入口保留在文档中，供后续版本接入。当前版本不放入首屏 4 个正式气泡。</td>
                 </tr>
               </tbody>
             </table>
@@ -903,7 +936,6 @@
 
           <div class="subsection">
             <h3>非首次引导话题</h3>
-            <p class="section-intro">非首次首页不写死 3 条固定文案；改由模型根据时间、历史 chat 和记忆生成 3 条更贴近当下状态的建议问题。</p>
             <table class="spec-table">
               <tbody>
                 <tr>
@@ -912,9 +944,9 @@
                     <ul>
                       <li>一次生成 3 条建议问题或建议指令。</li>
                       <li>优先参考最近的高频使用轨迹、常见困扰、常用模块和当前本地时间。</li>
-                      <li>白天不主动出现“闭眼”“睡吧”“把手机放下”这类强睡前表达。</li>
-                      <li>夜晚可以让 1 条建议转成极低摩擦启动语，例如“我已闭眼”“我马上闭眼”。</li>
-                      <li>3 条里最多 1 条走闭眼即启动，另外 2 条仍保留信息问答或内容陪伴入口。</li>
+                      <li>白天不主动出现“睡吧”“把手机放下”这类强睡前表达。</li>
+                      <li>夜晚优先给轻陪伴、轻监测、轻提问，不写固定闭眼启动语。</li>
+                      <li>3 条里尽量覆盖问答、内容陪伴、监测 / 分析入口，不堆同一种语义。</li>
                     </ul>
                   </td>
                 </tr>
@@ -923,8 +955,8 @@
                   <td>
                     <div class="prompt-block">
                       <p><span class="bilingual">You are generating exactly three returning user suggestion chips for Pufflo home. Use the user's recent chat history, saved memory, recent module usage, and local time. Output three short English lines only, each with a Chinese translation in parentheses for review. Keep each line short enough to fit a small chip.（你现在要为 Pufflo 首页生成 3 条非首次用户建议问题。参考用户最近聊天记录、记忆、最近使用过的模块和本地时间。只输出 3 条简短英文，每条后面附中文括号翻译供评审。每条都必须短到可以放进小气泡里。）</span></p>
-                      <p><span class="bilingual">During daytime, avoid closed eyes, fall asleep now, put the phone away, or any wording that assumes the user is already going to bed. Prefer questions about stress, recovery, snoring, waking up, and overall wellbeing.（如果是白天，不要写 closed eyes、fall asleep now、put the phone away 这类默认用户马上要睡的表达。白天更适合压力、恢复、打鼾、夜醒、整体状态类问题。）</span></p>
-                      <p><span class="bilingual">During evening or late night, you may let one chip become a low friction start command such as My eyes are closed or I am about to close my eyes, but only if the user's history suggests they often want quick sleep start, passive playback, or low effort bedtime support.（如果是晚上或深夜，可以让其中 1 条变成低摩擦启动指令，例如 My eyes are closed 或 I am about to close my eyes，但前提是用户历史里确实表现出更偏好快速启动、被动播放、低操作睡前支持。）</span></p>
+                      <p><span class="bilingual">During daytime, avoid fall asleep now, put the phone away, or any wording that assumes the user is already going to bed. Prefer questions about stress, recovery, snoring, waking up, and overall wellbeing.（如果是白天，不要写 fall asleep now、put the phone away 这类默认用户马上要睡的表达。白天更适合压力、恢复、打鼾、夜醒、整体状态类问题。）</span></p>
+                      <p><span class="bilingual">During evening or late night, you may make one chip more immediate and low friction, but do not use closed eyes style start commands in the current version. Keep the suggestions within currently active lanes such as story, gentle guidance, sleep tracking, or next morning review.（如果是晚上或深夜，可以让其中 1 条更直接、更低摩擦，但当前版本不要使用 closed eyes 这类启动语。建议问题仍然落在当前已经启用的故事、轻引导、睡眠监测、次晨回看这些入口里。）</span></p>
                       <p><span class="bilingual">Do not repeat the same semantic intent three times. Mix information seeking, emotional support, and action oriented entry points when possible. Avoid sounding generic, clinical, or too salesy.（不要让 3 条都在说同一种意思。尽量在信息询问、情绪支持、动作入口之间做搭配。避免太模板、太临床、太像促销。）</span></p>
                     </div>
                   </td>
@@ -940,19 +972,23 @@
                 <tr>
                   <th>夜晚示例</th>
                   <td>
-                    <p><span class="bilingual">My eyes are closed. Start sleep now.（我已闭眼，开始助眠吧。）</span></p>
                     <p><span class="bilingual">Give me something gentler for tonight.（给我一点更适合今晚的柔和陪伴。）</span></p>
+                    <p><span class="bilingual">Help me settle my body before sleep.（帮我在睡前先把身体安顿下来。）</span></p>
                     <p><span class="bilingual">Tell me why I kept waking up last night.（告诉我昨晚为什么一直醒。）</span></p>
                   </td>
                 </tr>
               </tbody>
             </table>
+
+            <div class="future-note">
+              <strong>未来版本</strong>
+              <p>夜晚建议问题可加入“我已闭眼”“我马上闭眼”这类语义启动入口，并和语义识别链路联动。当前版本不启用。</p>
+            </div>
           </div>
         </section>
 
         <section class="section" id="home-routing">
-          <h2>首页功能调用</h2>
-          <p class="section-intro">首页入口用于把用户送到正确功能，而不是把所有能力堆成菜单。</p>
+          <h2>首页入口</h2>
           <table class="matrix">
             <thead>
               <tr>
@@ -964,13 +1000,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>闭眼即启动</td>
-                <td>用户明确说出我已闭眼、我马上闭眼、开始睡吧、手机要放下了这类即将停止交互的睡前启动语</td>
-                <td><span class="bilingual">Okay. Sleep starts now. You can put the phone aside.（好，助眠现在开始。你可以把手机放一边了。）</span></td>
-                <td>进入预设助眠链路</td>
-                <td>白天、用户仍明显想继续聊天、或当前语义并不是真正准备入睡时</td>
-              </tr>
               <tr>
                 <td>AI 冥想</td>
                 <td>脑子很亮、还能跟住简短语言，适合低压引导</td>
@@ -1050,15 +1079,15 @@
               </tr>
             </tbody>
           </table>
-          <div class="route-note">首页默认路由优先级：安全模式 &gt; 用户明确点名 &gt; 单次轻推荐 &gt; 继续聊天。建议问题和主动卡片用于把用户送入最合适的功能，不用于功能罗列。</div>
+          <div class="route-note">路由优先级：安全模式 &gt; 用户明确点名 &gt; 单次轻推荐 &gt; 继续聊天。</div>
 
           <div class="subsection">
-            <h3>闭眼即启动识别与启动规则</h3>
+            <h3>未来版本预留：闭眼即启动</h3>
             <table class="spec-table">
               <tbody>
                 <tr>
                   <th>目标</th>
-                  <td>把“我已闭眼”这类一句话变成最傻瓜、最低摩擦的睡前启动入口，让用户在极少操作里进入预设助眠流程。</td>
+                  <td>把“我已闭眼”这类一句话变成极低摩擦的睡前启动入口。</td>
                 </tr>
                 <tr>
                   <th>识别提示词</th>
@@ -1079,7 +1108,7 @@
                 </tr>
                 <tr>
                   <th>触发后的去向</th>
-                  <td>识别成功后直接进入预设助眠链路。链路组合由后端配置决定，例如白噪音加故事、底噪加音乐、短呼吸后接背景播放；页面只负责保留“闭眼即启动”入口和识别规则。</td>
+                  <td>识别成功后进入预设助眠链路。链路组合由后端配置决定。</td>
                 </tr>
               </tbody>
             </table>
@@ -1087,12 +1116,11 @@
         </section>
 
         <section class="section" id="module-rules">
-          <h2>模块执行规则</h2>
-          <p class="section-intro">跨模块共通规则先定义角色范围、禁语边界、安全切换、追问上限和结束方式；后续各模块分别列出字段、交互、触发条件、首句文案、内部提示词和边界兜底。</p>
+          <h2>模块规则</h2>
           <div class="section-links" aria-label="模块细节跳转">
-            <a href="#shared-rules">跨模块共通规则</a>
-            <a href="#onboarding">新用户执行细则</a>
-            <a href="#personas">默认人设与提示词</a>
+            <a href="#shared-rules">通用规则</a>
+            <a href="#onboarding">新用户文案</a>
+            <a href="#personas">人设与提示词</a>
             <a href="#story">AI 故事</a>
             <a href="#meditation">AI 冥想</a>
             <a href="#breathing">AI 呼吸</a>
@@ -1105,8 +1133,7 @@
         </section>
 
         <section class="section" id="shared-rules">
-          <h2>跨模块共通规则</h2>
-          <p class="section-intro">所有夜间模块共用同一套角色范围、禁语边界、安全切换、触发优先级、追问上限、默认值和结束方式。具体路由判断仍放回各自模块。</p>
+          <h2>通用规则</h2>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -1191,7 +1218,7 @@
         </section>
 
         <section class="section" id="onboarding">
-          <h2>新用户执行细则</h2>
+          <h2>新用户文案</h2>
           <div class="subsection">
             <h3>注册</h3>
           </div>
@@ -1233,8 +1260,7 @@
         </section>
 
         <section class="section" id="personas">
-          <h2>默认人设与提示词</h2>
-          <p class="section-intro">默认基础提示词、默认音色规格，以及 6 个默认人设的补充提示词和示例都放在这里。</p>
+          <h2>人设与提示词</h2>
 
           <div class="subsection">
             <h3>默认基础提示词</h3>
@@ -1414,7 +1440,6 @@
 
         <section class="section" id="story">
           <h2>AI 故事</h2>
-          <p class="section-intro">故事模块负责把注意力从反复想，带到慢慢放松。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -1444,15 +1469,12 @@
                 </td>
               </tr>
               <tr>
-                <th>何时触发</th>
+                <th>进入条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确要“故事 / 朗读 / bedtime story / read to me / narrate something”。这是最强触发，直接按故事模块走。</li>
-                    <li>用户没有点名“故事”，但明确要“让我别再想了”“带我离开脑子里的东西”“给我一点能闭眼听的内容”，也可判定为故事优先。</li>
-                    <li>用户的核心需求是持续被内容带着走，而不是做练习、回答问题、理解原因，这时故事优先于冥想和呼吸。</li>
-                    <li>只允许在以下情况下做一次轻推荐：用户明显在反刍、越聊越绕、想被陪、又不想继续分析，并且听起来还能稳定跟随连续语音内容。</li>
-                    <li>分流优先级要写清：如果用户更想被“带着听”，进故事；如果更像需要“做一个简单动作”，优先呼吸；如果更像需要“轻引导安静下来”，优先冥想；如果明确说不要说话，只走音乐。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Enter Story when the user explicitly asks for a story, narration, bedtime reading, or something to listen to while drifting off. Also enter Story when the user wants to get out of their head by being carried by content rather than by doing an exercise.（当用户明确要故事、朗读、睡前阅读，或想听着慢慢睡过去时，进入 Story。若用户更想被内容带着走，而不是做练习，也进入 Story。）</span></p>
+                    <p><span class="bilingual">If the user sounds like they want continuous voice content more than analysis, questions, or body work, Story can win over Meditation and Breathing. If the signal is weak, wait for one stronger content seeking cue before routing.（如果用户更像想听连续语音内容，而不是分析、问答或身体练习，Story 可以优先于 Meditation 和 Breathing。若信号还弱，先等一个更强的内容需求再路由。）</span></p>
+                  </div>
                   <p><span class="bilingual">Tell me a sleep story.（给我讲个睡前故事。）</span></p>
                   <p><span class="bilingual">Can you read me something until I fall asleep?（你能读点什么陪我睡着吗？）</span></p>
                   <p><span class="bilingual">I need something to get me out of my head.（我需要点什么把我从脑子里拽出来。）</span></p>
@@ -1460,15 +1482,12 @@
                 </td>
               </tr>
               <tr>
-                <th>何时不触发</th>
+                <th>不进条件</th>
                 <td>
-                  <ul>
-                    <li>用户是在问原因、问建议、问产品能力，或者想先把情绪说清楚；这时继续聊，不直接进故事。</li>
-                    <li>用户明确说不要内容、不要说话、只要背景声，故事就不触发，改走音乐或安静模式。</li>
-                    <li>用户说自己现在跟不住内容、听故事会烦、越听越清醒，不能再推荐故事。</li>
-                    <li>用户正处在强惊恐、明显医学风险、极强身体不适或危机状态，不能用故事覆盖问题。</li>
-                    <li>只有一句“我睡不着”还不够。除非后续又出现“给我讲点什么”“别让我再想了”这类更强信号，否则不直接切故事。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not enter Story when the user wants explanation, emotional venting, product information, silence, or pure background sound. Do not enter Story when the user says stories feel irritating, too vivid, or too wakeful.（如果用户要解释、倾诉、功能信息、安静，或纯背景声，就不要进入 Story。若用户说故事会烦、太鲜活、越听越清醒，也不要进入 Story。）</span></p>
+                    <p><span class="bilingual">A vague I cannot sleep is not enough by itself. Stay in chat until the user asks for content or clearly shows they want to be carried by voice. Never use Story to cover panic, medical risk, or crisis.（单独一句“我睡不着”还不够。先留在聊天里，直到用户明确要内容，或明显想被声音带走。绝不能用 Story 去盖住惊恐、医学风险或危机。）</span></p>
+                  </div>
                   <p><span class="bilingual">I just need to vent for a minute.（我只是想先吐槽一下。）</span></p>
                   <p><span class="bilingual">Why can't I sleep lately?（我最近为什么总睡不着？）</span></p>
                   <p><span class="bilingual">Play rain sounds, no talking.（放雨声就好，不要说话。）</span></p>
@@ -1476,25 +1495,28 @@
                 </td>
               </tr>
               <tr>
-                <th>缺失信息时怎么追问</th>
+                <th>缺信息时怎么问</th>
                 <td>
-                  <p><span class="bilingual">I can do that. How long do you want, and what kind of world should I open for you tonight?（可以。你想听多久，以及今晚想进一个什么样的世界？）</span></p>
-                  <p><span class="bilingual">Do you want it warmer, dreamier, or almost quiet?（你想要更温暖一点、更像做梦一点，还是几乎安静无剧情一点？）</span></p>
-                  <p class="caption">补充信息只围绕时长、类别和必要偏好。用户很累时只问前两项。</p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Story is chosen and key details are missing, ask for duration first and story feel second. Ask at most two short questions. If the user sounds exhausted, ask only for duration and use a soft default world.（如果已经进入 Story 但关键信息缺失，先问时长，再问故事感觉。最多问两个短问题。若用户已经很累，只问时长，其余使用柔和默认值。）</span></p>
+                    <p><span class="bilingual">Use short prompts such as How long do you want tonight and Do you want it warmer, dreamier, or almost quiet. Do not ask for backstory, preferences lists, or detailed world building.（使用 How long do you want tonight 和 Do you want it warmer, dreamier, or almost quiet 这种短问题。不要追问背景故事、偏好清单或详细设定。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>用户主动说了以后怎么回</th>
+                <th>用户点名后怎么回</th>
                 <td>
-                  <p><span class="bilingual">I can do that. Before I start, tell me how long you'd like and what kind of feeling you want tonight.（可以。我开始前，告诉我你想听多久，以及今晚想要什么样的感觉。）</span></p>
-                  <p><span class="bilingual">Okay. I'll carry the story from here and keep it easy to drift away from.（好。接下来我带着故事往下走，也会让它容易被你慢慢听丢。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When the user explicitly asks for Story, answer with one warm acceptance line, then one short setup question if needed. Example: I can do that. Tell me how long you want, and I will keep it easy to drift away from.（当用户明确点名 Story 时，先用一句温和接住，再在需要时补一个简短设问。示例：I can do that. Tell me how long you want, and I will keep it easy to drift away from.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>系统判断该推荐时怎么回</th>
+                <th>系统推荐时怎么回</th>
                 <td>
-                  <p><span class="bilingual">You sound tired in a way that may do better with a story than more thinking. Want me to tell you one for ten minutes?（你现在像是更适合被故事带走，而不是继续想事情。要我给你讲一个十分钟左右的吗？）</span></p>
-                  <p><span class="bilingual">We could let a story hold the night for a little while. Want that?（我们也可以先让一个故事把这个夜晚接过去一会儿。你想试试吗？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Story is being recommended rather than requested, use one light invitation only. Do not sound certain or pushy. Good lines are: You sound like a story may carry this better than more thinking. Want a short one, or We could let a story hold the night for a little while.（如果 Story 是系统推荐而不是用户点名，只用一句轻邀请，不要说得太笃定或太用力。可用句式如：You sound like a story may carry this better than more thinking. Want a short one 或 We could let a story hold the night for a little while.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -1513,42 +1535,35 @@
                 </td>
               </tr>
               <tr>
-                <th>调用规则</th>
+                <th>调用提示词</th>
                 <td>
-                  <ul>
-                    <li>进入前先跑安全判断；命中风险即退出故事流。</li>
-                    <li>先读历史偏好：故事时长、类别偏好、避雷项、常用声景。</li>
-                    <li>缺信息时只允许一次澄清；用户明显疲惫则直接补默认值。</li>
-                    <li>中途用户说“太有剧情了”“换轻一点的”时，允许实时把内容收轻，不需要退出当前流程。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Before generating Story, run safety first, then read stored preferences for duration, theme, avoid list, and preferred sound bed. If key data is missing, ask once, then default. If the user says the story is too plot heavy, too vivid, or too wakeful, stay in Story and immediately soften the content instead of exiting.（生成 Story 前，先跑安全判断，再读取时长、主题、避雷项和偏好声景。关键信息缺失时只问一次，然后补默认值。若用户说故事太有剧情、太鲜活或越听越清醒，留在 Story 内立刻收轻，不要先退出。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>背景音 / 声景怎么配</th>
+                <th>背景音怎么配</th>
                 <td>
-                  <ul>
-                    <li>默认优先：窗边雨、远海、棕噪、极轻钢琴加水声。</li>
-                    <li>孤独型夜晚可配轻壁炉或篝火。</li>
-                    <li>后半段背景必须更薄，不能跟故事抢注意力。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">For Story background, prefer window rain, distant ocean, brown noise, or very light piano with water. On lonely nights, a soft fireplace can work. Thin the background in the second half and never let it compete with narration.（Story 的背景优先使用窗边雨、远海、棕噪，或极轻的钢琴加水声。孤独感更重的夜晚可以用很轻的壁炉。后半段继续变薄，不能和旁白抢注意力。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>结束时怎么说</th>
+                <th>结束话术</th>
                 <td>
-                  <p><span class="bilingual">You do not need to follow every word now. Just let the story go a little farther than you do.（你现在不需要再跟住每一个词了。让故事比你再往前走一点点就好。）</span></p>
-                  <p><span class="bilingual">I'll get quieter from here. You can just drift.（接下来我会更安静。你只要慢慢漂下去就好。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">End Story with one or two very light lines only. Good endings include: You do not need to follow every word now. Just let the story go a little farther than you do, and I'll get quieter from here. You can just drift.（结束 Story 时只留一到两句很轻的话。可用句式如：You do not need to follow every word now. Just let the story go a little farther than you do，以及 I'll get quieter from here. You can just drift.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>边界与兜底处理</th>
+                <th>边界与兜底</th>
                 <td>
-                  <ul>
-                    <li>危机情境下不继续讲故事。</li>
-                    <li>不讲争吵、追逐、灾难、强悬念等高激活内容。</li>
-                    <li>不把宗教内容混进普通故事，除非用户明确要求。</li>
-                    <li>用户更烦躁时先停故事，回到对话层或切呼吸层。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Never continue Story in crisis or medical risk. Avoid arguments, chase scenes, disasters, sharp suspense, or any high activation content. Do not mix in religious material unless the user explicitly asked for it. If the user gets more irritated, stop Story and hand off to chat or Breathing.（遇到危机或医学风险时绝不能继续 Story。避免争吵、追逐、灾难、强悬念等高激活内容。除非用户明确要求，否则不要混入宗教内容。若用户更烦躁，就停下 Story，转回聊天或 Breathing。）</span></p>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -1557,7 +1572,6 @@
 
         <section class="section" id="meditation">
           <h2>AI 冥想</h2>
-          <p class="section-intro">冥想模块只做低压力引导，不讲理论。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -1587,15 +1601,12 @@
                 </td>
               </tr>
               <tr>
-                <th>何时触发</th>
+                <th>进入条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确说要冥想、body scan、guided wind-down、guided relaxation，直接进入冥想模块。</li>
-                    <li>用户虽然没说“冥想”，但明确想要一个有人带着走的安静流程，而且接受简短指令、不排斥把注意力拉回身体，也可进冥想。</li>
-                    <li>用户更像是“脑子太亮、停不下来、情绪残留多”，但身体不一定高度失控，这时冥想优先于呼吸。</li>
-                    <li>规则推荐只在用户还能跟得住简单语言、也没有明确抗拒引导时做一次；推荐语要轻，不默认用户愿意进入练习。</li>
-                    <li>分流上，冥想介于聊天和呼吸之间：它比聊天更结构化，但比呼吸更长、更柔和；如果用户要的是“立刻能做的一件小事”，先推呼吸，不先推冥想。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Enter Meditation when the user explicitly asks for meditation, body scan, guided wind down, or a gentle guided flow before sleep. Also enter Meditation when the user wants calm guidance, can still follow short language, and does not resist bringing attention back to body or rest.（当用户明确要冥想、身体扫描、睡前引导，或柔和的引导流程时，进入 Meditation。若用户想要轻引导，也还能跟住短句，并不抗拒把注意力带回身体或休息，也进入 Meditation。）</span></p>
+                    <p><span class="bilingual">Meditation wins when the mind is bright and emotionally full but the body is not yet in acute panic. If the user needs one tiny physical action right now, Breathing may fit better first.（当用户脑子很亮、情绪残留很多，但身体还没有进入急性惊恐时，Meditation 可以优先。如果用户更需要立刻可做的一件小动作，优先考虑 Breathing。）</span></p>
+                  </div>
                   <p><span class="bilingual">Guide me through a meditation.（带我做个冥想吧。）</span></p>
                   <p><span class="bilingual">I need help calming down.（我需要一点帮助让自己安静下来。）</span></p>
                   <p><span class="bilingual">Can you walk me through something simple before sleep?（睡前你能带我走一个简单点的流程吗？）</span></p>
@@ -1603,15 +1614,12 @@
                 </td>
               </tr>
               <tr>
-                <th>何时不触发</th>
+                <th>不进条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确想要故事、聊天、音乐或纯陪伴，不要把这些需求硬改写成冥想。</li>
-                    <li>用户说“不要引导”“别让我做步骤”“我不想跟指令”，冥想不触发。</li>
-                    <li>用户一把注意力放回身体就更焦躁、会卡住、会更不舒服，不能继续推冥想，优先改成故事、音乐或更轻的聊天。</li>
-                    <li>用户正在强烈惊恐、明显 dissociation、或已被长指令压垮时，不进入冥想长流程。</li>
-                    <li>如果用户只是在提问“冥想是不是有用”“你们有什么功能”，这是信息咨询，不是功能触发。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not enter Meditation when the user wants Story, chat, music, or quiet company without guidance. Do not enter Meditation when the user says do not guide me, do not give me steps, or when body focus clearly makes them worse.（如果用户要 Story、聊天、音乐，或不想要引导式陪伴，就不要进入 Meditation。若用户明确说不要引导、不要步骤，或一回到身体就更糟，也不要进入 Meditation。）</span></p>
+                    <p><span class="bilingual">Do not use Meditation for information questions, acute panic escalation, dissociation, or collapse after too many instructions.（不要把 Meditation 用在信息咨询、惊恐升级、解离，或已经被指令压垮的状态里。）</span></p>
+                  </div>
                   <p><span class="bilingual">Tell me a story instead.（还是给我讲个故事吧。）</span></p>
                   <p><span class="bilingual">Just stay and talk with me.（就陪我聊会儿。）</span></p>
                   <p><span class="bilingual">No guidance, just music.（不要引导，只要音乐。）</span></p>
@@ -1619,24 +1627,27 @@
                 </td>
               </tr>
               <tr>
-                <th>缺失信息时怎么追问</th>
+                <th>缺信息时怎么问</th>
                 <td>
-                  <p><span class="bilingual">I can guide something simple. How long do you want, and is your mind busy or is your body still holding tension?（我可以带一个很简单的版本。你想要多久，以及你现在更像是脑子很忙，还是身体还绷着？）</span></p>
-                  <p class="caption">只追问时长与限制，不展开问心理背景。</p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Meditation is chosen and details are missing, ask for length first, then ask whether the main problem is a busy mind or a tense body. Keep it to one or two short questions. Do not ask for backstory.（如果已经进入 Meditation 但细节缺失，先问时长，再问主要问题更像脑子很忙还是身体很绷。保持一到两个短问题，不追问背景故事。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>用户主动说了以后怎么回</th>
+                <th>用户点名后怎么回</th>
                 <td>
-                  <p><span class="bilingual">We can keep it very gentle. Tell me the length you want, and I'll make it easy to follow from bed.（我们可以把它做得很温和。告诉我你想要多久，我会让它在床上也很容易跟。）</span></p>
-                  <p><span class="bilingual">You do not need to do this well. You only need to stay with the next small step.（你不需要把它做对。你只要跟住下一个小步骤就好。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When the user explicitly asks for Meditation, answer with one reassurance line and one minimal setup question if needed. Good lines include: We can keep it very gentle. Tell me the length you want, and You do not need to do this well. You only need to stay with the next small step.（当用户明确要 Meditation 时，先用一句安抚接住，再在需要时补一个最小设问。可用句式包括：We can keep it very gentle. Tell me the length you want，以及 You do not need to do this well. You only need to stay with the next small step.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>系统判断该推荐时怎么回</th>
+                <th>系统推荐时怎么回</th>
                 <td>
-                  <p class="caption">触发逻辑：脑子很亮、情绪残留明显、还能跟得住简单语言时，优先推冥想；如果身体激活更强，改推呼吸；如果更想被带着听内容，改推故事。</p>
-                  <p><span class="bilingual">Your mind sounds bright in a way that may settle better with a guided wind-down than more talking. Want a short one?（你的脑子现在有点太亮了。比起继续聊，一小段引导式放松可能更合适。要来一个短的吗？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When recommending Meditation, use one low pressure invitation only. Good line: Your mind sounds bright in a way that may settle better with a guided wind down than more talking. Want a short one.（推荐 Meditation 时，只用一句低压力邀请。可用句式：Your mind sounds bright in a way that may settle better with a guided wind down than more talking. Want a short one.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -1654,38 +1665,35 @@
                 </td>
               </tr>
               <tr>
-                <th>调用规则</th>
+                <th>调用提示词</th>
                 <td>
-                  <ul>
-                    <li>内部应映射到安静引导、身体扫描、落地安神、休息许可等低压模板。</li>
-                    <li>引导中如用户更焦躁，允许立刻变短、变静，或切到纯呼吸 / 纯 BGM。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Map Meditation to low pressure templates such as quiet guidance, body scan, settling, and rest permission. If the user grows more agitated, shorten the flow immediately, reduce words, or hand off to Breathing or pure background sound.（将 Meditation 映射到低压力模板，例如安静引导、身体扫描、安顿感和休息许可。若用户更焦躁，就立刻缩短流程、减少文字，或转到 Breathing 或纯背景声。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>背景音 / 声景怎么配</th>
+                <th>背景音怎么配</th>
                 <td>
-                  <ul>
-                    <li>空气感 pad、轻水声、微风、极弱棕噪。</li>
-                    <li>禁止明显旋律主导和歌词。</li>
-                    <li>中后段逐渐接近无声。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">For Meditation background, use air pad, light water, soft wind, or very low brown noise. Never use obvious melody or lyrics. Let the background approach near silence in the middle and late part.（Meditation 的背景可用空气感 pad、轻水声、微风或极弱棕噪。不要用明显旋律或歌词。中后段逐渐接近无声。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>结束时怎么说</th>
+                <th>结束话术</th>
                 <td>
-                  <p><span class="bilingual">You do not need to keep trying. Let the practice get quieter than you.（你不需要继续努力了。让这个过程比你更安静一点就好。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">End Meditation with one line only when possible. Good line: You do not need to keep trying. Let the practice get quieter than you.（结束 Meditation 时尽量只留一句。可用句式：You do not need to keep trying. Let the practice get quieter than you.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>边界与兜底处理</th>
+                <th>边界与兜底</th>
                 <td>
-                  <ul>
-                    <li>不把冥想讲成科学课程或修行课程。</li>
-                    <li>不在用户明显惊恐恶化时坚持继续。</li>
-                    <li>不使用“你没专注好”“你做得不够好”之类表达。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not turn Meditation into science class, spiritual performance, or progress tracking. Do not insist when panic is getting worse. Never shame the user for not focusing or not doing it right.（不要把 Meditation 写成科学课、灵修表演或进度打卡。若惊恐在加重，不要坚持继续。绝不能因为用户没专注或没做对而制造羞耻。）</span></p>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -1694,7 +1702,6 @@
 
         <section class="section" id="breathing">
           <h2>AI 呼吸</h2>
-          <p class="section-intro">呼吸模块的价值在于执行门槛最低，适合紧绷、夜醒、心跳快、需要立刻降激活的时刻。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -1724,15 +1731,12 @@
                 </td>
               </tr>
               <tr>
-                <th>何时触发</th>
+                <th>进入条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确说“陪我呼吸”“带我做呼吸”“count with me”“give me one simple thing right now”，直接进呼吸模块。</li>
-                    <li>用户描述的是身体激活：胸口紧、心跳快、夜醒后很绷、整个人停不下来，但还能跟得住一个很短的动作，这时呼吸优先。</li>
-                    <li>规则推荐只在当前最需要的是“马上可执行、负担最低、1-3 分钟内能开始”的方法时出现。</li>
-                    <li>如果用户现在处理不了故事或冥想这种连续内容，但还能接受“先跟一口气”，呼吸是第一优先。</li>
-                    <li>分流上，呼吸用于立刻降激活；如果用户想被内容带着走，去故事；如果用户更能跟长一点的安静引导，去冥想。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Enter Breathing when the user explicitly asks to breathe together, count together, or wants one simple thing right now. Also enter Breathing when chest tightness, racing heart, night waking tension, or immediate body activation is the main signal and the user can still follow one short action.（当用户明确说要一起呼吸、一起数拍，或现在只想要一件简单可做的事时，进入 Breathing。若主要信号是胸口紧、心跳快、夜醒后的紧绷，且用户还能跟住一个短动作，也进入 Breathing。）</span></p>
+                    <p><span class="bilingual">Use Breathing when the user needs the lowest effort physical action now. If they want content to listen to, prefer Story. If they can follow a longer calm flow, Meditation may fit better.（当用户此刻最需要低门槛的身体动作时，使用 Breathing。如果用户更想听内容，优先 Story。如果用户能跟住更长一点的安静流程，Meditation 可能更合适。）</span></p>
+                  </div>
                   <p><span class="bilingual">Breathe with me.（陪我呼吸一下。）</span></p>
                   <p><span class="bilingual">My chest feels tight.（我胸口很紧。）</span></p>
                   <p><span class="bilingual">I need something simple right now.（我现在需要一个最简单的办法。）</span></p>
@@ -1740,37 +1744,39 @@
                 </td>
               </tr>
               <tr>
-                <th>何时不触发</th>
+                <th>不进条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确说不要呼吸练习、不要被带节奏、不要任何步骤，呼吸模块不触发。</li>
-                    <li>用户想要故事、想聊天、想听音乐时，不要因为“呼吸最简单”就抢路由。</li>
-                    <li>如果用户只是排斥“数拍子”，这不等于排斥呼吸模块本身；此时要切成无计数版本，而不是直接退出支持。</li>
-                    <li>用户提到胸痛、窒息感、严重呼吸困难、明显医学风险时，不走普通呼吸引导。</li>
-                    <li>如果用户现在一被要求关注呼吸就更慌，也不要硬推；改成更外部一点的方式，例如声音、故事或简短陪伴。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not enter Breathing when the user clearly rejects breathing, pacing, or step based guidance. Do not steal the turn from Story, chat, or music just because Breathing feels simpler. If the user only rejects counting, stay in Breathing but switch to a no count version.（如果用户明确拒绝呼吸、带节奏或步骤式引导，就不要进入 Breathing。不要因为 Breathing 看起来更简单就抢走 Story、聊天或音乐。若用户只是排斥计数，仍留在 Breathing，但切到无计数版本。）</span></p>
+                    <p><span class="bilingual">Do not use ordinary breathing guidance when the user reports chest pain, suffocation feeling, severe breathing difficulty, or clear medical risk. If body focus itself increases panic, hand off to a more external lane.（如果用户提到胸痛、窒息感、严重呼吸困难或明确医学风险，就不要使用普通呼吸引导。若一关注呼吸就更慌，转到更外部的链路。）</span></p>
+                  </div>
                   <p><span class="bilingual">No counting. That makes me more anxious.（不要数拍子，那会让我更焦虑。）</span></p>
                   <p><span class="bilingual">I want a story, not an exercise.（我想听故事，不想做练习。）</span></p>
                   <p><span class="bilingual">Do not make me pay attention to my breathing right now.（现在别让我去注意呼吸。）</span></p>
                 </td>
               </tr>
               <tr>
-                <th>缺失信息时怎么追问</th>
+                <th>缺信息时怎么问</th>
                 <td>
-                  <p><span class="bilingual">Let's keep it simple. How long do you want, and is there anything about your breathing that should stay extra gentle tonight?（我们把它做得很简单。你想做多久，以及今晚你的呼吸上有没有什么需要特别温和处理的地方？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Breathing is chosen and details are missing, ask only for length and any breathing limit that needs extra gentleness. Do not ask for more than one short follow up unless safety requires it.（如果进入 Breathing 后信息还不够，只问时长，以及呼吸上是否有需要特别温和处理的限制。除非安全需要，否则不要继续追问第二轮以上。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>用户主动说了以后怎么回</th>
+                <th>用户点名后怎么回</th>
                 <td>
-                  <p><span class="bilingual">Stay with me for one slow breath first. We do not need to fix the whole night at once.（先跟我走一口慢呼吸。我们不需要一下子把整个夜晚都修好。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When the user explicitly asks for Breathing, start immediately with one grounding line, then enter the loop. Good line: Stay with me for one slow breath first. We do not need to fix the whole night at once.（当用户明确要 Breathing 时，先用一句落地的话开场，然后立刻进入循环。可用句式：Stay with me for one slow breath first. We do not need to fix the whole night at once.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>系统判断该推荐时怎么回</th>
+                <th>系统推荐时怎么回</th>
                 <td>
-                  <p class="caption">触发逻辑：身体激活明显、夜醒、胸口发紧、心跳快，或当前最需要一个立刻能做的方法时，优先推呼吸；如果还能稳定跟更长的引导，再考虑冥想；如果只想被陪着听内容，改推故事或音乐。</p>
-                  <p><span class="bilingual">Your body sounds keyed up. Want me to breathe with you for a minute before we decide anything else?（你的身体现在像是还绷着。要我先陪你呼吸一分钟，再决定下一步吗？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When recommending Breathing, use one light offer and make it sound immediate and doable. Good line: Your body sounds keyed up. Want me to breathe with you for a minute before we decide anything else.（推荐 Breathing 时，只给一句轻邀请，让它听起来立刻能做。可用句式：Your body sounds keyed up. Want me to breathe with you for a minute before we decide anything else.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -1788,38 +1794,35 @@
                 </td>
               </tr>
               <tr>
-                <th>调用规则</th>
+                <th>调用提示词</th>
                 <td>
-                  <ul>
-                    <li>可调用预置 breath pattern，如 4-6、4-7-8、无计数长呼气、身体接触点回落。</li>
-                    <li>夜醒或高压状态默认优先短版本，再决定是否延长。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Map Breathing to one short pattern at a time such as long exhale, soft count, no count exhale, or contact point grounding. For night waking or high pressure states, start with the shortest version first and extend only if the user remains steady.（将 Breathing 映射到单一短模式，例如长呼气、轻计数、无计数呼气，或接触点落地。夜醒或高压状态默认先用最短版本，只有用户还稳时再延长。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>背景音 / 声景怎么配</th>
+                <th>背景音怎么配</th>
                 <td>
-                  <ul>
-                    <li>优先稳定低频、极弱风声或棕噪。</li>
-                    <li>若带呼吸提示音，前段可稍清晰，后段必须消退。</li>
-                    <li>如果是根据规则推荐进入呼吸，可直接带入极弱背景声；后段只留呼气节奏与更薄的底噪。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">For Breathing background, use stable low tones, very soft wind, or brown noise. If there is a breathing cue sound, it may be a little clearer at the start and must fade later. When Breathing is rule recommended, keep the bed very light and thinner in the second half.（Breathing 的背景优先使用稳定低频、极弱风声或棕噪。如果带呼吸提示音，前段可以略清晰，后段必须消退。若是规则推荐进入 Breathing，背景要很轻，后半段继续变薄。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>结束时怎么说</th>
+                <th>结束话术</th>
                 <td>
-                  <p><span class="bilingual">You can stop following me exactly now. Let your body keep the slower rhythm on its own.（你现在可以不用再精确跟着我了。让身体自己把这个更慢的节奏接过去就好。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">End Breathing with one short release line only. Good line: You can stop following me exactly now. Let your body keep the slower rhythm on its own.（结束 Breathing 时只留一句短释放话术。可用句式：You can stop following me exactly now. Let your body keep the slower rhythm on its own.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>边界与兜底处理</th>
+                <th>边界与兜底</th>
                 <td>
-                  <ul>
-                    <li>用户提到胸痛、窒息感、严重呼吸困难时，停止普通呼吸引导并建议现实帮助。</li>
-                    <li>不要把呼吸模块写成“科学治愈法”。</li>
-                    <li>用户明显更焦躁时，不硬要求继续跟拍。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If the user mentions chest pain, suffocation feeling, severe breathing difficulty, or clear medical risk, stop ordinary Breathing guidance and move to real world help language. Do not present Breathing as a cure. If the user becomes more agitated, stop coaching and switch lanes.（如果用户提到胸痛、窒息感、严重呼吸困难或明确医学风险，就停止普通 Breathing，引导现实帮助。不要把 Breathing 写成治愈方法。若用户更焦躁，就停止指导并切换链路。）</span></p>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -1828,7 +1831,6 @@
 
         <section class="section" id="music">
           <h2>音乐匹配</h2>
-          <p class="section-intro">音乐匹配可单独使用，也可作为其他模块的背景声。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -1889,15 +1891,12 @@
                 </td>
               </tr>
               <tr>
-                <th>何时触发</th>
+                <th>进入条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确要声音、环境声、BGM、白噪、雨声、海浪、fireplace、background only，直接进入音乐匹配。</li>
-                    <li>用户明确说“不要说话”“只想让房间有点声音”“给我垫个背景”，也属于强触发。</li>
-                    <li>规则推荐只在用户其实不想继续讲、不想做练习、也不想被持续说话，但确实需要把环境调得更软一点时出现。</li>
-                    <li>如果用户的真实需求是“让房间没那么空”“有一点陪伴感，但别打扰我”，优先考虑音乐或声景，而不是故事。</li>
-                    <li>模块内部分流要清楚：明确点歌 / 指定风格时走主动点播；没点名但想要一个安静底色时走规则推荐；明确“只留背景、别说话”时走纯背景模式。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Enter Music when the user explicitly asks for sound, ambience, white noise, rain, ocean, fireplace, background only, or says do not talk. Also enter Music when the user does not want to keep talking or practicing and mainly needs the room to feel softer or less empty.（当用户明确要声音、氛围声、白噪、雨声、海浪、壁炉、纯背景，或明确说不要说话时，进入 Music。若用户不想继续聊天或做练习，只想让房间更柔和或没那么空，也进入 Music。）</span></p>
+                    <p><span class="bilingual">If the user names a sound or mood, treat it as direct playback intent. If the user only needs a softer backdrop, one rule based recommendation is enough.（如果用户点名声音或氛围，按直接点播处理。若用户只是需要一个更柔和的底色，一次规则推荐就够了。）</span></p>
+                  </div>
                   <p><span class="bilingual">Play something soft.（放点柔和的东西吧。）</span></p>
                   <p><span class="bilingual">Give me rain sounds.（给我雨声。）</span></p>
                   <p><span class="bilingual">No talking. Just background.（不要说话，只要背景声。）</span></p>
@@ -1905,39 +1904,39 @@
                 </td>
               </tr>
               <tr>
-                <th>何时不触发</th>
+                <th>不进条件</th>
                 <td>
-                  <ul>
-                    <li>用户当前更需要被理解、被承接、被回答问题时，不要用音乐来偷懒替代对话。</li>
-                    <li>用户明确要故事、呼吸、冥想或宗教内容时，不把它们降级成“放个声景算了”。</li>
-                    <li>用户说“完全安静就好”“别放任何声音”，音乐不触发。</li>
-                    <li>用户是在问“你们能播什么歌”“有没有某首版权歌”这类能力问题时，先答信息，不直接开播。</li>
-                    <li>如果用户明显正在危机、强烈惊恐或需要现实帮助，不能靠音乐把问题盖过去。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not enter Music when the user mainly needs understanding, explanation, or emotional holding. Do not downgrade Story, Breathing, Meditation, or Religion into generic background sound when the user asked for those directly.（如果用户主要需要被理解、被解释或被承接，就不要进入 Music。若用户明确要 Story、Breathing、Meditation 或 Religion，也不要把它们降级成背景声。）</span></p>
+                    <p><span class="bilingual">Do not enter Music when the user wants full silence, is asking an information question, or is in crisis. Music must not be used to avoid emotional work.（当用户要完全安静、只是在问信息，或处于危机里时，不要进入 Music。不能用 Music 来逃避情绪承接。）</span></p>
+                  </div>
                   <p><span class="bilingual">I want to talk this through first.（我想先把这件事聊一聊。）</span></p>
                   <p><span class="bilingual">Tell me a story, not just sound.（我想要故事，不只是声音。）</span></p>
                   <p><span class="bilingual">Keep it silent. I do not want any background at all.（就保持安静。我完全不想要背景声。）</span></p>
                 </td>
               </tr>
               <tr>
-                <th>缺失信息时怎么追问</th>
+                <th>缺信息时怎么问</th>
                 <td>
-                  <p><span class="bilingual">Do you want something warmer, quieter, or more like quiet company in the background?（你想要更温暖一点、更安静一点，还是更像背景里有一点安静陪伴感？）</span></p>
-                  <p class="caption">音乐匹配不追问时长和类别，只追问必要的氛围方向。</p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Music is chosen and intent is still broad, ask for mood only, not a long preference list. Good prompt: Do you want something warmer, quieter, or more like quiet company in the background.（如果已经进入 Music，但意图还比较宽，只问氛围，不问长清单。可用问题：Do you want something warmer, quieter, or more like quiet company in the background.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>用户主动说了以后怎么回</th>
+                <th>用户点名后怎么回</th>
                 <td>
-                  <p><span class="bilingual">I can do that. I'll keep it low and easy on the room.（可以。我会把它放轻一点，垫在背景里，不去打扰你。）</span></p>
-                  <p><span class="bilingual">If you want, I can keep it as pure background and stay quiet.（如果你愿意，我可以把它保持成纯背景，然后安静下来。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When the user explicitly asks for Music, answer with one acceptance line and then get out of the way. Good lines include: I can do that. I will keep it low and easy on the room, and If you want, I can keep it as pure background and stay quiet.（当用户明确要 Music 时，先用一句接住，然后尽快退后。可用句式包括：I can do that. I will keep it low and easy on the room，以及 If you want, I can keep it as pure background and stay quiet.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>系统判断该推荐时怎么回</th>
+                <th>系统推荐时怎么回</th>
                 <td>
-                  <p><span class="bilingual">You sound like the room could use a softer background. Want me to put something light underneath?（你现在像是更需要一点柔和的背景声。要不要我放一点轻的垫在下面？）</span></p>
-                  <p><span class="bilingual">I can give this a softer backdrop if you do not want more words.（如果你不想再听更多话，我可以给现在垫一个更柔和的背景。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When recommending Music, use one small offer only. Good lines include: The room could use a softer background. Want me to put something light underneath, and I can give this a softer backdrop if you do not want more words.（推荐 Music 时，只给一个小提议。可用句式包括：The room could use a softer background. Want me to put something light underneath，以及 I can give this a softer backdrop if you do not want more words.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -1955,65 +1954,35 @@
                 </td>
               </tr>
               <tr>
-                <th>调用规则</th>
+                <th>调用提示词</th>
                 <td>
-                  <ul>
-                    <li>主动点播：直接进入曲库 / 声景匹配。</li>
-                    <li>规则推荐：只有在用户明显需要先把四周变安静一点时才建议。</li>
-                    <li>纯背景音乐：用户明确说“不要说话”或其他模块执行结束时可切入。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Music is direct request, route to playback or soundscape matching immediately. If Music is rule recommended, give one best fit only. If the user says no talking or another module just ended, allow pure background mode and stop speaking after one line.（如果 Music 是用户点名，立刻进入播放或声景匹配。若是规则推荐，只给一个最合适选项。若用户明确说不要说话，或其他模块刚结束，可进入纯背景模式，并在一句话后停止说话。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>背景音 / 声景怎么配</th>
+                <th>背景音怎么配</th>
                 <td>
-                  <table class="matrix">
-                    <thead>
-                      <tr>
-                        <th>情绪 / 场景</th>
-                        <th>优先匹配</th>
-                        <th>备注</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>焦虑、过载</td>
-                        <td>棕噪、低频 pad、风声</td>
-                        <td>优先稳定感，不要旋律太明显</td>
-                      </tr>
-                      <tr>
-                        <td>孤独、房间太空</td>
-                        <td>壁炉、篝火、轻 ASMR、Live Breathing 风格</td>
-                        <td>重点是“附近有存在感”，不是制造热闹</td>
-                      </tr>
-                      <tr>
-                        <td>想放松过渡</td>
-                        <td>钢琴加水声、海浪、窗边雨</td>
-                        <td>适合睡前过渡</td>
-                      </tr>
-                      <tr>
-                        <td>只要安静</td>
-                        <td>极弱棕噪、轻雨、纯无声</td>
-                        <td>允许完全 hush</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Match anxiety or overload to brown noise, low pads, or wind. Match loneliness or an empty room to fireplace, soft ember sound, or very light near presence textures. Match sleep transition to piano with water, ocean, or window rain. Match silence preference to ultra light brown noise, light rain, or full hush.（将焦虑或过载匹配到棕噪、低频 pad 或风声。将孤独或房间太空匹配到壁炉、余烬声，或很轻的近距离存在感声景。将睡前过渡匹配到钢琴加水声、海浪或窗边雨。将安静偏好匹配到极弱棕噪、轻雨或完全 hush。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>结束时怎么说</th>
+                <th>结束话术</th>
                 <td>
-                  <p><span class="bilingual">I'll keep this in the background and out of your way.（我会把这层声音垫在背景里，不去打扰你。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If you need an end line, use one short line only. Good line: I will keep this in the background and out of your way.（如果需要结束话术，只留一句短句。可用句式：I will keep this in the background and out of your way.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>边界与兜底处理</th>
+                <th>边界与兜底</th>
                 <td>
-                  <ul>
-                    <li>不承诺某种频率可以治疗失眠。</li>
-                    <li>不假装支持所有版权歌曲。</li>
-                    <li>用户更需要被理解时，不用音乐替代承接。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not promise healing, do not pretend every copyrighted track is supported, and do not use Music to dodge emotional support when the user clearly needs words first.（不要承诺疗效，不要假装所有版权曲目都支持，也不要在用户明显先需要语言承接时用 Music 躲开对话。）</span></p>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -2022,7 +1991,6 @@
 
         <section class="section" id="religion">
           <h2>AI 宗教</h2>
-          <p class="section-intro">这是高敏感模块。只在用户明确想要信仰相关内容时进入。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -2051,15 +2019,12 @@
                 </td>
               </tr>
               <tr>
-                <th>何时触发</th>
+                <th>进入条件</th>
                 <td>
-                  <ul>
-                    <li>只有当用户明确说出某个信仰传统，或明确要求祈祷、经文、诵念、宗教式陪伴时，宗教模块才算触发。</li>
-                    <li>“Christian prayer”“Bible verse”“Quran recitation”“Buddhist chant”“Jewish prayer”这类说法，都是强触发，可以进入确认与执行。</li>
-                    <li>如果当前会话里用户已经清楚表达过自己的传统，并且这一轮又明确想要同一传统下的陪伴，也可触发。</li>
-                    <li>触发后的第一步不是立刻输出内容，而是确认传统与形式是否明确；不明确时只补一次必要澄清。</li>
-                    <li>这个模块没有普通的广义“轻推荐”。只有在可信记忆已知其信仰、且用户这一轮明显在寻求同一路径安抚时，才允许一次非常轻的确认式推荐。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Enter Religion only when the user explicitly names a faith tradition or explicitly requests prayer, scripture, chanting, or religious companionship. Clear requests like Christian prayer, Bible verse, Quran recitation, Buddhist chant, or Jewish prayer are direct entry signals.（只有当用户明确点名某个信仰传统，或明确要求祈祷、经文、诵念、宗教式陪伴时，才进入 Religion。像 Christian prayer、Bible verse、Quran recitation、Buddhist chant、Jewish prayer 这类请求都属于直接进入信号。）</span></p>
+                    <p><span class="bilingual">If the tradition is already known from the current chat or reliable memory and the user again wants the same path, you may enter after one light confirmation if needed.（如果传统已经在当前聊天或可信记忆里清楚存在，而用户这一轮又想走同一路径，可以在需要时补一句轻确认后进入。）</span></p>
+                  </div>
                   <p><span class="bilingual">Can you pray with me tonight?（今晚你可以陪我祈祷吗？）</span></p>
                   <p><span class="bilingual">Read me a Bible verse for sleep.（给我读一点适合睡前的圣经经文吧。）</span></p>
                   <p><span class="bilingual">I want something Buddhist and calming.（我想要一点佛学气质、能让我平静下来的内容。）</span></p>
@@ -2068,38 +2033,39 @@
                 </td>
               </tr>
               <tr>
-                <th>何时不触发</th>
+                <th>不进条件</th>
                 <td>
-                  <ul>
-                    <li>“我想要一点平静”“想被安慰”“想要有灵性一点”这类模糊表达，本身还不够；除非用户补充到具体传统或具体宗教形式，否则不进宗教模块。</li>
-                    <li>绝不能根据名字、语言、国家、长相、家庭角色、气质、节日、情绪起伏去猜信仰。</li>
-                    <li>用户要的是教义讨论、宗教争议、皈依建议、真伪判断，不属于睡前宗教陪伴，不在这里触发。</li>
-                    <li>用户明确说不要宗教内容，或曾表示这类内容会让自己更紧张，不能再推荐。</li>
-                    <li>危机、安全风险、明确医疗问题，优先安全处理，不用宗教模块覆盖。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not enter Religion from vague lines like I want peace, I want comfort, or I want something spiritual. Do not infer religion from name, language, country, family role, appearance, vibe, or holiday context.（不要因为 I want peace、I want comfort、I want something spiritual 这类模糊表达就进入 Religion。不要根据名字、语言、国家、家庭角色、外貌、气质或节日场景去猜信仰。）</span></p>
+                    <p><span class="bilingual">Do not use Religion for doctrine debate, conversion advice, truth claims, crisis, or medical risk. If the user explicitly rejects religion, never recommend it.（不要把 Religion 用于教义争论、皈依建议、真伪判断、危机，或医学风险场景。若用户明确拒绝宗教内容，就不要再推荐。）</span></p>
+                  </div>
                   <p><span class="bilingual">I just need peace.（我只是需要一点平静。）</span></p>
                   <p><span class="bilingual">I want something comforting.（我想要点让人舒服的内容。）</span></p>
                   <p><span class="bilingual">Do not make this religious.（别把这件事带成宗教内容。）</span></p>
                 </td>
               </tr>
               <tr>
-                <th>缺失信息时怎么追问</th>
+                <th>缺信息时怎么问</th>
                 <td>
-                  <p><span class="bilingual">I can stay with you carefully in that direction. Which tradition do you want me to stay inside tonight?（可以，我会很谨慎地留在那个范围里。今晚你想让我用哪一种信仰传统陪你？）</span></p>
-                  <p><span class="bilingual">Do you want prayer, scripture, chanting, or a quieter kind of reflection?（你更想要祈祷、经文、诵念，还是更安静一点的陪伴式反思？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Religion is chosen but details are missing, ask for tradition first and form second. Good prompts are: Which tradition do you want me to stay inside tonight, and Do you want prayer, scripture, chanting, or a quieter reflection. Ask once, not repeatedly.（如果已经进入 Religion 但细节缺失，先问传统，再问形式。可用问题是：Which tradition do you want me to stay inside tonight，以及 Do you want prayer, scripture, chanting, or a quieter reflection。只问一轮，不要反复追问。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>用户主动说了以后怎么回</th>
+                <th>用户点名后怎么回</th>
                 <td>
-                  <p><span class="bilingual">I can do that carefully. Tell me which tradition you want me to stay inside, and whether you want prayer, scripture, chanting, or a quieter reflection.（可以，我会很谨慎地这样陪你。告诉我你想让我留在哪一种信仰传统里，以及你更想要祈祷、经文、诵念，还是更安静一点的反思式陪伴。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When the user explicitly asks for Religion, answer with careful acceptance and then clarify tradition or form only if needed. Good line: I can do that carefully. Tell me which tradition you want me to stay inside, and whether you want prayer, scripture, chanting, or a quieter reflection.（当用户明确要 Religion 时，先谨慎接住，再在需要时补充传统或形式的澄清。可用句式：I can do that carefully. Tell me which tradition you want me to stay inside, and whether you want prayer, scripture, chanting, or a quieter reflection.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>系统判断该推荐时怎么回</th>
+                <th>系统推荐时怎么回</th>
                 <td>
-                  <p>默认不主动推荐宗教内容。只有当前会话或可信记忆里，用户已经明确表达自己的信仰，并且此刻也明确想要信仰相关的安抚时，才允许一次轻问式推荐。</p>
-                  <p><span class="bilingual">Would it help if I stayed with you in a Christian prayerful way tonight?（如果我今晚用更偏基督教祈祷式的方式陪你，会不会更有帮助？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not actively recommend Religion by default. Only if reliable memory already confirms the user's tradition and the current turn clearly seeks that same path may you use one light confirmation line such as Would it help if I stayed with you in a Christian prayerful way tonight.（默认不要主动推荐 Religion。只有在可信记忆已经确认用户传统，且当前这一轮也明显想走同一路径时，才可以用一句轻确认，例如 Would it help if I stayed with you in a Christian prayerful way tonight.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -2119,39 +2085,35 @@
                 </td>
               </tr>
               <tr>
-                <th>调用规则</th>
+                <th>调用提示词</th>
                 <td>
-                  <ul>
-                    <li>进入前必须确认 tradition 与 form。</li>
-                    <li>支持祈祷、安静默想、诵念和核准过的诵读内容。</li>
-                    <li>用户要求 doctrinal explanation、争议性神学问题、是否该皈依等，不在本模块处理。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Before generating Religion content, confirm tradition and form unless both are already certain. Supported forms are prayer, quiet reflection, chanting, and approved sacred text reading. Do not route doctrinal explanation, conversion advice, or theological debate into this lane.（生成 Religion 内容前，除非传统和形式都已经明确，否则先确认。支持的形式包括祈祷、安静反思、诵念和经过核准的圣文朗读。不要把教义解释、皈依建议或神学争论路由进这一链路。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>背景音 / 声景怎么配</th>
+                <th>背景音怎么配</th>
                 <td>
-                  <ul>
-                    <li>非明确宗教音乐资源时，优先极简纯净底噪。</li>
-                    <li>如为诵念或祷告，不让背景抢主体。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Use minimal clean background only. If there is prayer, chanting, or sacred text, the background must stay weaker than the main voice at all times.（只使用极简、干净的背景声。若有祈祷、诵念或圣文，背景在任何时刻都必须弱于主声音。）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>结束时怎么说</th>
+                <th>结束话术</th>
                 <td>
-                  <p><span class="bilingual">I'll keep this gentle and let it rest with you, not press on you.（我会把它保持得很轻，让它安静地陪着你，而不是压在你身上。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">End Religion with one gentle release line only. Good line: I will keep this gentle and let it rest with you, not press on you.（结束 Religion 时只留一句轻释放话术。可用句式：I will keep this gentle and let it rest with you, not press on you.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>边界与兜底处理</th>
+                <th>边界与兜底</th>
                 <td>
-                  <ul>
-                    <li>不误判信仰，不默认推荐宗教内容。</li>
-                    <li>不冒充宗教权威，不制造伪经文、伪出处。</li>
-                    <li>不处理宗教争议、皈依建议、罪责恐惧放大。</li>
-                    <li>一旦进入危机模式，优先安全，不用宗教内容掩盖危机处理。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Never misidentify faith, never pretend to be religious authority, never invent fake scripture or fake citation, and never use Religion to cover crisis handling. If this lane cannot be supported safely, step back and offer non religious comfort.（绝不能误判信仰，不能冒充宗教权威，不能制造伪经文或伪出处，也不能用 Religion 掩盖危机处理。若这一链路无法安全支持，就退回非宗教安抚。）</span></p>
+                  </div>
                   <div class="prompt-block">
                     <p><span class="bilingual">I can stay gentle and respectful here, but I do not want to fake a tradition I cannot represent well. If you want, I can stay with you in a quieter non-religious way instead.（我可以在这里保持温和和尊重，但我不想假装自己能准确代表一个我没法好好承载的传统。如果你愿意，我也可以先用更安静、非宗教的方式陪着你。）</span></p>
                   </div>
@@ -2162,7 +2124,7 @@
         </section>
 
         <section class="section" id="morning-report">
-          <h2>晨间监测与睡眠报告</h2>
+          <h2>晨间反馈</h2>
           <p class="section-intro">睡眠监测、呼吸机和睡眠报告都属于“昨夜已经发生、现在回看”的次晨反馈场景。内容聚焦观察、解释和后续建议，不属于夜间陪伴入口，也不属于诊断与治疗。</p>
           <table class="spec-table">
             <tbody>
@@ -2385,7 +2347,6 @@
 
         <section class="section" id="alarms-tasks">
           <h2>闹钟 / 待办事项</h2>
-          <p class="section-intro">闹钟和提醒在这里承担认知卸载：把用户夜里一直记着的事接过去，让大脑先放下，而不是展开效率管理。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -2393,15 +2354,11 @@
                 <td>做认知卸载，帮用户把“明天别忘了”从脑内拿出来，变成一个轻量的闹钟或提醒。</td>
               </tr>
               <tr>
-                <th>何时触发</th>
+                <th>进入条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确要求设置闹钟、提醒、明早叫醒、记下明天要做的事，这是直接触发。</li>
-                    <li>用户没有说“设置提醒”，但反复卡在“我怕忘记”“明早一定要记得”“我怕睡过头”，而且这个记忆负担正在妨碍入睡时，也可进入此模块。</li>
-                    <li>规则推荐只在“问题核心就是脑子一直在记这件事”时出现；如果核心是情绪、关系、委屈、焦虑本身，就先别推提醒。</li>
-                    <li>只有当事项能被压缩成一个清楚动作时才适合触发，例如时间点和一句标签；如果是整个人生规划，不进这个模块。</li>
-                    <li>闹钟 / 提醒的目标是认知卸载，不是安排人生；只接走“今晚不想继续记着”的那一小块。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Enter this lane when the user explicitly asks for an alarm, reminder, wake up time, or wants you to hold one thing for tomorrow. Also enter when the main sleep blocker is memory load, such as I am afraid I will forget, I have to remember this tomorrow, or I cannot sleep because I keep holding this in my head.（当用户明确要闹钟、提醒、叫醒时间，或想让你替他接住明天的一件事时，进入这一链路。若主要睡眠阻碍是记忆负担，例如 I am afraid I will forget、I have to remember this tomorrow、I cannot sleep because I keep holding this in my head，也进入这一链路。）</span></p>
+                  </div>
                   <p><span class="bilingual">Wake me up at seven.（明早七点叫我。）</span></p>
                   <p><span class="bilingual">Remind me to send that email tomorrow morning.（明早提醒我发那封邮件。）</span></p>
                   <p><span class="bilingual">I’m scared I’ll forget it if I fall asleep.（我怕自己一睡着就把这事忘了。）</span></p>
@@ -2409,37 +2366,38 @@
                 </td>
               </tr>
               <tr>
-                <th>何时不触发</th>
+                <th>不进条件</th>
                 <td>
-                  <ul>
-                    <li>用户表达的是情绪痛苦，不是记忆负担；不要把“我好焦虑”误读成“需要建提醒”。</li>
-                    <li>用户明确说不要计划、不要清单、不要再想明天，不触发。</li>
-                    <li>事项本身还太模糊、太多、太复杂，已经像 planning session，就不要在睡前继续展开。</li>
-                    <li>用户已经接近睡着，或刚进入安静状态，不为了“功能完整”再把人拉回明天。</li>
-                    <li>不把每一句“我明天还有事”都改造成待办；只有“记着这件事本身正在妨碍休息”时，才值得做一次推荐。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not enter this lane when the user is mainly in emotional pain, does not want planning, or is already settling toward sleep. Do not turn vague life pressure into a planning session. Only enter if one clear reminder or one wake point would actually unload the mind tonight.（如果用户主要是在情绪痛苦里、不想规划，或已经开始进入睡意，就不要进入这一链路。不要把模糊的人生压力变成计划会。只有一个清楚提醒或一个叫醒点真的能帮今晚卸载大脑时，才进入。）</span></p>
+                  </div>
                   <p><span class="bilingual">I do not want to think about tomorrow anymore.（我现在不想再想明天了。）</span></p>
                   <p><span class="bilingual">Do not turn this into a list.（别把这件事变成清单。）</span></p>
                   <p><span class="bilingual">Please do not organize me right now.（现在别来整理我这些事。）</span></p>
                 </td>
               </tr>
               <tr>
-                <th>缺失信息时怎么追问</th>
+                <th>缺信息时怎么问</th>
                 <td>
-                  <p><span class="bilingual">I can take that off your mind. Do you want a wake-up alarm or a reminder, and what time should I set it for?（可以，我帮你把这件事接过去。你是想要起床闹钟，还是一条提醒？时间告诉我就行。）</span></p>
-                  <p><span class="bilingual">Give me one short label for it, and you can stop holding it in your head.（再给我一句很短的标签，你就不用继续在脑子里记着它了。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Ask only for type, time, and one short label. Good prompts are: Do you want a wake up alarm or a reminder, and what time should I set it for, and Give me one short label for it.（只问类型、时间和一句短标签。可用问题是：Do you want a wake up alarm or a reminder, and what time should I set it for，以及 Give me one short label for it.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>用户主动说了以后怎么回</th>
+                <th>用户点名后怎么回</th>
                 <td>
-                  <p><span class="bilingual">Okay. I’ll hold that for tomorrow. Tell me the time and one short label, and you can put it down for tonight.（好，我来替你接住明天这件事。告诉我时间和一句很短的标签，今晚你就可以先放下了。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When the user explicitly asks for an alarm or reminder, answer with relief language, not efficiency language. Good line: Okay. I will hold that for tomorrow. Tell me the time and one short label, and you can put it down for tonight.（当用户明确要闹钟或提醒时，用卸载感的话术，不要用效率管理口气。可用句式：Okay. I will hold that for tomorrow. Tell me the time and one short label, and you can put it down for tonight.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>系统判断该推荐时怎么回</th>
+                <th>系统推荐时怎么回</th>
                 <td>
-                  <p><span class="bilingual">If the problem is that you keep trying to remember tomorrow, I can set one wake-up point or one reminder so you do not have to keep holding it. Want me to take it?（如果问题是你一直在记着明天那件事，我可以替你留一个起床点或一条提醒，这样你今晚就不用一直记着它。要我接过去吗？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If recommending this lane, frame it as cognitive unloading only. Good line: If the problem is that you keep trying to remember tomorrow, I can set one wake up point or one reminder so you do not have to keep holding it. Want me to take it.（如果要推荐这一链路，只把它写成认知卸载。可用句式：If the problem is that you keep trying to remember tomorrow, I can set one wake up point or one reminder so you do not have to keep holding it. Want me to take it.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -2453,13 +2411,11 @@
                 </td>
               </tr>
               <tr>
-                <th>边界与兜底处理</th>
+                <th>边界与兜底</th>
                 <td>
-                  <ul>
-                    <li>不把每个焦虑点都转成待办。</li>
-                    <li>不写成自律说教，也不羞辱赖床。</li>
-                    <li>如果用户已经说“别再给我安排了”，立刻收回，不再推荐。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not turn every anxiety point into a reminder. Do not sound like discipline coaching. If the user says stop organizing me, stop immediately and do not recommend this lane again in the same exchange.（不要把每个焦虑点都转成提醒。不要写成自律督导口气。若用户说别再安排我了，就立刻停下，并且同一轮里不要再推荐这一链路。）</span></p>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -2468,7 +2424,6 @@
 
         <section class="section" id="cycle">
           <h2>经期</h2>
-          <p class="section-intro">经期相关支持只在用户明确提到周期，或已有可信周期记忆并出现高度一致信号时才进入。</p>
           <table class="spec-table">
             <tbody>
               <tr>
@@ -2476,15 +2431,12 @@
                 <td>在经期前后更敏感、更浅眠、更容易不舒服的夜晚，把现有支持调得更轻、更少要求、更贴近身体感受。</td>
               </tr>
               <tr>
-                <th>何时触发</th>
+                <th>进入条件</th>
                 <td>
-                  <ul>
-                    <li>用户明确提到 period、PMS、cycle、经期前、肚子疼、经期会失眠这类周期语境时，模块触发。</li>
-                    <li>如果用户以前已经清楚告诉过系统自己的周期模式，而这一轮又明显把今晚的不适和那个模式连起来，也可触发。</li>
-                    <li>触发的关键不是“用户不舒服”，而是“用户自己把不舒服和周期联系起来”，或可信记忆里已存在这个连接。</li>
-                    <li>模块触发后，目的不是谈经期本身，而是把其他支持方式调成更轻、更少要求、更照顾身体不适的版本。</li>
-                    <li>如果当前最突出的是疼痛、热、烦躁、情绪波动、浅眠，且都落在明确周期语境内，可以优先启用这层调参，再决定走故事、呼吸还是聊天。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Enter Cycle support only when the user explicitly links tonight's state to period, PMS, cycle, cramps, pre period nights, or a known cycle pattern. Reliable memory can support entry only when the user previously established the same link and the current turn clearly matches it.（只有当用户明确把今晚状态和 period、PMS、cycle、cramps、经期前夜晚，或已知周期模式连起来时，才进入 Cycle 支持。只有在用户以前已经建立过这个连接，而且这一轮也明显匹配时，可信记忆才可以辅助进入。）</span></p>
+                    <p><span class="bilingual">The goal of this lane is not to discuss gynecology. The goal is to soften the support style around pain, heat, restlessness, shallow sleep, and emotional fluctuation.（这一链路的目标不是讨论妇科本身，而是围绕疼、热、烦躁、浅眠和情绪波动，把支持方式调得更轻。）</span></p>
+                  </div>
                   <p><span class="bilingual">I think this is my period making sleep harder again.（我觉得又是经期把睡眠搞得更难了。）</span></p>
                   <p><span class="bilingual">I’m crampy and restless tonight.（我今晚肚子疼，又静不下来。）</span></p>
                   <p><span class="bilingual">This always happens before my period.（我经期前总会这样。）</span></p>
@@ -2492,36 +2444,38 @@
                 </td>
               </tr>
               <tr>
-                <th>何时不触发</th>
+                <th>不进条件</th>
                 <td>
-                  <ul>
-                    <li>用户只说焦虑、失眠、烦躁、想哭、累，这些都不够；不能自动按经期处理。</li>
-                    <li>不能根据年龄、性别、名字、关系状态、食欲、情绪波动去猜测经期。</li>
-                    <li>用户明确没有把今晚状态和周期联系起来，就不要主动提这一层。</li>
-                    <li>如果描述已经接近高风险身体症状，不进入普通经期安抚模式，优先现实帮助建议。</li>
-                    <li>这个模块也不能替代普通的焦虑、夜醒、过载处理；没有明确周期线索时，仍按一般夜间支持判断。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not enter Cycle support from anxiety, insomnia, irritability, crying, or tiredness alone. Never infer cycle from age, sex, name, relationship status, appetite, or mood pattern. If the user does not connect tonight to cycle, do not bring it up first.（不要仅凭焦虑、失眠、烦躁、想哭或疲惫就进入 Cycle 支持。绝不能根据年龄、性别、名字、关系状态、食欲或情绪模式去猜测周期。若用户没有把今晚和周期联系起来，就不要先主动提。）</span></p>
+                    <p><span class="bilingual">Do not use this lane when symptoms sound high risk or when ordinary night support fits better.（如果症状已经像高风险身体信号，或普通夜间支持更合适，就不要进入这一链路。）</span></p>
+                  </div>
                   <p><span class="bilingual">I’m anxious and tired.（我很焦虑，也很累。）</span></p>
                   <p><span class="bilingual">Do not make this about my cycle.（别把今晚的事往经期上带。）</span></p>
                 </td>
               </tr>
               <tr>
-                <th>缺失信息时怎么追问</th>
+                <th>缺信息时怎么问</th>
                 <td>
-                  <p><span class="bilingual">I can make tonight gentler for that kind of night. Is the bigger problem pain, heat, emotional swings, or just very light sleep?（可以，我会把今晚调得更温和一点。你现在更困扰的是疼、热、情绪起伏，还是单纯睡得很浅？）</span></p>
-                  <p><span class="bilingual">Do you want me to avoid anything, like deeper breathing, body scanning, or too much talking?（你有没有想让我避开的方式，比如较深的呼吸、身体扫描，或者说太多话？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">If Cycle support is chosen and details are missing, ask what is hardest tonight and what should be avoided. Good prompts are: Is the bigger problem pain, heat, emotional swings, or very light sleep, and Do you want me to avoid deeper breathing, body scanning, or too much talking.（如果已经进入 Cycle 支持但细节还不够，问今晚最难受的点，以及要避开什么。可用问题是：Is the bigger problem pain, heat, emotional swings, or very light sleep，以及 Do you want me to avoid deeper breathing, body scanning, or too much talking.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>用户主动说了以后怎么回</th>
+                <th>用户点名后怎么回</th>
                 <td>
-                  <p><span class="bilingual">I know. On nights like this, I’ll make everything softer and ask less from your body. Tell me what is hardest right now, and I’ll adjust around that.（我知道。像今晚这种夜晚，我会把节奏放得更轻，也少让身体做事。告诉我现在最难受的是哪一块，我会围着那个来调。）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">When the user explicitly points to cycle, answer with softness and reduced demand. Good line: I know. On nights like this, I will make everything softer and ask less from your body. Tell me what is hardest right now, and I will adjust around that.（当用户明确点到周期时，先用更轻、更少要求的话术接住。可用句式：I know. On nights like this, I will make everything softer and ask less from your body. Tell me what is hardest right now, and I will adjust around that.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <th>系统判断该推荐时怎么回</th>
+                <th>系统推荐时怎么回</th>
                 <td>
-                  <p><span class="bilingual">If this feels like the kind of night you told me happens around your cycle, I can make the story, breathing, or guidance much gentler. Want me to shift into that version?（如果今晚像你之前说过的那种经期夜晚，我可以把故事、呼吸或引导都调成更温和的版本。要我这样陪你吗？）</span></p>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Only recommend this lane when reliable memory already supports it. Good line: If this feels like the kind of night you told me happens around your cycle, I can make the story, breathing, or guidance much gentler. Want me to shift into that version.（只有在可信记忆已经支撑的情况下才推荐这一链路。可用句式：If this feels like the kind of night you told me happens around your cycle, I can make the story, breathing, or guidance much gentler. Want me to shift into that version.）</span></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -2535,13 +2489,11 @@
                 </td>
               </tr>
               <tr>
-                <th>边界与兜底处理</th>
+                <th>边界与兜底</th>
                 <td>
-                  <ul>
-                    <li>不把经期写成脆弱标签，也不默认所有不适都由经期导致。</li>
-                    <li>不做诊断，不替代妇科或医生判断。</li>
-                    <li>一旦描述里出现明显风险，优先现实帮助，不继续普通助眠引导。</li>
-                  </ul>
+                  <div class="prompt-block">
+                    <p><span class="bilingual">Do not frame cycle as weakness, do not assume every discomfort comes from cycle, and do not diagnose. If the user describes high risk symptoms, step out of ordinary soothing and move toward real world help.（不要把周期写成脆弱标签，不要默认所有不适都由周期导致，也不要做诊断。如果用户描述高风险症状，就退出普通安抚，转向现实帮助。）</span></p>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -2549,7 +2501,7 @@
         </section>
 
         <section class="section" id="push-boundaries">
-          <h2>推送与全局边界</h2>
+          <h2>推送</h2>
           <div class="subsection" id="push">
             <h3>推送执行细则</h3>
             <p class="section-intro">按时间链路排序。线上推送按用户语言环境单语发送；本页双语只用于评审和配置对照。</p>

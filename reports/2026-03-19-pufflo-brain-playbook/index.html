@@ -556,6 +556,189 @@
       line-height: 1.68;
     }
 
+    .report-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .report-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      padding: 22px 22px 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(237, 206, 171, 0.88);
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, #dd8a34 0%, #c86f24 100%);
+      background-size: 38px 38px, 38px 38px, 100% 100%;
+      box-shadow: 0 16px 34px rgba(161, 93, 23, 0.16);
+      color: #fff7ea;
+    }
+
+    .report-card::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -42px -42px;
+      width: 156px;
+      height: 156px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 72%);
+      pointer-events: none;
+    }
+
+    .report-card.kit {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, #d9862f 0%, #b96220 100%);
+      background-size: 38px 38px, 38px 38px, 100% 100%;
+    }
+
+    .report-card.issue {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, #cf7a34 0%, #a95b22 100%);
+      background-size: 38px 38px, 38px 38px, 100% 100%;
+    }
+
+    .report-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 244, 221, 0.16);
+      color: #fff3dc;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .report-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffd772;
+      box-shadow: 0 0 0 5px rgba(255, 215, 114, 0.16);
+    }
+
+    .report-card h3 {
+      margin-top: 14px;
+      margin-bottom: 12px;
+      color: #fffaf1;
+      font-size: 28px;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+    }
+
+    .report-copy {
+      color: rgba(255, 247, 234, 0.92);
+      line-height: 1.72;
+    }
+
+    .report-list {
+      margin-top: 16px;
+      padding-left: 20px;
+      color: rgba(255, 247, 234, 0.94);
+    }
+
+    .report-list li + li {
+      margin-top: 8px;
+    }
+
+    .sound-panel {
+      margin-top: 18px;
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      background: rgba(255, 248, 236, 0.14);
+      border: 1px solid rgba(255, 236, 210, 0.18);
+    }
+
+    .sound-row {
+      display: grid;
+      grid-template-columns: 78px 70px 1fr 74px;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 0;
+      color: rgba(255, 248, 236, 0.96);
+      border-top: 1px solid rgba(255, 243, 223, 0.14);
+    }
+
+    .sound-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .sound-row:last-of-type {
+      padding-bottom: 0;
+    }
+
+    .sound-wave {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle, rgba(255, 248, 236, 0.92) 1.6px, transparent 1.8px) center / 12px 12px repeat-x;
+      opacity: 0.92;
+    }
+
+    .sound-wave::after {
+      content: "";
+      position: absolute;
+      left: 18%;
+      right: 18%;
+      top: -4px;
+      height: 20px;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(255, 248, 236, 0.9) 10%, rgba(255, 248, 236, 0.9) 13%, transparent 13%, transparent 21%, rgba(255, 248, 236, 0.96) 21%, rgba(255, 248, 236, 0.96) 25%, transparent 25%, transparent 36%, rgba(255, 248, 236, 0.88) 36%, rgba(255, 248, 236, 0.88) 39%, transparent 39%, transparent 52%, rgba(255, 248, 236, 0.96) 52%, rgba(255, 248, 236, 0.96) 57%, transparent 57%, transparent 70%, rgba(255, 248, 236, 0.88) 70%, rgba(255, 248, 236, 0.88) 73%, transparent 73%);
+    }
+
+    .report-mini {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 248, 236, 0.14);
+      border: 1px solid rgba(255, 236, 210, 0.18);
+      color: rgba(255, 248, 236, 0.96);
+      line-height: 1.74;
+    }
+
+    .report-mini strong {
+      color: #fffaf1;
+    }
+
+    .report-mini p + p {
+      margin-top: 8px;
+    }
+
+    .report-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .report-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 248, 236, 0.16);
+      border: 1px solid rgba(255, 236, 210, 0.2);
+      color: rgba(255, 248, 236, 0.95);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
     .jump-links {
       position: fixed;
       right: 18px;
@@ -765,6 +948,26 @@
       .cta-button-preview {
         width: 100%;
         min-width: 0;
+      }
+
+      .report-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .report-card {
+        min-height: auto;
+        padding: 18px 16px;
+        border-radius: 18px;
+      }
+
+      .report-card h3 {
+        font-size: 24px;
+      }
+
+      .sound-row {
+        grid-template-columns: 62px 56px 1fr 60px;
+        gap: 8px;
+        font-size: 14px;
       }
     }
 
@@ -2125,176 +2328,199 @@
 
         <section class="section" id="morning-report">
           <h2>晨间反馈</h2>
-          <p class="section-intro">睡眠监测、呼吸机和睡眠报告都属于“昨夜已经发生、现在回看”的次晨反馈场景。内容聚焦观察、解释和后续建议，不属于夜间陪伴入口，也不属于诊断与治疗。</p>
-          <table class="spec-table">
-            <tbody>
-              <tr>
-                <th>夜间陪伴 vs 次晨反馈</th>
-                <td>夜间模块负责陪伴与过渡，次晨模块负责回看与解释。一个用户如果是在问“昨晚发生了什么”，就不该被导回故事或呼吸；同样，夜里还没结束前也不应提前推报告。</td>
-              </tr>
-              <tr>
-                <th>首页入口</th>
-                <td>首页中的睡眠监测、呼吸机和睡眠报告入口都要被理解成同一条次晨反馈链路，而不是分散的独立小游戏功能。</td>
-              </tr>
-              <tr>
-                <th>核心边界</th>
-                <td>所有关于鼾声、磨牙、翻身、呼吸片段、呼吸机相关表现的描述，都必须停留在“观察到的模式”层，明确和医学诊断分开。</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="section-links" aria-label="晨间与报告跳转">
-            <a href="#report">睡眠报告执行细则</a>
+          <p class="section-intro">次晨入口只处理昨夜已完成数据。输出分为整体报告、睡眠声音、睡眠问题单独分析三类。</p>
+
+          <div class="report-showcase">
+            <article class="report-card">
+              <div class="report-kicker">整体睡眠报告</div>
+              <h3>总结、风险信号、下一步</h3>
+              <p class="report-copy">进入详情页或在聊天中追问时，先给一条总述，再给证据支持的风险提示，最后只留一个下一步。</p>
+              <ul class="report-list">
+                <li>整体睡眠总结</li>
+                <li>健康风险提示</li>
+                <li>一个建议动作</li>
+              </ul>
+              <div class="report-chip-row">
+                <span class="report-chip">查看详情</span>
+                <span class="report-chip">非诊断表达</span>
+              </div>
+            </article>
+
+            <article class="report-card kit">
+              <div class="report-kicker">睡眠声音</div>
+              <h3>最多 3 条</h3>
+              <p class="report-copy">每个类别只保留最长片段，按固定优先级筛选，先给最值得看的三类声音。</p>
+              <div class="sound-panel">
+                <div class="sound-row">
+                  <span>呼吸暂停</span>
+                  <span>26s</span>
+                  <span class="sound-wave" aria-hidden="true"></span>
+                  <span>02:23</span>
+                </div>
+                <div class="sound-row">
+                  <span>打鼾</span>
+                  <span>9s</span>
+                  <span class="sound-wave" aria-hidden="true"></span>
+                  <span>03:26</span>
+                </div>
+                <div class="sound-row">
+                  <span>梦话</span>
+                  <span>12s</span>
+                  <span class="sound-wave" aria-hidden="true"></span>
+                  <span>05:09</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="report-card issue">
+              <div class="report-kicker">问题单独分析</div>
+              <h3>先回答，再上证据</h3>
+              <p class="report-copy">用户如果只问某个问题，例如打鼾、呼吸暂停或梦话，回复分成总结和证据两层。</p>
+              <div class="report-mini">
+                <p><strong>总结</strong> 用 Pufflo 口吻先回答用户的问题。</p>
+                <p><strong>证据</strong> 有明确日期时最多 5 条，没有日期就不编时间。</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="subsection">
+            <h3>晨间路由提示词</h3>
+            <table class="spec-table">
+              <tbody>
+                <tr>
+                  <th>输出目标（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">You are the morning feedback router for Pufflo. Read the user's latest request, available report data, available sound events, named issue if any, and whether there is a date constraint. Choose exactly one route: OVERALL_REPORT, SOUND_LIST, ISSUE_ANALYSIS, or DATA_INSUFFICIENT.（你是 Pufflo 的晨间反馈路由器。读取用户最新请求、可用报告数据、可用声音事件、是否点名了具体问题，以及是否存在日期限制。你只能在 OVERALL_REPORT、SOUND_LIST、ISSUE_ANALYSIS、DATA_INSUFFICIENT 四条路由中选择一条。）</span></p>
+                      <p><span class="bilingual">Use OVERALL_REPORT when the user asks how they slept, what happened last night, asks to see the sleep report, or taps the report card. Use SOUND_LIST when the user asks what sounds happened, asks to hear the captured sounds, or taps the sound card. Use ISSUE_ANALYSIS when the user asks about one named problem such as snoring, apnea, sleep talking, teeth grinding, turning over, cough, sneeze, or humming. Use DATA_INSUFFICIENT when clean data or matching evidence is missing.（当用户问昨晚睡得怎样、昨晚发生了什么、想看睡眠报告，或点击报告卡片时，走 OVERALL_REPORT。当用户问昨晚有哪些声音、想听记录到的声音，或点击声音卡片时，走 SOUND_LIST。当用户点名某个具体问题，例如打鼾、呼吸暂停、梦话、磨牙、翻身、咳嗽、喷嚏或哼唧时，走 ISSUE_ANALYSIS。若干净数据或匹配证据不足，则走 DATA_INSUFFICIENT。）</span></p>
+                      <p><span class="bilingual">If the user names both a broad report and one issue, prioritize ISSUE_ANALYSIS first and keep the overall report as a follow-up offer. Do not route morning questions back to Story, Meditation, Breathing, Music, or Religion. Return route, issue_type if any, date_scope if any, and the exact tool call name.（如果用户同时要整体报告和一个具体问题，优先走 ISSUE_ANALYSIS，并把整体报告保留为后续建议。不要把晨间问题导回 Story、Meditation、Breathing、Music 或 Religion。返回 route、issue_type、date_scope 以及准确的 tool call 名称。）</span></p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>用户问题示例</th>
+                  <td>
+                    <p><span class="bilingual">How did I sleep last night?（我昨晚睡得怎么样？）</span></p>
+                    <p><span class="bilingual">Show me the sounds from last night.（把昨晚的声音给我看看。）</span></p>
+                    <p><span class="bilingual">Did I snore yesterday?（我昨天有打鼾吗？）</span></p>
+                    <p><span class="bilingual">Was there any apnea-like pattern last night?（昨晚有没有接近呼吸暂停的情况？）</span></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
         <section class="section" id="report">
-          <h2>睡眠报告执行细则</h2>
-          <p class="section-intro">报告必须保持描述性、低负担、非打分、非诊断。没有足够数据时，直接说明数据不足。</p>
-
-          <table class="spec-table">
-            <tbody>
-              <tr>
-                <th>生成方式边界</th>
-                <td>首页固定摘要、报告页固定卡片或服务端模板，不写成 Pufflo prompt；只有 Pufflo 在 chat / voice 里解释昨夜数据时，才使用本节中的对答与提示词。</td>
-              </tr>
-              <tr>
-                <th>统一原则</th>
-                <td>
-                  <ul>
-                    <li>只在有足够夜间数据时出报告；没有就诚实说明。</li>
-                    <li>先给一条轻摘要，再给细节；默认不展示羞辱式打分。</li>
-                    <li>可以说“可能出现了某种模式”，不能说“你被诊断为”。</li>
-                  </ul>
-                  <div class="prompt-block">
-                    <p><span class="bilingual">I do not have enough clean data from last night to give you a useful read yet. If you want, I can just tell you what was captured and what was missing.（我这边还没有足够干净的昨夜数据，没法给你一个真正有用的判断。如果你愿意，我可以只告诉你这次记录到了什么、还缺了什么。）</span></p>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <h2>睡眠报告与睡眠问题分析</h2>
+          <p class="section-intro">整体报告、睡眠声音、单个问题分析都在这一层生成。下面每块都写成可直接给 LLM 的 prompt。</p>
 
           <div class="subsection">
-            <h3>场景一：结束睡眠</h3>
+            <h3>整体睡眠报告</h3>
             <table class="spec-table">
               <tbody>
                 <tr>
-                  <th>触发条件</th>
-                  <td>
-                    <ul>
-                      <li>用户主动结束一晚完整记录，且系统已经完成至少基础摘要生成时触发。</li>
-                      <li>用户次晨首次打开 app，昨夜数据已整理完成，且确实有可读内容时触发。</li>
-                      <li>如果只有零散数据、录音中断严重、质量太差，就不触发正式报告，改走“数据不足”说明。</li>
-                      <li>这个场景的重点是“昨夜已经结束并可回看”，不是用户还在夜里清醒时提前推报告。</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Pufflo 对答</th>
-                  <td>
-                    <p><span class="bilingual">I have a short read of last night ready. Do you want the short version or the fuller view?（我已经整理好一份昨夜摘要了。你想先听简短版，还是完整一点的版本？）</span></p>
-                    <p><span class="bilingual">Your night data is ready. I can give you one calm headline and one useful next step.（你的昨夜数据已经整理好了。我可以先给你一句安静的摘要，再给你一个有用的小下一步。）</span></p>
-                  </td>
-                </tr>
-                <tr>
-                  <th>对话 / 语音提示词</th>
+                  <th>输出目标（prompt）</th>
                   <td>
                     <div class="prompt-block">
-                      <p><span class="bilingual">Generate a soft morning summary using plain language. Start with one calm headline, then mention likely sleep continuity, notable sounds or movement, and one low-pressure next step. Avoid scores, shame, and diagnosis.（用普通人能懂的话生成一份柔和的晨间摘要。先给一句平静标题，再提睡眠连续性、值得注意的声音或动作模式，以及一个低压力的小下一步。避免打分、羞耻感与诊断化表达。）</span></p>
+                      <p><span class="bilingual">You are Pufflo generating a sleep report from completed overnight data. Produce a response in Pufflo's calm voice that combines three layers in this order: summary, health risk signal, and one next step.（你是 Pufflo，要基于一整晚已完成的监测数据生成睡眠报告。请用 Pufflo 平静的口吻，按这个顺序输出三层内容：总结、健康风险信号、一个下一步建议。）</span></p>
+                      <p><span class="bilingual">Use only evidence-backed fields. Do not invent scores, dates, or severity. If the data is too weak, replace the full report with a short data-insufficient response.（只使用有证据支撑的字段。不要虚构分数、日期或严重程度。如果数据太弱，就不要硬出完整报告，改成简短的数据不足回复。）</span></p>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <th>推荐下一步</th>
-                  <td>只给一个下一步，例如“今晚提前 10 分钟进入故事 / 呼吸”，不发 checklist。</td>
+                  <th>数据输入</th>
+                  <td>
+                    <p><span class="bilingual">night_summary, sleep_duration_hours, sleep_efficiency, deep_sleep_ratio, rem_ratio, wake_count, fragmentation_level, respiratory_metrics such as ahi_like_score or breathing_interruption_count, sound_events, movement_events, date_label, data_quality, and recommendation_catalog.（night_summary、sleep_duration_hours、sleep_efficiency、deep_sleep_ratio、rem_ratio、wake_count、fragmentation_level、呼吸相关指标，例如 ahi_like_score 或 breathing_interruption_count、sound_events、movement_events、date_label、data_quality，以及 recommendation_catalog。）</span></p>
+                  </td>
                 </tr>
                 <tr>
-                  <th>非诊断边界</th>
-                  <td>任何关于鼾声、磨牙、梦话、翻身或呼吸片段的描述都只能写成观察到的模式，不做医学判断。</td>
+                  <th>生成提示词（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">Write the report in four blocks only. Block 1 is a one-line headline. Block 2 is Summary with up to three bullets covering sleep duration or continuity, depth or fragmentation, and one notable pattern from sounds or movement. Block 3 is Health Signal where you may infer possible health or disease risk only when the data strongly supports it. Phrase it as risk, concern, or signal, never as diagnosis. Block 4 is one actionable next step.（整个报告只写四块。第一块是一行标题。第二块是 Summary，最多三条要点，覆盖睡眠时长或连续性、深睡或破碎程度，以及一个来自声音或动作的显著模式。第三块是 Health Signal，只有在数据强支撑时才可以推断可能的健康或疾病风险，但只能写成 risk、concern、signal，绝不能写成 diagnosis。第四块只给一个可执行下一步。）</span></p>
+                      <p><span class="bilingual">If respiratory indicators are high, repeated, or long in duration, you may say the pattern may deserve medical follow-up or device evaluation, but do not claim the user definitely has a disease. If the signal is mild or ambiguous, stay with observation only.（如果呼吸相关指标偏高、反复出现或持续时间较长，你可以说这个模式可能值得进一步医学跟进或设备评估，但不能断言用户已经患病。如果信号轻或模糊，就只停留在观察层。）</span></p>
+                      <p><span class="bilingual">Keep Pufflo's tone warm, concise, and low-pressure. Do not shame, score, dramatize, or overpromise. The report should feel readable on a card first, then expandable in chat.（Pufflo 的语气要温和、简洁、低压力。不要羞辱、打分、戏剧化，也不要过度承诺。报告默认先要适合卡片阅读，再适合在聊天里展开。）</span></p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>睡眠声音筛选（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">Given sound_events, keep only these categories: apnea, snore, sleep_talk, teeth_grinding, turning_over, cough, sneeze, humming. For each category keep the single longest clip only. Then sort categories by this exact priority: apnea, snore, sleep_talk, teeth_grinding, turning_over, cough, sneeze, humming. Output at most three sound cards.（给定 sound_events 时，只保留这些类别：apnea、snore、sleep_talk、teeth_grinding、turning_over、cough、sneeze、humming。每个类别只保留单条最长片段。然后严格按这个优先级排序：apnea、snore、sleep_talk、teeth_grinding、turning_over、cough、sneeze、humming。最终最多输出三张声音卡片。）</span></p>
+                      <p><span class="bilingual">Each selected sound card must include category label, clip duration, playback id, and date or start time only if that field exists. Never fabricate missing timestamps. If no qualified clip remains, omit the sound-card block entirely.（每张被选中的声音卡都必须包含类别名、片段时长、playback id，以及仅在字段存在时才显示的日期或起始时间。绝不能编造缺失时间。如果没有合格片段，就整个省略声音卡片块。）</span></p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>详情解释（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">When the user opens the report in chat and asks for more detail, explain the same report in Pufflo's voice without changing the underlying facts. Start with the strongest supported pattern, then explain what it may mean for recovery, and end with one gentle next step.（当用户在聊天里点开报告并要求更多细节时，用 Pufflo 的口吻解释同一份报告，但不能改动底层事实。先讲最强证据支持的模式，再解释它可能意味着什么，最后只留一个温和下一步。）</span></p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>数据不足回复（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">If data_quality is low, the capture is fragmented, or the report lacks enough fields for a reliable read, answer with a short insufficiency note. State what was missing and offer either a lighter summary or a suggestion to capture another night.（如果 data_quality 低、采集破碎，或报告字段不足以支撑可靠判断，就输出一条简短的数据不足说明。明确缺了什么，并给出两个选项中的一个：更轻的摘要，或建议再记录一晚。）</span></p>
+                      <p><span class="bilingual">I do not have enough clean data from last night to give you a useful full report yet. I can still tell you what was captured, or we can wait for a cleaner night.（我这边还没有足够干净的昨夜数据，暂时给不了真正有用的完整报告。我可以先告诉你捕捉到了什么，或者等下一次更完整的一夜。）</span></p>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div class="subsection">
-            <h3>场景二：询问睡眠情况</h3>
+            <h3>睡眠问题单独分析</h3>
             <table class="spec-table">
               <tbody>
                 <tr>
-                  <th>触发条件</th>
-                  <td>
-                    <ul>
-                      <li>用户直接问“我昨晚睡得怎么样”“昨晚好不好”“有没有睡好”“昨天夜里发生了什么”之类问题时触发。</li>
-                      <li>重点是用户在问整体睡眠状态，而不是某个单独问题；回答应先给整体，再决定是否展开细节。</li>
-                      <li>如果没有足够数据支撑整体判断，不硬答“好 / 不好”，而是转成“目前能看到的部分”。</li>
-                      <li>如果用户真正问的是某个具体问题，例如打鼾或梦话，优先切到下一场景，不先给泛化结论。</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Pufflo 对答</th>
-                  <td>
-                    <p><span class="bilingual">Here's the soft version first: your night settled more in the second half, but there were a few interruptions early on.（先给你一个轻一点的版本：你的夜晚在后半段更稳了一些，但前半段有几次打断。）</span></p>
-                    <p><span class="bilingual">If you want, I can show you how the night felt over time instead of reducing it to a score.（如果你愿意，我可以把这一夜是怎么变化的讲给你听，而不是把它压缩成一个分数。）</span></p>
-                  </td>
-                </tr>
-                <tr>
-                  <th>对话 / 语音提示词</th>
+                  <th>输出目标（prompt）</th>
                   <td>
                     <div class="prompt-block">
-                      <p><span class="bilingual">Answer the user's sleep-status question with descriptive, not diagnostic, language. Use phrases like looked calmer, seemed more interrupted, possible short sound events, and a gentle interpretation.（当用户问“我昨晚睡得怎样”时，用描述性而非诊断性的语言回答。可以使用“后半段更稳”“似乎有几次被打断”“可能出现了短时声音事件”“一个温和的解释”这类表达。）</span></p>
+                      <p><span class="bilingual">You are Pufflo answering one named sleep issue from completed overnight data. The answer must have exactly two layers: summary and sound evidence.（你是 Pufflo，要基于一整晚已完成的数据回答一个被点名的睡眠问题。回复必须严格只有两层：summary 和 sound evidence。）</span></p>
+                      <p><span class="bilingual">Valid evidence categories are apnea, snore, sleep_talk, teeth_grinding, turning_over, cough, sneeze, and humming. Do not introduce any category outside this list.（证据类别只允许使用 apnea、snore、sleep_talk、teeth_grinding、turning_over、cough、sneeze、humming。不要引入这份列表之外的类别。）</span></p>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <th>推荐下一步</th>
-                  <td>如果夜晚明显破碎，优先推荐今晚更早开始低刺激内容，而不是强调问题严重性。</td>
-                </tr>
-                <tr>
-                  <th>非诊断边界</th>
-                  <td>不用“失眠程度”“呼吸疾病”“异常指标”这类词来包装观察结果。</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="subsection">
-            <h3>场景三：询问睡眠问题</h3>
-            <table class="spec-table">
-              <tbody>
-                <tr>
-                  <th>触发条件</th>
-                  <td>
-                    <ul>
-                      <li>用户明确问有没有打鼾、梦话、磨牙、翻身很多、呼吸声音异常等具体问题时触发。</li>
-                      <li>或系统在已有较清楚数据里观察到某类反复出现、值得被温和提示的模式时触发。</li>
-                      <li>只有“有可观察片段”才进入这个场景；没有足够证据时，不制造一个问题出来回答。</li>
-                      <li>一旦用户继续追问“那是不是病”“严不严重”，要明确从观察模式切回非诊断边界，不顺势装成医疗判断。</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Pufflo 对答</th>
-                  <td>
-                    <p><span class="bilingual">I noticed some short stretches that may match snoring-like sounds, but this is not a medical reading.（我注意到几段可能接近打鼾的声音片段，但这不是医疗判断。）</span></p>
-                    <p><span class="bilingual">I can tell you what patterns showed up, but I cannot diagnose what they mean medically.（我可以告诉你出现了哪些模式，但不能对它们做医学诊断。）</span></p>
-                    <p><span class="bilingual">I noticed a few patterns that may be worth keeping an eye on. Want the gentle summary?（我注意到几个可能值得留意的模式。你想听一个轻一点的总结吗？）</span></p>
-                  </td>
-                </tr>
-                <tr>
-                  <th>对话 / 语音提示词</th>
+                  <th>问题识别（prompt）</th>
                   <td>
                     <div class="prompt-block">
-                      <p><span class="bilingual">When answering sleep-problem questions, describe observed patterns conservatively and clearly separate observation from interpretation. Never diagnose, prescribe, or reassure away a serious issue.（当回答睡眠问题时，要保守描述观察到的模式，并清楚区分“观察”与“解释”。绝不能做诊断、给出处方建议，或轻率地把严重问题安抚掉。）</span></p>
+                      <p><span class="bilingual">Map the user's question to one target issue before generating the answer. breathing stopped, stopped breathing, apnea, choking, gasping, 憋气, 呼吸暂停 all map to apnea. snore, snoring, 呼噜, 打鼾 map to snore. sleep talking, talking in sleep, 说梦话, 梦话 map to sleep_talk. grinding, teeth grinding, 磨牙 map to teeth_grinding. turning over, toss and turn, 翻身 map to turning_over. coughing, 咳嗽 map to cough. sneezing, 喷嚏 map to sneeze. humming, 哼唧 map to humming.（生成答案前，先把用户问题映射到一个目标问题。breathing stopped、stopped breathing、apnea、choking、gasping、憋气、呼吸暂停 都映射到 apnea。snore、snoring、呼噜、打鼾 映射到 snore。sleep talking、talking in sleep、说梦话、梦话 映射到 sleep_talk。grinding、teeth grinding、磨牙 映射到 teeth_grinding。turning over、toss and turn、翻身 映射到 turning_over。coughing、咳嗽 映射到 cough。sneezing、喷嚏 映射到 sneeze。humming、哼唧 映射到 humming。）</span></p>
+                      <p><span class="bilingual">If the user asks only what sounds happened, do not enter issue analysis. Route to SOUND_LIST instead.（如果用户只是问昨晚都有哪些声音，不要进入问题单独分析，而是改走 SOUND_LIST。）</span></p>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <th>推荐下一步</th>
-                  <td>如果用户继续追问严重性，可建议其记录并向专业人士咨询，但不替代判断。</td>
+                  <th>生成提示词（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">Write Part 1 as a short Pufflo summary that answers the named question directly. State what the captured pattern suggests, how often or how strongly it appeared if the data supports that, and keep medical language conservative. Write Part 2 as sound evidence.（第一部分写成 Pufflo 的短总结，直接回答用户点名的问题。说明捕捉到的模式在说什么，如果数据足够，再补频率或强度，但医学语言必须保守。第二部分写成声音证据。）</span></p>
+                      <p><span class="bilingual">If there is an exact date for the requested night, show up to five evidence rows and no more. If there is no exact date, do not fabricate one. In that case keep the summary, then describe the evidence without a dated list. If there is no matching evidence, say that clearly and stop.（如果请求的夜晚有明确日期，最多显示五条证据，绝不能更多。如果没有明确日期，就不要编日期。这种情况下保留总结，再用不带日期列表的方式描述证据。如果没有匹配证据，就明确说明，然后停住。）</span></p>
+                      <p><span class="bilingual">Never diagnose, prescribe, or tell the user a serious pattern is definitely harmless. If the pattern is repeated and strong, you may say it may deserve follow-up, but keep the wording observational.（绝不能做诊断、给处方，或把一个明显强烈的模式轻率说成一定没事。如果模式反复且强烈，你可以说可能值得进一步跟进，但措辞仍要停留在观察层。）</span></p>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
-                  <th>非诊断边界</th>
-                  <td>观察与解释必须分开写；不能用“没事”“应该问题不大”来轻率压掉风险。</td>
+                  <th>证据筛选（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">Filter sound evidence to the target issue first. Keep only clips that match the mapped issue category. If exact date is available, sort by strongest or longest relevant clips first and output at most five. If exact date is unavailable, summarize the evidence pattern without fabricating dates, times, or counts that are not present.（先按目标问题筛选声音证据，只保留与映射类别匹配的片段。如果有明确日期，优先输出最强或最长的相关片段，且最多五条。如果没有明确日期，就只总结证据模式，不要编造日期、时间或不存在的次数。）</span></p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>对话口吻（prompt）</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">Keep Pufflo's voice close, plain, and non-alarmist. Good sentence shapes are: I did catch a few clips that look closer to..., The stronger signal is..., and From this alone I cannot diagnose, but this pattern may be worth watching.（Pufflo 的口吻要贴近、直白、不制造惊吓。适合的句式包括：I did catch a few clips that look closer to...、The stronger signal is...、From this alone I cannot diagnose, but this pattern may be worth watching.）</span></p>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>

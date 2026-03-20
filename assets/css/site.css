@@ -133,28 +133,6 @@ h1 {
   line-height: 1.72;
 }
 
-.hero-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.hero-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(104, 122, 160, 0.14);
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: 0 10px 20px rgba(120, 145, 183, 0.1);
-  color: #42516a;
-  font-size: 13px;
-  font-weight: 700;
-}
-
 .hero-art {
   position: relative;
   min-height: 420px;
@@ -190,108 +168,98 @@ h1 {
   opacity: 0.88;
 }
 
-.mascot-orb {
+.ring {
   position: absolute;
-  inset: 98px auto auto 126px;
-  width: 180px;
-  height: 180px;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.86), rgba(255, 240, 181, 0.88) 26%, rgba(255, 194, 101, 0.95) 58%, rgba(250, 148, 87, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow:
-    inset 0 8px 16px rgba(255, 255, 255, 0.38),
-    0 26px 52px rgba(246, 170, 79, 0.24);
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 20px 48px rgba(120, 145, 183, 0.12);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
 }
 
-.mascot-orb::before,
-.mascot-orb::after {
-  content: "";
+.ring-a {
+  inset: 72px auto auto 120px;
+  width: 164px;
+  height: 164px;
+}
+
+.ring-b {
+  inset: 210px 70px auto auto;
+  width: 92px;
+  height: 92px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.sticker {
   position: absolute;
-  background: rgba(255, 185, 90, 0.96);
-  border-radius: 999px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.68),
+    0 14px 30px rgba(137, 154, 185, 0.14);
 }
 
-.mascot-orb::before {
-  width: 62px;
-  height: 82px;
-  left: 18px;
-  bottom: 16px;
-  transform: rotate(18deg);
+.sticker-a {
+  inset: 36px auto auto 54px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(130, 223, 248, 0.72));
 }
 
-.mascot-orb::after {
-  width: 62px;
-  height: 82px;
-  right: 18px;
-  bottom: 16px;
-  transform: rotate(-18deg);
+.sticker-b {
+  inset: 126px 30px auto auto;
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 191, 122, 0.78));
 }
 
-.orb-face {
+.sticker-c {
+  inset: auto auto 38px 88px;
+  width: 74px;
+  height: 74px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 155, 194, 0.68));
+}
+
+.spark {
   position: absolute;
-  inset: 58px 52px auto 52px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.orb-face span {
-  width: 18px;
+  width: 22px;
   height: 22px;
-  border-radius: 999px;
-  background: #6a4224;
+  border-radius: 10px;
+  transform: rotate(18deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 10px 22px rgba(122, 143, 177, 0.14);
 }
 
-.orb-face::after {
+.spark::before,
+.spark::after {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 38px;
-  width: 48px;
-  height: 26px;
-  border-radius: 0 0 40px 40px;
-  transform: translateX(-50%);
-  background: #a44d2f;
-  box-shadow: inset 0 8px 0 rgba(255, 170, 132, 0.32);
+  inset: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
 }
 
-.float-card {
-  position: absolute;
-  padding: 14px 16px;
-  min-width: 128px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(114, 132, 164, 0.12);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(16px);
+.spark::before {
+  width: 2px;
+  height: 14px;
 }
 
-.float-card strong {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--text-strong);
-  font-size: 14px;
+.spark::after {
+  width: 14px;
+  height: 2px;
 }
 
-.float-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.45;
+.spark-a {
+  inset: 42px 102px auto auto;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 155, 194, 0.72));
 }
 
-.float-card-a {
-  top: 30px;
-  left: 18px;
-}
-
-.float-card-b {
-  top: 88px;
-  right: 14px;
-}
-
-.float-card-c {
-  right: 46px;
-  bottom: 20px;
+.spark-b {
+  inset: auto 18px 96px auto;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(113, 223, 195, 0.74));
 }
 
 .section {
@@ -314,13 +282,17 @@ h1 {
   justify-content: space-between;
   gap: 18px;
   align-items: end;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+.section-head .eyebrow {
+  margin-bottom: 14px;
 }
 
 .section-head h2 {
   margin: 0;
   font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: -0.05em;
   color: var(--text-strong);
 }
@@ -510,62 +482,53 @@ h1 {
     top: 102px;
   }
 
-  .mascot-orb {
-    width: 136px;
-    height: 136px;
-    left: 92px;
-    top: 78px;
+  .ring-a {
+    width: 132px;
+    height: 132px;
+    left: 82px;
+    top: 64px;
   }
 
-  .mascot-orb::before,
-  .mascot-orb::after {
+  .ring-b {
+    width: 72px;
+    height: 72px;
+    right: 28px;
+    top: 176px;
+  }
+
+  .sticker-a {
     width: 46px;
-    height: 60px;
-    bottom: 12px;
+    height: 46px;
+    left: 34px;
+    top: 30px;
   }
 
-  .orb-face {
-    inset: 42px 38px auto 38px;
-  }
-
-  .orb-face span {
-    width: 14px;
-    height: 18px;
-  }
-
-  .orb-face::after {
-    top: 28px;
-    width: 36px;
-    height: 18px;
-  }
-
-  .float-card {
-    padding: 10px 12px;
-    min-width: 100px;
-    border-radius: 16px;
-  }
-
-  .float-card strong {
-    font-size: 12px;
-  }
-
-  .float-card p {
-    font-size: 11px;
-  }
-
-  .float-card-a {
-    top: 18px;
-    left: 8px;
-  }
-
-  .float-card-b {
-    top: 56px;
-    right: 6px;
-  }
-
-  .float-card-c {
+  .sticker-b {
+    width: 34px;
+    height: 34px;
     right: 18px;
-    bottom: 10px;
+    top: 104px;
+  }
+
+  .sticker-c {
+    width: 58px;
+    height: 58px;
+    left: 58px;
+    bottom: 28px;
+  }
+
+  .spark-a {
+    right: 86px;
+    top: 34px;
+  }
+
+  .spark-b {
+    right: 12px;
+    bottom: 82px;
+  }
+
+  .section-head {
+    margin-bottom: 22px;
   }
 
   .card {
@@ -585,12 +548,6 @@ h1 {
 
   .hero-copy {
     font-size: 15px;
-  }
-
-  .hero-pill {
-    min-height: 36px;
-    padding: 9px 12px;
-    font-size: 12px;
   }
 
   .card h3 {

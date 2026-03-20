@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>睡眠姿势与睡前身体状态</title>
-  <meta name="description" content="SleepAI 专题：把睡姿、袜子、睡衣、体温感做成可营销、可产品化的睡前身体调参层。">
+  <title>睡眠微环境与体位力学</title>
+  <meta name="description" content="SleepAI 专题：从睡姿、体位力学、袜子、睡衣与温度调节，重构高溢价睡眠产品与内容战略。">
   <link rel="stylesheet" href="../../assets/css/deck.css">
   <style>
     .hero h1 {
-      max-width: 12ch;
+      max-width: 11ch;
     }
 
     .hero-copy {
-      max-width: 760px;
+      max-width: 780px;
+    }
+
+    .hero-shell {
+      display: grid;
+      gap: 18px;
     }
 
     .pill-row {
@@ -64,21 +69,89 @@
     }
 
     .badge.low {
-      color: #f2f6ff;
+      color: #eef3ff;
       background: rgba(154, 176, 255, 0.2);
-      border-color: rgba(154, 176, 255, 0.32);
+      border-color: rgba(154, 176, 255, 0.34);
+    }
+
+    .lead-quote {
+      padding: 24px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(120, 240, 214, 0.14), transparent 42%),
+        rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .lead-quote strong {
+      display: block;
+      font-size: clamp(24px, 2.5vw, 32px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .mini {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .mini strong {
+      display: block;
+      font-size: clamp(22px, 2.3vw, 30px);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .mini span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .topic-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .topic-list li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .topic-list strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
     }
 
     .table-wrap {
       overflow: auto;
       border: 1px solid rgba(238, 243, 255, 0.08);
-      border-radius: 20px;
+      border-radius: 22px;
       background: rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow);
     }
 
     table {
       width: 100%;
-      min-width: 760px;
+      min-width: 860px;
       border-collapse: collapse;
     }
 
@@ -88,14 +161,14 @@
       border-bottom: 1px solid rgba(238, 243, 255, 0.08);
       text-align: left;
       vertical-align: top;
-      line-height: 1.6;
       font-size: 14px;
+      line-height: 1.62;
     }
 
     th {
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text);
       font-weight: 600;
-      background: rgba(255, 255, 255, 0.04);
     }
 
     td {
@@ -106,60 +179,22 @@
       border-bottom: 0;
     }
 
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      line-height: 1.35;
-    }
-
-    .step-list {
+    .panel-stack {
       display: grid;
-      gap: 14px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .step-list li {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(238, 243, 255, 0.08);
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .step-list strong {
-      color: var(--text);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .kpi {
-      padding: 22px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+    .hype-line {
+      margin: 0;
+      font-size: clamp(20px, 2vw, 27px);
+      line-height: 1.22;
+      max-width: 24ch;
     }
 
-    .kpi strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: clamp(22px, 2.4vw, 30px);
-      line-height: 1.1;
-    }
-
-    .kpi span {
+    .warning {
+      border-left: 3px solid var(--warn);
+      padding-left: 14px;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
     }
 
     .source-grid {
@@ -177,21 +212,33 @@
       color: var(--text);
     }
 
-    .warning {
-      border-left: 3px solid var(--warn);
-      padding-left: 14px;
-      color: var(--muted);
+    .chapter-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .chapter-mark::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: rgba(120, 240, 214, 0.6);
     }
 
     @media (max-width: 1024px) {
-      .kpi-grid,
+      .mini-grid,
       .source-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 720px) {
-      .kpi-grid,
+      .mini-grid,
       .source-grid {
         grid-template-columns: 1fr;
       }
@@ -206,17 +253,19 @@
       <div class="topbar-group">
         <a class="home-link" href="../../index.html">返回总览</a>
         <div class="brand">
-          <span class="kicker">专题研究 / 内容与产品机会</span>
-          <strong>睡眠姿势与睡前身体状态</strong>
+          <span class="kicker">专题研究 / 战略蓝图</span>
+          <strong>睡眠微环境与体位力学</strong>
         </div>
       </div>
       <nav class="nav" aria-label="页面导航">
         <a href="#summary">结论</a>
-        <a href="#tonight">今晚可用</a>
-        <a href="#evidence">证据</a>
-        <a href="#videos">视频</a>
-        <a href="#product">产品</a>
-        <a href="#risk">边界</a>
+        <a href="#thesis">大叙事</a>
+        <a href="#mechanics">力学</a>
+        <a href="#side">侧卧科学</a>
+        <a href="#snore">抗鼾</a>
+        <a href="#micro">微气候</a>
+        <a href="#product">产品矩阵</a>
+        <a href="#guardrails">边界</a>
         <a href="#sources">来源</a>
       </nav>
       <div class="topbar-group">
@@ -230,297 +279,406 @@
       <div class="wrap">
         <div class="eyebrow">Bottom Line Up Front</div>
         <div class="hero-grid">
-          <div>
-            <h1>这不是万能睡姿学，这是很好卖的“睡前身体调参”。</h1>
+          <div class="hero-shell">
+            <h1>未来卖的不是床，是让身体整夜更聪明地躺着。</h1>
             <p class="hero-copy section-sub">
-              睡姿、脚冷脚热、睡衣薄厚、是否平躺，这些看起来很轻，但它们具备三个很强的商业属性：用户能立刻试、能立刻感觉、能立刻传播。真正适合 SleepAI 的，不是宣称存在唯一最佳睡姿，而是把这组小动作做成“今晚就能用”的睡前提示层。
+              睡眠经济正在从昂贵床垫、床架和“被动硬件升级”，走向更细颗粒度的主动干预：体位力学、微气候调节、材料触感和夜间姿势控制。真正适合被放大的，不是“唯一最佳睡姿”，而是一整套能让用户今晚就能试、明天就能感受到、并愿意为之付费的身体调参方案。
             </p>
             <div class="pill-row">
-              <div class="pill"><strong>最适合打的点</strong> 打鼾 / 反酸 / 怀孕 / 冷脚 / 热睡者</div>
-              <div class="pill"><strong>最适合的形态</strong> Tonight Tune-up</div>
-              <div class="pill"><strong>最关键的措辞</strong> 可试、可感、别过度承诺</div>
+              <div class="pill"><strong>最强卖点</strong> 打鼾 / 反酸 / 怀孕 / 冷脚 / 热睡者</div>
+              <div class="pill"><strong>最强升级</strong> 体位软件 + 微气候系统</div>
+              <div class="pill"><strong>最适合 SleepAI</strong> Tonight Tune-up</div>
             </div>
           </div>
-          <div class="card strong">
-            <p class="big-line">最好的叙事不是“哪种睡姿最正确”，而是“你今晚这个状况，怎么摆身体更顺一点”。</p>
+          <div class="lead-quote">
+            <strong>最好的商业故事，不是“哪种睡姿最正确”，而是“你今晚这个状况，怎么让身体少一点对抗重力、少一点闷热、少一点返流、少一点塌陷”。</strong>
+            <p class="section-sub">
+              这套叙事同时兼具科学感、即时感、可产品化和可传播性。它既能撑起低客单睡眠配件，也能自然延伸到高端智能床品与 AI 睡眠教练。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="thesis">
+      <div class="wrap">
+        <div class="chapter-mark">Macro Thesis</div>
+        <h2 class="section-title">从“硬件崇拜”到“身体软件”：睡眠消费的下一波升级。</h2>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card strong">
+            <p class="hype-line">消费者愿意为更贵的床买单，却长期忽略了真正整夜和重力搏斗的是自己的身体。</p>
             <ul class="metrics" style="margin-top:18px;">
-              <li>打鼾：先别仰睡，侧卧更值得试。</li>
-              <li>反酸：左侧卧 + 上半身整体抬高。</li>
-              <li>脚冷：薄袜可能比加厚睡衣更聪明。</li>
-              <li>怕热：轻薄透气，甚至裸睡，都比厚重闷热更值得讲。</li>
+              <li>骨盆会不会在夜里被扭成麻花。</li>
+              <li>胃酸会不会因为姿势和液面关系而逆流。</li>
+              <li>舌根和软组织会不会因为仰卧而让气道塌陷。</li>
+              <li>脚冷和闷热会不会让核心体温迟迟降不下来。</li>
             </ul>
+          </article>
+          <article class="card">
+            <h3>为什么这更值得做</h3>
+            <ul class="metrics">
+              <li>更容易被用户立刻理解和尝试。</li>
+              <li>更适合做 15-45 秒音频引导。</li>
+              <li>更适合通过配件、穿戴和床品做矩阵化变现。</li>
+              <li>比“神秘材料”“奢侈床垫科技”更有解释力和传播力。</li>
+            </ul>
+          </article>
+        </div>
+        <div class="mini-grid" style="margin-top:24px;">
+          <div class="mini">
+            <strong>体位力学</strong>
+            <span>骨盆、脊柱、肩颈、气道、胃食管位置关系，都是可卖的结构化故事。</span>
+          </div>
+          <div class="mini">
+            <strong>微气候</strong>
+            <span>脚冷、怕热、潮热、出汗、裸睡、薄睡衣，都是高传播低门槛入口。</span>
+          </div>
+          <div class="mini">
+            <strong>即时感</strong>
+            <span>用户今晚就能试，不必等待复杂疗程。</span>
+          </div>
+          <div class="mini">
+            <strong>高溢价</strong>
+            <span>内容、配件、穿戴、智能硬件都能接得上。</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="tonight">
+    <section class="section reveal" id="mechanics">
       <div class="wrap">
-        <div class="eyebrow">Tonight-Usable Levers</div>
-        <h2 class="section-title">先把用户最想知道的讲清楚，这部分最适合直接做成脚本。</h2>
+        <div class="chapter-mark">Biomechanics</div>
+        <h2 class="section-title">真正的力学问题，不是“睡哪边”，而是你是否整夜处在挑衅性扭曲中。</h2>
         <div class="three-col" style="margin-top:24px;">
           <article class="card strong">
-            <h3>打鼾时</h3>
+            <h3>挑衅性姿势</h3>
             <ul class="metrics">
-              <li>默认建议：从仰卧改成侧卧。</li>
-              <li>增强建议：头颈和胸口别完全躺平。</li>
-              <li>好讲法：很多人一躺平，鼾声就明显上去。</li>
+              <li>上方腿向前坠落。</li>
+              <li>骨盆、下背部和髋部被拧成斜对角。</li>
+              <li>颈部和肩带长期被拉扯。</li>
             </ul>
           </article>
           <article class="card strong">
-            <h3>反酸时</h3>
+            <h3>梦想家姿势</h3>
             <ul class="metrics">
-              <li>默认建议：左侧卧。</li>
-              <li>增强建议：上半身整体略抬高。</li>
-              <li>好讲法：左侧卧比右侧卧更值得试，不是“随便侧一下”。</li>
+              <li>侧卧时在双膝和脚踝之间加入足够支撑。</li>
+              <li>让骨盆、脊柱、臀部更接近中立对齐。</li>
+              <li>非常适合卖夹腿枕、侧卧定位系统。</li>
             </ul>
           </article>
-          <article class="card strong">
-            <h3>怀孕时</h3>
+          <article class="card">
+            <h3>士兵姿势</h3>
             <ul class="metrics">
-              <li>默认建议：侧卧。</li>
-              <li>重点：孕晚期尽量别仰卧入睡。</li>
-              <li>好讲法：左侧更常被推荐，但右侧不舒服时也能切换。</li>
+              <li>仰卧对部分人有对称排列优势。</li>
+              <li>但对打鼾、反酸和孕晚期不友好。</li>
+              <li>更适合特定人群，不适合作为默认答案。</li>
             </ul>
           </article>
         </div>
-        <div class="three-col" style="margin-top:24px;">
+        <div class="two-col" style="margin-top:24px;">
           <article class="card">
-            <h3>脚冷时</h3>
-            <ul class="metrics">
-              <li>薄、松、透气的袜子比一味加厚更值得试。</li>
-              <li>机制好讲：脚暖起来，困意往往来得更顺。</li>
+            <h3>最值得包装的产品语</h3>
+            <ul class="topic-list">
+              <li><strong>夜间骨盆平衡系统</strong> 不再只是卖抱枕，而是卖整夜的力学对齐。</li>
+              <li><strong>抗重力侧卧承托</strong> 用“重力对抗”替代“普通支撑”这类乏味表达。</li>
+              <li><strong>减少夜间扭曲</strong> 这是更能打中腰背痛和晨起僵硬用户的语言。</li>
             </ul>
           </article>
           <article class="card">
-            <h3>热睡者</h3>
-            <ul class="metrics">
-              <li>轻薄、透气、少层，通常比厚睡衣更优先。</li>
-              <li>如果本来就怕热，裸睡可以当作可选项讲。</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>右侧卧</h3>
-            <ul class="metrics">
-              <li>不是大众默认最佳答案。</li>
-              <li>对反酸不如左侧卧。</li>
-              <li>更像左侧不舒服时的可接受替代。</li>
+            <h3>证据定位</h3>
+            <ul class="topic-list">
+              <li><strong><span class="badge mid">Mid</span> 肌骨支撑</strong> 非最强临床证据，但非常适合消费级产品化。</li>
+              <li><strong><span class="badge high">High</span> 场景感</strong> 用户痛点明确，产品动作直观，商业价值高。</li>
+              <li><strong><span class="badge low">Low</span> 红线</strong> 不要写成“根治腰痛”或“替代康复治疗”。</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="evidence">
+    <section class="section reveal" id="side">
       <div class="wrap">
-        <div class="eyebrow">Evidence Ladder</div>
-        <h2 class="section-title">最值得拿来做“有效感”的，不是统一最佳睡姿，而是这几类明确场景。</h2>
-        <div class="kpi-grid" style="margin-top:24px;">
-          <div class="kpi">
+        <div class="chapter-mark">Side-Specific Science</div>
+        <h2 class="section-title">右侧卧和左侧卧，不是“哪个好”的简单问题，而是“你今晚想解决什么问题”。</h2>
+        <div class="table-wrap" style="margin-top:24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>身体维度</th>
+                <th>左侧卧</th>
+                <th>右侧卧</th>
+                <th>最适合的商业讲法</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GERD / 反酸</td>
+                <td>最强场景。食管与胃液液面关系更有利，临床建议和试验支持更强。</td>
+                <td>通常不如左侧卧，某些人可能更不舒服。</td>
+                <td>“左侧卧：夜间天然抗酸位”</td>
+              </tr>
+              <tr>
+                <td>孕中晚期</td>
+                <td>常被优先推荐，尤其适合做“循环通道”与“安全感”叙事。</td>
+                <td>通常可作为舒适替代，不应被妖魔化。</td>
+                <td>“侧卧生命通道”</td>
+              </tr>
+              <tr>
+                <td>大脑夜间清洗</td>
+                <td>侧卧整体优于仰卧/俯卧的方向较有前沿研究支持。</td>
+                <td>最适合做“护脑抗衰右卧位”概念，但应标注为前沿信号。</td>
+                <td>“前沿机制，不是临床定论”</td>
+              </tr>
+              <tr>
+                <td>心脏 / 迷走神经</td>
+                <td>不是主卖点。</td>
+                <td>更容易被包装成“护心安神位”“右卧恢复位”。</td>
+                <td>“护心恢复侧卧”</td>
+              </tr>
+              <tr>
+                <td>大众传播默认答案</td>
+                <td>比“右侧卧”更适合承接反酸与孕期话题。</td>
+                <td>不适合被写成全民最佳。</td>
+                <td>“先讲侧卧，再按场景细分”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="three-col" style="margin-top:24px;">
+          <article class="card">
+            <h3>右侧卧最适合怎么 hype</h3>
+            <ul class="metrics">
+              <li><span class="badge low">Frontier</span> 护脑排毒</li>
+              <li><span class="badge mid">Promising</span> 迷走神经恢复</li>
+              <li><span class="badge mid">Promising</span> 护心安神</li>
+            </ul>
+          </article>
+          <article class="card strong">
+            <h3>左侧卧最适合怎么卖</h3>
+            <ul class="metrics">
+              <li><span class="badge high">High</span> 夜间抗反流</li>
+              <li><span class="badge high">High</span> 孕期循环支持</li>
+              <li><span class="badge mid">Mid</span> 晚餐后恢复位</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>真正聪明的做法</h3>
+            <ul class="metrics">
+              <li>不是“右侧卧最好”或“左侧卧最好”。</li>
+              <li>而是让用户先回答：今晚更像反酸型、恢复型还是孕期型。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="snore">
+      <div class="wrap">
+        <div class="chapter-mark">Anti-Snore Engineering</div>
+        <h2 class="section-title">抗鼾是最成熟的入口：从姿势建议到 AI 智能枕，天然就是分层产品矩阵。</h2>
+        <div class="mini-grid" style="margin-top:24px;">
+          <div class="mini">
             <strong>9.19 / 小时</strong>
-            <span>2023 Meta：体位性 OSA 患者接受体位治疗后，AHI 平均下降 9.19 次/小时。</span>
+            <span>体位性 OSA 的系统综述显示，体位治疗可显著降低 AHI。</span>
           </div>
-          <div class="kpi">
-            <strong>44% vs 24%</strong>
-            <span>夜间反流随机双盲试验：体位干预成功率 44%，假干预组 24%。</span>
+          <div class="mini">
+            <strong>60%</strong>
+            <span>部分患者仰卧时 AHI 恶化超过 2 倍，说明“别平躺”非常有价值。</span>
           </div>
-          <div class="kpi">
-            <strong>aOR 2.63</strong>
-            <span>2025 妊娠证据报告：妊娠后期仰卧入睡与晚期死胎风险上升相关。</span>
+          <div class="mini">
+            <strong>低门槛</strong>
+            <span>先改姿势比先上硬件更容易让用户接受。</span>
           </div>
-          <div class="kpi">
-            <strong>中等证据</strong>
-            <span>穿袜子、睡衣薄厚、热睡者轻衣物这类点，更适合作为“体温调节”内容层。</span>
+          <div class="mini">
+            <strong>高升级</strong>
+            <span>从侧卧引导到楔形垫，再到 AI 枕，非常适合逐层提价。</span>
           </div>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card strong">
+            <h3>阶梯 1-2：低价入口</h3>
+            <ul class="topic-list">
+              <li><strong>姿势疗法</strong> “如果你容易打鼾，今晚先别仰躺。”</li>
+              <li><strong>头部抬高</strong> “给气道和胃部一点角度空间。”</li>
+              <li><strong>侧卧定位带 / 楔形垫</strong> 低客单、高可解释。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>阶梯 3-4：高价升级</h3>
+            <ul class="topic-list">
+              <li><strong>AI 抗鼾枕</strong> 非接触式监听、姿势微调、无感干预。</li>
+              <li><strong>智能气囊系统</strong> 从“建议”升级到“自动执行”。</li>
+              <li><strong>高端文案</strong> “重塑夜间气道力学”“无感干预睡眠呼吸质量”。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="micro">
+      <div class="wrap">
+        <div class="chapter-mark">Microclimate Hacking</div>
+        <h2 class="section-title">袜子、裸睡、睡衣材质，不是生活方式碎片，而是完整的微气候产品逻辑。</h2>
+        <div class="three-col" style="margin-top:24px;">
+          <article class="card strong">
+            <h3>睡眠袜</h3>
+            <ul class="metrics">
+              <li>最适合脚冷、末端冰凉、空调房用户。</li>
+              <li>机制可讲：足部保暖、末梢血管扩张、核心温度下行。</li>
+              <li>特别适合做“秒睡开关”式传播。</li>
+            </ul>
+          </article>
+          <article class="card strong">
+            <h3>薄睡衣 / 凉感材质</h3>
+            <ul class="metrics">
+              <li>热睡者、易出汗、更年期潮热人群最适合。</li>
+              <li>优先卖点不是薄，而是导湿、透气、减少闷热负荷。</li>
+              <li>适合做“会呼吸的睡眠装备”叙事。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>裸睡生态</h3>
+            <ul class="metrics">
+              <li>高传播、高情绪价值、低到中证据。</li>
+              <li>更适合卖高端床品、肌肤接触感和热睡者自由感。</li>
+              <li>可讲成“无束缚微气候系统”，不要讲成医学铁律。</li>
+            </ul>
+          </article>
         </div>
         <div class="table-wrap" style="margin-top:24px;">
           <table>
             <thead>
               <tr>
-                <th>主题</th>
-                <th>最适合说的结论</th>
-                <th>证据强度</th>
-                <th>营销价值</th>
+                <th>微气候干预</th>
+                <th>核心机制</th>
+                <th>最适合人群</th>
+                <th>最适合的 hype 点</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>打鼾 / 体位性 OSA</td>
-                <td>减少仰卧、先试侧卧，确有生理和临床价值。</td>
-                <td><span class="badge high">High</span></td>
-                <td>很高</td>
+                <td>睡眠袜</td>
+                <td>足部保暖、末梢扩张、帮助核心温度进入睡眠区间</td>
+                <td>脚冷、入睡慢、空调房用户</td>
+                <td>“这不是袜子，是入睡温度开关”</td>
               </tr>
               <tr>
-                <td>反酸 / 夜间烧心</td>
-                <td>左侧卧 + 上半身整体抬高，是最容易讲清的一组动作。</td>
-                <td><span class="badge high">High</span></td>
-                <td>很高</td>
+                <td>薄款导湿睡衣</td>
+                <td>减少热量与汗液滞留，降低闷热惊醒</td>
+                <td>热睡者、潮热、爱出汗人群</td>
+                <td>“给皮肤装上夜间隐形空调”</td>
               </tr>
               <tr>
-                <td>孕中晚期</td>
-                <td>侧卧更稳妥；左侧优先但不必制造“只能左侧”的压力。</td>
-                <td><span class="badge high">High</span></td>
-                <td>很高</td>
+                <td>羊毛 / 恒温睡衣</td>
+                <td>在较冷环境下维持更平稳的微气候与舒适度</td>
+                <td>畏寒者、老年人、冷空调环境</td>
+                <td>“穿戴式恒温安抚舱”</td>
               </tr>
               <tr>
-                <td>袜子 / 足部保暖</td>
-                <td>对脚冷人群很适合讲，机制是末梢保暖与入睡启动。</td>
-                <td><span class="badge mid">Mid</span></td>
-                <td>很高</td>
-              </tr>
-              <tr>
-                <td>睡衣薄厚 / 材质</td>
-                <td>更该强调透气和温度调节，而不是一味厚。</td>
-                <td><span class="badge mid">Mid</span></td>
-                <td>中高</td>
-              </tr>
-              <tr>
-                <td>裸睡</td>
-                <td>对热睡者是合理选项，但更像舒适度优化，不是医学主张。</td>
-                <td><span class="badge low">Low</span></td>
-                <td>很高</td>
+                <td>裸睡 + 高级床品</td>
+                <td>减少束缚与热负荷，放大皮肤触感和凉感体验</td>
+                <td>热睡者、追求触感和自由感人群</td>
+                <td>“床品不是面料，是第二层皮肤”</td>
               </tr>
             </tbody>
           </table>
-        </div>
-        <p class="warning" style="margin-top:20px;">
-          真正不适合硬讲的只有两类：一是“右侧卧是通用最佳答案”，二是“睡前摆个固定姿势几分钟就能普遍更快睡着”。这两点传播性虽强，但证据底盘不够稳。
-        </p>
-      </div>
-    </section>
-
-    <section class="section reveal" id="videos">
-      <div class="wrap">
-        <div class="eyebrow">Videos Reviewed</div>
-        <h2 class="section-title">两个视频都值得借，但借的是传播语言和产品灵感，不是拿来替代临床证据。</h2>
-        <div class="two-col" style="margin-top:24px;">
-          <article class="card">
-            <h3>TED-Ed: Rachel Marie E. Salas</h3>
-            <ul class="metrics">
-              <li>核心表达：俯卧更容易压颈背，仰卧会放大打鼾 / OSA 问题，侧卧最适合做大众默认建议。</li>
-              <li>最值得借的地方：极其适合做“左侧、右侧、仰睡、趴睡”的教育型短内容。</li>
-              <li>适合当传播母题，不适合单独当医学底座。</li>
-            </ul>
-            <p class="note" style="margin-top:14px;"><a href="https://www.youtube.com/watch?v=_GI9-J-sE5k">视频链接</a></p>
-          </article>
-          <article class="card">
-            <h3>TEDxManchester: James Leinhardt</h3>
-            <ul class="metrics">
-              <li>更像“今晚就能改善一点”的身体摆位与睡前微调视角。</li>
-              <li>最值得借的地方：非常适合启发 SleepAI 做 Tonight Tune-up 这种脚本层。</li>
-              <li>它的价值主要是产品灵感和用户语言，不是随机试验级证据。</li>
-            </ul>
-            <p class="note" style="margin-top:14px;"><a href="https://www.youtube.com/watch?v=WeJrU-VJGfg">视频链接</a></p>
-          </article>
         </div>
       </div>
     </section>
 
     <section class="section reveal" id="product">
       <div class="wrap">
-        <div class="eyebrow">Product & Marketing</div>
-        <h2 class="section-title">最好的重做，不是更保守，而是更会卖，同时把兜底集中放到最后。</h2>
+        <div class="chapter-mark">Commercial Blueprint</div>
+        <h2 class="section-title">真正值得做的，不是一篇内容，而是一整套“睡前身体软件”产品宇宙。</h2>
         <div class="three-col" style="margin-top:24px;">
           <article class="card strong">
             <h3>内容层</h3>
-            <ul class="metrics">
-              <li>做成 Tonight Tune-up：睡前 15-45 秒身体调参提示。</li>
-              <li>可嵌入底噪、音乐、故事、body scan。</li>
-              <li>让用户觉得“这个 AI 不是只会播声音”。</li>
+            <ul class="topic-list">
+              <li><strong>Tonight Tune-up</strong> 睡前 15-45 秒身体调参提示。</li>
+              <li><strong>Sleep Biomechanics Coach</strong> 按反酸、打鼾、怀孕、热睡者等场景触发。</li>
+              <li><strong>短视频选题库</strong> 一套足够支撑长期内容增长。</li>
             </ul>
           </article>
-          <article class="card strong">
-            <h3>营销层</h3>
-            <ul class="metrics">
-              <li>“打鼾的人别再仰睡了”</li>
-              <li>“反酸的人，今晚先别乱躺”</li>
-              <li>“脚冷的人，不一定该加厚被子”</li>
+          <article class="card">
+            <h3>配件与穿戴</h3>
+            <ul class="topic-list">
+              <li><strong>骨盆平衡夹腿枕</strong></li>
+              <li><strong>左侧卧抗反流楔形垫</strong></li>
+              <li><strong>深睡温控袜</strong></li>
+              <li><strong>导湿降温睡衣 / 恒温羊毛睡衣</strong></li>
             </ul>
           </article>
-          <article class="card strong">
-            <h3>数据层</h3>
-            <ul class="metrics">
-              <li>记录：今晚用了哪条提示。</li>
-              <li>回收：次日是否更快入睡 / 更舒服。</li>
-              <li>逐步把内容做成个性化规则。</li>
+          <article class="card">
+            <h3>智能升级</h3>
+            <ul class="topic-list">
+              <li><strong>AI 抗鼾枕</strong></li>
+              <li><strong>微气候主动调控床品</strong></li>
+              <li><strong>姿势与温度联动系统</strong></li>
             </ul>
           </article>
         </div>
         <div class="two-col" style="margin-top:24px;">
           <article class="card">
-            <h3>最适合打的 6 个话题</h3>
-            <ol class="step-list">
-              <li><strong>左侧卧 vs 右侧卧</strong> 这是最容易出讨论和点击的入口。</li>
-              <li><strong>反酸的人怎么躺</strong> 临床与传播兼具。</li>
-              <li><strong>打鼾的人别仰睡</strong> 用户一听就懂。</li>
-              <li><strong>脚冷穿袜子睡</strong> 很生活化，也有机制可讲。</li>
-              <li><strong>穿厚睡衣不一定更助眠</strong> 反常识，适合传播。</li>
-              <li><strong>热睡者要不要裸睡</strong> 高讨论度，但只做轻承诺。</li>
-            </ol>
+            <h3>卖点分层</h3>
+            <ul class="topic-list">
+              <li><strong><span class="badge high">Strong claim layer</span></strong> 抗鼾、抗反流、孕晚期侧卧。</li>
+              <li><strong><span class="badge mid">Frontier mechanism layer</span></strong> 右侧卧、类淋巴系统、迷走神经。</li>
+              <li><strong><span class="badge low">Lifestyle layer</span></strong> 裸睡、触感、凉感、自由感。</li>
+            </ul>
           </article>
           <article class="card">
-            <h3>建议的文案口吻</h3>
-            <ol class="step-list">
-              <li><strong>如果你今晚有反酸</strong> 试试左侧卧，把上半身整体稍微垫高。</li>
-              <li><strong>如果你今晚容易打鼾</strong> 先别完全仰躺，侧过来一点。</li>
-              <li><strong>如果你脚总是凉</strong> 可以试试薄袜，让脚先暖起来。</li>
-              <li><strong>如果你本来就怕热</strong> 今晚先让衣物和被褥轻一点。</li>
-            </ol>
+            <h3>最适合的标题和话术</h3>
+            <ul class="topic-list">
+              <li><strong>睡眠不是硬件战争，而是身体软件升级</strong></li>
+              <li><strong>你缺的不是更贵的床，是更聪明的夜间姿势</strong></li>
+              <li><strong>脚冷的人，不一定该加厚被子</strong></li>
+              <li><strong>反酸的人，左侧卧和右侧卧差很多</strong></li>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="risk">
+    <section class="section reveal" id="guardrails">
       <div class="wrap">
-        <div class="eyebrow">Boundaries</div>
-        <h2 class="section-title">可以 hype，但别越线。把这些兜底放在最后就够了。</h2>
+        <div class="chapter-mark">Guardrails</div>
+        <h2 class="section-title">高势能内容必须留住的底线：可以升维，但不要越线。</h2>
         <div class="two-col" style="margin-top:24px;">
           <article class="card">
-            <h3>可以适度放大的点</h3>
+            <h3>可以放大的</h3>
             <ul class="metrics">
-              <li>“睡前最容易被忽略的身体调参”</li>
-              <li>“今晚就能试的小动作”</li>
-              <li>“不是玄学，是临床建议里反复出现的身体细节”</li>
+              <li>“研究强烈提示”“前沿机制显示”“更值得试”</li>
+              <li>“与重力对抗”“夜间物理防线”“身体软件升级”</li>
+              <li>“帮助睡得更顺、更稳、更少被打断”</li>
             </ul>
           </article>
           <article class="card">
-            <h3>不要写过头的点</h3>
+            <h3>不要写死的</h3>
             <ul class="metrics">
+              <li>不要把右侧卧抗衰写成铁律。</li>
               <li>不要把侧卧写成 OSA 的替代治疗。</li>
-              <li>不要把左侧卧写成孕妇唯一正确答案。</li>
-              <li>不要把袜子、睡衣、裸睡写成普遍医学疗法。</li>
+              <li>不要把裸睡和睡眠袜写成医学强疗法。</li>
+              <li>不要把孕期侧卧讲成“只能左侧”。</li>
             </ul>
           </article>
         </div>
-        <div class="card strong" style="margin-top:24px;">
-          <div class="closing">
-            <div>
-              <strong>收束判断：这套内容完全值得重视，因为它很轻、很好卖、也确实有一部分科学底盘。</strong>
-              <p class="section-sub" style="margin-top:12px;">
-                对 SleepAI 最聪明的用法，是把它做成“睡前身体调参提示层”。让用户在最短时间内获得一个能立刻尝试、明天能回想、也愿意分享给别人的小动作。
-              </p>
-            </div>
-            <div class="pill-row">
-              <div class="pill"><strong>适合</strong> Tonight Tune-up</div>
-              <div class="pill"><strong>不适合</strong> 万能睡姿论</div>
-            </div>
-          </div>
-        </div>
+        <p class="warning" style="margin-top:20px;">
+          最需要被保留的一句兜底是：舒适度永远优先于对某一种姿势的教条坚持。强迫自己为了某个高级概念而整夜别扭，并不是好睡眠。
+        </p>
       </div>
     </section>
 
     <section class="section reveal" id="sources">
       <div class="wrap">
-        <div class="eyebrow">Source Appendix</div>
-        <h2 class="section-title">本页真正使用过的核心来源</h2>
+        <div class="chapter-mark">Sources</div>
+        <h2 class="section-title">本页使用过的核心来源</h2>
         <div class="source-grid" style="margin-top:24px;">
           <article class="card">
-            <h3>权威机构</h3>
+            <h3>权威机构与临床内容</h3>
             <ul class="source-list">
               <li><a href="https://www.nhs.uk/conditions/sleep-apnoea/">NHS: Sleep apnoea</a></li>
+              <li><a href="https://www.nhs.uk/pregnancy/common-symptoms/indigestion-and-heartburn/">NHS: pregnancy heartburn</a></li>
               <li><a href="https://www.mayoclinic.org/diseases-conditions/gerd/diagnosis-treatment/drc-20361959">Mayo Clinic: GERD</a></li>
-              <li><a href="https://medlineplus.gov/ency/patientinstructions/000559.htm">MedlinePlus: pregnancy sleep</a></li>
               <li><a href="https://medlineplus.gov/ency/article/000811.htm">MedlinePlus: OSA</a></li>
               <li><a href="https://www.acog.org/womens-health/experts-and-stories/ask-acog/can-i-sleep-on-my-back-when-im-pregnant">ACOG</a></li>
               <li><a href="https://webfiles.gi.org/docs/patients/GERD-infographic-final_2022.pdf">ACG GERD infographic</a></li>
@@ -531,24 +689,24 @@
             <ul class="source-list">
               <li><a href="https://pubmed.ncbi.nlm.nih.gov/37344178/">ALQarni et al. Thorax 2023</a></li>
               <li><a href="https://pubmed.ncbi.nlm.nih.gov/39347559/">Wilson et al. JCSM 2025</a></li>
-              <li><a href="https://pubmed.ncbi.nlm.nih.gov/35301135/">Nocturnal GERD randomized trial</a></li>
-              <li><a href="https://pubmed.ncbi.nlm.nih.gov/37969463/">GERD systematic review</a></li>
-              <li><a href="https://files.magicapp.org/guideline/4035ce23-3fc6-4803-bdc7-de49a559c188/files/Evidence_Report-_Sleep_position_r806923.pdf">Australian pregnancy evidence report</a></li>
-              <li><a href="https://pubmed.ncbi.nlm.nih.gov/33215251/">Xu et al. posture and sleep onset</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/34928874/">Schuitenmaker et al. GERD</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/35301135/">Nocturnal reflux randomized trial</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/17078772/">Distal limb warming and sleep latency</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/33215251/">Lying posture and sleep structures</a></li>
             </ul>
           </article>
           <article class="card">
-            <h3>视频素材</h3>
+            <h3>前沿与传播灵感</h3>
             <ul class="source-list">
               <li><a href="https://www.youtube.com/watch?v=_GI9-J-sE5k">TED-Ed: What’s the best position to sleep in?</a></li>
               <li><a href="https://www.youtube.com/watch?v=WeJrU-VJGfg">TEDxManchester: The secret to getting better sleep tonight</a></li>
-              <li><a href="https://www.health.harvard.edu/diseases-and-conditions/whats-the-best-sleep-position-to-combat-heartburn">Harvard Health: heartburn and sleep position</a></li>
+              <li><a href="https://www.urmc.rochester.edu/">URMC glymphatic news and related literature</a></li>
             </ul>
           </article>
           <article class="card">
             <h3>源稿</h3>
             <p class="section-sub">
-              完整研究稿已同步到 Markdown，包含更细的产品和营销判断。
+              更长版战略稿、产品化框架和 guardrails 已同步到 Markdown 源文件。
             </p>
             <p style="margin-top:14px;"><a href="../../sources/md/2026-03-20-sleep-position-sleep-quality.md">查看 Markdown 源稿</a></p>
           </article>
@@ -559,7 +717,7 @@
 
   <footer class="deck-footer">
     <div class="deck-footer-inner">
-      <span>SleepAI Hub · 睡眠姿势与睡前身体状态</span>
+      <span>SleepAI Hub · 睡眠微环境与体位力学</span>
       <a href="../../sources/md/2026-03-20-sleep-position-sleep-quality.md">源稿回链</a>
     </div>
   </footer>

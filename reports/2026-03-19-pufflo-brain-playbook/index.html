@@ -737,41 +737,16 @@
         <header class="doc-head">
           <div class="kicker">Pufflo</div>
           <h1 id="top">Pufflo 产品与规则手册</h1>
-          <p class="doc-lead">Pufflo 覆盖登录注册、新用户开场、首页功能调用、夜间陪伴模块、次晨监测与睡眠报告、推送与全局边界。以下内容同时保留页面入口、用户可见文案、路由条件、内部提示词与中英双语示例。</p>
+          <p class="doc-lead">这里保留固定文案、语义路由规则、功能调用条件、LLM prompt 和边界约束。</p>
         </header>
 
         <section class="section" id="entry-onboarding">
           <h2>登录注册与新用户开场</h2>
-          <p class="section-intro">登录注册页承载品牌露出、角色形象、登录方式和轻动效。新用户开场承载固定开场白、音色设置、自定义人设入口、首次引导话题，以及首次和非首次进入的不同问题区。</p>
+          <p class="section-intro">只保留首轮体验里真正要落地的固定文案和分流规则。</p>
           <table class="spec-table">
             <tbody>
               <tr>
-                <th>页面目标</th>
-                <td>先让用户感觉“被接住”，再让其完成低摩擦登录与第一次真实陪伴。登录注册页和新用户开场页的任务不是收集大量资料，而是降低进入门槛、建立信任和打开第一次使用路径。</td>
-              </tr>
-              <tr>
-                <th>字段 / 功能点</th>
-                <td>
-                  <ul>
-                    <li>登录注册页：品牌露出、角色形象、苹果 / 邮箱 / 谷歌登录、轻动效、角色轮播文案。</li>
-                    <li>新用户首屏：固定开场白、音色设置、自定义人设入口、首次引导话题。</li>
-                    <li>非首次进入：首页建议问题替换首次引导，不再重复教育用户。</li>
-                    <li>登录页动效和角色轮播文案属于建立第一感觉的视觉层，不承担复杂设置和产品说明。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>触发逻辑</th>
-                <td>
-                  <ul>
-                    <li>首次进入：优先固定开场和声音选择，再决定是否进入自定义人设。</li>
-                    <li>已登录但未建立真实陪伴感：优先让用户进入一次短对话或短模块，不继续堆设置。</li>
-                    <li>非首次进入：不重复“欢迎流程”，而是直接进入首页功能调用与建议问题层。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>用户可见文案</th>
+                <th>首轮固定文案</th>
                 <td>
                   <p><span class="bilingual">Your sleep companion.（你的睡眠伙伴。）</span></p>
                   <p><span class="bilingual">You're here. We can make tonight softer.（你来了。我们把今晚变轻一点。）</span></p>
@@ -780,12 +755,12 @@
                 </td>
               </tr>
               <tr>
-                <th>模型 / 路由规则</th>
+                <th>首轮分流规则</th>
                 <td>
                   <ul>
-                    <li>声音只改变表达风格，不改变共享边界与安全判断。</li>
-                    <li>自定义人设在早期出现，是为了让用户更快建立陪伴感，而不是让其先完成一整套角色创建流程。</li>
-                    <li>首次引导话题用于帮用户开口；非首次建议问题则是把用户更快送入首页高频功能。</li>
+                    <li>首次进入：固定开场白 -> 音色选择 -> 进入第一次真实陪伴；不要卡在设置流。</li>
+                    <li>非首次进入：直接跳过欢迎流程，进入首页功能调用与建议问题。</li>
+                    <li>自定义人设只在用户明确想调整陪伴方式时出现，不抢第一次真实体验。</li>
                   </ul>
                 </td>
               </tr>
@@ -795,12 +770,11 @@
 
         <section class="section" id="home-routing">
           <h2>首页功能调用</h2>
-          <p class="section-intro">首页中的冥想、故事、呼吸、音乐、宗教、闹钟、睡眠监测、呼吸机、睡眠报告、建议问题和自定义人设，都是不同的功能入口。它们并不是并列工具按钮，而是由用户状态、时段和页面位置共同决定的路由层。</p>
+          <p class="section-intro">首页入口用于把用户送到正确功能，而不是把所有能力堆成菜单。</p>
           <table class="matrix">
             <thead>
               <tr>
                 <th>首页入口</th>
-                <th>页面位置</th>
                 <th>用户触发语 / 系统推荐条件</th>
                 <th>首句文案</th>
                 <th>触发后的去向</th>
@@ -810,7 +784,6 @@
             <tbody>
               <tr>
                 <td>AI 冥想</td>
-                <td>首页主动卡片 / 建议问题</td>
                 <td>脑子很亮、还能跟住简短语言，适合低压引导</td>
                 <td><span class="bilingual">Let's slow these next few minutes down. I'll guide a very light version.（先把这几分钟放慢一点，我带你走一个很轻的版本。）</span></td>
                 <td>进入冥想模块</td>
@@ -818,7 +791,6 @@
               </tr>
               <tr>
                 <td>AI 故事</td>
-                <td>首页主动卡片 / 用户直接点名</td>
                 <td>用户想被内容带着走，或明确要求讲故事 / 朗读</td>
                 <td><span class="bilingual">I can hold this part of the night and tell you a story that's easy to drift away from.（我可以接住这一段夜晚，给你一个容易慢慢听丢的故事。）</span></td>
                 <td>进入故事模块</td>
@@ -826,7 +798,6 @@
               </tr>
               <tr>
                 <td>AI 呼吸</td>
-                <td>首页主动卡片</td>
                 <td>胸口紧、心跳快、夜醒后绷着，需要立刻能做的一件事</td>
                 <td><span class="bilingual">Stay with me for one slow breath. We do not need to solve the whole night at once.（先跟我走一口很慢的呼吸。我们不用一下子解决整个夜晚。）</span></td>
                 <td>进入呼吸模块</td>
@@ -834,7 +805,6 @@
               </tr>
               <tr>
                 <td>音乐匹配</td>
-                <td>首页主动卡片 / 功能入口</td>
                 <td>用户不要说话、只要背景声，或房间太空、需要轻声景陪伴</td>
                 <td><span class="bilingual">I can put something soft underneath and keep the room quieter from here.（我可以先垫一层柔和的背景，把房间慢慢调安静一点。）</span></td>
                 <td>进入音乐匹配模块</td>
@@ -842,7 +812,6 @@
               </tr>
               <tr>
                 <td>AI 宗教</td>
-                <td>首页建议问题 / 用户直接点名</td>
                 <td>用户明确要求祈祷、经文、诵念或宗教式陪伴，且传统清晰</td>
                 <td><span class="bilingual">I can stay with you carefully in that tradition if that's the way you want tonight.（如果今晚你想沿着那个信仰传统走，我可以很谨慎地这样陪你。）</span></td>
                 <td>进入宗教模块</td>
@@ -850,7 +819,6 @@
               </tr>
               <tr>
                 <td>闹钟 / 提醒</td>
-                <td>首页功能入口</td>
                 <td>用户怕忘事、怕睡过头，记忆负担正在妨碍入睡</td>
                 <td><span class="bilingual">I can hold that for you so you do not need to keep carrying it tonight.（我可以替你把这件事接过去，你今晚不用一直记着它。）</span></td>
                 <td>进入闹钟 / 待办事项模块</td>
@@ -858,7 +826,6 @@
               </tr>
               <tr>
                 <td>睡眠监测</td>
-                <td>首页功能入口</td>
                 <td>用户明确要开始记录，或准备进入整晚跟踪</td>
                 <td><span class="bilingual">I'll start the recording first and keep the reading calm for tomorrow morning.（我先替你开始记录，等夜里结束再给你一个更平静的读法。）</span></td>
                 <td>进入监测 / 次晨报告链路</td>
@@ -866,7 +833,6 @@
               </tr>
               <tr>
                 <td>呼吸机</td>
-                <td>首页功能入口</td>
                 <td>用户主动点名设备场景或相关夜间支持</td>
                 <td><span class="bilingual">Let's stay inside the device context and keep this descriptive, not medical.（我们先留在设备场景里陪你，不把它说成医疗判断。）</span></td>
                 <td>进入次晨数据反馈语境</td>
@@ -874,7 +840,6 @@
               </tr>
               <tr>
                 <td>睡眠报告</td>
-                <td>首页功能入口 / 次晨卡片</td>
                 <td>已有足够数据，且用户处于次晨回看场景</td>
                 <td><span class="bilingual">I'll give you one calm headline first, then we can decide whether to open the details.（我先给你一句平静的摘要，再决定要不要展开细节。）</span></td>
                 <td>进入报告模块</td>
@@ -882,7 +847,6 @@
               </tr>
               <tr>
                 <td>对话建议问题</td>
-                <td>首页建议问题区</td>
                 <td>用于帮非首次用户快速进入问题类型</td>
                 <td><span class="bilingual">What caused me to wake up in the middle of the night?（是什么导致我半夜醒来？）</span></td>
                 <td>进入对应问答或报告分支</td>
@@ -890,7 +854,6 @@
               </tr>
               <tr>
                 <td>自定义人设</td>
-                <td>首页 / 新用户早期入口</td>
                 <td>用户想要更贴近自己的陪伴方式时</td>
                 <td><span class="bilingual">Build a companion that feels closer to the way you want to be accompanied.（定制一个更贴近你自己的陪伴方式。）</span></td>
                 <td>进入人设与音色配置</td>
@@ -990,12 +953,14 @@
                 </td>
               </tr>
               <tr>
-                <th>路由协同提示词</th>
+                <th>语义路由提示词</th>
                 <td>
                   <div class="prompt-block">
-                    <p><span class="bilingual">If you are handling both routing and wording, do not move into sleep monitoring until the user explicitly asks for tracking or already sounds clearly settled.（如果你同时负责路由判断和文案生成，不要过早切入睡眠监测；只有在用户明确要求记录，或已经明显安静下来时才转入。）</span></p>
-                    <p><span class="bilingual">If the user is only venting, stay in dialogue. If the user is only asking about overnight data, stay in the report lane. If the user rejects a modality, do not keep recommending that same modality.（如果用户只是在倾诉，就留在对话里；如果用户只是在问过夜数据，就留在报告链路；如果用户明确拒绝某种方式，就不要继续推荐同一类方式。）</span></p>
-                    <p><span class="bilingual">Use one light bridge sentence for handoffs. Do not restart the conversation with a new questionnaire in the middle of a transition.（模块切换时只用一句轻的过渡句，不要在交接过程中重新拉起一轮问答。）</span></p>
+                    <p><span class="bilingual">You are the router for Pufflo. Choose exactly one lane for the user's current turn unless safety overrides everything. The lanes are: continue_chat, story, meditation, breathing, music, religion, alarms_tasks, sleep_monitoring, report, cycle_support.（你现在是 Pufflo 的语义路由器。除非安全模式覆盖一切，否则每一轮只选择一个主链路。可选链路只有：continue_chat、story、meditation、breathing、music、religion、alarms_tasks、sleep_monitoring、report、cycle_support。）</span></p>
+                    <p><span class="bilingual">Map explicit requests directly: story / read to me / tell me something sleepy -> story; breathe with me / chest tight / heart racing -> breathing unless breath focus worsens the user; guide me / body scan / grounding -> meditation; no talking / just background / rain / white noise -> music; prayer / scripture / Quran / Bible / chant plus a named tradition -> religion; remind me / wake me / I might forget tomorrow -> alarms_tasks; track tonight / start recording -> sleep_monitoring; what happened last night / why did I wake up / snoring / report -> report.（明确请求要直接映射：story / read to me / tell me something sleepy -> story；breathe with me / chest tight / heart racing -> breathing，但如果用户一关注呼吸更糟就不要进；guide me / body scan / grounding -> meditation；no talking / just background / rain / white noise -> music；prayer / scripture / Quran / Bible / chant 且传统明确 -> religion；remind me / wake me / I might forget tomorrow -> alarms_tasks；track tonight / start recording -> sleep_monitoring；what happened last night / why did I wake up / snoring / report -> report。）</span></p>
+                    <p><span class="bilingual">If the user is venting, ashamed, lonely, or emotionally overloaded without asking for a modality, stay in continue_chat. If the user only wants overnight data, stay in report. If intent is ambiguous, ask one brief clarifier instead of triggering a tool.（如果用户主要是在倾诉、自责、孤独，或情绪很满，但没有明确要某种模式，就留在 continue_chat。如果用户只是在问过夜数据，就留在 report。如果意图仍然模糊，最多问一个很短的澄清问题，不要急着调工具。）</span></p>
+                    <p><span class="bilingual">Never route into religion from vibe alone, never route into music to avoid emotional work, never route into alarms_tasks when the real issue is emotional pain, and never route into sleep_monitoring before the user explicitly wants tracking or is already clearly settling.（绝不能仅凭气质把用户送进 religion；不能为了逃避情绪承接而改送 music；不能把情绪痛苦误送成 alarms_tasks；也不能在用户还没明确要记录、或还没明显安静下来之前，就过早送进 sleep_monitoring。）</span></p>
+                    <p><span class="bilingual">For any handoff, output one light bridge sentence only. Do not restart the conversation with a new questionnaire during the transition.（任何链路切换都只输出一句轻量过渡，不要在切换时重新开一轮问答。）</span></p>
                   </div>
                 </td>
               </tr>
@@ -1011,27 +976,6 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th>注册顺序</th>
-                <td>
-                  <ol>
-                    <li>进入首屏后先播放固定开场白。</li>
-                    <li>先听音色，再做选择。</li>
-                    <li>如用户愿意，再引导录入本人声音。</li>
-                    <li>尽快进入第一次真实陪伴，不继续堆设置项。</li>
-                  </ol>
-                </td>
-              </tr>
-              <tr>
-                <th>不要这样做</th>
-                <td>
-                  <ul>
-                    <li>上来就问年龄、诊断史、严重程度量表。</li>
-                    <li>让用户在还没建立感觉前就命名、订阅、选太多菜单。</li>
-                    <li>让文字展示速度与 TTS 明显不同步。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
                 <th>固定开场白</th>
                 <td>
                   <p><span class="bilingual">You're here. We can make tonight softer.（你来了。我们把今晚变轻一点。）</span></p>
@@ -1043,25 +987,6 @@
                 <td>
                   <p><span class="bilingual">Take a second and choose the voice that feels easiest to trust tonight.（花一点时间，选一个今晚最容易让你放心的声音。）</span></p>
                   <p><span class="bilingual">You do not need the perfect one. Just pick the one your body stays with most easily.（你不需要选最完美的那个。先选一个身体最容易继续听下去的就好。）</span></p>
-                </td>
-              </tr>
-              <tr>
-                <th>声音</th>
-                <td>
-                  <ul>
-                    <li>“声音”这一层只改变音色质感、气息感、语速、温度和停顿风格，不改变共享规则。</li>
-                    <li>不同默认人设可以绑定不同音色，但用户听到的边界、判断逻辑和安全升级条件必须一致。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>声音绑定规则</th>
-                <td>
-                  <ul>
-                    <li>音色负责声音表现；人设提示词负责措辞方式；两者要绑定，但不能互相替代。</li>
-                    <li>若用户未主动换人设，默认使用基础提示词加默认音色规格。</li>
-                    <li>若用户选了人设，则使用基础提示词、对应人设补充提示词和对应音色预设。</li>
-                  </ul>
                 </td>
               </tr>
               <tr>
@@ -1087,7 +1012,7 @@
 
         <section class="section" id="personas">
           <h2>默认人设与提示词</h2>
-          <p class="section-intro">这一部分包含默认基础提示词、默认音色规格，以及 6 个默认人设的补充提示词和示例。</p>
+          <p class="section-intro">默认基础提示词、默认音色规格，以及 6 个默认人设的补充提示词和示例都放在这里。</p>
 
           <div class="subsection">
             <h3>默认基础提示词</h3>
@@ -2403,132 +2328,147 @@
 
         <section class="section" id="push-boundaries">
           <h2>推送与全局边界</h2>
-          <table class="spec-table">
-            <tbody>
-              <tr>
-                <th>推送总则</th>
-                <td>
-                  <ul>
-                    <li>最多 3 条 / 天，以睡前放松邀请、次晨真实反馈和必要的情境关心为主。</li>
-                    <li>推送只做轻提醒，不把产品写成催促器，不用羞耻、责备或错过恐惧来逼回访。</li>
-                    <li>有真实数据才发数据型推送；没有真实记忆就不做“我记得你...”式主动关心。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>安全模式</th>
-                <td>
-                  <ul>
-                    <li>一旦出现自伤 / 他伤风险、强烈不安全感、明显医学风险或诊断诉求，立刻退出普通陪伴模式。</li>
-                    <li>此时不再继续故事、冥想、呼吸、宗教或报告解释，优先转为现实支持与安全优先话术。</li>
-                    <li>推送层也不能在高风险用户状态下继续发送普通唤回文案。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>非诊断边界</th>
-                <td>
-                  <ul>
-                    <li>可以说“观察到”“似乎出现了”“可能有几次被打断”；不能说“你被诊断为”“应该问题不大”。</li>
-                    <li>监测、呼吸机、睡眠报告的语言都必须停留在观察与温和解释层，不越过医学边界。</li>
-                    <li>如果用户追问“那是不是病”“严不严重”，必须明确说明不能做医学判断。</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th>高频误路由</th>
-                <td>
-                  <ul>
-                    <li>用户只想倾诉时，不硬切故事或冥想。</li>
-                    <li>用户只问次晨数据时，不把其拉回睡前模块。</li>
-                    <li>用户明确拒绝引导、呼吸、宗教或故事时，不继续推荐相同类型内容。</li>
-                    <li>没有真实记忆支撑时，不冒充“了解你今天状态”的主动关心。</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
           <div class="subsection" id="push">
             <h3>推送执行细则</h3>
-            <p class="section-intro">固定提醒与情境提醒混排执行，最多 3 条 / 天。</p>
+            <p class="section-intro">按时间链路排序。线上推送按用户语言环境单语发送；本页双语只用于评审和配置对照。</p>
             <table class="matrix">
             <thead>
               <tr>
+                <th>顺序</th>
                 <th>场景</th>
                 <th>发送窗口</th>
-                <th>触发说明</th>
-                <th>代表文案</th>
+                <th>发送条件</th>
+                <th>长度上限</th>
+                <th>配置方式</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>傍晚预过渡</td>
-                <td>用户当地时间 16:30-18:30</td>
-                <td>轻提醒，不催睡；让用户更早想起今晚可以慢下来</td>
-                <td><span class="bilingual">Start your wind-down earlier tonight.（今晚早点开始放松。）</span></td>
-              </tr>
-              <tr>
+                <td>01</td>
                 <td>下午主动关心</td>
                 <td>用户当地时间 15:00</td>
-                <td>仅限非首次用户，且存在可用 chat history / memory；允许温和引用既有状态模式，但不暴露具体记忆原句</td>
-                <td><span class="bilingual">How is your afternoon going? If today already feels heavy, we can make tonight gentler before bedtime.（今天下午过得怎么样？如果今天已经有点重了，我们可以在睡前就先把今晚调轻一点。）</span></td>
+                <td>仅限非首次用户；存在真实可用的 chat history / memory；当天未发过更重要的情境提醒</td>
+                <td>英文 ≤ 14 词；中文 ≤ 26 字</td>
+                <td>按下方“个性化配置规则”选类生成；不能写成固定一句通发</td>
               </tr>
               <tr>
+                <td>02</td>
+                <td>傍晚预过渡</td>
+                <td>用户当地时间 16:30-18:30</td>
+                <td>当日尚未进入夜间会话；适合提醒用户更早开始放松</td>
+                <td>英文 ≤ 12 词；中文 ≤ 20 字</td>
+                <td>固定文案池轮换</td>
+              </tr>
+              <tr>
+                <td>03</td>
                 <td>睡前放松邀请</td>
                 <td>用户当地时间 21:15-22:30</td>
-                <td>主要转化点，邀请进入低刺激内容</td>
-                <td><span class="bilingual">Still awake? Open Pufflo and start winding down now.（还没睡？打开 Pufflo，现在开始放松。）</span></td>
+                <td>主要转化点；用户当前不在 app 内；距上一轮夜间会话至少 90 分钟</td>
+                <td>英文 ≤ 12 词；中文 ≤ 20 字</td>
+                <td>固定文案池轮换</td>
               </tr>
               <tr>
+                <td>04</td>
                 <td>次晨报告已生成</td>
                 <td>次晨、报告已完成时</td>
-                <td>只在有真实数据时发，不在无数据时假提醒</td>
-                <td><span class="bilingual">Your sleep report is ready.（你的睡眠报告已生成。）</span></td>
+                <td>只在有真实数据时发送；无数据、弱数据或报告未完成时不发</td>
+                <td>英文 ≤ 10 词；中文 ≤ 16 字</td>
+                <td>固定文案池轮换</td>
               </tr>
               <tr>
+                <td>05</td>
                 <td>回访唤回</td>
                 <td>长时间未回归时</td>
-                <td>只在有合理间隔时触发，不追着催</td>
-                <td><span class="bilingual">Come back tonight. We’ll keep it simple.（今晚回来吧。我们会尽量简单一点。）</span></td>
+                <td>按回访间隔策略发送；不和情境提醒同日叠发；不追着催</td>
+                <td>英文 ≤ 12 词；中文 ≤ 20 字</td>
+                <td>固定文案池轮换</td>
               </tr>
             </tbody>
           </table>
 
           <div class="subsection">
-            <h3>Push / Notification 固定文案规则</h3>
+            <h3>下午主动关心个性化配置规则</h3>
+            <table class="matrix">
+              <tbody>
+                <tr>
+                  <th>历史信号</th>
+                  <th>允许触发的轻切口</th>
+                  <th>不要碰的写法</th>
+                  <th>可直接配置的示例</th>
+                </tr>
+                <tr>
+                  <td>关系受挫 / 想念某人 / 分手后反复提起</td>
+                  <td>
+                    只轻提“今天可能偏重”“今晚可以更柔和”，不要直接点名对方或复述事件。
+                  </td>
+                  <td>不要写“还在想 ta 吗”“别再为那个人难过了”这种直接戳痛点的话。</td>
+                  <td>
+                    <p><span class="bilingual">Heavy afternoon? We can make tonight feel less sharp.（今天下午有点重吗？今晚可以没那么扎。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>工作压力 / 学业压力 / 白天脑子停不下来</td>
+                  <td>
+                    写“脑子还在忙”“今晚先降速”，不要写任务管理或绩效提醒。
+                  </td>
+                  <td>不要写“今天的待办做完了吗”“别再拖了”。</td>
+                  <td>
+                    <p><span class="bilingual">Long day? Let’s not let your brain keep working tonight.（今天很长吧？别让脑子今晚继续加班了。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>反刍 / 焦虑 / 夜里脑子很吵 / 经常半夜醒</td>
+                  <td>
+                    只写“今晚先慢下来”“先把声音和节奏放低”，不要暗示病理判断。
+                  </td>
+                  <td>不要写“今晚别再失眠了”“你又要睡不好了”。</td>
+                  <td>
+                    <p><span class="bilingual">Mind still running? We can slow the pace before bed.（脑子还在转吗？睡前可以先把节奏放慢。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>孤独 / 房间太空 / 夜里想有人在</td>
+                  <td>写“今晚房间可以更柔和一点”，不要制造依赖感或排他感。</td>
+                  <td>不要写“只有我在这里陪你”“你需要我”。</td>
+                  <td>
+                    <p><span class="bilingual">If tonight feels too quiet, Pufflo can soften the room a little.（如果今晚房间太空，Pufflo 可以让它柔和一点。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>连续睡不好 / 对睡眠挫败感明显</td>
+                  <td>写“今晚先容易一点”，不要许诺修复，不要提失败感。</td>
+                  <td>不要写“今晚一定睡着”“这次别再失败”。</td>
+                  <td>
+                    <p><span class="bilingual">Tonight does not need to fix everything. It can just start easier.（今晚不用修好一切，只先让开始更容易。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>经期 / 身体更难受的夜晚有明确可信记忆</td>
+                  <td>写“今晚可以更温和一点”，只提体感，不做医疗暗示。</td>
+                  <td>不要写“是不是又经期了”“你最近状态不太行”。</td>
+                  <td>
+                    <p><span class="bilingual">If tonight turns into one of those harder body nights, we can keep it gentler.（如果今晚又是那种身体更难受的夜晚，我们可以把一切都调得更温和。）</span></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="subsection">
+            <h3>下午主动关心使用限制</h3>
             <table class="spec-table">
               <tbody>
                 <tr>
-                  <th>生成方式</th>
-                  <td>Push / Notification 文案由产品、运营与开发固定配置，不走 Pufflo 对话模型实时生成。</td>
+                  <th>允许引用到什么程度</th>
+                  <td>只允许引用“模式”，不允许引用“事件原文”。可以写“今天可能有点重”“今晚先放轻一点”，不能写“上次你说分手那件事”。</td>
                 </tr>
                 <tr>
-                  <th>文案原则</th>
-                  <td>
-                    <ul>
-                      <li>每条只保留一行短文案，不写解释、功能说明或小段正文。</li>
-                      <li>语气保持平静、低压力、像邀请而不是催促；不用羞耻、紧迫感、内疚或情感绑架。</li>
-                      <li>双语文案统一写成英文在前、中文括号在后，长度适合通知栏展示。</li>
-                    </ul>
-                  </td>
+                  <th>长度控制</th>
+                  <td>单语上线。英文建议 8-14 词；中文建议 12-26 字；只保留一句，不写第二句解释。</td>
                 </tr>
                 <tr>
-                  <th>下午 3 点主动关心</th>
-                  <td>
-                    <ul>
-                      <li>只适用于非首次用户，且系统存在真实可用的 chat history / memory。</li>
-                      <li>可以温和引用一种既有状态模式，但不能逐字复述旧对话，不能让人感觉像被监视。</li>
-                      <li>如果记忆不足或不可用，就退回普通的温和关心，不伪造熟悉感。</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <th>开发可直接使用文案</th>
-                  <td>
-                    <p><span class="bilingual">How is your afternoon going? If today already feels heavy, we can make tonight gentler before bedtime.（今天下午过得怎么样？如果今天已经有点重了，我们可以在睡前就先把今晚调轻一点。）</span></p>
-                    <p><span class="bilingual">Still carrying too much from today? We can make tonight softer before bed.（今天的东西还压在身上吗？我们可以在睡前就先把今晚调轻一点。）</span></p>
-                  </td>
+                  <th>禁止元素</th>
+                  <td>不用羞耻、责备、催促、绩效、监视感、病理暗示、命运感、过度亲密称呼。</td>
                 </tr>
               </tbody>
             </table>
@@ -2541,6 +2481,7 @@
               <li>用户刚结束夜间会话 90 分钟内，不发夜间提醒。</li>
               <li>下午 3 点主动关心只在存在真实可用记忆、且不是首次用户时才发；没有可引用的上下文就不发。</li>
               <li>当天如果已经发过情境提醒，就只保留最重要的一条固定提醒。</li>
+              <li>高风险、安全模式、明显医学风险或危机状态下，不发普通唤回和普通关心类 push。</li>
               <li>不要用让人有负担、像在责备人的提醒文案，例如“你又熬夜了”“你今天还没来”“你怎么不睡”。</li>
             </ul>
           </div>

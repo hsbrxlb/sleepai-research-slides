@@ -4,15 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026 年睡眠主动干预趋势与睡前微环境研究</title>
-  <meta name="description" content="一份更像中文长篇调研的睡眠研究 deck，覆盖粉红噪音、睡姿、微气候、重力毯、边缘睡眠习惯与产品化机会。">
+  <meta name="description" content="围绕睡眠主动干预、噪音颜色、睡姿、微气候、重力毯和边缘睡眠习惯的一份长篇中文调研。">
   <link rel="stylesheet" href="../../assets/css/deck.css">
   <style>
     .hero h1 {
-      max-width: 12ch;
+      max-width: 16ch;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.06;
     }
 
     .hero-copy {
-      max-width: 780px;
+      max-width: 820px;
+      font-size: 16px;
+      line-height: 1.72;
+    }
+
+    .section-title {
+      max-width: 28ch;
     }
 
     .lead-card {
@@ -27,12 +35,12 @@
 
     .lead-card strong {
       display: block;
-      font-size: clamp(24px, 2.5vw, 32px);
-      line-height: 1.14;
+      font-size: clamp(24px, 2.4vw, 32px);
+      line-height: 1.16;
       margin-bottom: 10px;
     }
 
-    .chapter {
+    .section-kicker {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -43,20 +51,20 @@
       text-transform: uppercase;
     }
 
-    .chapter::before {
+    .section-kicker::before {
       content: "";
       width: 24px;
       height: 1px;
       background: rgba(120, 240, 214, 0.6);
     }
 
-    .kpi-grid {
+    .dense-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .kpi {
+    .dense-card {
       padding: 20px;
       border-radius: 20px;
       border: 1px solid rgba(238, 243, 255, 0.08);
@@ -64,17 +72,17 @@
       box-shadow: var(--shadow);
     }
 
-    .kpi strong {
+    .dense-card strong {
       display: block;
-      font-size: clamp(22px, 2.2vw, 30px);
+      font-size: clamp(22px, 2.1vw, 30px);
       line-height: 1.08;
       margin-bottom: 8px;
     }
 
-    .kpi span {
+    .dense-card span {
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.62;
     }
 
     .table-wrap {
@@ -87,7 +95,7 @@
 
     table {
       width: 100%;
-      min-width: 900px;
+      min-width: 920px;
       border-collapse: collapse;
     }
 
@@ -98,7 +106,7 @@
       text-align: left;
       vertical-align: top;
       font-size: 14px;
-      line-height: 1.62;
+      line-height: 1.66;
     }
 
     th {
@@ -113,6 +121,29 @@
 
     tr:last-child td {
       border-bottom: 0;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .signal-list li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .signal-list strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
     }
 
     .note-box {
@@ -139,16 +170,25 @@
     }
 
     @media (max-width: 1024px) {
-      .kpi-grid,
+      .dense-grid,
       .source-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 720px) {
-      .kpi-grid,
+      .dense-grid,
       .source-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        max-width: none;
+        font-size: 36px;
+      }
+
+      .section-title {
+        max-width: none;
       }
     }
   </style>
@@ -167,12 +207,12 @@
       </div>
       <nav class="nav" aria-label="页面导航">
         <a href="#summary">结论</a>
-        <a href="#change">变化</a>
+        <a href="#market">市场</a>
         <a href="#audio">声音</a>
-        <a href="#posture">体位</a>
+        <a href="#posture">睡姿</a>
         <a href="#micro">微气候</a>
+        <a href="#device">设备</a>
         <a href="#edge">边缘习惯</a>
-        <a href="#inspo">启发</a>
         <a href="#sources">来源</a>
       </nav>
       <div class="topbar-group">
@@ -187,178 +227,181 @@
         <div class="eyebrow">先看结论</div>
         <div class="hero-grid">
           <div>
-            <h1>睡眠赛道正在从“告诉你睡不好”，转向“今晚就帮你调一点”。</h1>
+            <h1>睡眠产品开始从“看分数”转向“做干预”。</h1>
             <p class="hero-copy section-sub">
-              这份 deck 的重点不是给谁下命令，也不是替谁规划未来，而是把最近最有代表性的睡眠主动干预方向梳理清楚：哪些点证据更硬，哪些点更像前沿概念，哪些最适合被做成产品、内容和营销话题。
+              最近两年的睡眠市场，正在从单纯记录“昨晚睡得怎么样”，转向强调“今晚能做什么”。这一变化把很多原本像小技巧的话题重新抬高了：粉红噪音、褐噪音、睡姿、脚冷、睡衣材质、重力毯、伴侣分被子睡法，都开始被包装成能立刻改变夜里感受的主动干预。
             </p>
           </div>
           <div class="lead-card">
-            <strong>真正最有商业价值的，不是更复杂的监测，而是更容易让人当晚就试的微小干预。</strong>
+            <strong>真正最值钱的，不是更复杂的监测，而是更容易让人当晚就试的改变。</strong>
             <p class="section-sub">
-              比如粉红噪音、褐噪音、侧卧、左侧卧、穿薄袜、减轻衣物、重力毯、北欧分被法。这些东西共同指向一件事：用户想要的是立刻能做、明天能感觉的改变。
+              这也是为什么体位、体温、声音和触感这些看起来很“小”的变量，会突然重新变得重要。它们既容易理解，也容易商品化，还能立刻被用户感知。
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="change">
+    <section class="section reveal" id="market">
       <div class="wrap">
-        <div class="chapter">变化</div>
-        <h2 class="section-title">为什么这波变化值得重视</h2>
+        <div class="section-kicker">市场怎么变了</div>
+        <h2 class="section-title">从“知道自己没睡好”，走向“今晚就把几个变量调一下”。</h2>
+        <div class="dense-grid" style="margin-top:24px;">
+          <div class="dense-card">
+            <strong>16.8 亿美元</strong>
+            <span>按多份行业测算整理，全球抗鼾治疗市场 2025 年规模大约已到这个量级。</span>
+          </div>
+          <div class="dense-card">
+            <strong>36.5 亿美元</strong>
+            <span>同一批行业测算里，到 2035 年抗鼾市场被看到了接近翻倍的体量。</span>
+          </div>
+          <div class="dense-card">
+            <strong>17.6 亿美元</strong>
+            <span>智能床垫市场 2025 年的常见估算值，大致落在这一水平。</span>
+          </div>
+          <div class="dense-card">
+            <strong>33.4 亿美元</strong>
+            <span>到 2035 年，智能床垫相关市场常见估算值约翻到这一规模。</span>
+          </div>
+        </div>
         <div class="two-col" style="margin-top:24px;">
           <article class="card strong">
-            <p class="big-line">用户并不缺睡眠分数，缺的是“今晚具体该做什么”的答案。</p>
-            <ul class="metrics" style="margin-top:18px;">
-              <li>追踪设备越来越多，但长期使用疲劳也越来越明显。</li>
-              <li>看见“深睡不够”不等于知道“现在怎么办”。</li>
-              <li>因此，市场开始从监测转向干预，从记录转向调整。</li>
+            <h3>这些数字到底说明什么</h3>
+            <ul class="metrics">
+              <li>睡眠赛道还在长，而且不是只有床垫和床架在长。</li>
+              <li>抗鼾、姿势、温控、触感这些更细的干预，正在变成独立生意。</li>
+              <li>用户愿意为“今晚更舒服一点”买单，而不只是为“更贵的硬件”买单。</li>
             </ul>
           </article>
           <article class="card">
-            <h3>这波新趋势的共同点</h3>
+            <h3>这一波增长背后的共性</h3>
             <ul class="metrics">
-              <li>动作很具体，今晚就能试。</li>
-              <li>很容易和身体感受直接挂钩。</li>
-              <li>几乎每个点都能对应一个内容主题或一个商品。</li>
-              <li>比抽象的大词更容易激发购买和分享。</li>
+              <li>更强调立刻有感，而不是长期抽象收益。</li>
+              <li>更容易和夜间焦虑、打鼾、反酸、怕热、脚冷这些具体问题挂钩。</li>
+              <li>更容易被包装成“主动调节”，而不是“被动接受”。</li>
             </ul>
           </article>
-        </div>
-        <div class="kpi-grid" style="margin-top:24px;">
-          <div class="kpi">
-            <strong>从监测到干预</strong>
-            <span>睡眠赛道正在从“记录昨晚”转向“改变今晚”。</span>
-          </div>
-          <div class="kpi">
-            <strong>从硬件到体验</strong>
-            <span>不只是更贵的床，而是更细的夜间调节。</span>
-          </div>
-          <div class="kpi">
-            <strong>从单品到组合</strong>
-            <span>声音、姿势、温度、衣物开始被当成一整套来卖。</span>
-          </div>
-          <div class="kpi">
-            <strong>从知识到动作</strong>
-            <span>最值钱的是用户马上能执行的那一步。</span>
-          </div>
         </div>
       </div>
     </section>
 
     <section class="section reveal" id="audio">
       <div class="wrap">
-        <div class="chapter">声音干预</div>
-        <h2 class="section-title">从白噪音到粉红噪音和褐噪音，市场开始把“听什么”讲成“怎么调脑子”。</h2>
+        <div class="section-kicker">声音</div>
+        <h2 class="section-title">白噪音已经太基础，真正被抬高的是粉红噪音和褐噪音。</h2>
         <div class="table-wrap" style="margin-top:24px;">
           <table>
             <thead>
               <tr>
-                <th>声音类型</th>
-                <th>最容易理解的作用</th>
-                <th>更强的研究和营销点</th>
-                <th>更适合什么人</th>
+                <th>类型</th>
+                <th>用户最容易理解的区别</th>
+                <th>当前最适合讲的科学点</th>
+                <th>更适合对应谁</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>白噪音</td>
-                <td>盖住环境里的突发噪音</td>
-                <td>基础而稳定，但高级感不够</td>
-                <td>容易被外界声音打断的人</td>
+                <td>像一层声音幕布，把突发杂音盖住</td>
+                <td>基础遮噪最稳，但新鲜感和高级感都不强</td>
+                <td>容易被环境声打断的人</td>
               </tr>
               <tr>
                 <td>粉红噪音</td>
-                <td>听起来更柔和，更接近自然背景声</td>
+                <td>更柔和，听起来更像自然环境</td>
                 <td>可与慢波睡眠、记忆巩固联系起来</td>
-                <td>想要更“深一点”的睡感的人</td>
+                <td>想要更沉一点、更稳一点的人</td>
               </tr>
               <tr>
                 <td>褐噪音</td>
-                <td>低频更重，更沉，更有包裹感</td>
-                <td>特别适合讲“压住脑内杂音”和焦虑感</td>
-                <td>脑子停不下来、容易紧张的人</td>
+                <td>低频更重，更沉，更像远处雷声</td>
+                <td>更适合讲“压住脑内杂音”和安定感</td>
+                <td>思绪很多、脑子停不下来的人</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="kpi-grid" style="margin-top:24px;">
-          <div class="kpi">
+        <div class="dense-grid" style="margin-top:24px;">
+          <div class="dense-card">
             <strong>13 人</strong>
-            <span>Northwestern 的研究中，13 名 60-84 岁老年人接受与慢波同步的粉红噪音刺激。</span>
+            <span>Northwestern 的研究里，13 名 60-84 岁受试者接受了与慢波节律配合的粉红噪音刺激。</span>
           </div>
-          <div class="kpi">
+          <div class="dense-card">
             <strong>记忆更好</strong>
-            <span>刺激夜次晨的配对记忆表现优于假刺激条件。</span>
+            <span>刺激夜之后，次晨的配对记忆成绩优于假刺激条件。</span>
           </div>
-          <div class="kpi">
+          <div class="dense-card">
             <strong>真正含义</strong>
-            <span>粉红噪音不只是“更好听的背景音”，而是更容易被讲成深睡声音工具。</span>
+            <span>粉红噪音已经不只是“背景音”，而更像一种深睡声音工具。</span>
           </div>
-          <div class="kpi">
-            <strong>商业含义</strong>
-            <span>声音产品不再只卖“遮噪”，而开始卖“夜间恢复感”。</span>
+          <div class="dense-card">
+            <strong>更会卖</strong>
+            <span>它最适合被包装成“更深、更稳、更有恢复感”的声音方案。</span>
           </div>
+        </div>
+        <div class="note-box" style="margin-top:20px;">
+          这一组数据并不是要证明“粉红噪音万能”，而是说明：声音产品现在不再只卖遮噪，而是在卖“夜里大脑更容易安静下来”的感觉。
         </div>
       </div>
     </section>
 
     <section class="section reveal" id="posture">
       <div class="wrap">
-        <div class="chapter">体位与重力</div>
-        <h2 class="section-title">睡姿真正讲的不是习惯，而是重力、气道、胃液和骨盆怎么在夜里移动。</h2>
+        <div class="section-kicker">睡姿</div>
+        <h2 class="section-title">睡姿真正讲的不是习惯，而是夜里重力把身体往哪里拉。</h2>
         <div class="table-wrap" style="margin-top:24px;">
           <table>
             <thead>
               <tr>
                 <th>场景</th>
-                <th>研究或建议里更稳的说法</th>
-                <th>数据点</th>
-                <th>这组数据想表达什么</th>
+                <th>更稳的说法</th>
+                <th>关键数据</th>
+                <th>这组数据想说明什么</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>体位性呼吸暂停 / 打鼾</td>
                 <td>减少仰卧、增加侧卧通常更有帮助</td>
-                <td>体位治疗可让呼吸暂停低通气指数平均下降 9.19 次/小时，仰卧时间下降 32.79%</td>
-                <td>对一部分人来说，睡姿不是玄学，呼吸指标真的会变。</td>
+                <td>2023 年合并分析：呼吸暂停低通气指数平均下降 9.19 次/小时，仰卧时间下降 32.79%</td>
+                <td>对一部分人来说，睡姿确实能改变呼吸指标，不只是主观感受。</td>
               </tr>
               <tr>
                 <td>夜间反酸</td>
                 <td>左侧卧通常优于右侧卧和平躺</td>
-                <td>随机试验中，“有效夜晚”比例约 44% 对 24%，无反流夜晚中位数 9 晚对 6 晚</td>
-                <td>左侧卧不是小细节，而是很像“物理防线”。</td>
+                <td>随机试验里，“有效夜晚”比例约 44% 对 24%；无反流夜晚中位数 9 晚对 6 晚</td>
+                <td>左侧卧不是小技巧，而是很像一条直接的物理防线。</td>
               </tr>
               <tr>
                 <td>孕晚期</td>
                 <td>优先侧卧，重点是避免仰卧入睡</td>
-                <td>相关指南和证据报告普遍支持这一方向</td>
-                <td>最稳的写法不是“只能左侧”，而是“侧卧更稳妥”。</td>
+                <td>多份指南和证据报告都支持这一方向</td>
+                <td>最稳的表达不是“只能左侧”，而是“侧卧更稳妥”。</td>
               </tr>
               <tr>
                 <td>右侧卧</td>
-                <td>更适合当恢复感、安静感的前沿叙事来讲</td>
-                <td>目前更像前沿研究和高级概念，而不是全民通用结论</td>
-                <td>可以讲，但别写死。</td>
+                <td>更适合被放在前沿恢复感和高级感叙事里</td>
+                <td>目前更像前沿概念，而不是全民通用结论</td>
+                <td>可以讲，但不适合写成唯一正确答案。</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="two-col" style="margin-top:24px;">
           <article class="card strong">
-            <h3>最适合放在前面的体位结论</h3>
+            <h3>这部分最值得被放大的点</h3>
             <ul class="metrics">
               <li>打鼾和体位性呼吸暂停：先别仰睡。</li>
-              <li>反酸：左侧卧和上半身略抬高最值得讲。</li>
-              <li>孕晚期：侧卧更稳妥，别制造“只能左侧”的紧张感。</li>
+              <li>反酸：左侧卧和上半身略抬高最容易让用户立刻理解。</li>
+              <li>孕晚期：侧卧更稳，但不要制造“只能左侧”的焦虑。</li>
             </ul>
           </article>
           <article class="card">
-            <h3>更适合做高级包装的体位结论</h3>
+            <h3>这部分最容易被写坏的点</h3>
             <ul class="metrics">
-              <li>右侧卧和恢复感、安静感、护脑感相关。</li>
-              <li>可以放到高端叙事里，但不适合当成硬结论放在最前面。</li>
+              <li>把右侧卧写成全民最佳。</li>
+              <li>把某一种姿势写成万能治法。</li>
+              <li>把复杂情况讲成一句口号。</li>
             </ul>
           </article>
         </div>
@@ -367,115 +410,136 @@
 
     <section class="section reveal" id="micro">
       <div class="wrap">
-        <div class="chapter">微气候</div>
-        <h2 class="section-title">袜子、睡衣、裸睡，看起来是小事，其实最容易直接变成消费决策。</h2>
-        <div class="three-col" style="margin-top:24px;">
-          <article class="card strong">
-            <h3>穿袜子睡</h3>
-            <ul class="metrics">
-              <li>重点不是保暖，而是帮助身体更容易降到适合睡眠的温度。</li>
-              <li>最适合脚冷、空调房、四肢末端总是凉的人。</li>
-              <li>很适合讲成“睡前最容易忽略的小开关”。</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>睡衣厚薄和材质</h3>
-            <ul class="metrics">
-              <li>真正该讲的是透气、排汗和湿热平衡，而不是单纯薄或厚。</li>
-              <li>太闷、太锁汗的衣物更容易破坏睡眠连续性。</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>裸睡</h3>
-            <ul class="metrics">
-              <li>更适合当作生活方式和舒适感话题，而不是硬医学结论。</li>
-              <li>对热睡者和讨厌束缚感的人更容易成立。</li>
-            </ul>
-          </article>
-        </div>
-        <div class="kpi-grid" style="margin-top:24px;">
-          <div class="kpi">
+        <div class="section-kicker">微气候</div>
+        <h2 class="section-title">袜子、睡衣、裸睡这些看起来小的题，反而最容易立刻变成购买动作。</h2>
+        <div class="dense-grid" style="margin-top:24px;">
+          <div class="dense-card">
             <strong>36 人</strong>
             <span>2019 年睡衣研究纳入 36 名 50-70 岁健康成年人。</span>
           </div>
-          <div class="kpi">
+          <div class="dense-card">
             <strong>12.4 分钟</strong>
             <span>较年长受试者穿羊毛睡衣时的平均入睡潜伏期。</span>
           </div>
-          <div class="kpi">
+          <div class="dense-card">
             <strong>26.7 分钟</strong>
             <span>同组受试者穿棉睡衣时的平均入睡潜伏期。</span>
           </div>
-          <div class="kpi">
-            <strong>真正含义</strong>
-            <span>材质会影响睡眠，问题不在贵不贵，而在微气候稳不稳。</span>
+          <div class="dense-card">
+            <strong>21.6 分钟</strong>
+            <span>同组受试者穿涤纶睡衣时的平均入睡潜伏期。</span>
           </div>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card strong">
+            <h3>这组数据想说明什么</h3>
+            <ul class="metrics">
+              <li>材质会影响睡眠，问题不只在“厚不厚”。</li>
+              <li>真正重要的是透气、排汗和夜里局部微气候稳不稳。</li>
+              <li>这也解释了为什么“睡衣材质”会突然变成一个能讲高价的点。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>袜子和裸睡分别适合怎么讲</h3>
+            <ul class="metrics">
+              <li>穿袜子睡：重点不是保暖，而是帮脚冷的人更容易进入睡眠状态。</li>
+              <li>裸睡：更适合当舒适感、凉感和生活方式话题，而不是医学铁律。</li>
+              <li>热睡者和脚冷者，本来就是两条完全不同的内容线。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="device">
+      <div class="wrap">
+        <div class="section-kicker">设备</div>
+        <h2 class="section-title">更前沿的设备在做什么：电刺激、红光和重力触压，正在把“助眠”抬到更贵的一层。</h2>
+        <div class="dense-grid" style="margin-top:24px;">
+          <div class="dense-card">
+            <strong>72 人</strong>
+            <span>2024 年慢性失眠随机临床试验里，72 名受试者被分到主动经皮耳迷走神经刺激组或假刺激组。</span>
+          </div>
+          <div class="dense-card">
+            <strong>-8.2 分</strong>
+            <span>主动刺激组 8 周后的匹兹堡睡眠质量指数平均变化。</span>
+          </div>
+          <div class="dense-card">
+            <strong>-3.9 分</strong>
+            <span>假刺激组 8 周后的平均变化。</span>
+          </div>
+          <div class="dense-card">
+            <strong>4.2 分差</strong>
+            <span>两组差值达到临床上有意义的水平，说明这类非侵入式神经调节值得被市场关注。</span>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card">
+            <h3>为什么这类设备会火</h3>
+            <ul class="metrics">
+              <li>用户越来越想要“直接帮我从紧绷状态退下来”的东西。</li>
+              <li>相比只看数据，主动电刺激和光刺激更像真的在做事。</li>
+              <li>这类产品天然更贵，也更适合高端叙事。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>红光和光生物调节</h3>
+            <ul class="metrics">
+              <li>这一类更像“节律友好”和“夜间修复”叙事。</li>
+              <li>630 到 1100 纳米波段常被拿来做红光和近红外相关产品包装。</li>
+              <li>它的强项不是简单地说“有用”，而是能把睡眠、修复和抗老绑在一起讲。</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section reveal" id="edge">
       <div class="wrap">
-        <div class="chapter">边缘习惯</div>
-        <h2 class="section-title">有些东西争议很大，但传播力极强，适合放在“趋势观察”而不是“核心建议”里。</h2>
-        <div class="three-col" style="margin-top:24px;">
-          <article class="card">
-            <h3>口呼吸贴</h3>
-            <ul class="metrics">
-              <li>视觉冲击强，社交平台传播力大。</li>
-              <li>但并不适合被直接写成人人都该试的主建议。</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>重力毯</h3>
-            <ul class="metrics">
-              <li>比口呼吸贴稳得多，因为至少有深压刺激和实验数据可讲。</li>
-              <li>2023 年研究里，26 名健康年轻人使用约占体重 12% 的重力毯后，睡前 1 小时的褪黑素升幅比轻毯条件高约 32%。</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>北欧分被法</h3>
-            <ul class="metrics">
-              <li>不是什么黑科技，但非常适合做关系和寝具话题。</li>
-              <li>重点在于减少伴侣间的温度冲突和抢被子干扰。</li>
-            </ul>
-          </article>
+        <div class="section-kicker">边缘习惯</div>
+        <h2 class="section-title">有些东西证据没那么硬，但因为争议大、画面强，反而特别容易出圈。</h2>
+        <div class="table-wrap" style="margin-top:24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>话题</th>
+                <th>为什么会火</th>
+                <th>能拿出来讲的数字</th>
+                <th>更合适的定位</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>重力毯</td>
+                <td>把“被抱住”“被压稳”这种感觉商品化了</td>
+                <td>2023 年实验里，26 名健康年轻人使用约占体重 12% 的重力毯后，睡前 1 小时褪黑素升幅比轻毯条件高约 32%</td>
+                <td>可以放进较强卖点</td>
+              </tr>
+              <tr>
+                <td>口呼吸贴</td>
+                <td>视觉冲击强，社交平台传播力极大</td>
+                <td>2009 年随机交叉研究纳入 51 名有症状哮喘患者，50 人完成，结果未显示晨峰流速和症状有改善</td>
+                <td>更适合放进趋势观察，而不是核心建议</td>
+              </tr>
+              <tr>
+                <td>北欧分被法</td>
+                <td>同时碰到伴侣关系、温度冲突和寝具消费三个话题</td>
+                <td>公开传播热度很高，但更像生活方式经验，而非医学硬证据</td>
+                <td>适合做内容，不适合当医疗卖点</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="note-box" style="margin-top:20px;">
-          这一类话题特别适合做内容、专题页和传播选题，因为它们很容易让人觉得“原来还可以这样解决”，但不适合替代更稳的基础建议。
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="inspo">
-      <div class="wrap">
-        <div class="chapter">最后补一句启发</div>
-        <h2 class="section-title">这份调研最值得留下来的，不是一条命令，而是一种更清楚的产品和内容思路。</h2>
-        <div class="two-col" style="margin-top:24px;">
-          <article class="card strong">
-            <h3>真正有价值的方向</h3>
-            <ul class="metrics">
-              <li>不是单纯堆更多睡眠知识。</li>
-              <li>而是把“今晚就能试”的动作和内容组织起来。</li>
-              <li>先给很短的动作建议，再接上更适合的声音和节奏。</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>最重要的尺度</h3>
-            <ul class="metrics">
-              <li>前面讲有用、讲趋势、讲用户能感受到什么。</li>
-              <li>后面再单独放边界、风险和不适合写死的地方。</li>
-              <li>这样既不无聊，也不容易把话说过头。</li>
-            </ul>
-          </article>
+          这一页最重要的不是判断“它们到底对不对”，而是区分清楚：哪些能拿来做前台强卖点，哪些更适合当流量话题和内容素材。
         </div>
       </div>
     </section>
 
     <section class="section reveal" id="sources">
       <div class="wrap">
-        <div class="chapter">来源</div>
-        <h2 class="section-title">本页真正使用过的主要来源</h2>
+        <div class="section-kicker">来源</div>
+        <h2 class="section-title">本页真正用到的主要来源</h2>
         <div class="source-grid" style="margin-top:24px;">
           <article class="card">
             <h3>权威机构与临床资料</h3>
@@ -497,23 +561,23 @@
               <li><a href="https://pubmed.ncbi.nlm.nih.gov/34928874/">睡姿与夜间反流参数</a></li>
               <li><a href="https://pubmed.ncbi.nlm.nih.gov/35301135/">夜间反流随机试验</a></li>
               <li><a href="https://pubmed.ncbi.nlm.nih.gov/17078772/">四肢远端加温与入睡</a></li>
-              <li><a href="https://pubmed.ncbi.nlm.nih.gov/36184925/">重力毯与褪黑素</a></li>
               <li><a href="https://pubmed.ncbi.nlm.nih.gov/31692485/">睡衣材质与睡眠质量</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/36184925/">重力毯与褪黑素</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/39680406/">经皮耳迷走神经刺激与慢性失眠</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/19285849/">口呼吸贴与哮喘随机交叉研究</a></li>
             </ul>
           </article>
           <article class="card">
-            <h3>趋势与传播素材</h3>
+            <h3>趋势素材</h3>
             <ul class="source-list">
-              <li><a href="https://www.youtube.com/watch?v=_GI9-J-sE5k">TED-Ed：What’s the best position to sleep in?</a></li>
-              <li><a href="https://www.youtube.com/watch?v=WeJrU-VJGfg">TEDxManchester：The secret to getting better sleep tonight</a></li>
-              <li>用户补充的 Sleepmaxxing、神经调控、口呼吸贴、北欧分被法、睡眠旅游等长稿。</li>
+              <li><a href="https://www.youtube.com/watch?v=_GI9-J-sE5k">TED-Ed：睡姿视频</a></li>
+              <li><a href="https://www.youtube.com/watch?v=WeJrU-VJGfg">TEDxManchester：改善睡眠视频</a></li>
+              <li>用户补充的 Sleepmaxxing、神经调控、红光、重力毯、北欧分被法、睡眠旅游等长稿。</li>
             </ul>
           </article>
           <article class="card">
             <h3>源稿</h3>
-            <p class="section-sub">
-              更完整的长稿与调研整理已经同步到 Markdown。
-            </p>
+            <p class="section-sub">更完整的调研整理已同步到 Markdown 源文件。</p>
             <p style="margin-top:14px;"><a href="../../sources/md/2026-03-20-sleep-position-sleep-quality.md">查看 Markdown 源稿</a></p>
           </article>
         </div>

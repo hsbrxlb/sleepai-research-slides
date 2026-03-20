@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>睡眠姿势对睡眠质量与入睡影响</title>
+  <meta name="description" content="SleepAI 专题：睡眠姿势对睡眠质量与入睡影响，以及是否适合纳入助眠 AI 引导文案。">
+  <link rel="stylesheet" href="../../assets/css/deck.css">
+  <style>
+    .hero h1 {
+      max-width: 13ch;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(238, 243, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pill strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(238, 243, 255, 0.12);
+      color: var(--text);
+    }
+
+    .badge.confirmed {
+      color: #041a16;
+      background: rgba(120, 240, 214, 0.92);
+      border-color: rgba(120, 240, 214, 0.92);
+    }
+
+    .badge.estimated {
+      color: #2f2107;
+      background: rgba(255, 176, 32, 0.92);
+      border-color: rgba(255, 176, 32, 0.92);
+    }
+
+    .badge.inferred {
+      color: #f2f6ff;
+      background: rgba(154, 176, 255, 0.2);
+      border-color: rgba(154, 176, 255, 0.32);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(238, 243, 255, 0.08);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    th {
+      color: var(--text);
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .kpi {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .kpi strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.1;
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .source-grid .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .source-grid .card a:hover {
+      color: var(--text);
+    }
+
+    .warning {
+      border-left: 3px solid var(--warn);
+      padding-left: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1024px) {
+      .kpi-grid,
+      .source-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .kpi-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="site-home-fab" href="../../index.html">返回总览</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-group">
+        <a class="home-link" href="../../index.html">返回总览</a>
+        <div class="brand">
+          <span class="kicker">专题研究 / 健康教育策略</span>
+          <strong>睡眠姿势对睡眠质量与入睡影响</strong>
+        </div>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#summary">结论</a>
+        <a href="#evidence">证据</a>
+        <a href="#scenarios">场景</a>
+        <a href="#comparables">可比案例</a>
+        <a href="#product">产品建议</a>
+        <a href="#risk">风险</a>
+        <a href="#sources">来源</a>
+      </nav>
+      <div class="topbar-group">
+        <button class="btn" type="button" data-focus-toggle>专注模式</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="section hero reveal" id="summary">
+      <div class="wrap">
+        <div class="eyebrow">Bottom Line Up Front</div>
+        <div class="hero-grid">
+          <div>
+            <h1>睡姿引导可以做，但只能做场景化的辅助层。</h1>
+            <p class="hero-copy section-sub">
+              现有证据不支持“存在一个对所有人都最助眠的标准睡姿”，也不支持“睡前某几分钟摆成某姿势”能稳定让普通人更快入睡。真正有依据的，是针对打鼾 / 体位性 OSA、夜间反流、孕晚期与部分肌骨不适的分场景建议。
+            </p>
+            <div class="pill-row">
+              <div class="pill"><strong>建议定位</strong> 条件触发型健康教育</div>
+              <div class="pill"><strong>不建议定位</strong> 通用助眠主疗法</div>
+              <div class="pill"><strong>重点市场</strong> 美国、英国、澳大利亚</div>
+            </div>
+          </div>
+          <div class="card strong">
+            <p class="big-line">SleepAI 最合理的做法不是“教所有人怎么睡”，而是在合适的场景里，温和提醒合适的人，做更舒服或更安全的摆位选择。</p>
+            <ul class="metrics" style="margin-top:18px;">
+              <li>普通失眠：姿势证据弱，不宜承诺“更快睡着”。</li>
+              <li>反流、体位性 OSA、孕晚期：有更强的权威与试验证据。</li>
+              <li>产品上更应做规则引擎和反馈闭环，而不是神奇睡姿叙事。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="evidence">
+      <div class="wrap">
+        <div class="eyebrow">Evidence Map</div>
+        <h2 class="section-title">不是“哪种睡姿最好”，而是“什么问题对应什么姿势边界”。</h2>
+        <p class="section-sub">
+          本主题被归类为 `技术 / 产品` + `趋势 / 健康教育策略`。判断依据不是单一论文，而是权威临床机构、系统综述、随机试验与可比产品四类证据的交叉验证。
+        </p>
+        <div class="table-wrap" style="margin-top:24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>场景</th>
+                <th>结论</th>
+                <th>状态</th>
+                <th>对 SleepAI 的含义</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>普通成年人 / 泛失眠</td>
+                <td>没有单一“最佳睡姿”；姿势不是主流失眠治疗组成部分。</td>
+                <td><span class="badge inferred">Inferred</span></td>
+                <td>默认脚本不应做强姿势推荐。</td>
+              </tr>
+              <tr>
+                <td>入睡速度</td>
+                <td>缺少直接可复用的消费级证据，不能证明“睡前几分钟摆位”可稳定缩短入睡时间。</td>
+                <td><span class="badge inferred">Inferred</span></td>
+                <td>不宜承诺“更快睡着”。</td>
+              </tr>
+              <tr>
+                <td>体位性 OSA / 打鼾</td>
+                <td>避免仰卧、优先侧卧可降低 AHI 或减轻气道塌陷风险。</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td>可做高价值场景，但必须加分诊提示。</td>
+              </tr>
+              <tr>
+                <td>GERD / 夜间反流</td>
+                <td>左侧卧和整体抬高床头优于平躺或右侧卧。</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td>最适合率先上线的场景之一。</td>
+              </tr>
+              <tr>
+                <td>孕晚期</td>
+                <td>入睡时应尽量侧卧；左或右都可，重点是避免仰卧入睡。</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td>能做，但文案必须避免制造焦虑。</td>
+              </tr>
+              <tr>
+                <td>背痛 / 颈部不适</td>
+                <td>趴睡更差，支撑性侧卧或更中立的仰卧可能更合适，但证据较弱。</td>
+                <td><span class="badge estimated">Estimated</span></td>
+                <td>适合做舒适度优化，不适合做强疗效表述。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="scenarios">
+      <div class="wrap">
+        <div class="eyebrow">Quantitative Facts</div>
+        <h2 class="section-title">最关键的数据，不支持“统一最佳睡姿”，只支持“明确问题下的针对性建议”。</h2>
+        <div class="kpi-grid" style="margin-top:24px;">
+          <div class="kpi">
+            <strong>9.19 / 小时</strong>
+            <span>2023 年 Meta：振动式体位治疗使体位性 OSA 的 AHI 平均下降 9.19 次/小时，仰卧时间下降 32.79%。</span>
+          </div>
+          <div class="kpi">
+            <strong>44% vs 24%</strong>
+            <span>夜间反流随机双盲试验：干预组成功率 44%，假干预组 24%；无反流夜晚中位数 9 晚 vs 6 晚。</span>
+          </div>
+          <div class="kpi">
+            <strong>aOR 2.63</strong>
+            <span>2025 妊娠指南证据报告：妊娠后期仰卧入睡与晚期死胎风险上升相关。</span>
+          </div>
+          <div class="kpi">
+            <strong>无直接证据</strong>
+            <span>没有高质量研究证明“睡前固定某几分钟做姿势引导”可让普通成年人更快睡着。</span>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card">
+            <h3>体位性 OSA / 打鼾</h3>
+            <ul class="metrics">
+              <li>2025 随机交叉试验显示，体位治疗与 CPAP 都能改善 ESS，但 CPAP 对 AHI 改善更强。</li>
+              <li>2012 年 PSG 研究中，60% 患者仰卧时 AHI 恶化超过 2 倍。</li>
+              <li>含义：可以提示侧卧，但绝不能把它写成 CPAP 替代方案。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>GERD / 夜间反流</h3>
+            <ul class="metrics">
+              <li>ACG 面向患者材料明确建议左侧卧、床头抬高 6-8 英寸、睡前 2-3 小时避免进食。</li>
+              <li>2022-2023 的试验和综述支持左侧卧减少夜间酸暴露。</li>
+              <li>含义：这是最适合变成用户可理解文案的场景。</li>
+            </ul>
+          </article>
+        </div>
+        <p class="warning" style="margin-top:20px;">
+          需要特别说明：关于“入睡更快”的直接证据非常弱。2021 年一项 35 人 EEG-fMRI 实验室研究发现仰卧时 sleep onset latency 更短，但场景特殊、外部效度低，不能据此给消费级用户下强结论。
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="comparables">
+      <div class="wrap">
+        <div class="eyebrow">Comparable Analysis</div>
+        <h2 class="section-title">同类产品已经在做，但落点并不相同。</h2>
+        <div class="table-wrap" style="margin-top:24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>产品</th>
+                <th>定位</th>
+                <th>姿势能力</th>
+                <th>证据强度</th>
+                <th>启发</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BetterSleep / Calm</td>
+                <td>内容型助眠平台</td>
+                <td>把睡姿做成音频内容、文章、孕期专题</td>
+                <td><span class="badge estimated">Estimated</span></td>
+                <td>适合内容扩库和 SEO，但不宜过度医疗化。</td>
+              </tr>
+              <tr>
+                <td>SnoreLab</td>
+                <td>打鼾管理 App</td>
+                <td>把 side sleeping / positional therapy 当可追踪因素</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td>最值得借鉴的是把姿势做成可回看的行为变量。</td>
+              </tr>
+              <tr>
+                <td>Philips NightBalance</td>
+                <td>临床体位治疗硬件</td>
+                <td>通过振动持续避免仰卧</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td>价值来自整夜维持体位，而不是单次提示。</td>
+              </tr>
+              <tr>
+                <td>Eight Sleep / Sleep Number</td>
+                <td>智能床硬件</td>
+                <td>自动抬头、防打鼾、预设睡姿</td>
+                <td><span class="badge estimated">Estimated</span></td>
+                <td>硬件路线把建议升级成自动执行，但不是当前最短路径。</td>
+              </tr>
+              <tr>
+                <td>Sleep Reset</td>
+                <td>数字睡眠教练</td>
+                <td>教育层有姿势内容，核心仍是 CBT-I</td>
+                <td><span class="badge estimated">Estimated</span></td>
+                <td>说明姿势适合作为外层辅助手段。</td>
+              </tr>
+              <tr>
+                <td>Sleepio / Somryst</td>
+                <td>数字 CBT-I / DTx</td>
+                <td>公开核心价值中基本不突出姿势</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td>强失眠治疗产品并不把姿势当主疗法。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="product">
+      <div class="wrap">
+        <div class="eyebrow">Product Strategy</div>
+        <h2 class="section-title">最好的产品化路径，是规则引擎，不是“最佳睡姿”口号。</h2>
+        <div class="three-col" style="margin-top:24px;">
+          <article class="card strong">
+            <h3>P1: 高置信场景先上线</h3>
+            <ul class="metrics">
+              <li>夜间反流：左侧卧 + 上半身整体抬高。</li>
+              <li>打鼾 / 怀疑体位性 OSA：优先侧卧，减少仰卧。</li>
+              <li>孕晚期：入睡时尽量侧卧，左或右都可。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>P2: 文案位置这样放</h3>
+            <ul class="metrics">
+              <li>音频开始前 30-60 秒给一次温和摆位提示。</li>
+              <li>只在用户标签明确时给具体方向。</li>
+              <li>默认脚本只讲舒适和放松，不讲疗效。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>P3: 闭环比建议更重要</h3>
+            <ul class="metrics">
+              <li>记录用户是否尝试了该姿势。</li>
+              <li>追踪次日自评：更快入睡、夜醒更少、晨起更舒服。</li>
+              <li>让模型逐步学会“谁适合哪条提示”。</li>
+            </ul>
+          </article>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card">
+            <h3>可以说的话</h3>
+            <ul class="metrics">
+              <li>“如果你今晚有反酸，左侧卧通常比平躺更容易舒服一些。”</li>
+              <li>“如果你容易打鼾，先试试侧卧，不要急着仰面睡下去。”</li>
+              <li>“如果你怀孕 28 周后，入睡时尽量侧卧就好，半夜醒来发现姿势变了也不用紧张。”</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>不能说的话</h3>
+            <ul class="metrics">
+              <li>“左侧睡是医学公认最佳睡姿。”</li>
+              <li>“换个睡姿就能治疗睡眠呼吸暂停。”</li>
+              <li>“孕妇只能左侧睡，否则危险。”</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="risk">
+      <div class="wrap">
+        <div class="eyebrow">Risks & Unknowns</div>
+        <h2 class="section-title">最大的风险不在于内容太少，而在于说得过头。</h2>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card">
+            <h3>高置信风险</h3>
+            <ul class="metrics">
+              <li>把体位性 OSA 的建议误写成所有打鼾者的治疗承诺。</li>
+              <li>把孕期左侧卧写成“唯一正确答案”，制造焦虑。</li>
+              <li>让有胸痛、吞咽困难、极度日间嗜睡的人被内容掩盖而延迟就医。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>最该验证的 4 个问题</h3>
+            <ul class="metrics">
+              <li>SleepAI 当前用户中，反流、打鼾、孕期、背痛标签占比是多少？</li>
+              <li>哪类脚本中插入摆位提示，不会破坏放松感？</li>
+              <li>次日自评里，哪些标签人群的改善最显著？</li>
+              <li>是否需要把姿势提示做成可关闭项？</li>
+            </ul>
+          </article>
+        </div>
+        <div class="card strong" style="margin-top:24px;">
+          <div class="closing">
+            <div>
+              <strong>结论收束：睡姿引导不是伪科学，但它也不是通用助眠科学。</strong>
+              <p class="section-sub" style="margin-top:12px;">
+                它只在问题明确、场景明确、文案克制、能分诊、能回收反馈时，才是对 SleepAI 有商业价值且可长期迭代的内容层。
+              </p>
+            </div>
+            <div class="pill-row">
+              <div class="pill"><strong>适合</strong> 场景化提示</div>
+              <div class="pill"><strong>不适合</strong> 万能姿势论</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sources">
+      <div class="wrap">
+        <div class="eyebrow">Source Appendix</div>
+        <h2 class="section-title">本页使用过的核心来源</h2>
+        <div class="source-grid" style="margin-top:24px;">
+          <article class="card">
+            <h3>权威机构</h3>
+            <ul class="source-list">
+              <li><a href="https://www.nhs.uk/conditions/sleep-apnoea/">NHS: Sleep apnoea</a></li>
+              <li><a href="https://www.mayoclinic.org/diseases-conditions/gerd/diagnosis-treatment/drc-20361959">Mayo Clinic: GERD</a></li>
+              <li><a href="https://medlineplus.gov/ency/article/000811.htm">MedlinePlus: Obstructive sleep apnea</a></li>
+              <li><a href="https://www.nice.org.uk/guidance/ng201/resources/antenatal-care-pdf-66143709695941">NICE NG201: Antenatal care</a></li>
+              <li><a href="https://www.acog.org/womens-health/experts-and-stories/ask-acog/can-i-sleep-on-my-back-when-im-pregnant">ACOG: Sleep on my back when pregnant?</a></li>
+              <li><a href="https://webfiles.gi.org/docs/patients/GERD-infographic-final_2022.pdf">ACG GERD infographic</a></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>关键学术证据</h3>
+            <ul class="source-list">
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/37344178/">ALQarni et al. Thorax 2023</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/39347559/">Wilson et al. JCSM 2025</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/35301135/">Nocturnal GERD randomized trial</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/37969463/">Simadibrata et al. 2023</a></li>
+              <li><a href="https://files.magicapp.org/guideline/4035ce23-3fc6-4803-bdc7-de49a559c188/files/Evidence_Report-_Sleep_position_r806923.pdf">Australian Pregnancy Care Guidelines evidence report</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/40449065/">Ruan et al. Sleep Medicine Reviews 2025</a></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>可比产品</h3>
+            <ul class="source-list">
+              <li><a href="https://www.snorelab.com/">SnoreLab</a></li>
+              <li><a href="https://www.philips.com/c-dam/b2bhc/master/landing-pages/src/nightbalance-lunoa-professional/philips-nightbalance-lunoa-brochure.pdf">Philips NightBalance</a></li>
+              <li><a href="https://www.eightsleep.com/the-base/">Eight Sleep Base</a></li>
+              <li><a href="https://ir.sleepnumber.com/news/news-details/2017/Sleep-Number-Introduces-the-Sleep-Number-360-Smart-Bed/default.aspx">Sleep Number 360</a></li>
+              <li><a href="https://www.thesleepreset.com/cbti-based-program">Sleep Reset</a></li>
+              <li><a href="https://www.somryst.com/how-somryst-works/">Somryst</a></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>源稿</h3>
+            <p class="section-sub">
+              完整文字稿已同步到 Markdown 源文件，便于后续继续扩写、补数据或重做成更长版本。
+            </p>
+            <p style="margin-top:14px;"><a href="../../sources/md/2026-03-20-sleep-position-sleep-quality.md">查看 Markdown 源稿</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="deck-footer">
+    <div class="deck-footer-inner">
+      <span>SleepAI Hub · 睡眠姿势对睡眠质量与入睡影响</span>
+      <a href="../../sources/md/2026-03-20-sleep-position-sleep-quality.md">源稿回链</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/deck.js"></script>
+</body>
+</html>

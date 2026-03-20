@@ -449,7 +449,6 @@
       color: #9a5b24;
       font-size: 13px;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
     }
 
     .bubble-card .bubble-route {
@@ -845,40 +844,30 @@
                   <p><span class="bilingual">Build a companion that feels closer to the way you want to be accompanied.（定制一个更贴近你的陪伴方式。）</span></p>
                 </td>
               </tr>
-              <tr>
-                <th>首轮分流规则</th>
-                <td>
-                  <ul>
-                    <li>首次进入：固定开场白 -> 音色选择 -> 进入第一次真实陪伴；不要卡在设置流。</li>
-                    <li>非首次进入：直接跳过欢迎流程，进入首页功能调用与建议问题。</li>
-                    <li>自定义人设只在用户明确想调整陪伴方式时出现，不抢第一次真实体验。</li>
-                  </ul>
-                </td>
-              </tr>
             </tbody>
           </table>
 
           <div class="subsection">
             <h3>首次首页气泡与自定义人设卡片</h3>
-            <p class="section-intro">以下 4 个气泡用于首次首页态；点击后分别进入对应链路。文案用英文主文案，中文作对照。</p>
+            <p class="section-intro">首次首页保留 4 个固定气泡，其中一个显式承接“闭眼即启动”的极低摩擦入口。</p>
             <div class="bubble-grid">
               <article class="bubble-card">
-                <strong>Bubble 01</strong>
-                <p><span class="bilingual">Tell me a rain-at-the-lake bedtime story.（给我讲一个湖边雨夜的入睡故事。）</span></p>
+                <strong>气泡 01</strong>
+                <p><span class="bilingual">Tell me a rainy lake bedtime story.（给我讲一个湖边雨夜的入睡故事。）</span></p>
                 <span class="bubble-route">进入 AI 故事</span>
               </article>
               <article class="bubble-card">
-                <strong>Bubble 02</strong>
+                <strong>气泡 02</strong>
                 <p><span class="bilingual">Today feels heavy. Give me something gentler.（今天有点重，给我一点更柔和的节奏。）</span></p>
                 <span class="bubble-route">进入音乐匹配 / 舒缓陪伴</span>
               </article>
               <article class="bubble-card">
-                <strong>Bubble 03</strong>
-                <p><span class="bilingual">Help my whole body unclench and sink deeper.（带我松开全身紧绷，慢慢沉下去。）</span></p>
-                <span class="bubble-route">进入 AI 冥想 / AI 呼吸</span>
+                <strong>气泡 03</strong>
+                <p><span class="bilingual">My eyes are closed. Start sleep now.（我已闭眼，开始助眠吧。）</span></p>
+                <span class="bubble-route">进入闭眼即启动流程</span>
               </article>
               <article class="bubble-card">
-                <strong>Bubble 04</strong>
+                <strong>气泡 04</strong>
                 <p><span class="bilingual">Start sleep tracking and help me read the night tomorrow.（开始睡眠监测，明早帮我读懂这一夜。）</span></p>
                 <span class="bubble-route">进入睡眠监测 / 次晨报告</span>
               </article>
@@ -886,7 +875,7 @@
 
             <div class="cta-preview">
               <h4><span class="bilingual">Want a companion that gets your mood tonight?（想找个更懂你今晚状态的陪伴者？）</span></h4>
-              <p><span class="bilingual">Customize a companion that fits the way you want to be accompanied, so the response does not feel one-size-fits-all.（定制一个更贴近你陪伴偏好的智能体，让回应不再千篇一律。）</span></p>
+              <p><span class="bilingual">Customize a companion that fits the way you want to be accompanied, so the response does not feel generic.（定制一个更贴近你陪伴偏好的智能体，让回应不再千篇一律。）</span></p>
               <div class="cta-button-preview"><span class="bilingual">+ Customize Persona（+ 自定义人设）</span></div>
             </div>
 
@@ -898,11 +887,63 @@
                 </tr>
                 <tr>
                   <th>点击行为</th>
-                  <td>4 个气泡分别直达故事、舒缓陪伴、冥想 / 呼吸、睡眠监测；自定义人设卡片点击后跳转至自定义人设设置页。</td>
+                  <td>4 个气泡分别直达故事、舒缓陪伴、闭眼即启动、睡眠监测；自定义人设卡片点击后跳转至自定义人设设置页。</td>
                 </tr>
                 <tr>
                   <th>文案要求</th>
                   <td>气泡文案必须短、可一眼看懂、像用户会直接点的请求；避免抽象口号、避免过长导致气泡高度失控。</td>
+                </tr>
+                <tr>
+                  <th>闭眼即启动</th>
+                  <td>“我已闭眼”这类气泡要足够显眼，让用户知道只要按住语音说出这句话，系统就可以立刻进入预设助眠链路，减少睡前最后几步操作。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="subsection">
+            <h3>非首次引导话题</h3>
+            <p class="section-intro">非首次首页不写死 3 条固定文案；改由模型根据时间、历史 chat 和记忆生成 3 条更贴近当下状态的建议问题。</p>
+            <table class="spec-table">
+              <tbody>
+                <tr>
+                  <th>生成规则</th>
+                  <td>
+                    <ul>
+                      <li>一次生成 3 条建议问题或建议指令。</li>
+                      <li>优先参考最近的高频使用轨迹、常见困扰、常用模块和当前本地时间。</li>
+                      <li>白天不主动出现“闭眼”“睡吧”“把手机放下”这类强睡前表达。</li>
+                      <li>夜晚可以让 1 条建议转成极低摩擦启动语，例如“我已闭眼”“我马上闭眼”。</li>
+                      <li>3 条里最多 1 条走闭眼即启动，另外 2 条仍保留信息问答或内容陪伴入口。</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th>生成提示词</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">You are generating exactly three returning user suggestion chips for Pufflo home. Use the user's recent chat history, saved memory, recent module usage, and local time. Output three short English lines only, each with a Chinese translation in parentheses for review. Keep each line short enough to fit a small chip.（你现在要为 Pufflo 首页生成 3 条非首次用户建议问题。参考用户最近聊天记录、记忆、最近使用过的模块和本地时间。只输出 3 条简短英文，每条后面附中文括号翻译供评审。每条都必须短到可以放进小气泡里。）</span></p>
+                      <p><span class="bilingual">During daytime, avoid closed eyes, fall asleep now, put the phone away, or any wording that assumes the user is already going to bed. Prefer questions about stress, recovery, snoring, waking up, and overall wellbeing.（如果是白天，不要写 closed eyes、fall asleep now、put the phone away 这类默认用户马上要睡的表达。白天更适合压力、恢复、打鼾、夜醒、整体状态类问题。）</span></p>
+                      <p><span class="bilingual">During evening or late night, you may let one chip become a low friction start command such as My eyes are closed or I am about to close my eyes, but only if the user's history suggests they often want quick sleep start, passive playback, or low effort bedtime support.（如果是晚上或深夜，可以让其中 1 条变成低摩擦启动指令，例如 My eyes are closed 或 I am about to close my eyes，但前提是用户历史里确实表现出更偏好快速启动、被动播放、低操作睡前支持。）</span></p>
+                      <p><span class="bilingual">Do not repeat the same semantic intent three times. Mix information seeking, emotional support, and action oriented entry points when possible. Avoid sounding generic, clinical, or too salesy.（不要让 3 条都在说同一种意思。尽量在信息询问、情绪支持、动作入口之间做搭配。避免太模板、太临床、太像促销。）</span></p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>白天示例</th>
+                  <td>
+                    <p><span class="bilingual">How can I reduce snoring?（怎样才能减少打鼾？）</span></p>
+                    <p><span class="bilingual">How do I recover from a draining day?（我怎样从很累的一天里缓过来？）</span></p>
+                    <p><span class="bilingual">Why did I wake up in the middle of the night?（我昨晚为什么半夜醒来？）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>夜晚示例</th>
+                  <td>
+                    <p><span class="bilingual">My eyes are closed. Start sleep now.（我已闭眼，开始助眠吧。）</span></p>
+                    <p><span class="bilingual">Give me something gentler for tonight.（给我一点更适合今晚的柔和陪伴。）</span></p>
+                    <p><span class="bilingual">Tell me why I kept waking up last night.（告诉我昨晚为什么一直醒。）</span></p>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -923,6 +964,13 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>闭眼即启动</td>
+                <td>用户明确说出我已闭眼、我马上闭眼、开始睡吧、手机要放下了这类即将停止交互的睡前启动语</td>
+                <td><span class="bilingual">Okay. Sleep starts now. You can put the phone aside.（好，助眠现在开始。你可以把手机放一边了。）</span></td>
+                <td>进入预设助眠链路</td>
+                <td>白天、用户仍明显想继续聊天、或当前语义并不是真正准备入睡时</td>
+              </tr>
               <tr>
                 <td>AI 冥想</td>
                 <td>脑子很亮、还能跟住简短语言，适合低压引导</td>
@@ -1003,6 +1051,39 @@
             </tbody>
           </table>
           <div class="route-note">首页默认路由优先级：安全模式 &gt; 用户明确点名 &gt; 单次轻推荐 &gt; 继续聊天。建议问题和主动卡片用于把用户送入最合适的功能，不用于功能罗列。</div>
+
+          <div class="subsection">
+            <h3>闭眼即启动识别与启动规则</h3>
+            <table class="spec-table">
+              <tbody>
+                <tr>
+                  <th>目标</th>
+                  <td>把“我已闭眼”这类一句话变成最傻瓜、最低摩擦的睡前启动入口，让用户在极少操作里进入预设助眠流程。</td>
+                </tr>
+                <tr>
+                  <th>识别提示词</th>
+                  <td>
+                    <div class="prompt-block">
+                      <p><span class="bilingual">You are detecting whether the user is issuing a lights out start command. Trigger this lane when the user clearly indicates they have closed their eyes, are about to close their eyes, are putting the phone aside, or want the sleep flow to begin now with minimal interaction.（你现在要判断用户是不是在发出“闭眼即启动”指令。只要用户明确表示已经闭眼、马上闭眼、准备把手机放一边，或希望现在立刻进入助眠流程且不想再操作，就触发这一链路。）</span></p>
+                      <p><span class="bilingual">Positive examples include My eyes are closed, I am closing my eyes now, Start sleep now, I am putting the phone away, and Let it begin. Do not require exact wording.（正例包括 My eyes are closed、I am closing my eyes now、Start sleep now、I am putting the phone away、Let it begin。不要要求逐字匹配。）</span></p>
+                      <p><span class="bilingual">Do not trigger this lane if the user is just discussing sleep in the abstract, asking a daytime question, or still obviously deciding what they want. If unsure, ask one short confirmation only.（如果用户只是在泛泛谈睡眠、白天提问，或明显还在犹豫要什么，就不要触发。如果拿不准，只补一个极短确认。）</span></p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>启动话术</th>
+                  <td>
+                    <p><span class="bilingual">Okay. Sleep starts now. You can put the phone aside.（好，助眠现在开始。你可以把手机放一边了。）</span></p>
+                    <p><span class="bilingual">Got it. I will keep this easy from here. Put the phone down when you are ready.（收到。接下来我会尽量让一切简单。你准备好了就把手机放下。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>触发后的去向</th>
+                  <td>识别成功后直接进入预设助眠链路。链路组合由后端配置决定，例如白噪音加故事、底噪加音乐、短呼吸后接背景播放；页面只负责保留“闭眼即启动”入口和识别规则。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section class="section" id="module-rules">

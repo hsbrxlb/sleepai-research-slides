@@ -428,6 +428,79 @@
       margin-top: 16px;
     }
 
+    .bubble-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .bubble-card {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid #e5d0bf;
+      background: linear-gradient(180deg, #fff8f1 0%, #fff3e7 100%);
+      box-shadow: 0 10px 28px rgba(127, 77, 33, 0.06);
+    }
+
+    .bubble-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #9a5b24;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .bubble-card .bubble-route {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(154, 91, 36, 0.08);
+      color: #8d5525;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .cta-preview {
+      margin-top: 18px;
+      padding: 22px 22px 24px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #935d07 0%, #8a5606 100%);
+      box-shadow: 0 18px 36px rgba(110, 67, 10, 0.18);
+      color: #fff4de;
+    }
+
+    .cta-preview h4 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-preview p {
+      color: rgba(255, 244, 222, 0.9);
+      line-height: 1.7;
+    }
+
+    .cta-button-preview {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 220px;
+      margin-top: 18px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #fff0a6 0%, #ffab46 100%);
+      color: #5f2c00;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    }
+
     .section-links a {
       display: inline-flex;
       align-items: center;
@@ -646,6 +719,24 @@
       .section-links {
         gap: 8px;
       }
+
+      .bubble-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-preview {
+        padding: 18px 16px 20px;
+        border-radius: 18px;
+      }
+
+      .cta-preview h4 {
+        font-size: 21px;
+      }
+
+      .cta-button-preview {
+        width: 100%;
+        min-width: 0;
+      }
     }
 
     @media (max-width: 420px) {
@@ -766,6 +857,56 @@
               </tr>
             </tbody>
           </table>
+
+          <div class="subsection">
+            <h3>首次首页气泡与自定义人设卡片</h3>
+            <p class="section-intro">以下 4 个气泡用于首次首页态；点击后分别进入对应链路。文案用英文主文案，中文作对照。</p>
+            <div class="bubble-grid">
+              <article class="bubble-card">
+                <strong>Bubble 01</strong>
+                <p><span class="bilingual">Tell me a rain-at-the-lake bedtime story.（给我讲一个湖边雨夜的入睡故事。）</span></p>
+                <span class="bubble-route">进入 AI 故事</span>
+              </article>
+              <article class="bubble-card">
+                <strong>Bubble 02</strong>
+                <p><span class="bilingual">Today feels heavy. Give me something gentler.（今天有点重，给我一点更柔和的节奏。）</span></p>
+                <span class="bubble-route">进入音乐匹配 / 舒缓陪伴</span>
+              </article>
+              <article class="bubble-card">
+                <strong>Bubble 03</strong>
+                <p><span class="bilingual">Help my whole body unclench and sink deeper.（带我松开全身紧绷，慢慢沉下去。）</span></p>
+                <span class="bubble-route">进入 AI 冥想 / AI 呼吸</span>
+              </article>
+              <article class="bubble-card">
+                <strong>Bubble 04</strong>
+                <p><span class="bilingual">Start sleep tracking and help me read the night tomorrow.（开始睡眠监测，明早帮我读懂这一夜。）</span></p>
+                <span class="bubble-route">进入睡眠监测 / 次晨报告</span>
+              </article>
+            </div>
+
+            <div class="cta-preview">
+              <h4><span class="bilingual">Want a companion that gets your mood tonight?（想找个更懂你今晚状态的陪伴者？）</span></h4>
+              <p><span class="bilingual">Customize a companion that fits the way you want to be accompanied, so the response does not feel one-size-fits-all.（定制一个更贴近你陪伴偏好的智能体，让回应不再千篇一律。）</span></p>
+              <div class="cta-button-preview"><span class="bilingual">+ Customize Persona（+ 自定义人设）</span></div>
+            </div>
+
+            <table class="spec-table">
+              <tbody>
+                <tr>
+                  <th>显示时机</th>
+                  <td>首次首页态显示 4 个气泡和 1 张自定义人设卡片；非首次进入可替换为更贴近历史使用的建议问题。</td>
+                </tr>
+                <tr>
+                  <th>点击行为</th>
+                  <td>4 个气泡分别直达故事、舒缓陪伴、冥想 / 呼吸、睡眠监测；自定义人设卡片点击后跳转至自定义人设设置页。</td>
+                </tr>
+                <tr>
+                  <th>文案要求</th>
+                  <td>气泡文案必须短、可一眼看懂、像用户会直接点的请求；避免抽象口号、避免过长导致气泡高度失控。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section class="section" id="home-routing">

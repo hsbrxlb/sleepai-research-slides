@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SleepAI 全球前十五语言本地化策略</title>
+  <meta name="description" content="给 SleepAI 的全球前十五语言本地化策略，覆盖语言优先级、文化与宗教适配、竞品路径和产品执行建议。">
+  <link rel="stylesheet" href="../../assets/css/deck.css">
+  <style>
+    .hero h1 {
+      max-width: 15ch;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.04;
+    }
+
+    .hero-copy {
+      max-width: 820px;
+      font-size: 16px;
+      line-height: 1.74;
+    }
+
+    .section-title {
+      max-width: 28ch;
+    }
+
+    .lead-card {
+      padding: 28px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(120, 240, 214, 0.14), transparent 42%),
+        rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .lead-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: clamp(24px, 2.4vw, 32px);
+      line-height: 1.18;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: rgba(120, 240, 214, 0.6);
+    }
+
+    .dense-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .dense-card,
+    .culture-card,
+    .risk-card {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .dense-card strong,
+    .risk-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: clamp(22px, 2.1vw, 30px);
+      line-height: 1.08;
+    }
+
+    .dense-card span,
+    .risk-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(238, 243, 255, 0.08);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.66;
+    }
+
+    th {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .rank-cell {
+      display: inline-flex;
+      width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(120, 240, 214, 0.12);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .signal-list li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .signal-list strong,
+    .culture-card strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .note-box {
+      padding: 16px 18px;
+      border-left: 3px solid var(--warn);
+      color: var(--muted);
+      background: rgba(255, 176, 32, 0.06);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .culture-card p,
+    .culture-card li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.66;
+    }
+
+    .culture-card ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .source-grid .card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .source-grid .card a:hover {
+      color: var(--text);
+    }
+
+    .state-chip {
+      display: inline-flex;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(238, 243, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .state-chip.estimated {
+      border-color: rgba(255, 176, 32, 0.28);
+      background: rgba(255, 176, 32, 0.08);
+    }
+
+    .state-chip.inferred {
+      border-color: rgba(154, 176, 255, 0.28);
+      background: rgba(154, 176, 255, 0.08);
+    }
+
+    .mini-note {
+      color: var(--faint);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 1024px) {
+      .dense-grid,
+      .culture-grid,
+      .source-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .dense-grid,
+      .culture-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        max-width: none;
+        font-size: 36px;
+      }
+
+      .section-title {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="site-home-fab" href="../../index.html">返回总览</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-group">
+        <a class="home-link" href="../../index.html">返回总览</a>
+        <div class="brand">
+          <span class="kicker">全球化 / 本地化</span>
+          <strong>SleepAI 全球前十五语言本地化策略</strong>
+        </div>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#summary">结论</a>
+        <a href="#ranking">排序</a>
+        <a href="#markets">核心市场</a>
+        <a href="#competitor">竞品</a>
+        <a href="#culture">文化圈</a>
+        <a href="#product">动作</a>
+        <a href="#risks">风险</a>
+        <a href="#sources">来源</a>
+      </nav>
+      <div class="topbar-group">
+        <button class="btn" type="button" data-focus-toggle>专注模式</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="section hero reveal" id="summary">
+      <div class="wrap">
+        <div class="eyebrow">先看结论</div>
+        <div class="hero-grid">
+          <div>
+            <h1>SleepAI 该先做“更深的 7 种语言”，而不是“更浅的 15 种翻译”。</h1>
+            <p class="hero-copy section-sub">
+              这次研究把主题定义为“公司/产品”加“趋势/市场”的混合问题。结论不是按母语人数做语言表，而是按 SleepAI 更真实的决策口径排序：
+              高价值移动消费市场、夜间陪伴场景适配、英语替代性、文化与宗教风险、执行摩擦。
+              最优策略是先把英语基座做稳，再优先补 Spanish、Portuguese、Japanese，并在 German、French、Korean 上完成第二层高质量本地化。
+            </p>
+          </div>
+          <div class="lead-card">
+            <strong>机会在“人格、语气、危机话术、faith layer、RTL”这些深层本地化，而不在多堆几个译文文件。</strong>
+            <p class="section-sub">
+              对 SleepAI 这类关系型夜间陪伴产品，用户感知的不是“翻没翻”，而是“这个角色是不是懂我、有没有冒犯我、会不会在我最脆弱的时刻说错话”。
+            </p>
+          </div>
+        </div>
+        <div class="dense-grid" style="margin-top:24px;">
+          <div class="dense-card">
+            <strong>Wave 1</strong>
+            <span>English、Spanish、Portuguese、Japanese。先保收入质量，再做规模扩张。</span>
+          </div>
+          <div class="dense-card">
+            <strong>Wave 2</strong>
+            <span>German、French、Korean、Simplified Chinese。前 3 个更像高 ARPU 语言，简中更像战略进入项目。</span>
+          </div>
+          <div class="dense-card">
+            <strong>10 个模板</strong>
+            <span>真正需要设计的不是 15 套完全独立产品，而是约 10 个文化圈模板。</span>
+          </div>
+          <div class="dense-card">
+            <strong>3 个优先扩张盘</strong>
+            <span>西语美洲、巴西、日语市场。它们最可能同时带来新增用户和真实留存改善。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="ranking">
+      <div class="wrap">
+        <div class="section-kicker">语言排序</div>
+        <h2 class="section-title">前十五语言不是按人口排，而是按 SleepAI 的进入优先级排。</h2>
+        <div class="table-wrap" style="margin-top:24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>语言</th>
+                <th>建议波次</th>
+                <th>主要目标</th>
+                <th>关键理由</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="rank-cell">1</span></td>
+                <td>English</td>
+                <td>Base</td>
+                <td>守住核心盘</td>
+                <td>全球桥接语言，英语仍占全球 URL 约 45%，也是现有产品基座。</td>
+                <td><span class="state-chip">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">2</span></td>
+                <td>Spanish</td>
+                <td>Wave 1</td>
+                <td>规模扩张 + 订阅增量</td>
+                <td>可同时覆盖美国西语、墨西哥和拉美主盘，英语替代性有限。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">3</span></td>
+                <td>Portuguese</td>
+                <td>Wave 1</td>
+                <td>巴西单点突破</td>
+                <td>单国大市场、单语种、投入产出比高。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">4</span></td>
+                <td>Japanese</td>
+                <td>Wave 1</td>
+                <td>高 ARPU</td>
+                <td>高付费、高本地化敏感度、LINE 生态成熟，适合低打扰语音陪伴。</td>
+                <td><span class="state-chip">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">5</span></td>
+                <td>German</td>
+                <td>Wave 1.5</td>
+                <td>高收入补强</td>
+                <td>德国是全球第 3 大 wellness 市场，且对低质量翻译容忍度低。</td>
+                <td><span class="state-chip">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">6</span></td>
+                <td>French</td>
+                <td>Wave 2</td>
+                <td>高收入补强</td>
+                <td>法国本土之外，还具备加拿大法语区与长期法语区延展价值。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">7</span></td>
+                <td>Korean</td>
+                <td>Wave 2</td>
+                <td>高标准移动市场</td>
+                <td>高渗透率、高审美和高语言偏好，适合精细化语音与 UI。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">8</span></td>
+                <td>Simplified Chinese</td>
+                <td>Wave 2</td>
+                <td>战略卡位</td>
+                <td>规模极大，但需要按“市场进入项目”处理，不是普通翻译项目。</td>
+                <td><span class="state-chip inferred">Inferred</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">9</span></td>
+                <td>Arabic</td>
+                <td>Wave 3</td>
+                <td>GCC 付费 + MENA 覆盖</td>
+                <td>宗教与 RTL 改造成本高，但阿语市场若做对，品牌壁垒明显。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">10</span></td>
+                <td>Hindi</td>
+                <td>Wave 3</td>
+                <td>规模扩张</td>
+                <td>印度互联网体量巨大，但高消费人群中英语可替代一部分。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">11</span></td>
+                <td>Indonesian</td>
+                <td>Wave 3</td>
+                <td>东南亚增长</td>
+                <td>移动内容时长高，适合故事、陪伴和社媒分发。</td>
+                <td><span class="state-chip">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">12</span></td>
+                <td>Turkish</td>
+                <td>Wave 3</td>
+                <td>桥梁市场测试</td>
+                <td>欧洲/中东交界，文化差异真实存在，英语替代性低。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">13</span></td>
+                <td>Italian</td>
+                <td>Wave 3</td>
+                <td>高收入补全</td>
+                <td>稳健市场，但边际增量通常弱于德法西葡。</td>
+                <td><span class="state-chip estimated">Estimated</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">14</span></td>
+                <td>Vietnamese</td>
+                <td>Wave 3</td>
+                <td>低价订阅试验</td>
+                <td>高移动活跃度，适合增长和内容测试。</td>
+                <td><span class="state-chip">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank-cell">15</span></td>
+                <td>Thai</td>
+                <td>Wave 3</td>
+                <td>内容化打法</td>
+                <td>LINE 与移动使用习惯成熟，适合聊天和内容结合型产品。</td>
+                <td><span class="state-chip">Confirmed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mini-note">排序口径：互联网人口、移动消费、wellness / digital health 大盘、英语替代性、文化与宗教摩擦、进入复杂度。</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="markets">
+      <div class="wrap">
+        <div class="section-kicker">核心市场</div>
+        <h2 class="section-title">如果只选 3 个重点扩张方向，最应先押的是西语美洲、巴西、日语市场。</h2>
+        <div class="dense-grid" style="margin-top:24px;">
+          <div class="dense-card">
+            <strong>1.10 亿</strong>
+            <span>墨西哥 2025 年 1 月互联网用户约 1.10 亿；叠加美国西语与拉美主盘后，西语是最优先的规模语言。</span>
+          </div>
+          <div class="dense-card">
+            <strong>1.83 亿</strong>
+            <span>巴西 2025 年 1 月互联网用户约 1.83 亿。葡语集中在单一大市场，执行效率显著高于分散语种。</span>
+          </div>
+          <div class="dense-card">
+            <strong>1.09 亿</strong>
+            <span>日本 2025 年 1 月互联网用户约 1.09 亿，且 LINE 月活约 9700 万，夜间触达环境成熟。</span>
+          </div>
+          <div class="dense-card">
+            <strong>1500 亿美元</strong>
+            <span>Sensor Tower 称 2024 年全球移动消费者支出首次达到这一规模，说明移动端语言策略直接决定收入上限。</span>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card strong">
+            <h3>为什么是西语美洲</h3>
+            <ul class="metrics">
+              <li>不是一个国家，而是一整片语言盘。</li>
+              <li>SleepAI 这类情绪和故事产品，在西语市场的语言敏感度通常高于工具类 app。</li>
+              <li>西语数字健康研究还提示：低带宽、短信式和 family-aware 设计更容易提升采用。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>为什么是巴西和日本</h3>
+            <ul class="metrics">
+              <li>巴西是最值得用完整本地化打穿的单语大盘。</li>
+              <li>日本则是高 ARPU、高审美要求、高低打扰偏好的典型高质量市场。</li>
+              <li>两者加起来，能同时覆盖规模和收入质量。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="competitor">
+      <div class="wrap">
+        <div class="section-kicker">竞品路径</div>
+        <h2 class="section-title">竞品并没有证明“做很多语言就赢”，它们真正证明的是“语言要分层承诺”。</h2>
+        <div class="table-wrap" style="margin-top:24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>产品</th>
+                <th>公开多语言信号</th>
+                <th>最值得借鉴</th>
+                <th>最值得避免</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Calm</td>
+                <td>主 app 已有 10 种语言，但 Pathways 仍可能只提供英语。</td>
+                <td>把 app 语言和内容语言拆开管理。</td>
+                <td>新功能长期英语优先。</td>
+              </tr>
+              <tr>
+                <td>Headspace</td>
+                <td>主 app 多语；官方明确把 meditation 定义为 non-religious。</td>
+                <td>去宗教化表达最成熟。</td>
+                <td>产品线分层导致体验不一致。</td>
+              </tr>
+              <tr>
+                <td>BetterSleep</td>
+                <td>UI 10 种语言，但故事/冥想只到 6 种。</td>
+                <td>可以先用 UI 多语验证需求。</td>
+                <td>“壳子翻了，灵魂没翻”。</td>
+              </tr>
+              <tr>
+                <td>Sleep Cycle</td>
+                <td>2024 年报称 14 种语言、150+ 国家。</td>
+                <td>按国家做睡眠洞察内容，而不只是翻译壳层。</td>
+                <td>陪伴和文化深适配不足。</td>
+              </tr>
+              <tr>
+                <td>Replika / Pi</td>
+                <td>更依赖模型多语理解，而不是完整产品层本地化。</td>
+                <td>适合早期测试多语需求。</td>
+                <td>非英语体验容易长期半成品化。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note-box" style="margin-top:20px;">
+          对 SleepAI 最直接的含义是：不要把“模型能理解多语”误判为“产品已经完成本地化”。夜间陪伴场景比普通聊天更依赖语气、边界、危机话术和本地化推送。
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="culture">
+      <div class="wrap">
+        <div class="section-kicker">文化与宗教</div>
+        <h2 class="section-title">真正需要设计的不是 15 套语言，而是 10 个文化模板。</h2>
+        <div class="culture-grid" style="margin-top:24px;">
+          <article class="culture-card">
+            <strong>英语高收入圈</strong>
+            <p>主打法是 privacy、agency、science-backed。避免 infantilizing 语气和 gender stereotype 语音。宗教内容默认关闭。</p>
+          </article>
+          <article class="culture-card">
+            <strong>西语拉美 / 美国西语</strong>
+            <p>更温暖、更关系导向、更适合移动端和短信式互动。家庭参与和隐私敏感要比北美英语圈更强。</p>
+          </article>
+          <article class="culture-card">
+            <strong>葡语巴西</strong>
+            <p>允许更高 warmth 和情绪承接，但不能暧昧。faith-sensitive 可以做成选配，不应默认 Christian symbolism。</p>
+          </article>
+          <article class="culture-card">
+            <strong>西欧世俗理性圈</strong>
+            <p>适合简洁、克制、可信的表达。少玄学、少卡通、少情绪操控。德语尤其要预留更长文案空间。</p>
+          </article>
+          <article class="culture-card">
+            <strong>阿拉伯语圈</strong>
+            <p>最高优先是完整 RTL、faith-sensitive 可选层、低暴露图像和更庄重的夜间角色。不能只做文字翻译。</p>
+          </article>
+          <article class="culture-card">
+            <strong>土耳其 / 南亚 / 印尼</strong>
+            <p>共性是 help-seeking stigma 和宗教/传统路径并存。产品主线要讲 sleep support 与 stress relief，而不是把用户直接推向病理标签。</p>
+          </article>
+          <article class="culture-card">
+            <strong>中文圈</strong>
+            <p>少用“你有问题了”的标签化表达，更适合“缓下来、安静一点、先休息”。简中和繁中不能只做脚本转换。</p>
+          </article>
+          <article class="culture-card">
+            <strong>日语 / 韩语东亚克制圈</strong>
+            <p>关键不是更热情，而是更克制、更体面、更低暴露、更低打扰。语音人格宜平稳、礼貌、低入侵。</p>
+          </article>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card strong">
+            <h3>必须统一的底层规则</h3>
+            <ul class="metrics">
+              <li>宗教与灵性内容只能 opt-in，不能默认灌入。</li>
+              <li>危机支持、免责声明和求助资源必须本地化。</li>
+              <li>语言选择器不用国旗，图像避免宗教和国家偏见。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>最容易被低估的设计点</h3>
+            <ul class="metrics">
+              <li>RTL 不只是文字右对齐，而是整套镜像布局和图标方向。</li>
+              <li>voice gender 不是装饰，而是文化信号。</li>
+              <li>睡眠与情绪产品的文案第一目标是去污名化，而不是“更像心理咨询”。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="product">
+      <div class="wrap">
+        <div class="section-kicker">产品动作</div>
+        <h2 class="section-title">先改架构，再改角色，再铺语言。这样本地化才会变成留存和转化资产。</h2>
+        <div class="two-col">
+          <article class="card strong">
+            <h3>SleepAI 当前最该修的 4 个点</h3>
+            <ul class="metrics">
+              <li>从 English-only prompt 改成 locale-aware 架构。</li>
+              <li>把本地化拆成 app、内容、语音、危机支持四层承诺。</li>
+              <li>把 Pufflo 重写成 core persona + locale style + faith layer 三层结构。</li>
+              <li>默认不要只有一个年轻女性 voice，最稳妥是 neutral default + optional voices。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>未来 12-16 周的执行顺序</h3>
+            <ul class="metrics">
+              <li>P0：术语库、危机话术库、伪本地化、RTL、商店页本地化。</li>
+              <li>P1：Spanish、Portuguese、Japanese 的 UI、onboarding、夜间对话、push。</li>
+              <li>P2：German、French、Korean 的完整内容层；Arabic 的 faith-sensitive 选配包；评估简中进入方式。</li>
+            </ul>
+          </article>
+        </div>
+        <ul class="signal-list" style="margin-top:24px;">
+          <li>
+            <strong>优先做 5-7 种“完整本地化语言”</strong>
+            English、Spanish、Portuguese、Japanese、German、French、Korean 最值得一次性做到商店页、UI、onboarding、夜间对话、危机话术和语音内容。
+          </li>
+          <li>
+            <strong>把 faith-sensitive 设计成产品层，而不是文案层</strong>
+            阿语、土耳其语、南亚与印尼语市场真正重要的不是“提不提宗教”，而是让用户有能力自己选择是否需要宗教兼容内容。
+          </li>
+          <li>
+            <strong>不要继续复制美式 buddy culture</strong>
+            现在 Pufflo 的俚语和轻浮感在日语、韩语、中文、阿语、德语里都容易显得不自然或不稳重。
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="risks">
+      <div class="wrap">
+        <div class="section-kicker">风险与未知</div>
+        <h2 class="section-title">这不是单纯翻译项目。睡眠、情绪、语音和隐私叠在一起，天然是高敏感组合。</h2>
+        <div class="dense-grid" style="margin-top:24px;">
+          <div class="risk-card">
+            <strong>合规</strong>
+            <p>Apple 对健康/健身类 app 的敏感数据、隐私披露和区域监管已提出更高要求。SleepAI 不能模糊处理健康数据与危机支持边界。</p>
+          </div>
+          <div class="risk-card">
+            <strong>宗教</strong>
+            <p>阿语、南亚、土耳其和印尼市场里，faith-sensitive 是加分项；faith-default 则可能直接造成误解和排斥。</p>
+          </div>
+          <div class="risk-card">
+            <strong>角色</strong>
+            <p>UNESCO 已明确指出默认女性、顺从式语音会复制性别刻板印象。对夜间陪伴产品，这个风险会被放大。</p>
+          </div>
+          <div class="risk-card">
+            <strong>市场进入</strong>
+            <p>Simplified Chinese 和 Arabic 都不该被当成“加一个翻译文件”处理，它们都涉及额外的产品、分发和内容治理成本。</p>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top:24px;">
+          <article class="card">
+            <h3>高置信判断</h3>
+            <ul class="metrics">
+              <li>本地化护城河不在翻译量，而在 persona system 和 stigma-aware framing。</li>
+              <li>东亚市场要更克制，西语/葡语市场要更温暖，阿语市场要更尊重且可选 faith layer。</li>
+              <li>阿语和简中是市场进入项目，不是普通语言包。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>仍需验证的 5 个问题</h3>
+            <ul class="metrics">
+              <li>各语言市场的 trial-to-paid 与留存差异。</li>
+              <li>Spanish 是否从 Day 1 就要区分 LATAM 与 Spain Spanish。</li>
+              <li>Hindi 是否应以 Hinglish 为主，而非纯书面印地语。</li>
+              <li>语音性别与人格温度在各市场的最优组合。</li>
+              <li>Arabic 与 Simplified Chinese 的实际上架和客服成本。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sources">
+      <div class="wrap">
+        <div class="section-kicker">来源</div>
+        <h2 class="section-title">本页真正用到的核心来源</h2>
+        <div class="source-grid" style="margin-top:24px;">
+          <article class="card">
+            <h3>官方与权威</h3>
+            <ul class="source-list">
+              <li><a href="https://documents1.worldbank.org/curated/en/099112525160536089/pdf/P505350-59c98ca8-0803-4f23-b470-17f3dab010ab.pdf">World Bank 2025：Digital Progress and Trends Report</a></li>
+              <li><a href="https://developer.apple.com/health-fitness/">Apple Developer：Health and fitness apps</a></li>
+              <li><a href="https://developer.apple.com/localization/">Apple Developer：Localization</a></li>
+              <li><a href="https://developer.android.com/guide/topics/resources/multilingual-support">Android Developers：Language and locale resolution overview</a></li>
+              <li><a href="https://www.unesco.org/en/articles/ai-enabled-voice-assistants-no-longer-female-default">UNESCO：AI-enabled Voice Assistants</a></li>
+              <li><a href="https://thinkculturalhealth.hhs.gov/clas">HHS：National CLAS Standards</a></li>
+              <li><a href="https://www.pewresearch.org/wp-content/uploads/sites/20/2025/01/pg_2025.01.28_comp-rel-nat_report.pdf">Pew 2025：Religion as Part of National Identity</a></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>市场与数据库</h3>
+            <ul class="source-list">
+              <li><a href="https://sensortower.com/state-of-mobile-2025">Sensor Tower：State of Mobile 2025</a></li>
+              <li><a href="https://www.prnewswire.com/news-releases/global-wellness-institute-unveils-new-data-on-the-wellness-markets-of-145-countries-302670355.html">Global Wellness Institute 2026 country rankings</a></li>
+              <li><a href="https://www.grandviewresearch.com/industry-analysis/digital-health-market">Grand View Research：Digital Health Market</a></li>
+              <li><a href="https://www.ef.edu/epi/">EF EPI 2025</a></li>
+              <li><a href="https://datareportal.com/reports/digital-2025-brazil">DataReportal 2025：Brazil</a></li>
+              <li><a href="https://datareportal.com/reports/digital-2025-mexico">DataReportal 2025：Mexico</a></li>
+              <li><a href="https://datareportal.com/reports/digital-2025-japan">DataReportal 2025：Japan</a></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>竞品官方来源</h3>
+            <ul class="source-list">
+              <li><a href="https://support.calm.com/hc/en-us/articles/360008697573-Calm-in-Different-Languages">Calm：Calm in Different Languages</a></li>
+              <li><a href="https://support.calm.com/hc/en-us/articles/16461729626011-Pathways-FAQ">Calm：Pathways FAQ</a></li>
+              <li><a href="https://help.headspace.com/hc/en-us/articles/115003050408-Is-Headspace-offered-in-other-languages">Headspace：Is Headspace offered in other languages?</a></li>
+              <li><a href="https://help.headspace.com/hc/en-us/articles/218394158-What-kind-of-meditation-is-Headspace">Headspace：What kind of meditation is Headspace?</a></li>
+              <li><a href="https://www.bettersleep.com/support/en/articles/3491063-which-languages-does-the-app-offer">BetterSleep：Which languages does the app offer?</a></li>
+              <li><a href="https://support.sleepcycle.com/hc/en-us/articles/207670375-Languages-supported-and-change-language">Sleep Cycle：Languages supported</a></li>
+              <li><a href="https://investors.sleepcycle.com/files/Main/18579/4117992/sleep-cycle-annual-and-sustainability-report-2024.pdf">Sleep Cycle Annual Report 2024</a></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>源稿</h3>
+            <p class="section-sub">更完整的研究边界、判断与附录已同步到 Markdown 源稿。</p>
+            <p style="margin-top:14px;"><a href="../../sources/md/2026-03-21-global-localization-top15-languages.md">查看 Markdown 源稿</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="deck-footer">
+    <div class="deck-footer-inner">
+      <span>SleepAI Hub · SleepAI 全球前十五语言本地化策略</span>
+      <a href="../../sources/md/2026-03-21-global-localization-top15-languages.md">源稿回链</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/deck.js"></script>
+</body>
+</html>

@@ -6,8 +6,116 @@
   <title>SleepAI.com 商业计划</title>
   <meta name="description" content="SleepAI.com 商业计划。">
   <link rel="stylesheet" href="../../assets/css/deck.css">
+  <style>
+    body.password-loading .protected-shell,
+    body.locked .protected-shell {
+      display: none;
+    }
+
+    .password-gate {
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(70, 122, 215, 0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(107, 223, 195, 0.12), transparent 24%),
+        linear-gradient(180deg, #0b1220 0%, #10192a 100%);
+    }
+
+    body.password-loading .password-gate,
+    body.locked .password-gate {
+      display: flex;
+    }
+
+    .password-card {
+      width: min(100%, 420px);
+      padding: 28px;
+      border-radius: 24px;
+      border: 1px solid rgba(162, 183, 218, 0.18);
+      background: rgba(12, 20, 34, 0.82);
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(18px);
+    }
+
+    .password-card .eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .password-card h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.06;
+    }
+
+    .password-card p {
+      margin: 0;
+      color: rgba(227, 234, 247, 0.76);
+      line-height: 1.68;
+    }
+
+    .password-form {
+      margin-top: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .password-form input {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(162, 183, 218, 0.22);
+      background: rgba(255, 255, 255, 0.06);
+      color: #eef4ff;
+      font: inherit;
+      outline: none;
+    }
+
+    .password-form input::placeholder {
+      color: rgba(227, 234, 247, 0.42);
+    }
+
+    .password-form input:focus {
+      border-color: rgba(107, 223, 195, 0.72);
+      box-shadow: 0 0 0 4px rgba(107, 223, 195, 0.12);
+    }
+
+    .password-form button {
+      min-height: 52px;
+      border: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #6bdfc3, #6ea9ff);
+      color: #0d1728;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .password-error {
+      min-height: 20px;
+      color: #ffb7c6;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+  </style>
 </head>
-<body>
+<body class="password-loading">
+  <section class="password-gate" aria-label="访问密码">
+    <div class="password-card">
+      <div class="eyebrow">访问受限</div>
+      <h1>输入密码后查看</h1>
+      <p>该页面需要密码。</p>
+      <form class="password-form" id="password-form">
+        <input id="password-input" type="password" inputmode="numeric" autocomplete="current-password" placeholder="请输入密码">
+        <button type="submit">进入页面</button>
+        <div class="password-error" id="password-error" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <div class="protected-shell">
   <header class="topbar">
     <div class="topbar-inner">
       <div class="topbar-group">
@@ -297,5 +405,51 @@
   </footer>
 
   <script src="../../assets/js/deck.js"></script>
+  </div>
+  <script>
+    (function () {
+      var STORAGE_KEY = "sleepai-protected-2026-03-13-business-plan";
+      var PASSWORD = "12345";
+      var body = document.body;
+      var form = document.getElementById("password-form");
+      var input = document.getElementById("password-input");
+      var error = document.getElementById("password-error");
+
+      function unlock() {
+        body.classList.remove("password-loading", "locked");
+        body.classList.add("unlocked");
+        error.textContent = "";
+      }
+
+      function lock() {
+        body.classList.remove("password-loading", "unlocked");
+        body.classList.add("locked");
+      }
+
+      try {
+        if (window.localStorage.getItem(STORAGE_KEY) === "ok") {
+          unlock();
+        } else {
+          lock();
+        }
+      } catch (err) {
+        lock();
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (input.value === PASSWORD) {
+          try {
+            window.localStorage.setItem(STORAGE_KEY, "ok");
+          } catch (err) {}
+          unlock();
+          input.value = "";
+        } else {
+          error.textContent = "密码不正确";
+          input.select();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

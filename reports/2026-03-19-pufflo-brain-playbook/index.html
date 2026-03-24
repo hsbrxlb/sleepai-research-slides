@@ -421,7 +421,6 @@
     .content-meta + .spec-table,
     .content-meta + .matrix,
     .content-meta + .subsection,
-    .content-meta + .legend-grid,
     .content-meta + .content-note {
       margin-top: 16px;
     }
@@ -479,28 +478,6 @@
       background: #f8fafc;
       color: var(--muted);
       line-height: 1.68;
-    }
-
-    .legend-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .legend-card {
-      padding: 16px 18px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: #fbfcfe;
-    }
-
-    .legend-card .type-badge {
-      margin-bottom: 10px;
-    }
-
-    .legend-card p {
-      color: var(--muted);
-      line-height: 1.65;
     }
 
     .plain-list {
@@ -632,15 +609,6 @@
       font-weight: 700;
       font-size: 16px;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
-    }
-
-    .route-note {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: #f7f9fc;
-      color: var(--muted);
-      line-height: 1.68;
     }
 
     .report-showcase {
@@ -1015,10 +983,6 @@
         padding: 2px 0;
       }
 
-      .legend-grid {
-        grid-template-columns: 1fr;
-      }
-
       .bubble-grid {
         grid-template-columns: 1fr;
       }
@@ -1160,7 +1124,6 @@
           <div class="content-meta">
             <span class="type-badge fixed">Fixed Copy</span>
             <span class="type-badge spec">Spec</span>
-            <span>首次首页的 4 个气泡、自定义人设卡片和首轮静态文案都按固定配置处理，不交给对话模型即时生成。</span>
           </div>
           <table class="spec-table">
             <tbody>
@@ -1229,7 +1192,7 @@
                 </tr>
                 <tr>
                   <th><span class="th-stack">未来版本预留 <span class="type-badge spec">Spec</span></span></th>
-                  <td>“我已闭眼”相关语义启动入口保留在文档中，供后续版本接入。当前版本不放入首屏 4 个正式气泡。</td>
+                  <td>“我已闭眼”相关语义启动入口预留给后续版本接入。当前版本不放入首屏 4 个正式气泡。</td>
                 </tr>
               </tbody>
             </table>
@@ -1291,7 +1254,6 @@
           <div class="content-meta">
             <span class="type-badge spec">Spec</span>
             <span class="type-badge fixed">Fixed Copy</span>
-            <span>这里定义首页入口卡片的触发条件、首句配置与去向，用于客户端与配置同学对照，不替代共享路由 prompt。</span>
           </div>
           <table class="matrix">
             <thead>
@@ -1404,8 +1366,6 @@
               </tr>
             </tbody>
           </table>
-          <div class="route-note">首页入口表只保留入口层去向与卡片文案；真实路由优先级统一收口到下方「通用规则」里的 Prompt。</div>
-
           <div class="subsection">
             <h3>未来版本预留：闭眼即启动</h3>
             <table class="spec-table">
@@ -1446,21 +1406,6 @@
             <span class="type-badge prompt">Prompt</span>
             <span class="type-badge fixed">Fixed Copy</span>
             <span class="type-badge spec">Spec</span>
-            <span>桌面端只保留左侧目录作为主导航；模块内部按内容类型分层，不再重复做第二条横向导航。</span>
-          </div>
-          <div class="legend-grid">
-            <div class="legend-card">
-              <span class="type-badge prompt">Prompt</span>
-              <p>所有会改变模型输出、路由、优先级、追问、边界、结束方式的规则，都写成可直接复制给 LLM 的双语 prompt。</p>
-            </div>
-            <div class="legend-card">
-              <span class="type-badge fixed">Fixed Copy</span>
-              <p>所有产品直接展示、直接播报、直接配置的 literal 文案，都保留成最终 EN-CN 对照，不伪装成 prompt。</p>
-            </div>
-            <div class="legend-card">
-              <span class="type-badge spec">Spec</span>
-              <p>字段、交互、播放器、声景池、数据输入和前后端实现说明继续保留为规格层，不硬塞进模型行为规则。</p>
-            </div>
           </div>
         </section>
 
@@ -1468,7 +1413,6 @@
           <h2>通用规则</h2>
           <div class="content-meta">
             <span class="type-badge prompt">Prompt</span>
-            <span>这一节只保留会改变 Pufflo 输出与路由的 shared system prompts。</span>
           </div>
           <table class="spec-table">
             <tbody>
@@ -1551,7 +1495,6 @@
           <h2>新用户文案</h2>
           <div class="content-meta">
             <span class="type-badge fixed">Fixed Copy</span>
-            <span>这一节只放首屏和注册流程里直接展示给用户的 literal 文案，不把它们写成对话 prompt。</span>
           </div>
           <div class="subsection">
             <h3>注册</h3>
@@ -1598,7 +1541,6 @@
           <div class="content-meta">
             <span class="type-badge prompt">Prompt</span>
             <span class="type-badge spec">Spec</span>
-            <span>默认基础 prompt 和 persona 补充规则属于模型层；音色规格与 persona 选型表属于配置层。</span>
           </div>
 
           <div class="subsection">
@@ -1790,7 +1732,6 @@
           <div class="content-meta">
             <span class="type-badge spec">Spec</span>
             <span class="type-badge prompt">Prompt</span>
-            <span>先定义模块能力与交互，再给出进入、不进、追问、调用、结束和兜底的 prompt。</span>
           </div>
           <table class="spec-table">
             <tbody>
@@ -2186,7 +2127,6 @@
           <div class="content-meta">
             <span class="type-badge spec">Spec</span>
             <span class="type-badge prompt">Prompt</span>
-            <span>模式、播放器和声景池属于规格层；规则推荐、静音承接和不插话约束属于模型层。</span>
           </div>
           <table class="spec-table">
             <tbody>
@@ -2940,9 +2880,8 @@
           <div class="content-meta">
             <span class="type-badge prompt">Prompt</span>
             <span class="type-badge spec">Spec</span>
-            <span>与 Pufflo 解释昨夜数据有关的生成规则保留为 prompt；数据字段和输入结构保留为规格层。</span>
           </div>
-          <p class="section-intro">整体报告、睡眠声音、单个问题分析都在这一层生成。下面以 prompt 为主，必要的数据结构保持为 spec。</p>
+          <p class="section-intro">输出包括整体报告、睡眠声音、单个问题分析。</p>
 
           <div class="subsection">
             <h3>整体睡眠报告</h3>
@@ -3063,7 +3002,6 @@
           <div class="content-meta">
             <span class="type-badge prompt">Prompt</span>
             <span class="type-badge spec">Spec</span>
-            <span>跨模态的主信息是路由与承接规则；只保留最小运行时规格，不再用 prose matrix 充当主内容。</span>
           </div>
           <div class="content-note">
             <span class="type-badge spec">Spec</span>
@@ -3241,7 +3179,7 @@
                 <th><span class="th-stack">内部提示词 <span class="type-badge prompt">Prompt</span></span></th>
                 <td>
                   <div class="prompt-block">
-                    <p><span class="bilingual">Treat this as cycle-aware soothing, not gynecology. Lower demand, lower pressure, and increase warmth and rest-permission.（把这一节当成“考虑周期状态的安抚”，不要写成妇科问诊。整体要降低要求、降低压力，并增加温暖感和休息许可。）</span></p>
+                    <p><span class="bilingual">Treat cycle support as soothing, not gynecology. Lower demand, lower pressure, and increase warmth and rest-permission.（把经期支持写成“考虑周期状态的安抚”，不要写成妇科问诊。整体要降低要求、降低压力，并增加温暖感和休息许可。）</span></p>
                     <p><span class="bilingual">Ask only what helps tonight: the main discomfort, what to avoid, and how gentle the support should be. Do not turn it into a health intake form.（只问今晚真的有用的信息：主要不适、要避开什么、支持要多温和。不要写成健康问卷。）</span></p>
                     <p><span class="bilingual">If the user describes fainting, unusually heavy bleeding, severe one-sided pain, or other high-risk symptoms, stop ordinary soothing and recommend real-world help.（如果用户提到晕厥、异常大量出血、剧烈单侧疼痛或其他高风险情况，就停止普通安抚，转向现实帮助建议。）</span></p>
                   </div>
@@ -3264,11 +3202,10 @@
           <div class="content-meta">
             <span class="type-badge fixed">Fixed Copy</span>
             <span class="type-badge spec">Spec</span>
-            <span>Push 文案是配置文案，不是对话 prompt；发送窗口、长度和信号判断保留为运营与实现规格。</span>
           </div>
           <div class="subsection" id="push">
             <h3>推送执行细则</h3>
-            <p class="section-intro">按时间链路排序。线上推送按用户语言环境单语发送；本页双语只用于评审和配置对照。</p>
+            <p class="section-intro">按时间链路排序。线上推送按用户语言环境单语发送。</p>
             <table class="matrix">
             <thead>
               <tr>
@@ -3287,7 +3224,7 @@
                 <td>用户当地时间 15:00</td>
                 <td>仅限非首次用户；存在真实可用的 chat history / memory；当天未发过更重要的情境提醒</td>
                 <td>英文 ≤ 14 词；中文 ≤ 26 字</td>
-                <td>按下方“个性化配置规则”选类生成；不能写成固定一句通发</td>
+                <td>按个性化配置规则选类生成；不能写成固定一句通发</td>
               </tr>
               <tr>
                 <td>02</td>

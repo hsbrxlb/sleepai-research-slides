@@ -1123,7 +1123,6 @@
           <h2>新用户</h2>
           <div class="content-meta">
             <span class="type-badge fixed">Fixed Copy / 固定文案</span>
-            <span class="type-badge spec">规格</span>
           </div>
           <table class="spec-table">
             <tbody>
@@ -1179,19 +1178,19 @@
             <table class="spec-table">
               <tbody>
                 <tr>
-                  <th><span class="th-stack">显示时机 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">显示时机</span></th>
                   <td>首次首页态显示 4 个气泡和 1 张自定义人设卡片；非首次进入可替换为更贴近历史使用的建议问题。</td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">点击行为 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">点击行为</span></th>
                   <td>4 个气泡分别直达故事、舒缓陪伴、冥想 / 呼吸、睡眠监测；自定义人设卡片点击后跳转至自定义人设设置页。</td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">文案要求 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">文案要求</span></th>
                   <td>气泡文案必须短、可一眼看懂、像用户会直接点的请求；避免抽象口号、避免过长导致气泡高度失控。</td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">未来版本预留 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">未来版本预留</span></th>
                   <td>“我已闭眼”相关语义启动入口预留给后续版本接入。当前版本不放入首屏 4 个正式气泡。</td>
                 </tr>
               </tbody>
@@ -1252,17 +1251,16 @@
         <section class="section" id="home-routing">
           <h2>首页入口</h2>
           <div class="content-meta">
-            <span class="type-badge spec">规格</span>
             <span class="type-badge fixed">Fixed Copy / 固定文案</span>
           </div>
           <table class="matrix">
             <thead>
               <tr>
-                <th><span class="th-stack">首页入口 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">用户触发语 / 系统推荐条件 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">首页入口</span></th>
+                <th><span class="th-stack">用户触发语与系统推荐条件</span></th>
                 <th><span class="th-stack">首句文案 <span class="type-badge fixed">Fixed Copy / 固定文案</span></span></th>
-                <th><span class="th-stack">触发后的去向 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">什么时候不能触发 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">触发后的去向</span></th>
+                <th><span class="th-stack">什么时候不能触发</span></th>
               </tr>
             </thead>
             <tbody>
@@ -1371,7 +1369,7 @@
             <table class="spec-table">
               <tbody>
                 <tr>
-                  <th><span class="th-stack">目标 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">目标</span></th>
                   <td>把“我已闭眼”这类一句话变成极低摩擦的睡前启动入口。</td>
                 </tr>
                 <tr>
@@ -1392,7 +1390,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">触发后的去向 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">触发后的去向</span></th>
                   <td>识别成功后进入预设助眠链路。链路组合由后端配置决定。</td>
                 </tr>
               </tbody>
@@ -1405,7 +1403,6 @@
           <div class="content-meta">
             <span class="type-badge prompt">Prompt / 提示词</span>
             <span class="type-badge fixed">Fixed Copy / 固定文案</span>
-            <span class="type-badge spec">规格</span>
           </div>
         </section>
 
@@ -1540,12 +1537,11 @@
           <h2>人设与提示词</h2>
           <div class="content-meta">
             <span class="type-badge prompt">Prompt / 提示词</span>
-            <span class="type-badge spec">规格</span>
           </div>
 
           <div class="subsection">
             <h3>默认基础提示词</h3>
-            <h4>回复语种（Prompt / 提示词）</h4>
+            <h4>回复语种</h4>
             <div class="prompt-block">
               <p><span class="bilingual">Write the final user-facing reply in the user's current-turn language by default. If the user explicitly asks for a specific language, follow that instruction first.（默认用用户当前这一轮消息的语种输出最终用户可见回复。如果用户明确指定了某种语言，优先服从该要求。）</span></p>
               <p><span class="bilingual">If the current turn mixes multiple languages, choose the dominant language of the current message by semantic weight and visible proportion. If the dominant language is still unclear, fall back to the most recent stable conversation language.（如果当前这一轮混合了多种语种，就按语义主导和可见占比选择本轮主语种。如果主语种仍然不清楚，再回退到最近一轮稳定语种。）</span></p>
@@ -1570,16 +1566,16 @@
           </div>
 
           <div class="subsection">
-            <h3>默认音色规格</h3>
+            <h3>默认音色设定</h3>
             <table class="spec-table">
               <tbody>
                 <tr>
-                  <th><span class="th-stack">语音特征 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">语音特征</span></th>
                   <td>中慢语速、动态起伏小、轻气息感、靠近耳边但不过分私密、停顿清楚、不突然抬音量、不做强情绪表演。</td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">绑定方式 <span class="type-badge spec">规格</span></span></th>
-                  <td>当用户没有主动选择某个特定人设时，系统直接用这组默认音色规格，搭配上面的默认基础提示词。</td>
+                  <th><span class="th-stack">绑定方式</span></th>
+                  <td>当用户没有主动选择某个特定人设时，系统直接用这组默认音色设定，搭配上面的默认基础提示词。</td>
                 </tr>
               </tbody>
             </table>
@@ -1588,11 +1584,11 @@
           <table class="matrix">
             <thead>
               <tr>
-                <th><span class="th-stack">人设 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">适用场景 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">说话感觉 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">距离感 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">禁区 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">人设</span></th>
+                <th><span class="th-stack">适用场景</span></th>
+                <th><span class="th-stack">说话感觉</span></th>
+                <th><span class="th-stack">距离感</span></th>
+                <th><span class="th-stack">禁区</span></th>
               </tr>
             </thead>
             <tbody>
@@ -1730,17 +1726,16 @@
         <section class="section" id="story">
           <h2>AI 故事</h2>
           <div class="content-meta">
-            <span class="type-badge spec">规格</span>
             <span class="type-badge prompt">Prompt / 提示词</span>
           </div>
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>用低认知负担的叙事替代继续思考，让用户从卡在脑内，转成被稳定地往下带。</td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>故事内容及对话：根据用户明确意图或当前路由判断，生成适合睡前聆听的故事内容。</li>
@@ -1752,7 +1747,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>故事开始后，用户可以留在当前内容页，也可以直接把当前故事带入睡眠监测播放。</li>
@@ -1836,7 +1831,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">For Story background, prefer window rain, distant ocean, brown noise, or very light piano with water. On lonely nights, a soft fireplace can work. Thin the background in the second half and never let it compete with narration.（Story 的背景优先使用窗边雨、远海、棕噪，或极轻的钢琴加水声。孤独感更重的夜晚可以用很轻的壁炉。后半段继续变薄，不能和旁白抢注意力。）</span></p>
@@ -1868,11 +1863,11 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>把过亮、过满、过快的状态带回更缓的节奏，让用户躺着就能跟。</td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>冥想内容及对话：根据用户意图或当前路由判断，生成低压力、可直接跟随的引导内容。</li>
@@ -1884,7 +1879,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>冥想过程中的主目标是继续陪走，而不是频繁弹出操作选择。</li>
@@ -1966,7 +1961,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">For Meditation background, use air pad, light water, soft wind, or very low brown noise. Never use obvious melody or lyrics. Let the background approach near silence in the middle and late part.（Meditation 的背景可用空气感 pad、轻水声、微风或极弱棕噪。不要用明显旋律或歌词。中后段逐渐接近无声。）</span></p>
@@ -1998,11 +1993,11 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>给用户一个比“自己硬睡”更容易执行的身体入口，重点是降激活，不是做漂亮练习。</td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>呼吸内容及对话：结构固定为开场白、吸呼节奏循环、结束词，确保进入门槛足够低。</li>
@@ -2014,7 +2009,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>呼吸是最短链路的执行模块，开始后要尽量少打断、少解释。</li>
@@ -2095,7 +2090,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">For Breathing background, use stable low tones, very soft wind, or brown noise. If there is a breathing cue sound, it may be a little clearer at the start and must fade later. When Breathing is rule recommended, keep the bed very light and thinner in the second half.（Breathing 的背景优先使用稳定低频、极弱风声或棕噪。如果带呼吸提示音，前段可以略清晰，后段必须消退。若是规则推荐进入 Breathing，背景要很轻，后半段继续变薄。）</span></p>
@@ -2125,17 +2120,16 @@
         <section class="section" id="music">
           <h2>音乐匹配</h2>
           <div class="content-meta">
-            <span class="type-badge spec">规格</span>
             <span class="type-badge prompt">Prompt / 提示词</span>
           </div>
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>根据用户主动要求、当前情绪或所处流程，匹配最适合的 BGM / ambience / soundscape。</td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>音乐及对话：根据用户明确要求或系统判断，匹配合适的音乐、白噪或环境声。</li>
@@ -2147,7 +2141,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>音乐匹配的第一目标是把空间调柔，不是让用户继续做选择题。</li>
@@ -2157,13 +2151,13 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">三种模式 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">三种模式</span></th>
                 <td>
                   <table class="matrix">
                     <thead>
                       <tr>
-                        <th><span class="th-stack">模式 <span class="type-badge spec">规格</span></span></th>
-                        <th><span class="th-stack">触发方式 <span class="type-badge spec">规格</span></span></th>
+                        <th><span class="th-stack">模式</span></th>
+                        <th><span class="th-stack">触发方式</span></th>
                         <th><span class="th-stack">路由原则 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                       </tr>
                     </thead>
@@ -2259,7 +2253,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Match anxiety or overload to brown noise, low pads, or wind. Match loneliness or an empty room to fireplace, soft ember sound, or very light near presence textures. Match sleep transition to piano with water, ocean, or window rain. Match silence preference to ultra light brown noise, light rain, or full hush.（将焦虑或过载匹配到棕噪、低频 pad 或风声。将孤独或房间太空匹配到壁炉、余烬声，或很轻的近距离存在感声景。将睡前过渡匹配到钢琴加水声、海浪或窗边雨。将安静偏好匹配到极弱棕噪、轻雨或完全 hush。）</span></p>
@@ -2291,11 +2285,11 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>只在用户明确想要带信仰内容的安抚时，提供尊重其传统的睡前陪伴方式，例如祈祷、核准过的经文、诵念或安静默想。</td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>宗教对答：根据用户明确点名的传统和形式，进入祈祷、经文、诵念或安静反思。</li>
@@ -2306,7 +2300,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>宗教内容开始前先确认 tradition 与 form，避免误入错误传统。</li>
@@ -2390,7 +2384,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Use minimal clean background only. If there is prayer, chanting, or sacred text, the background must stay weaker than the main voice at all times.（只使用极简、干净的背景声。若有祈祷、诵念或圣文，背景在任何时刻都必须弱于主声音。）</span></p>
@@ -2426,7 +2420,7 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Use Divination as a question led reflective reading. The job is to help the user think about relationship, timing, choice, or self state with emotional clarity and one gentle next step. Never present the answer as fixed fate.（把 Divination 当成问题导向的反思式解读。目标是围绕关系、时机、选择或自我状态，帮用户获得更清楚的情绪和一个温和下一步。绝不能把答案写成命定结局。）</span></p>
@@ -2434,7 +2428,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>问题输入：支持自由提问，也支持围绕关系、选择、时机、自我状态四类问题展开。</li>
@@ -2445,7 +2439,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>先锁定用户最想问的核心问题，再决定是否补一个澄清。</li>
@@ -2518,7 +2512,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Use only very light low-presence texture for Divination, such as warm air, low room tone, or soft night hush. The background should support contemplation without sounding mystical or ceremonial by force.（Divination 只配极轻、低存在感的底色，例如温暖空气感、低房间底噪或很轻的夜间 hush。背景要支撑思考，不要硬做成神秘或仪式化。）</span></p>
@@ -2551,7 +2545,7 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Use Astrology as a low-pressure personal report driven by birth data. The output should feel like a personal night profile or light horoscope, built from observation, reminder, and suggestion rather than fate claims.（把 Astrology 当成由出生信息驱动的低压力个人报告。输出应更像个人夜间档案或轻星座报告，由观察、提醒和建议构成，而不是命运宣判。）</span></p>
@@ -2559,7 +2553,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>生日输入：最少以出生日期进入；若用户愿意，再补出生时间与地点。</li>
@@ -2570,7 +2564,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>先收出生日期，再决定是否补出生时间与地点。</li>
@@ -2641,7 +2635,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Use very light atmospheric texture only, such as pale air, soft room tone, or faint shimmer with no ceremonial pressure. Do not make the background louder than the voice and do not push it into fantasy theater.（只用很轻的空气感底色，例如淡空气感、轻房间底噪或若有若无的 shimmer，但不要有仪式压迫感。背景不能大过人声，也不要推成幻想剧场。）</span></p>
@@ -2674,7 +2668,7 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Use Dream Reading as a quick read layer for dream text, voice, or tags. The output should move through dream summary, symbolic clues, emotional clues, and one gentle next step. It should feel useful right after waking, not mystical for its own sake.（把 Dream Reading 当成梦境文本、语音或标签的快速解读层。输出应经过梦境摘要、象征线索、情绪线索，以及一个温和下一步。重点是让它在醒来后立刻有用，而不是为了神秘感而神秘。）</span></p>
@@ -2682,7 +2676,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">字段 / 功能点 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">功能与字段</span></th>
                 <td>
                   <ul>
                     <li>梦境输入：支持梦境文本、语音转写、人物、地点、关键物件、情绪标签。</li>
@@ -2693,7 +2687,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">交互 / 进入下一步 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">交互与下一步</span></th>
                 <td>
                   <ul>
                     <li>先决定用户是要记录、要快速解读，还是要延展追问。</li>
@@ -2763,7 +2757,7 @@
                 </td>
               </tr>
               <tr>
-                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span><span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">背景音怎么配 <span class="type-badge prompt">Prompt / 提示词</span></span></th>
                 <td>
                   <div class="prompt-block">
                     <p><span class="bilingual">Dream Reading may run with no background or with ultra light neutral texture only. Morning dream review does not require a sleep inducing soundscape. Avoid making it theatrical.（Dream Reading 可以完全无背景，或只用极轻中性底色。晨间解梦不需要助眠声景。避免把它做成戏剧化体验。）</span></p>
@@ -2879,7 +2873,6 @@
           <h2>睡眠报告与睡眠问题分析</h2>
           <div class="content-meta">
             <span class="type-badge prompt">Prompt / 提示词</span>
-            <span class="type-badge spec">规格</span>
           </div>
           <p class="section-intro">输出包括整体报告、睡眠声音、单个问题分析。</p>
 
@@ -2897,7 +2890,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">数据输入 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">数据输入</span></th>
                   <td>
                     <p><span class="bilingual">night_summary, sleep_duration_hours, sleep_efficiency, deep_sleep_ratio, rem_ratio, wake_count, fragmentation_level, respiratory_metrics such as ahi_like_score or breathing_interruption_count, sound_events, movement_events, date_label, data_quality, and recommendation_catalog.（night_summary、sleep_duration_hours、sleep_efficiency、deep_sleep_ratio、rem_ratio、wake_count、fragmentation_level、呼吸相关指标，例如 ahi_like_score 或 breathing_interruption_count、sound_events、movement_events、date_label、data_quality，以及 recommendation_catalog。）</span></p>
                   </td>
@@ -3001,10 +2994,8 @@
           <h2>文字语音交叉对话</h2>
           <div class="content-meta">
             <span class="type-badge prompt">Prompt / 提示词</span>
-            <span class="type-badge spec">规格</span>
           </div>
           <div class="content-note">
-            <span class="type-badge spec">规格</span>
             活动中的故事、冥想、呼吸、音乐和报告都必须支持暂停/恢复；文字、语音和当前模块共享同一份上下文，除非用户改主意，不重复索取已确认信息。
           </div>
           <table class="spec-table">
@@ -3047,7 +3038,7 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>做认知卸载，帮用户把“明天别忘了”从脑内拿出来，变成一个轻量的闹钟或提醒。</td>
               </tr>
               <tr>
@@ -3124,7 +3115,7 @@
           <table class="spec-table">
             <tbody>
               <tr>
-                <th><span class="th-stack">模块定位 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">模块定位</span></th>
                 <td>在经期前后更敏感、更浅眠、更容易不舒服的夜晚，把现有支持调得更轻、更少要求、更贴近身体感受。</td>
               </tr>
               <tr>
@@ -3201,7 +3192,6 @@
           <h2>推送</h2>
           <div class="content-meta">
             <span class="type-badge fixed">Fixed Copy / 固定文案</span>
-            <span class="type-badge spec">规格</span>
           </div>
           <div class="subsection" id="push">
             <h3>推送执行细则</h3>
@@ -3209,12 +3199,12 @@
             <table class="matrix">
             <thead>
               <tr>
-                <th><span class="th-stack">顺序 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">场景 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">发送窗口 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">发送条件 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">长度上限 <span class="type-badge spec">规格</span></span></th>
-                <th><span class="th-stack">配置方式 <span class="type-badge spec">规格</span></span></th>
+                <th><span class="th-stack">顺序</span></th>
+                <th><span class="th-stack">场景</span></th>
+                <th><span class="th-stack">发送窗口</span></th>
+                <th><span class="th-stack">发送条件</span></th>
+                <th><span class="th-stack">长度上限</span></th>
+                <th><span class="th-stack">配置方式</span></th>
               </tr>
             </thead>
             <tbody>
@@ -3266,9 +3256,9 @@
             <table class="matrix">
               <tbody>
                 <tr>
-                  <th><span class="th-stack">历史信号 <span class="type-badge spec">规格</span></span></th>
-                  <th><span class="th-stack">允许触发的轻切口 <span class="type-badge spec">规格</span></span></th>
-                  <th><span class="th-stack">不要碰的写法 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">历史信号</span></th>
+                  <th><span class="th-stack">允许触发的轻切口</span></th>
+                  <th><span class="th-stack">不要碰的写法</span></th>
                   <th><span class="th-stack">可直接配置的示例 <span class="type-badge fixed">Fixed Copy / 固定文案</span></span></th>
                 </tr>
                 <tr>
@@ -3334,15 +3324,15 @@
             <table class="spec-table">
               <tbody>
                 <tr>
-                  <th><span class="th-stack">允许引用到什么程度 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">允许引用到什么程度</span></th>
                   <td>只允许引用“模式”，不允许引用“事件原文”。可以写“今天可能有点重”“今晚先放轻一点”，不能写“上次你说分手那件事”。</td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">长度控制 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">长度控制</span></th>
                   <td>单语上线。英文建议 8-14 词；中文建议 12-26 字；只保留一句，不写第二句解释。</td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">禁止元素 <span class="type-badge spec">规格</span></span></th>
+                  <th><span class="th-stack">禁止元素</span></th>
                   <td>不用羞耻、责备、催促、绩效、监视感、病理暗示、命运感、过度亲密称呼。</td>
                 </tr>
               </tbody>

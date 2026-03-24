@@ -6,10 +6,11 @@
 
 ## 一句话结论
 
-- 全球默认页优先加：`Google`、`Apple`、`Facebook`
-- `X`：能做，但更适合扩展层，不建议挤进默认层
-- 条件加：`TikTok`、`WeChat`、`LINE`、`Kakao`
-- 不建议加：`WhatsApp`、`Instagram`、`YouTube`、`Messenger`
+- 当前版先放：`Google`、`Apple`
+- 候选层：`X`、`TikTok`
+- `Facebook`：保留对比，当前不纳入
+- `WeChat`、`LINE`、`Kakao`：地区参考，不纳入当前欧美优先版本
+- 不做独立按钮：`WhatsApp`、`Instagram`、`YouTube`、`Messenger`
 
 ## 判断标准
 
@@ -24,16 +25,16 @@
 
 | 排名 | 账号生态 / 品牌 | 最新公开活跃规模 | 口径 | 标准第三方登录 | 判断 |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Facebook | 3.07B | MAU | 有 | 默认按钮 |
+| 1 | Facebook | 3.07B | MAU | 有 | 可做，当前不纳入 |
 | 2 | WhatsApp | 3.0B+ | monthly users | 无标准消费级登录 | 不做独立按钮 |
 | 3 | Instagram | 3.0B | MAU | 无标准消费级登录 | 不做独立按钮 |
-| 4 | Google | 3.0B Gmail users；Google 身份体系跨 Gmail / Android / Chrome / YouTube | users / ecosystem proxy | 有 | 默认按钮 |
-| 5 | Apple | 2.5B+ active devices | active devices proxy | 有 | 默认按钮；iOS 近乎必备 |
-| 6 | TikTok | 1.84B | ad reach proxy | 有 | 可做扩展按钮 |
-| 7 | WeChat | 1.411B | combined MAU | 有 | 中文 / 华语版本可加 |
+| 4 | Google | 3.0B Gmail users；Google 身份体系跨 Gmail / Android / Chrome / YouTube | users / ecosystem proxy | 有 | 当前建议 |
+| 5 | Apple | 2.5B+ active devices | active devices proxy | 有 | 当前建议 |
+| 6 | TikTok | 1.84B | ad reach proxy | 有 | 候选 |
+| 7 | WeChat | 1.411B | combined MAU | 有 | 参考，不纳入当前版 |
 | 8 | Telegram | 1.0B | monthly users | 有，但偏 web | 不做默认首发 |
 | 9 | Snapchat | 946M | MAU | 有 | 优先级低于 TikTok |
-| 10 | X | 586M | ad reach proxy | 有 | 可做，但先不进默认层 |
+| 10 | X | 586M | ad reach proxy | 有 | 候选 |
 
 ## 为什么 `X` 不是默认层
 
@@ -61,25 +62,23 @@
 
 ## 推荐按钮栈
 
-### 全球默认页
+### 当前版
 
 1. `Continue with Google`
 2. `Continue with Apple`
-3. `Continue with Facebook`
 
-### 全球扩展层
+### 候选层
 
-4. `Continue with X`
-5. `Continue with TikTok`
+3. `Continue with X`
+4. `Continue with TikTok`
 
-### 地区补充
+### 参考层
 
 - `Continue with WeChat`
-  - 适合：中文市场、华语用户
 - `Continue with LINE`
-  - 适合：日本、台湾、泰国
 - `Continue with Kakao`
-  - 适合：韩国
+- `Facebook Login`
+  - 保留能力对比，不纳入当前版
 
 ### 不做独立按钮
 
@@ -90,11 +89,11 @@
 
 ## 关键依据
 
-- `Google`、`Apple`、`Facebook` 仍是全球默认页最稳的第一层
-- `Apple` 在 iOS 上不仅体量大，而且和审核环境直接相关
-- `X` 有真实登录能力，但更像扩展按钮，不像默认底座
-- `TikTok`、`WeChat`、`LINE`、`Kakao` 更偏地域、人群或流量来源
-- `WhatsApp` 和 `Instagram` 体量虽然大，但不属于标准社交登录供应商
+- `Google`、`Apple` 先解决当前版最大覆盖和最低摩擦
+- `X`、`TikTok` 有官方登录能力，但更适合候选层
+- `Facebook` 有能力，但当前版不纳入
+- `WeChat`、`LINE`、`Kakao` 只做地区参考
+- `WhatsApp`、`Instagram` 体量很大，但都不是标准注册底座
 
 ## 主要来源
 

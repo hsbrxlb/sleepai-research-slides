@@ -145,71 +145,38 @@
       overflow: hidden;
       border: 1px solid rgba(238, 243, 255, 0.08);
       background:
-        radial-gradient(circle at 24% 24%, rgba(120, 240, 214, 0.16), transparent 26%),
-        radial-gradient(circle at 78% 18%, rgba(154, 176, 255, 0.18), transparent 28%),
+        linear-gradient(180deg, rgba(11, 18, 31, 0.94), rgba(8, 14, 24, 0.96)),
         rgba(255, 255, 255, 0.04);
     }
 
-    .visual-orb,
-    .visual-ring {
+    .visual-stage::before {
+      content: "";
       position: absolute;
-      border-radius: 50%;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.34;
       pointer-events: none;
-    }
-
-    .visual-orb.a {
-      width: 148px;
-      height: 148px;
-      left: 34px;
-      top: 42px;
-      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.7), rgba(120,240,214,0.24) 36%, rgba(120,240,214,0.06) 70%);
-    }
-
-    .visual-orb.b {
-      width: 184px;
-      height: 184px;
-      right: 34px;
-      top: 34px;
-      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.76), rgba(154,176,255,0.22) 36%, rgba(154,176,255,0.06) 70%);
-    }
-
-    .visual-orb.c {
-      width: 132px;
-      height: 132px;
-      left: 82px;
-      bottom: 42px;
-      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.7), rgba(255,176,32,0.24) 36%, rgba(255,176,32,0.06) 70%);
-    }
-
-    .visual-ring.a {
-      width: 104px;
-      height: 104px;
-      right: 56px;
-      bottom: 110px;
-      border: 1px solid rgba(120, 240, 214, 0.24);
-    }
-
-    .visual-ring.b {
-      width: 74px;
-      height: 74px;
-      left: 46px;
-      bottom: 84px;
-      border: 1px solid rgba(154, 176, 255, 0.24);
     }
 
     .logo-cloud {
       position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .logo-node {
-      position: absolute;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
+      padding: 9px 13px;
       border-radius: 999px;
       border: 1px solid rgba(238, 243, 255, 0.1);
       background: rgba(8, 15, 28, 0.76);
@@ -227,18 +194,13 @@
       filter: brightness(0) invert(1);
     }
 
-    .logo-node.google { left: 28px; top: 184px; }
-    .logo-node.apple { right: 30px; top: 184px; }
-    .logo-node.x { right: 42px; bottom: 84px; }
-    .logo-node.tiktok { left: 54px; bottom: 82px; }
-
     .mockup {
       position: absolute;
       left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: min(320px, calc(100% - 72px));
-      padding: 22px;
+      top: 40px;
+      transform: translateX(-50%);
+      width: min(336px, calc(100% - 56px));
+      padding: 22px 22px 18px;
       border-radius: 28px;
       background: rgba(7, 12, 23, 0.92);
       border: 1px solid rgba(238, 243, 255, 0.1);
@@ -286,6 +248,15 @@
     .button-item.subtle {
       color: var(--muted);
       background: rgba(255,255,255,0.03);
+    }
+
+    .mockup-note {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(238, 243, 255, 0.08);
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.6;
     }
 
     .criteria-card,
@@ -573,6 +544,33 @@
       color: var(--text);
     }
 
+    #sources .section-kicker {
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    #sources .section-title {
+      font-size: clamp(22px, 2.6vw, 30px);
+      margin-bottom: 8px;
+    }
+
+    #sources .source-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    #sources .source-card strong {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    #sources .source-card p,
+    #sources .source-card li {
+      font-size: 13px;
+      line-height: 1.56;
+    }
+
     @media (max-width: 1120px) {
       .hero-grid,
       .stack-grid {
@@ -619,10 +617,11 @@
         padding: 8px 12px;
       }
 
-      .logo-node.google { left: 18px; top: 148px; }
-      .logo-node.apple { right: 18px; top: 150px; }
-      .logo-node.x { right: 24px; bottom: 92px; }
-      .logo-node.tiktok { left: 24px; bottom: 90px; }
+      .logo-cloud {
+        left: 16px;
+        right: 16px;
+        bottom: 18px;
+      }
     }
   </style>
 </head>
@@ -662,7 +661,7 @@
             <div>
               <h1>先看前十，再看取舍。</h1>
               <p class="hero-copy section-sub">
-                当前版只看欧美优先。默认层先放 <strong>Google</strong>、<strong>Apple</strong>。
+                当前只看欧美市场。默认层先放 <strong>Google</strong>、<strong>Apple</strong>。
                 <strong>X</strong>、<strong>TikTok</strong> 进入候选层。
                 <strong>Facebook</strong> 保留对比，不进入当前版。
               </p>
@@ -690,47 +689,47 @@
                   <tr>
                     <td class="rank">1</td>
                     <td>Facebook</td>
-                    <td>3.07B</td>
-                    <td>MAU</td>
+                    <td>30.7 亿</td>
+                    <td>月活</td>
                     <td>有</td>
                     <td><span class="state-chip soft">可做，当前不纳入</span></td>
                   </tr>
                   <tr>
                     <td class="rank">2</td>
                     <td>WhatsApp</td>
-                    <td>3.0B+</td>
-                    <td>monthly users</td>
+                    <td>30 亿+</td>
+                    <td>月活用户</td>
                     <td>无标准消费级登录</td>
                     <td><span class="state-chip stop">不做独立按钮</span></td>
                   </tr>
                   <tr>
                     <td class="rank">3</td>
                     <td>Instagram</td>
-                    <td>3.0B</td>
-                    <td>MAU</td>
+                    <td>30 亿</td>
+                    <td>月活</td>
                     <td>无标准消费级登录</td>
                     <td><span class="state-chip stop">不做独立按钮</span></td>
                   </tr>
                   <tr>
                     <td class="rank">4</td>
                     <td>Google</td>
-                    <td>3.0B</td>
-                    <td>Gmail users / 身份体系代理</td>
+                    <td>30 亿</td>
+                    <td>Gmail 用户数代理</td>
                     <td>有</td>
                     <td><span class="state-chip good">当前建议</span></td>
                   </tr>
                   <tr>
                     <td class="rank">5</td>
                     <td>Apple</td>
-                    <td>2.5B+</td>
-                    <td>active devices 代理</td>
+                    <td>25 亿+</td>
+                    <td>活跃设备代理</td>
                     <td>有</td>
                     <td><span class="state-chip good">当前建议</span></td>
                   </tr>
                   <tr>
                     <td class="rank">6</td>
                     <td>TikTok</td>
-                    <td>1.84B</td>
+                    <td>18.4 亿</td>
                     <td>广告触达代理</td>
                     <td>有</td>
                     <td><span class="state-chip watch">候选</span></td>
@@ -738,31 +737,31 @@
                   <tr>
                     <td class="rank">7</td>
                     <td>WeChat</td>
-                    <td>1.411B</td>
-                    <td>combined MAU</td>
+                    <td>14.11 亿</td>
+                    <td>合并月活</td>
                     <td>有</td>
                     <td><span class="state-chip soft">参考，不纳入当前版</span></td>
                   </tr>
                   <tr>
                     <td class="rank">8</td>
                     <td>Telegram</td>
-                    <td>1.0B</td>
-                    <td>monthly users</td>
+                    <td>10 亿</td>
+                    <td>月活用户</td>
                     <td>有，但偏 web</td>
                     <td><span class="state-chip soft">优先级较低</span></td>
                   </tr>
                   <tr>
                     <td class="rank">9</td>
                     <td>Snapchat</td>
-                    <td>946M</td>
-                    <td>MAU</td>
+                    <td>9.46 亿</td>
+                    <td>月活</td>
                     <td>有</td>
                     <td><span class="state-chip soft">优先级较低</span></td>
                   </tr>
                   <tr>
                     <td class="rank">10</td>
                     <td>X</td>
-                    <td>586M</td>
+                    <td>5.86 亿</td>
                     <td>广告触达代理</td>
                     <td>有</td>
                     <td><span class="state-chip watch">候选</span></td>
@@ -772,26 +771,22 @@
             </div>
           </div>
           <div class="visual-stage">
-            <div class="visual-orb a"></div>
-            <div class="visual-orb b"></div>
-            <div class="visual-orb c"></div>
-            <div class="visual-ring a"></div>
-            <div class="visual-ring b"></div>
-            <div class="logo-cloud" aria-hidden="true">
-              <span class="logo-node google"><img src="./assets/brands/google.svg" alt="">Google</span>
-              <span class="logo-node apple"><img src="./assets/brands/apple.svg" alt="">Apple</span>
-              <span class="logo-node x"><img src="./assets/brands/x.svg" alt="">X</span>
-              <span class="logo-node tiktok"><img src="./assets/brands/tiktok.svg" alt="">TikTok</span>
-            </div>
             <div class="mockup">
-              <h3>注册页按钮</h3>
-              <p>默认层先短。候选层后加。</p>
+              <h3>注册页快捷登录</h3>
+              <p>默认按钮先短。候选按钮后加。</p>
               <div class="button-list">
-                <div class="button-item"><img src="./assets/brands/google.svg" alt="">Continue with Google</div>
-                <div class="button-item"><img src="./assets/brands/apple.svg" alt="">Continue with Apple</div>
-                <div class="button-item subtle"><img src="./assets/brands/x.svg" alt="">Continue with X</div>
-                <div class="button-item subtle"><img src="./assets/brands/tiktok.svg" alt="">Continue with TikTok</div>
+                <div class="button-item"><img src="./assets/brands/google.svg" alt="">使用 Google 登录</div>
+                <div class="button-item"><img src="./assets/brands/apple.svg" alt="">使用 Apple 登录</div>
+                <div class="button-item subtle"><img src="./assets/brands/x.svg" alt="">使用 X 登录</div>
+                <div class="button-item subtle"><img src="./assets/brands/tiktok.svg" alt="">使用 TikTok 登录</div>
               </div>
+              <div class="mockup-note">当前版：Google、Apple。候选层：X、TikTok。</div>
+            </div>
+            <div class="logo-cloud" aria-hidden="true">
+              <span class="logo-node"><img src="./assets/brands/google.svg" alt="">Google</span>
+              <span class="logo-node"><img src="./assets/brands/apple.svg" alt="">Apple</span>
+              <span class="logo-node"><img src="./assets/brands/x.svg" alt="">X</span>
+              <span class="logo-node"><img src="./assets/brands/tiktok.svg" alt="">TikTok</span>
             </div>
           </div>
         </div>
@@ -832,15 +827,15 @@
             <article class="stack-card highlight">
               <strong>当前版</strong>
               <div class="stack-order">
-                <div class="row"><span class="index">1</span><img src="./assets/brands/google.svg" alt=""><span>Continue with Google</span></div>
-                <div class="row"><span class="index">2</span><img src="./assets/brands/apple.svg" alt=""><span>Continue with Apple</span></div>
+                <div class="row"><span class="index">1</span><img src="./assets/brands/google.svg" alt=""><span>使用 Google 登录</span></div>
+                <div class="row"><span class="index">2</span><img src="./assets/brands/apple.svg" alt=""><span>使用 Apple 登录</span></div>
               </div>
             </article>
             <article class="stack-card">
               <strong>候选层</strong>
               <div class="stack-order">
-                <div class="row"><span class="index">3</span><img src="./assets/brands/x.svg" alt=""><span>Continue with X</span></div>
-                <div class="row"><span class="index">4</span><img src="./assets/brands/tiktok.svg" alt=""><span>Continue with TikTok</span></div>
+                <div class="row"><span class="index">3</span><img src="./assets/brands/x.svg" alt=""><span>使用 X 登录</span></div>
+                <div class="row"><span class="index">4</span><img src="./assets/brands/tiktok.svg" alt=""><span>使用 TikTok 登录</span></div>
               </div>
             </article>
           </div>
@@ -982,7 +977,7 @@
     <section class="section reveal" id="sources">
       <div class="wrap">
         <div class="section-kicker">来源</div>
-        <h2 class="section-title">核心出处。</h2>
+        <h2 class="section-title">来源</h2>
         <div class="cards-grid" style="margin-top:24px;">
           <article class="source-card">
             <strong>为什么不是 WhatsApp / Instagram</strong>

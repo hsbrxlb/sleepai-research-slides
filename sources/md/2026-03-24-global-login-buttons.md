@@ -25,16 +25,16 @@
 
 | 排名 | 账号生态 / 品牌 | 最新公开活跃规模 | 口径 | 标准第三方登录 | 判断 |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Facebook | 3.07B | MAU | 有 | 可做，当前不纳入 |
-| 2 | WhatsApp | 3.0B+ | monthly users | 无标准消费级登录 | 不做独立按钮 |
-| 3 | Instagram | 3.0B | MAU | 无标准消费级登录 | 不做独立按钮 |
-| 4 | Google | 3.0B Gmail users；Google 身份体系跨 Gmail / Android / Chrome / YouTube | users / ecosystem proxy | 有 | 当前建议 |
-| 5 | Apple | 2.5B+ active devices | active devices proxy | 有 | 当前建议 |
-| 6 | TikTok | 1.84B | ad reach proxy | 有 | 候选 |
-| 7 | WeChat | 1.411B | combined MAU | 有 | 参考，不纳入当前版 |
-| 8 | Telegram | 1.0B | monthly users | 有，但偏 web | 不做默认首发 |
-| 9 | Snapchat | 946M | MAU | 有 | 优先级低于 TikTok |
-| 10 | X | 586M | ad reach proxy | 有 | 候选 |
+| 1 | Facebook | 30.7 亿 | 月活 | 有 | 可做，当前不纳入 |
+| 2 | WhatsApp | 30 亿+ | 月活用户 | 无标准消费级登录 | 不做独立按钮 |
+| 3 | Instagram | 30 亿 | 月活 | 无标准消费级登录 | 不做独立按钮 |
+| 4 | Google | 30 亿；Gmail 用户数代理 | users / ecosystem proxy | 有 | 当前建议 |
+| 5 | Apple | 25 亿+ | 活跃设备代理 | 有 | 当前建议 |
+| 6 | TikTok | 18.4 亿 | 广告触达代理 | 有 | 候选 |
+| 7 | WeChat | 14.11 亿 | 合并月活 | 有 | 参考，不纳入当前版 |
+| 8 | Telegram | 10 亿 | 月活用户 | 有，但偏 web | 不做默认首发 |
+| 9 | Snapchat | 9.46 亿 | 月活 | 有 | 优先级低于 TikTok |
+| 10 | X | 5.86 亿 | 广告触达代理 | 有 | 候选 |
 
 ## 为什么 `X` 不是默认层
 
@@ -64,28 +64,28 @@
 
 ### 当前版
 
-1. `Continue with Google`
-2. `Continue with Apple`
+1. `使用 Google 登录`
+2. `使用 Apple 登录`
 
 ### 候选层
 
-3. `Continue with X`
-4. `Continue with TikTok`
+3. `使用 X 登录`
+4. `使用 TikTok 登录`
 
 ### 参考层
 
-- `Continue with WeChat`
-- `Continue with LINE`
-- `Continue with Kakao`
+- `使用 WeChat 登录`
+- `使用 LINE 登录`
+- `使用 Kakao 登录`
 - `Facebook Login`
   - 保留能力对比，不纳入当前版
 
 ### 不做独立按钮
 
-- `Continue with WhatsApp`
-- `Continue with Instagram`
-- `Continue with YouTube`
-- `Continue with Messenger`
+- `使用 WhatsApp 登录`
+- `使用 Instagram 登录`
+- `使用 YouTube 登录`
+- `使用 Messenger 登录`
 
 ## 关键依据
 

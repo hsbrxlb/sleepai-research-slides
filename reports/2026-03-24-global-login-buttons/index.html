@@ -146,34 +146,34 @@
     #criteria.section,
     #sources.section {
       min-height: auto;
-      padding-top: 42px;
-      padding-bottom: 42px;
-    }
-
-    #ranking.section {
-      padding-top: 34px;
+      padding-top: 28px;
       padding-bottom: 28px;
     }
 
+    #ranking.section {
+      padding-top: 22px;
+      padding-bottom: 16px;
+    }
+
     #summary.section {
-      padding-top: 20px;
+      padding-top: 4px;
     }
 
     #cases.section,
     #matrix.section,
     #criteria.section,
     #sources.section {
-      padding-top: 26px;
+      padding-top: 16px;
     }
 
     .visual-stage {
       position: relative;
-      min-height: 420px;
+      min-height: 352px;
       border-radius: 26px;
       overflow: hidden;
       border: 1px solid rgba(238, 243, 255, 0.08);
       background:
-        linear-gradient(180deg, rgba(11, 18, 31, 0.94), rgba(8, 14, 24, 0.96)),
+        linear-gradient(180deg, rgba(10, 16, 28, 0.96), rgba(8, 14, 24, 0.98)),
         rgba(255, 255, 255, 0.04);
     }
 
@@ -192,10 +192,10 @@
     .mockup {
       position: absolute;
       left: 50%;
-      top: 32px;
+      top: 24px;
       transform: translateX(-50%);
       width: min(336px, calc(100% - 56px));
-      padding: 22px 22px 20px;
+      padding: 20px 20px 18px;
       border-radius: 28px;
       background: rgba(7, 12, 23, 0.92);
       border: 1px solid rgba(238, 243, 255, 0.1);
@@ -284,7 +284,7 @@
     .case-card,
     .stack-card,
     .source-card {
-      padding: 22px;
+      padding: 20px;
       border-radius: 22px;
       border: 1px solid rgba(238, 243, 255, 0.08);
       background: rgba(255, 255, 255, 0.04);
@@ -328,13 +328,13 @@
     }
 
     .quadrant {
-      min-height: 230px;
-      padding: 22px;
+      min-height: 180px;
+      padding: 20px;
       border-radius: 24px;
       border: 1px solid rgba(238, 243, 255, 0.08);
       background: rgba(255, 255, 255, 0.04);
       display: grid;
-      gap: 14px;
+      gap: 12px;
       align-content: start;
     }
 
@@ -478,9 +478,9 @@
     }
 
     .case-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
       border: 1px solid rgba(238, 243, 255, 0.1);
       background: rgba(255, 255, 255, 0.04);
       display: grid;
@@ -577,41 +577,41 @@
     }
 
     #sources .section-kicker {
-      margin-bottom: 10px;
-      font-size: 11px;
+      margin-bottom: 6px;
+      font-size: 10px;
     }
 
     #sources .section-title {
-      font-size: clamp(18px, 2vw, 24px);
-      margin-bottom: 6px;
+      font-size: clamp(15px, 1.5vw, 18px);
+      margin-bottom: 4px;
     }
 
     #sources .source-card {
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.025);
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.02);
     }
 
     #sources .source-card strong {
-      margin-bottom: 6px;
-      font-size: 16px;
+      margin-bottom: 4px;
+      font-size: 13px;
     }
 
     #sources .source-card p,
     #sources .source-card li {
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 11px;
+      line-height: 1.45;
     }
 
     .source-shell {
-      padding: 18px 20px;
-      border-radius: 20px;
+      padding: 12px 14px;
+      border-radius: 16px;
     }
 
     .compact-grid {
       display: grid;
       gap: 16px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       margin-top: 16px;
     }
 
@@ -815,8 +815,8 @@
             <div class="mockup">
               <div class="mockup-headline">
                 <div class="mockup-kicker">注册页示意</div>
-                <h3>默认按钮先短。</h3>
-                <p>当前先做两颗。候选层后加。</p>
+                <h3>先放两颗默认按钮</h3>
+                <p>当前版先做 Google、Apple。X、TikTok 留作下一层。</p>
               </div>
               <div class="mockup-group">
                 <strong>默认层</strong>
@@ -832,7 +832,7 @@
                   <div class="button-item subtle"><img src="./assets/brands/tiktok.svg" alt="">使用 TikTok 登录</div>
                 </div>
               </div>
-              <div class="mockup-note">当前版先做 Google、Apple。X、TikTok 留作下一层。</div>
+              <div class="mockup-note">候选层后加，不抢首屏。</div>
             </div>
           </div>
         </div>
@@ -846,19 +846,19 @@
         <div class="cards-grid" style="margin-top:24px;">
           <article class="matrix-card">
             <strong>当前建议</strong>
-            <p>Google、Apple</p>
+            <p>Google、Apple。先解决覆盖面和摩擦。</p>
           </article>
           <article class="matrix-card">
             <strong>候选层</strong>
-            <p>X、TikTok</p>
+            <p>X、TikTok。能做，先不抢默认位。</p>
           </article>
           <article class="matrix-card">
             <strong>当前不纳入</strong>
-            <p>Facebook</p>
+            <p>Facebook。保留对比，当前版不接。</p>
           </article>
           <article class="matrix-card">
             <strong>不做独立按钮</strong>
-            <p>WhatsApp、Instagram</p>
+            <p>WhatsApp、Instagram。用户多，但不适合首页注册入口。</p>
           </article>
         </div>
       </div>
@@ -890,15 +890,15 @@
               <strong>参考层</strong>
               <ul class="stack-list">
                 <li><strong>WeChat</strong>、<strong>LINE</strong>、<strong>Kakao</strong></li>
-                <li>只做地区参考，不纳入当前欧美优先版本。</li>
+                <li>只做地区参考，不进当前欧美版。</li>
                 <li><strong>Facebook</strong> 保留对比，当前不纳入。</li>
               </ul>
             </article>
             <article class="stack-card">
               <strong>不单独放</strong>
               <ul class="stack-list">
-                <li><strong>WhatsApp</strong>：不是标准消费级一键登录。</li>
-                <li><strong>Instagram</strong>：不是标准注册底座。</li>
+                <li><strong>WhatsApp</strong>：不是标准注册入口。</li>
+                <li><strong>Instagram</strong>：更像内容入口。</li>
                 <li><strong>YouTube</strong>：并到 Google。</li>
                 <li><strong>Messenger</strong>：并到 Facebook。</li>
               </ul>
@@ -918,10 +918,10 @@
               <span class="case-icon"><img src="./assets/brands/x.svg" alt=""></span>
               <h3>X</h3>
             </div>
-            <p>能做登录。先放候选层。</p>
+            <p>能做登录。当前先放候选层。</p>
             <ul>
               <li>官方 OAuth 完整存在。</li>
-              <li>更像社媒入口，不像底层账号体系。</li>
+              <li>更像社媒入口，不像底层账号。</li>
               <li>覆盖面弱于 Google、Apple。</li>
             </ul>
             <span class="state-chip watch">候选</span>
@@ -931,11 +931,11 @@
               <span class="case-icon"><img src="./assets/brands/whatsapp.svg" alt=""></span>
               <h3>WhatsApp</h3>
             </div>
-            <p>用户很多，但不是标准注册入口。</p>
+            <p>用户很多，但不是首页注册入口。</p>
             <ul>
               <li>公开能力更偏商家接入。</li>
-              <li>真做会让登录预期错位。</li>
-              <li>更像消息入口，不像注册入口。</li>
+              <li>真做容易让用户预期错位。</li>
+              <li>更像消息入口。</li>
             </ul>
             <span class="state-chip stop">不做独立按钮</span>
           </article>
@@ -946,9 +946,9 @@
             </div>
             <p>名字很大，但不适合放首页。</p>
             <ul>
-              <li>不是标准底座账号。</li>
+              <li>不是标准注册入口。</li>
               <li>真做会绕，支持也不稳。</li>
-              <li>更像内容入口，不像注册入口。</li>
+              <li>更像内容入口。</li>
             </ul>
             <span class="state-chip stop">不做独立按钮</span>
           </article>
@@ -959,7 +959,7 @@
     <section class="section reveal" id="matrix">
       <div class="wrap">
         <div class="section-kicker">矩阵</div>
-        <h2 class="section-title">按当前优先级分层。</h2>
+        <h2 class="section-title">当前分层。</h2>
         <div class="quadrant-grid">
           <article class="quadrant good">
             <h3>当前建议</h3>
@@ -971,7 +971,7 @@
           </article>
           <article class="quadrant watch">
             <h3>候选层</h3>
-            <p>技术能做，但先不抢默认层位置。</p>
+            <p>技术能做。下一层再接。</p>
             <div class="logo-row">
               <span class="brand-pill"><img src="./assets/brands/x.svg" alt="">X</span>
               <span class="brand-pill"><img src="./assets/brands/tiktok.svg" alt="">TikTok</span>
@@ -979,14 +979,14 @@
           </article>
           <article class="quadrant">
             <h3>当前不纳入</h3>
-            <p>有能力，但当前版本先不接。</p>
+            <p>有能力，当前版先不接。</p>
             <div class="logo-row">
               <span class="brand-pill"><img src="./assets/brands/facebook.svg" alt="">Facebook</span>
             </div>
           </article>
           <article class="quadrant stop">
             <h3>不独立放</h3>
-            <p>用户很多，但都不适合作为首页注册入口。</p>
+            <p>用户很多，但都不适合首页注册入口。</p>
             <div class="logo-row">
               <span class="brand-pill"><img src="./assets/brands/whatsapp.svg" alt="">WhatsApp</span>
               <span class="brand-pill"><img src="./assets/brands/instagram.svg" alt="">Instagram</span>
@@ -996,11 +996,7 @@
         <div class="compact-grid">
           <article class="matrix-card">
             <strong>地区参考</strong>
-            <p>WeChat、LINE、Kakao 只留作地区版参考，不进入当前欧美优先版本。</p>
-          </article>
-          <article class="matrix-card">
-            <strong>亚洲平台</strong>
-            <p>只保留参考，不进入当前真实方案。</p>
+            <p>WeChat、LINE、Kakao 只留作地区版参考，不进当前欧美版。</p>
           </article>
         </div>
       </div>
@@ -1009,7 +1005,7 @@
     <section class="section reveal" id="criteria">
       <div class="wrap">
         <div class="section-kicker">标准</div>
-        <h2 class="section-title">体量大，不等于该放首页。</h2>
+        <h2 class="section-title">体量大，不一定适合首页。</h2>
         <div class="criteria-grid" style="margin-top:24px;">
           <article class="criteria-card">
             <strong>体量</strong>
@@ -1034,7 +1030,7 @@
     <section class="section reveal" id="sources">
       <div class="wrap">
         <div class="section-kicker">来源</div>
-        <h2 class="section-title">来源</h2>
+        <h2 class="section-title">参考来源</h2>
         <div class="source-grid" style="margin-top:16px;">
           <article class="source-card">
             <strong>规模数据</strong>

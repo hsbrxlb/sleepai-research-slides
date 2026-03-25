@@ -114,7 +114,6 @@
     }
 
     .hero-grid,
-    .intro-grid,
     .source-grid,
     .language-grid,
     .principle-grid {
@@ -123,13 +122,8 @@
     }
 
     .hero-grid {
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1fr;
       align-items: start;
-    }
-
-    .intro-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 18px;
     }
 
     .principle-grid {
@@ -143,7 +137,6 @@
     }
 
     .hero-grid > *,
-    .intro-grid > *,
     .principle-grid > *,
     .language-grid > *,
     .source-grid > * {
@@ -151,19 +144,16 @@
     }
 
     .hero-shell,
-    .summary-card,
     .language-card,
     .principle-card,
     .warn-box,
-    .source-card,
-    .name-wall {
+    .source-card {
       background: var(--card);
       border: 1px solid var(--line);
       box-shadow: var(--shadow-soft);
     }
 
-    .hero-shell,
-    .name-wall {
+    .hero-shell {
       border-radius: 28px;
       padding: 26px;
     }
@@ -184,14 +174,12 @@
     }
 
     .hero-copy strong,
-    .summary-card strong,
     .language-card strong,
     .warn-box strong,
     .source-card strong {
       color: var(--text-main);
     }
 
-    .summary-card,
     .principle-card,
     .language-card,
     .source-card {
@@ -199,62 +187,12 @@
       padding: 20px;
     }
 
-    .summary-card .big {
-      margin: 0 0 8px;
-      font-size: clamp(28px, 2.5vw, 38px);
-      line-height: 1.04;
-      color: var(--text-main);
-      font-weight: 700;
-    }
-
-    .summary-card p,
     .principle-card p,
     .source-card p {
       margin: 0;
       color: var(--text-soft);
       font-size: 14px;
       line-height: 1.65;
-    }
-
-    .name-wall {
-      display: flex;
-      flex-wrap: wrap;
-      align-content: start;
-      gap: 10px;
-      min-height: 218px;
-      background:
-        radial-gradient(320px 220px at 85% 10%, rgba(255, 220, 164, 0.26), transparent 55%),
-        radial-gradient(300px 180px at 12% 88%, rgba(181, 229, 214, 0.22), transparent 52%),
-        rgba(255, 255, 255, 0.8);
-    }
-
-    .name-chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.76);
-      border: 1px solid rgba(37, 52, 77, 0.1);
-      color: var(--text-main);
-      font-size: 13px;
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-
-    .name-chip.good {
-      background: var(--mint-soft);
-      border-color: rgba(119, 210, 182, 0.5);
-    }
-
-    .name-chip.warn {
-      background: var(--amber-soft);
-      border-color: rgba(227, 174, 86, 0.45);
-    }
-
-    .name-chip.stop {
-      background: var(--rose-soft);
-      border-color: rgba(239, 141, 130, 0.45);
     }
 
     .table-wrap {
@@ -474,7 +412,6 @@
     }
 
     @media (max-width: 760px) {
-      .intro-grid,
       .principle-grid {
         grid-template-columns: 1fr;
       }
@@ -531,63 +468,6 @@
             <p class="hero-copy section-sub">
               主名继续保留 <strong>Pufflo</strong>。简中主显示名用 <strong>把福落</strong>。德语区改用 <strong>Poflo</strong>。其余语言先按文化化转译推进。
             </p>
-            <div class="intro-grid">
-              <article class="summary-card">
-                <div class="big">Pufflo</div>
-                <p>全球主名。先不改动。</p>
-              </article>
-              <article class="summary-card">
-                <div class="big">把福落</div>
-                <p>简中主显示名。谐音完整，也有吉祥意。</p>
-              </article>
-              <article class="summary-card">
-                <div class="big">Poflo</div>
-                <p>德语区替代名。直接避开 `Puff`。</p>
-              </article>
-            </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>语言</th>
-                    <th>建议写法</th>
-                    <th>类型</th>
-                    <th>置信度</th>
-                    <th>备注</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>英语</td><td>Pufflo</td><td><span class="state-chip good">正式推荐</span></td><td>高</td><td>全球主名</td></tr>
-                  <tr><td>简体中文</td><td>把福落 / Pufflo</td><td><span class="state-chip good">正式推荐</span></td><td>高</td><td>谐音加吉祥意</td></tr>
-                  <tr><td>德语</td><td>Poflo</td><td><span class="state-chip stop">避坑替代</span></td><td>高</td><td>不直接用 Pufflo</td></tr>
-                  <tr><td>日语</td><td>パフロ</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>柔软感强</td></tr>
-                  <tr><td>韩语</td><td>포플로</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>温暖包裹感</td></tr>
-                  <tr><td>法语</td><td>Pouflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>软垫和呼吸意境</td></tr>
-                  <tr><td>西班牙语</td><td>Puflo / Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>更顺发音</td></tr>
-                  <tr><td>葡萄牙语</td><td>Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>保留主名</td></tr>
-                  <tr><td>意大利语</td><td>Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>Puffo 联想</td></tr>
-                  <tr><td>土耳其语</td><td>Poflo / Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>Pofuduk 联想</td></tr>
-                  <tr><td>越南语</td><td>Púp-lô / Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>花苞感</td></tr>
-                  <tr><td>阿拉伯语</td><td>بافلو</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>P 常落向 B</td></tr>
-                  <tr><td>印地语</td><td>पफ्लो</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>适合 Hinglish 传播</td></tr>
-                  <tr><td>印尼语</td><td>Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>保留主名</td></tr>
-                  <tr><td>泰语</td><td>พัฟโฟล</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>潮流感强</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="name-wall" aria-hidden="true">
-            <span class="name-chip good">Pufflo</span>
-            <span class="name-chip good">把福落</span>
-            <span class="name-chip stop">Poflo</span>
-            <span class="name-chip warn">パフロ</span>
-            <span class="name-chip warn">포플로</span>
-            <span class="name-chip warn">Pouflo</span>
-            <span class="name-chip warn">Puflo</span>
-            <span class="name-chip warn">Púp-lô</span>
-            <span class="name-chip warn">بافلو</span>
-            <span class="name-chip warn">पफ्लो</span>
-            <span class="name-chip warn">พัฟโฟล</span>
           </div>
         </div>
       </div>

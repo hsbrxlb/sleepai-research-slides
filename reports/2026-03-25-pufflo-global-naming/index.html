@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pufflo 全球十五语命名方案</title>
+  <meta name="description" content="围绕 Pufflo / 把福落，给出 15 种语言的本地命名、避坑点与文化化转译方案。">
+  <link rel="stylesheet" href="../../assets/css/deck.css">
+  <style>
+    .hero h1 {
+      max-width: 13ch;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.04;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      font-size: 16px;
+      line-height: 1.74;
+    }
+
+    .section-title {
+      max-width: 22ch;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: rgba(120, 240, 214, 0.6);
+    }
+
+    .hero-grid,
+    .dense-grid,
+    .cards-grid,
+    .source-grid,
+    .language-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.02fr 0.98fr;
+      align-items: stretch;
+    }
+
+    .dense-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .cards-grid,
+    .source-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .language-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-grid > *,
+    .dense-grid > *,
+    .cards-grid > *,
+    .source-grid > *,
+    .language-grid > * {
+      min-width: 0;
+    }
+
+    .hero-shell,
+    .lead-card,
+    .card,
+    .language-card,
+    .source-card {
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      background:
+        radial-gradient(circle at top right, rgba(120, 240, 214, 0.12), transparent 42%),
+        rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow);
+    }
+
+    .lead-card strong,
+    .card strong,
+    .language-card strong,
+    .source-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: clamp(22px, 2.2vw, 30px);
+      line-height: 1.12;
+    }
+
+    .card p,
+    .source-card p,
+    .lead-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.68;
+    }
+
+    .name-wall {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-content: start;
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      background:
+        radial-gradient(circle at 80% 12%, rgba(154, 176, 255, 0.16), transparent 34%),
+        rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .name-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .name-chip.good {
+      border-color: rgba(120, 240, 214, 0.28);
+      background: rgba(120, 240, 214, 0.08);
+    }
+
+    .name-chip.warn {
+      border-color: rgba(255, 176, 32, 0.28);
+      background: rgba(255, 176, 32, 0.08);
+    }
+
+    .name-chip.stop {
+      border-color: rgba(255, 132, 116, 0.28);
+      background: rgba(255, 132, 116, 0.08);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid rgba(238, 243, 255, 0.08);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow);
+      margin-top: 22px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(238, 243, 255, 0.08);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.64;
+    }
+
+    th {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .state-chip {
+      display: inline-flex;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(238, 243, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .state-chip.good {
+      border-color: rgba(120, 240, 214, 0.28);
+      background: rgba(120, 240, 214, 0.08);
+    }
+
+    .state-chip.warn {
+      border-color: rgba(255, 176, 32, 0.28);
+      background: rgba(255, 176, 32, 0.08);
+    }
+
+    .state-chip.stop {
+      border-color: rgba(255, 132, 116, 0.28);
+      background: rgba(255, 132, 116, 0.08);
+    }
+
+    .state-chip.soft {
+      border-color: rgba(154, 176, 255, 0.28);
+      background: rgba(154, 176, 255, 0.08);
+    }
+
+    .lead-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .lead-card .big {
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.06;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .mini-note {
+      color: var(--faint);
+      font-size: 13px;
+      line-height: 1.58;
+      margin-top: 10px;
+    }
+
+    .language-card {
+      display: grid;
+      gap: 14px;
+    }
+
+    .language-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .language-head h3 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.08;
+    }
+
+    .language-head .latin {
+      color: var(--faint);
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: right;
+    }
+
+    .lang-body {
+      display: grid;
+      gap: 8px;
+    }
+
+    .lang-row {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .lang-row strong {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .lang-row span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.66;
+    }
+
+    .warn-box {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 132, 116, 0.2);
+      background: rgba(255, 132, 116, 0.08);
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .source-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .source-list li {
+      margin: 0 0 10px;
+      line-height: 1.68;
+    }
+
+    .source-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .source-card a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .cards-grid,
+      .source-grid,
+      .language-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dense-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .dense-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      table {
+        min-width: 840px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="site-home-fab" href="../../index.html">返回总览</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-group">
+        <a class="home-link" href="../../index.html">返回总览</a>
+        <div class="brand">
+          <span class="kicker">全球化 / 命名</span>
+          <strong>Pufflo 全球十五语命名方案</strong>
+        </div>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#summary">结论</a>
+        <a href="#principles">原则</a>
+        <a href="#recommended">正式名</a>
+        <a href="#risk">避坑</a>
+        <a href="#full">十五语</a>
+        <a href="#sources">来源</a>
+      </nav>
+      <div class="topbar-group">
+        <button class="btn" type="button" data-focus-toggle>专注模式</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="section hero reveal" id="summary">
+      <div class="wrap">
+        <div class="eyebrow">命名方案</div>
+        <div class="hero-grid">
+          <div class="hero-shell">
+            <h1>Pufflo 全球十五语命名方案</h1>
+            <p class="hero-copy section-sub">
+              全球主名继续保留 <strong>Pufflo</strong>。简中主显示名用 <strong>把福落</strong>。
+              德语区改用 <strong>Poflo</strong>。其余语言按 <strong>正式推荐</strong>、<strong>避坑替代</strong>、<strong>文化化候选</strong> 分层呈现。
+            </p>
+            <div class="dense-grid" style="margin-top:22px;">
+              <article class="lead-card">
+                <div class="big">Pufflo</div>
+                <p>全球主名保留不动。</p>
+              </article>
+              <article class="lead-card">
+                <div class="big">把福落</div>
+                <p>谐音 + 吉祥意。适合作为简中主显示名。</p>
+              </article>
+              <article class="lead-card">
+                <div class="big">Poflo</div>
+                <p>德语区正式替代，直接避开 `Puff`。</p>
+              </article>
+              <article class="lead-card">
+                <div class="big">候选</div>
+                <p>其余语言先按文化化转译推进。</p>
+              </article>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>语言</th>
+                    <th>建议写法</th>
+                    <th>类型</th>
+                    <th>置信度</th>
+                    <th>备注</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>英语</td><td>Pufflo</td><td><span class="state-chip good">正式推荐</span></td><td>高</td><td>全球主名</td></tr>
+                  <tr><td>简体中文</td><td>把福落 / Pufflo</td><td><span class="state-chip good">正式推荐</span></td><td>高</td><td>谐音 + 吉祥意</td></tr>
+                  <tr><td>德语</td><td>Poflo</td><td><span class="state-chip stop">避坑替代</span></td><td>高</td><td>不直接用 Pufflo</td></tr>
+                  <tr><td>日语</td><td>パフロ</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>柔软感强</td></tr>
+                  <tr><td>韩语</td><td>포플로</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>温暖包裹感</td></tr>
+                  <tr><td>法语</td><td>Pouflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>软垫与呼吸意境</td></tr>
+                  <tr><td>西班牙语</td><td>Puflo / Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>更顺发音</td></tr>
+                  <tr><td>葡萄牙语</td><td>Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>保留全球主名</td></tr>
+                  <tr><td>意大利语</td><td>Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>Puffo 联想</td></tr>
+                  <tr><td>土耳其语</td><td>Poflo / Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>Pofuduk 联想</td></tr>
+                  <tr><td>越南语</td><td>Púp-lô / Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>花苞感</td></tr>
+                  <tr><td>阿拉伯语</td><td>بافلو</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>P 常落向 B</td></tr>
+                  <tr><td>印地语</td><td>पफ्लो</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>适合 Hinglish 传播</td></tr>
+                  <tr><td>印尼语</td><td>Pufflo</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>保留主名</td></tr>
+                  <tr><td>泰语</td><td>พัฟโฟล</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>潮流感强</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="name-wall" aria-hidden="true">
+            <span class="name-chip good">Pufflo</span>
+            <span class="name-chip good">把福落</span>
+            <span class="name-chip stop">Poflo</span>
+            <span class="name-chip warn">パフロ</span>
+            <span class="name-chip warn">포플로</span>
+            <span class="name-chip warn">Pouflo</span>
+            <span class="name-chip warn">Puflo</span>
+            <span class="name-chip warn">بافلو</span>
+            <span class="name-chip warn">पफ्लो</span>
+            <span class="name-chip warn">Púp-lô</span>
+            <span class="name-chip warn">พัฟโฟล</span>
+            <span class="name-chip warn">Pufflo</span>
+            <span class="name-chip warn">Poflo</span>
+            <span class="name-chip warn">Pufflo</span>
+            <span class="name-chip warn">Pufflo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="principles">
+      <div class="wrap">
+        <div class="section-kicker">原则</div>
+        <h2 class="section-title">先保留主名，再做转译。</h2>
+        <div class="dense-grid" style="margin-top:24px;">
+          <article class="card">
+            <strong>统一</strong>
+            <p>全球先保留 `Pufflo` 这条主线。</p>
+          </article>
+          <article class="card">
+            <strong>转译</strong>
+            <p>非拉丁字母语言优先做音译 + 意境。</p>
+          </article>
+          <article class="card">
+            <strong>信达雅</strong>
+            <p>不只追求谐音，还要有柔软、流动、陪伴和吉祥感。</p>
+          </article>
+          <article class="card">
+            <strong>分层</strong>
+            <p>`正式推荐` 和 `文化化候选` 不混写。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="recommended">
+      <div class="wrap">
+        <div class="section-kicker">正式名</div>
+        <h2 class="section-title">三种高置信写法。</h2>
+        <div class="cards-grid" style="margin-top:24px;">
+          <article class="card">
+            <strong>Pufflo</strong>
+            <p>英语主名。`Puff + Flow` 的组合最自然，也最适合做全球统一品牌名。</p>
+            <div class="mini-note">类型：正式推荐</div>
+          </article>
+          <article class="card">
+            <strong>把福落 / Pufflo</strong>
+            <p>中文主显示名。谐音完整，含义吉祥，能把“把福气落下”的温柔祝福感带进睡前场景。</p>
+            <div class="mini-note">类型：正式推荐</div>
+          </article>
+          <article class="card">
+            <strong>Poflo</strong>
+            <p>德语区正式替代。保留圆润读音，避开 `Puff` 的负面口语含义。</p>
+            <div class="mini-note">类型：避坑替代</div>
+          </article>
+          <article class="card">
+            <strong>两层口径</strong>
+            <p>正式推荐用于主品牌。文化化候选用于市场讲法、传播文案和地区试水。</p>
+            <div class="mini-note">类型：规则说明</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="risk">
+      <div class="wrap">
+        <div class="section-kicker">避坑</div>
+        <h2 class="section-title">德语区直接避开 Puff。</h2>
+        <div class="warn-box">
+          `Puff` 在德语口语里有明确负面义项。德语区不直接沿用 `Pufflo`，正式建议改成 `Poflo`。页面里会保留理由，但不把这件事写成长篇学术说明。
+        </div>
+        <div class="cards-grid" style="margin-top:24px;">
+          <article class="card">
+            <strong>可以明确说</strong>
+            <p>全球主名保留 `Pufflo`。简中用 `把福落`。德语区改 `Poflo`。</p>
+          </article>
+          <article class="card">
+            <strong>不建议写死</strong>
+            <p>其余语言先按文化化候选推进，不包装成最终法务定稿，也不包装成本地用户已经天然接受。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="full">
+      <div class="wrap">
+        <div class="section-kicker">十五语</div>
+        <h2 class="section-title">完整方案。</h2>
+
+        <div class="section-kicker" style="margin-top:28px;">非拉丁字母</div>
+        <div class="language-grid">
+          <article class="language-card">
+            <div class="language-head">
+              <h3>日语</h3>
+              <div class="latin">パフロ</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>パフロ</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Pafuro</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>`パフ` 的柔软感，加上睡前放松意境。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>像云朵、粉扑、温热泡澡前后的松软感。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>更偏文化化诠释，不是固定词义。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>韩语</h3>
+              <div class="latin">포플로</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>포플로</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Poflo / Po-peul-lo</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>靠近 `포근하다` 的温暖包裹感。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>像晒过太阳的被子，暖、软、稳。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>是语感借力，不是严格词源对应。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>简体中文</h3>
+              <div class="latin">把福落 / Pufflo</div>
+            </div>
+            <span class="state-chip good">正式推荐</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>把福落 / Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>谐音保留</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>谐音 + 吉祥意。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>把福气落下，把安稳和好运轻轻落到枕边。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>适合品牌中文名，不建议过度解释。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>阿拉伯语</h3>
+              <div class="latin">بافلو</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>بافلو</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Baflo / Paflo</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>按当地发音系统做自然转写。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>像夜风、凉意、安稳陪伴。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>`P` 常会落向 `B`，口播需统一。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>印地语</h3>
+              <div class="latin">पफ्लो</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>पफ्लो</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Paflo</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>保留音感，再加“放下压力”的互动感。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>接受柔软，放下压力。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>更适合 Hinglish 传播语境。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>泰语</h3>
+              <div class="latin">พัฟโฟล</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>พัฟโฟล</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Paf-flo</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>保留英文潮玩感、柔软感和轻快感。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>精致、柔软、像夜里的陪伴物。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>偏品牌感，不是传统本地词。</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-kicker" style="margin-top:28px;">拉丁字母</div>
+        <div class="language-grid">
+          <article class="language-card">
+            <div class="language-head">
+              <h3>英语</h3>
+              <div class="latin">Pufflo</div>
+            </div>
+            <span class="state-chip good">正式推荐</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Puff + Flow</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>蓬松感、呼吸起伏、顺滑入睡。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>Soft. Steady. Sleepward.</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>无明显避坑点。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>德语</h3>
+              <div class="latin">Poflo</div>
+            </div>
+            <span class="state-chip stop">避坑替代</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Poflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>避开 Puff，保留圆润读音</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>保留柔软音感，直接绕开负面口语。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>像靠枕、被子、包裹感，温和流入睡眠。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>德语区不直接用 Pufflo。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>法语</h3>
+              <div class="latin">Pouflo</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Pouflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Pouf + souffle + flot 的意境组合</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>柔软触感、轻呼吸、慢慢流下去。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>柔软、平稳、像呼吸和波浪一起慢下来。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>更适合品牌化转写。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>西班牙语</h3>
+              <div class="latin">Puflo / Pufflo</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Puflo / Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>`Puflo` 更顺发音</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>靠近 `puf` 的懒人沙发感，像整个人轻轻陷进去。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>像把身体慢慢交给柔软和困意。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>两种写法都能保留，需统一品牌手册。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>葡萄牙语</h3>
+              <div class="latin">Pufflo</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>保留全球主名</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>`puff` 的柔软感，加上 `fluir` 的流动感。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>无压力、流动、顺着夜晚慢慢睡下去。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>主要靠品牌叙事承载。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>意大利语</h3>
+              <div class="latin">Pufflo</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>接近 `Puffo` 的文化联想</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>可爱、小精灵、圆润守护感。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>像专属于夜晚和睡眠的小守护精灵。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>是文化联想，不是语言学结论。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>土耳其语</h3>
+              <div class="latin">Poflo / Pufflo</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Poflo / Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Poflo 更贴近本地语感</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>借 `Pofuduk` 的软萌、毛茸茸、胖乎乎感。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>软绵绵、抱起来舒服、会陪睡的小精灵。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>本地贴合度和全球一致性需要二选一。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>越南语</h3>
+              <div class="latin">Púp-lô / Pufflo</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Púp-lô / Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>Púp-lô 可做传播转写</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>可借 `Búp` 的花苞、娃娃、小精灵感。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>圆润、需要被呵护，也会呵护你。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>很多场景也可能直接用 Pufflo。</span></div>
+            </div>
+          </article>
+          <article class="language-card">
+            <div class="language-head">
+              <h3>印尼语</h3>
+              <div class="latin">Pufflo</div>
+            </div>
+            <span class="state-chip warn">文化化候选</span>
+            <div class="lang-body">
+              <div class="lang-row"><strong>建议名</strong><span>Pufflo</span></div>
+              <div class="lang-row"><strong>拼写 / 转写</strong><span>直接保留全球主名</span></div>
+              <div class="lang-row"><strong>命名逻辑</strong><span>发音负担低，品牌一致性最好。</span></div>
+              <div class="lang-row"><strong>适合怎么讲</strong><span>帮助进入 `tidur pulas` 的熟睡感。</span></div>
+              <div class="lang-row"><strong>风险提示</strong><span>解释主要靠文案，不靠名字本身。</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sources">
+      <div class="wrap">
+        <div class="section-kicker">来源与备注</div>
+        <h2 class="section-title">来源与备注。</h2>
+        <div class="source-grid" style="margin-top:24px;">
+          <article class="source-card">
+            <strong>可直接引用的语言点</strong>
+            <ul class="source-list">
+              <li><a href="https://www.duden.de/rechtschreibung/Puff_Bordell">Duden：德语 `Puff` 有 `Bordell` 义项</a></li>
+              <li><a href="https://www.treccani.it/vocabolario/puffo/">Treccani：意大利语 `Puffo` 条目</a></li>
+              <li><a href="https://www.larousse.fr/dictionnaires/francais/pouf/63058">Larousse：法语 `pouf` 有软垫坐具义项</a></li>
+            </ul>
+          </article>
+          <article class="source-card">
+            <strong>页面口径</strong>
+            <ul class="source-list">
+              <li>这是品牌转译方案。</li>
+              <li>不是法律注册结论。</li>
+              <li>不是本地用户测试结论。</li>
+              <li>其余语言条目以品牌转译、语感设计、文化联想为主。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+
+    const navLinks = [...document.querySelectorAll(".nav a")];
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { threshold: 0.42 });
+
+    sections.forEach((section) => navObserver.observe(section));
+
+    const focusButton = document.querySelector("[data-focus-toggle]");
+    if (focusButton) {
+      focusButton.addEventListener("click", () => {
+        document.body.classList.toggle("focus");
+      });
+    }
+  </script>
+</body>
+</html>

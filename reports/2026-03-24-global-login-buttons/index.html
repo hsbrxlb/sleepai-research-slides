@@ -138,9 +138,37 @@
       background: rgba(255, 132, 116, 0.08);
     }
 
+    #ranking.section,
+    #summary.section,
+    #stack.section,
+    #cases.section,
+    #matrix.section,
+    #criteria.section,
+    #sources.section {
+      min-height: auto;
+      padding-top: 42px;
+      padding-bottom: 42px;
+    }
+
+    #ranking.section {
+      padding-top: 34px;
+      padding-bottom: 28px;
+    }
+
+    #summary.section {
+      padding-top: 20px;
+    }
+
+    #cases.section,
+    #matrix.section,
+    #criteria.section,
+    #sources.section {
+      padding-top: 26px;
+    }
+
     .visual-stage {
       position: relative;
-      min-height: 460px;
+      min-height: 420px;
       border-radius: 26px;
       overflow: hidden;
       border: 1px solid rgba(238, 243, 255, 0.08);
@@ -161,46 +189,13 @@
       pointer-events: none;
     }
 
-    .logo-cloud {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .logo-node {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(238, 243, 255, 0.1);
-      background: rgba(8, 15, 28, 0.76);
-      backdrop-filter: blur(10px);
-      color: var(--text);
-      font-size: 13px;
-      line-height: 1;
-      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
-    }
-
-    .logo-node img {
-      width: 16px;
-      height: 16px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
-
     .mockup {
       position: absolute;
       left: 50%;
-      top: 40px;
+      top: 32px;
       transform: translateX(-50%);
       width: min(336px, calc(100% - 56px));
-      padding: 22px 22px 18px;
+      padding: 22px 22px 20px;
       border-radius: 28px;
       background: rgba(7, 12, 23, 0.92);
       border: 1px solid rgba(238, 243, 255, 0.1);
@@ -218,6 +213,19 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.6;
+    }
+
+    .mockup-headline {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .mockup-kicker {
+      color: var(--faint);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .button-list {
@@ -250,13 +258,25 @@
       background: rgba(255,255,255,0.03);
     }
 
+    .mockup-group {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .mockup-group strong {
+      font-size: 12px;
+      color: var(--faint);
+      letter-spacing: 0.04em;
+    }
+
     .mockup-note {
-      margin-top: 14px;
+      margin-top: 16px;
       padding-top: 14px;
       border-top: 1px solid rgba(238, 243, 255, 0.08);
       color: var(--faint);
       font-size: 12px;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     .criteria-card,
@@ -453,20 +473,32 @@
     .case-head {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      margin-bottom: 2px;
     }
 
-    .case-head img {
-      width: 22px;
-      height: 22px;
+    .case-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(238, 243, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .case-icon img {
+      width: 18px;
+      height: 18px;
       object-fit: contain;
       filter: brightness(0) invert(1);
     }
 
     .case-head h3 {
       margin: 0;
-      font-size: 28px;
-      line-height: 1.06;
+      font-size: 26px;
+      line-height: 1.08;
     }
 
     .case-card ul,
@@ -550,25 +582,41 @@
     }
 
     #sources .section-title {
-      font-size: clamp(22px, 2.6vw, 30px);
-      margin-bottom: 8px;
+      font-size: clamp(18px, 2vw, 24px);
+      margin-bottom: 6px;
     }
 
     #sources .source-card {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.03);
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
     }
 
     #sources .source-card strong {
-      margin-bottom: 8px;
-      font-size: 18px;
+      margin-bottom: 6px;
+      font-size: 16px;
     }
 
     #sources .source-card p,
     #sources .source-card li {
-      font-size: 13px;
-      line-height: 1.56;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .source-shell {
+      padding: 18px 20px;
+      border-radius: 20px;
+    }
+
+    .compact-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 16px;
+    }
+
+    .compact-grid > * {
+      min-width: 0;
     }
 
     @media (max-width: 1120px) {
@@ -584,6 +632,10 @@
       .case-grid {
         grid-template-columns: 1fr;
       }
+
+      .compact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 820px) {
@@ -591,10 +643,6 @@
       .source-grid,
       .quadrant-grid {
         grid-template-columns: 1fr;
-      }
-
-      .visual-stage {
-        min-height: 540px;
       }
 
       .mockup {
@@ -612,15 +660,8 @@
         max-width: none;
       }
 
-      .logo-node {
-        font-size: 12px;
-        padding: 8px 12px;
-      }
-
-      .logo-cloud {
-        left: 16px;
-        right: 16px;
-        bottom: 18px;
+      .visual-stage {
+        min-height: 360px;
       }
     }
   </style>
@@ -661,9 +702,9 @@
             <div>
               <h1>先看前十，再看取舍。</h1>
               <p class="hero-copy section-sub">
-                当前只看欧美市场。默认层先放 <strong>Google</strong>、<strong>Apple</strong>。
-                <strong>X</strong>、<strong>TikTok</strong> 进入候选层。
-                <strong>Facebook</strong> 保留对比，不进入当前版。
+                先看欧美。当前先放 <strong>Google</strong>、<strong>Apple</strong>。
+                <strong>X</strong>、<strong>TikTok</strong> 留在候选层。
+                <strong>Facebook</strong> 只保留对比。
               </p>
             </div>
             <div class="topline">
@@ -772,21 +813,26 @@
           </div>
           <div class="visual-stage">
             <div class="mockup">
-              <h3>注册页快捷登录</h3>
-              <p>默认按钮先短。候选按钮后加。</p>
-              <div class="button-list">
-                <div class="button-item"><img src="./assets/brands/google.svg" alt="">使用 Google 登录</div>
-                <div class="button-item"><img src="./assets/brands/apple.svg" alt="">使用 Apple 登录</div>
-                <div class="button-item subtle"><img src="./assets/brands/x.svg" alt="">使用 X 登录</div>
-                <div class="button-item subtle"><img src="./assets/brands/tiktok.svg" alt="">使用 TikTok 登录</div>
+              <div class="mockup-headline">
+                <div class="mockup-kicker">注册页示意</div>
+                <h3>默认按钮先短。</h3>
+                <p>当前先做两颗。候选层后加。</p>
               </div>
-              <div class="mockup-note">当前版：Google、Apple。候选层：X、TikTok。</div>
-            </div>
-            <div class="logo-cloud" aria-hidden="true">
-              <span class="logo-node"><img src="./assets/brands/google.svg" alt="">Google</span>
-              <span class="logo-node"><img src="./assets/brands/apple.svg" alt="">Apple</span>
-              <span class="logo-node"><img src="./assets/brands/x.svg" alt="">X</span>
-              <span class="logo-node"><img src="./assets/brands/tiktok.svg" alt="">TikTok</span>
+              <div class="mockup-group">
+                <strong>默认层</strong>
+                <div class="button-list">
+                  <div class="button-item"><img src="./assets/brands/google.svg" alt="">使用 Google 登录</div>
+                  <div class="button-item"><img src="./assets/brands/apple.svg" alt="">使用 Apple 登录</div>
+                </div>
+              </div>
+              <div class="mockup-group">
+                <strong>候选层</strong>
+                <div class="button-list">
+                  <div class="button-item subtle"><img src="./assets/brands/x.svg" alt="">使用 X 登录</div>
+                  <div class="button-item subtle"><img src="./assets/brands/tiktok.svg" alt="">使用 TikTok 登录</div>
+                </div>
+              </div>
+              <div class="mockup-note">当前版先做 Google、Apple。X、TikTok 留作下一层。</div>
             </div>
           </div>
         </div>
@@ -796,7 +842,7 @@
     <section class="section reveal" id="summary">
       <div class="wrap">
         <div class="section-kicker">结论</div>
-        <h2 class="section-title">当前版只放两颗默认按钮。</h2>
+        <h2 class="section-title">当前版先放两颗。</h2>
         <div class="cards-grid" style="margin-top:24px;">
           <article class="matrix-card">
             <strong>当前建议</strong>
@@ -865,44 +911,44 @@
     <section class="section reveal" id="cases">
       <div class="wrap">
         <div class="section-kicker">重点</div>
-        <h2 class="section-title">三颗最容易争议的按钮。</h2>
+        <h2 class="section-title">三颗争议按钮。</h2>
         <div class="case-grid" style="margin-top:24px;">
           <article class="case-card">
             <div class="case-head">
-              <img src="./assets/brands/x.svg" alt="">
+              <span class="case-icon"><img src="./assets/brands/x.svg" alt=""></span>
               <h3>X</h3>
             </div>
-            <p>能做真登录。当前更适合候选层。</p>
+            <p>能做登录。先放候选层。</p>
             <ul>
               <li>官方 OAuth 完整存在。</li>
-              <li>更像社媒重度用户入口，不像底层账号体系。</li>
-              <li>覆盖面和设备绑定度弱于 Google、Apple。</li>
+              <li>更像社媒入口，不像底层账号体系。</li>
+              <li>覆盖面弱于 Google、Apple。</li>
             </ul>
             <span class="state-chip watch">候选</span>
           </article>
           <article class="case-card">
             <div class="case-head">
-              <img src="./assets/brands/whatsapp.svg" alt="">
+              <span class="case-icon"><img src="./assets/brands/whatsapp.svg" alt=""></span>
               <h3>WhatsApp</h3>
             </div>
-            <p>用户很大，但不是标准的一键登录供应商。</p>
+            <p>用户很多，但不是标准注册入口。</p>
             <ul>
-              <li>公开能力更偏 Business 接入。</li>
-              <li>真硬做，登录流容易和用户预期错位。</li>
-              <li>适合消息触达，不适合默认注册按钮。</li>
+              <li>公开能力更偏商家接入。</li>
+              <li>真做会让登录预期错位。</li>
+              <li>更像消息入口，不像注册入口。</li>
             </ul>
             <span class="state-chip stop">不做独立按钮</span>
           </article>
           <article class="case-card">
             <div class="case-head">
-              <img src="./assets/brands/instagram.svg" alt="">
+              <span class="case-icon"><img src="./assets/brands/instagram.svg" alt=""></span>
               <h3>Instagram</h3>
             </div>
-            <p>名字大，不等于适合放注册页。</p>
+            <p>名字很大，但不适合放首页。</p>
             <ul>
               <li>不是标准底座账号。</li>
-              <li>真做会绕，支持范围也不稳。</li>
-              <li>更像内容来源，不像注册入口。</li>
+              <li>真做会绕，支持也不稳。</li>
+              <li>更像内容入口，不像注册入口。</li>
             </ul>
             <span class="state-chip stop">不做独立按钮</span>
           </article>
@@ -917,6 +963,7 @@
         <div class="quadrant-grid">
           <article class="quadrant good">
             <h3>当前建议</h3>
+            <p>先做覆盖面最大、摩擦最低的两颗。</p>
             <div class="logo-row">
               <span class="brand-pill"><img src="./assets/brands/google.svg" alt="">Google</span>
               <span class="brand-pill"><img src="./assets/brands/apple.svg" alt="">Apple</span>
@@ -924,26 +971,36 @@
           </article>
           <article class="quadrant watch">
             <h3>候选层</h3>
+            <p>技术能做，但先不抢默认层位置。</p>
             <div class="logo-row">
               <span class="brand-pill"><img src="./assets/brands/x.svg" alt="">X</span>
               <span class="brand-pill"><img src="./assets/brands/tiktok.svg" alt="">TikTok</span>
+            </div>
+          </article>
+          <article class="quadrant">
+            <h3>当前不纳入</h3>
+            <p>有能力，但当前版本先不接。</p>
+            <div class="logo-row">
               <span class="brand-pill"><img src="./assets/brands/facebook.svg" alt="">Facebook</span>
             </div>
           </article>
           <article class="quadrant stop">
             <h3>不独立放</h3>
+            <p>用户很多，但都不适合作为首页注册入口。</p>
             <div class="logo-row">
               <span class="brand-pill"><img src="./assets/brands/whatsapp.svg" alt="">WhatsApp</span>
               <span class="brand-pill"><img src="./assets/brands/instagram.svg" alt="">Instagram</span>
             </div>
           </article>
-          <article class="quadrant">
-            <h3>地区参考</h3>
-            <div class="logo-row">
-              <span class="brand-pill"><img src="./assets/brands/wechat.svg" alt="">WeChat</span>
-              <span class="brand-pill"><img src="./assets/brands/line.svg" alt="">LINE</span>
-              <span class="brand-pill"><img src="./assets/brands/kakao.svg" alt="">Kakao</span>
-            </div>
+        </div>
+        <div class="compact-grid">
+          <article class="matrix-card">
+            <strong>地区参考</strong>
+            <p>WeChat、LINE、Kakao 只留作地区版参考，不进入当前欧美优先版本。</p>
+          </article>
+          <article class="matrix-card">
+            <strong>亚洲平台</strong>
+            <p>只保留参考，不进入当前真实方案。</p>
           </article>
         </div>
       </div>
@@ -952,7 +1009,7 @@
     <section class="section reveal" id="criteria">
       <div class="wrap">
         <div class="section-kicker">标准</div>
-        <h2 class="section-title">只看体量，会误判。</h2>
+        <h2 class="section-title">体量大，不等于该放首页。</h2>
         <div class="criteria-grid" style="margin-top:24px;">
           <article class="criteria-card">
             <strong>体量</strong>
@@ -978,45 +1035,28 @@
       <div class="wrap">
         <div class="section-kicker">来源</div>
         <h2 class="section-title">来源</h2>
-        <div class="cards-grid" style="margin-top:24px;">
-          <article class="source-card">
-            <strong>为什么不是 WhatsApp / Instagram</strong>
-            <p>用户很多，但都不是标准消费级一键登录底座。做成独立按钮，最容易出现预期错位。</p>
-          </article>
-          <article class="source-card">
-            <strong>为什么是 X / TikTok</strong>
-            <p>两者都有官方登录能力。当前不进默认层，但都有资格进入候选层。</p>
-          </article>
-        </div>
-        <div class="source-grid" style="margin-top:24px;">
+        <div class="source-grid" style="margin-top:16px;">
           <article class="source-card">
             <strong>规模数据</strong>
             <ul class="source-list">
-              <li><a href="https://investor.atmeta.com/investor-news/press-release-details/2024/Meta-Reports-Fourth-Quarter-and-Full-Year-2023-Results-Initiates-Quarterly-Dividend/default.aspx?code=unknown">Facebook 3.07B MAU</a></li>
-              <li><a href="https://about.fb.com/news/2025/09/introducing-message-translations-whatsapp/amp/">WhatsApp 3B+</a></li>
-              <li><a href="https://www.cnbc.com/2025/09/25/instagram-3-billion-monthly-active-users.html">Instagram 3B MAU</a></li>
-              <li><a href="https://apnews.com/article/63d6b29a82cb3de7702529b54b3c5071">Gmail 3B users</a></li>
-              <li><a href="https://www.apple.com/newsroom/2026/01/apple-reports-first-quarter-results/">Apple 2.5B active devices</a></li>
-              <li><a href="https://www.prnewswire.com/apac/news-releases/tencent-announces-2025-second-quarter-results-302528863.html">WeChat 1.411B combined MAU</a></li>
-              <li><a href="https://investor.snap.com/news/news-details/2026/Snap-Inc--Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results/default.aspx">Snapchat 946M MAU</a></li>
-              <li>DataReportal 2025：TikTok 1.84B；X 586M 广告触达代理</li>
+              <li><a href="https://investor.atmeta.com/investor-news/press-release-details/2024/Meta-Reports-Fourth-Quarter-and-Full-Year-2023-Results-Initiates-Quarterly-Dividend/default.aspx?code=unknown">Facebook 30.7 亿月活</a></li>
+              <li><a href="https://about.fb.com/news/2025/09/introducing-message-translations-whatsapp/amp/">WhatsApp 30 亿+</a></li>
+              <li><a href="https://www.cnbc.com/2025/09/25/instagram-3-billion-monthly-active-users.html">Instagram 30 亿月活</a></li>
+              <li><a href="https://apnews.com/article/63d6b29a82cb3de7702529b54b3c5071">Gmail 30 亿用户</a></li>
+              <li><a href="https://www.apple.com/newsroom/2026/01/apple-reports-first-quarter-results/">Apple 25 亿+ 活跃设备</a></li>
+              <li>DataReportal 2025：TikTok 18.4 亿；X 5.86 亿</li>
             </ul>
           </article>
           <article class="source-card">
             <strong>登录能力</strong>
             <ul class="source-list">
-              <li><a href="https://developers.google.com/identity/authentication">Google Authentication</a></li>
-              <li><a href="https://developer.apple.com/documentation/xcode/configuring-sign-in-with-apple">Sign in with Apple</a></li>
-              <li><a href="https://developer.apple.com/news/upcoming-requirements/?id=06302020a">App Store 4.8</a></li>
-              <li><a href="https://developers.facebook.com/docs/facebook-login/">Facebook Login</a></li>
-              <li><a href="https://developer.x.com/en/docs/authentication/oauth-2-0/authorization-code">X OAuth 2.0</a></li>
+              <li><a href="https://developers.google.com/identity/authentication">Google 登录</a></li>
+              <li><a href="https://developer.apple.com/documentation/xcode/configuring-sign-in-with-apple">Apple 登录</a></li>
+              <li><a href="https://developers.facebook.com/docs/facebook-login/">Facebook 登录</a></li>
+              <li><a href="https://developer.x.com/en/docs/authentication/oauth-2-0/authorization-code">X OAuth</a></li>
               <li><a href="https://developers.tiktok.com/doc/login-kit-overview">TikTok Login Kit</a></li>
-              <li><a href="https://developers.line.biz/en/docs/line-login/">LINE Login</a></li>
-              <li><a href="https://core.telegram.org/widgets/login">Telegram Login Widget</a></li>
-              <li><a href="https://developers.snap.com/snap-kit/login-kit/overview">Snap Login Kit</a></li>
-              <li><a href="https://developers.kakao.com/docs/latest/en/kakaologin/common">Kakao Login</a></li>
               <li><a href="https://developers.facebook.com/docs/whatsapp/embedded-signup/">WhatsApp Embedded Signup</a></li>
-              <li><a href="https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login">Instagram API with Instagram Login</a></li>
+              <li><a href="https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login">Instagram Login</a></li>
             </ul>
           </article>
         </div>

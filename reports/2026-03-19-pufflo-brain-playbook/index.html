@@ -1061,9 +1061,8 @@
           <a href="#entry-onboarding">01. 新用户</a>
           <a href="#home-routing">02. 首页入口</a>
           <div class="toc-group">
-            <a href="#module-rules" class="toc-parent">03. 模块规则</a>
+            <div class="toc-parent" role="heading" aria-level="2">03. 模块规则</div>
             <div class="toc-sub">
-              <a href="#shared-rules">通用规则</a>
               <a href="#onboarding">首页对话 / 登录订阅</a>
               <a href="#personas">人设与提示词</a>
               <a href="#story">AI 故事</a>
@@ -1091,9 +1090,8 @@
         <a href="#entry-onboarding">01. 新用户</a>
         <a href="#home-routing">02. 首页入口</a>
         <div class="toc-group" data-group="module-rules">
-          <a href="#module-rules" class="toc-parent">03. 模块规则</a>
+          <div class="toc-parent" role="heading" aria-level="2">03. 模块规则</div>
           <div class="toc-sub">
-            <a href="#shared-rules">通用规则</a>
             <a href="#onboarding">首页对话 / 登录订阅</a>
             <a href="#personas">人设与提示词</a>
             <a href="#story">AI 故事</a>
@@ -2720,8 +2718,6 @@
       const tocLinks = [...document.querySelectorAll('.toc a')];
       const moduleGroup = document.querySelector('.toc-group[data-group="module-rules"]');
       const moduleIds = new Set([
-        'module-rules',
-        'shared-rules',
         'onboarding',
         'personas',
         'story',

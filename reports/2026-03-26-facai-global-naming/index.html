@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发财 全球十五语命名方案</title>
+  <meta name="description" content="围绕 发财 / Fortune，整理 15 种语言的建议写法、文化解释与命名风险。">
+  <link rel="stylesheet" href="../../assets/css/deck.css">
+  <style>
+    :root {
+      --paper: #fffaf3;
+      --paper-2: #fffcf7;
+      --card: rgba(255, 255, 255, 0.88);
+      --line: rgba(59, 53, 48, 0.1);
+      --text-main: #1f2740;
+      --text-soft: #645f5a;
+      --gold-soft: #fff1dc;
+      --gold-line: #f2b464;
+      --coral-soft: #ffe3db;
+      --coral-line: #ea8f7d;
+      --mint-soft: #e4f6ef;
+      --mint-line: #71c7ad;
+      --shadow-soft: 0 18px 42px rgba(60, 51, 41, 0.08);
+    }
+
+    body {
+      color: var(--text-main);
+      background:
+        radial-gradient(780px 520px at 0% 0%, rgba(255, 214, 157, 0.28), transparent 58%),
+        radial-gradient(760px 500px at 100% 8%, rgba(255, 224, 204, 0.22), transparent 56%),
+        linear-gradient(180deg, #fffefb 0%, #fff9f0 52%, #fff5e8 100%);
+    }
+
+    .topbar {
+      background: rgba(255, 252, 247, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(59, 53, 48, 0.08);
+    }
+
+    .topbar .home-link,
+    .topbar .brand strong,
+    .topbar .nav a,
+    .topbar .btn {
+      color: var(--text-main);
+    }
+
+    .topbar .brand .kicker {
+      color: #c3783c;
+    }
+
+    .topbar .nav a,
+    .topbar .btn,
+    .topbar .home-link {
+      background: rgba(255, 255, 255, 0.84);
+      border-color: rgba(59, 53, 48, 0.08);
+    }
+
+    .topbar .nav a.active,
+    .topbar .nav a:hover,
+    .topbar .btn:hover,
+    .topbar .home-link:hover {
+      background: rgba(242, 180, 100, 0.12);
+      border-color: rgba(242, 180, 100, 0.28);
+      color: var(--text-main);
+    }
+
+    .site-home-fab {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text-main);
+      border: 1px solid rgba(59, 53, 48, 0.1);
+      box-shadow: 0 10px 24px rgba(60, 51, 41, 0.08);
+    }
+
+    .page {
+      background:
+        linear-gradient(rgba(59, 53, 48, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 53, 48, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .section {
+      min-height: auto;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    .hero {
+      padding-top: 24px;
+      padding-bottom: 20px;
+    }
+
+    .wrap {
+      max-width: 1260px;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: #c3783c;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .section-kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: rgba(195, 120, 60, 0.45);
+    }
+
+    .hero-grid,
+    .core-grid,
+    .language-grid,
+    .risk-grid,
+    .source-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .core-grid,
+    .source-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .language-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .risk-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hero-grid > *,
+    .core-grid > *,
+    .language-grid > *,
+    .risk-grid > *,
+    .source-grid > * {
+      min-width: 0;
+    }
+
+    .hero-shell,
+    .core-card,
+    .language-card,
+    .risk-card,
+    .source-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-shell {
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .hero h1 {
+      max-width: 12ch;
+      font-size: clamp(36px, 4.2vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .hero-copy {
+      max-width: 36ch;
+      margin-top: 12px;
+      color: #70695f;
+      font-size: 16px;
+      line-height: 1.72;
+    }
+
+    .hero-copy strong,
+    .language-card strong,
+    .risk-card strong,
+    .source-card strong,
+    .core-card strong {
+      color: var(--text-main);
+    }
+
+    .hero-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      line-height: 1;
+      border: 1px solid rgba(59, 53, 48, 0.08);
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--text-main);
+    }
+
+    .hero-pill.gold {
+      background: var(--gold-soft);
+      border-color: rgba(242, 180, 100, 0.35);
+    }
+
+    .hero-pill.coral {
+      background: var(--coral-soft);
+      border-color: rgba(234, 143, 125, 0.35);
+    }
+
+    .hero-pill.mint {
+      background: var(--mint-soft);
+      border-color: rgba(113, 199, 173, 0.35);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      margin-top: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow-soft);
+    }
+
+    table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(59, 53, 48, 0.08);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    th {
+      color: var(--text-main);
+      background: rgba(255, 246, 233, 0.92);
+      font-weight: 700;
+    }
+
+    td {
+      color: var(--text-soft);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .state-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      color: var(--text-main);
+      border: 1px solid rgba(59, 53, 48, 0.1);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .state-chip.good {
+      background: var(--mint-soft);
+      border-color: rgba(113, 199, 173, 0.45);
+    }
+
+    .state-chip.warn {
+      background: var(--gold-soft);
+      border-color: rgba(242, 180, 100, 0.45);
+    }
+
+    .state-chip.stop {
+      background: var(--coral-soft);
+      border-color: rgba(234, 143, 125, 0.45);
+    }
+
+    .section-title {
+      max-width: 18ch;
+      color: var(--text-main);
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .core-card,
+    .language-card,
+    .risk-card,
+    .source-card {
+      padding: 20px;
+      border-radius: 22px;
+    }
+
+    .core-card p,
+    .risk-card p,
+    .source-card p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.64;
+    }
+
+    .core-card strong,
+    .risk-card strong,
+    .source-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 22px;
+      line-height: 1.12;
+    }
+
+    .language-group {
+      margin-top: 18px;
+    }
+
+    .language-group .subhead {
+      margin: 0 0 14px;
+      color: var(--text-main);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .language-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .language-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .language-head h3 {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .language-head .latin {
+      color: #8a816f;
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: right;
+    }
+
+    .lang-body {
+      display: grid;
+      gap: 7px;
+    }
+
+    .lang-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .lang-row strong {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .lang-row span {
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+
+    .risk-card {
+      min-height: 100%;
+    }
+
+    .source-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-soft);
+    }
+
+    .source-list li {
+      margin: 0 0 8px;
+      line-height: 1.56;
+      font-size: 13px;
+    }
+
+    #sources {
+      padding-top: 20px;
+      padding-bottom: 26px;
+    }
+
+    #sources .section-title {
+      font-size: clamp(18px, 2vw, 24px);
+      max-width: none;
+    }
+
+    #sources .source-card {
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 8px 22px rgba(60, 51, 41, 0.04);
+    }
+
+    @media (max-width: 1120px) {
+      .core-grid,
+      .language-grid,
+      .risk-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .lang-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .hero h1,
+      .section-title {
+        max-width: none;
+      }
+
+      table {
+        min-width: 760px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="site-home-fab" href="../../index.html">返回总览</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-group">
+        <a class="home-link" href="../../index.html">返回总览</a>
+        <div class="brand">
+          <span class="kicker">全球化 / 命名</span>
+          <strong>发财 全球十五语命名方案</strong>
+        </div>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#summary">结论</a>
+        <a href="#full">十五语</a>
+        <a href="#core">中英主口径</a>
+        <a href="#languages">各语种</a>
+        <a href="#risk">风险</a>
+        <a href="#sources">来源</a>
+      </nav>
+      <div class="topbar-group">
+        <button class="btn" type="button" data-focus-toggle>专注模式</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="section hero reveal" id="summary">
+      <div class="wrap">
+        <div class="eyebrow">命名方案</div>
+        <div class="hero-grid">
+          <div class="hero-shell">
+            <h1>发财 全球十五语命名方案</h1>
+            <p class="hero-copy">中文主名先看 <strong>发财</strong>。英文主名先看 <strong>Fortune</strong>。其余语种优先走好运、丰盛、招福、财运流入这条线。</p>
+            <div class="hero-strip">
+              <span class="hero-pill gold">中文主名：发财</span>
+              <span class="hero-pill coral">英文主名：Fortune</span>
+              <span class="hero-pill mint">其余语种：优先文化化转译</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="full">
+      <div class="wrap">
+        <div class="section-kicker">十五语</div>
+        <h2 class="section-title">十五语完整方案。</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>语言</th>
+                <th>建议写法</th>
+                <th>类型</th>
+                <th>置信度</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>英语</td><td>Fortune</td><td><span class="state-chip good">主显示名</span></td><td>高</td><td>直接、好记、商业意图清楚。</td></tr>
+              <tr><td>简体中文</td><td>发财</td><td><span class="state-chip good">主显示名</span></td><td>高</td><td>吉利感最强，中文记忆点最直接。</td></tr>
+              <tr><td>西班牙语</td><td>Fortuna</td><td><span class="state-chip warn">建议写法</span></td><td>中</td><td>保留好运与机运感，比直译“赚钱”更自然。</td></tr>
+              <tr><td>葡萄牙语</td><td>Fortuna</td><td><span class="state-chip warn">建议写法</span></td><td>中</td><td>顺口，也带丰盛和富足感。</td></tr>
+              <tr><td>日语</td><td>福来</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>偏“福来了”的吉祥写法。</td></tr>
+              <tr><td>德语</td><td>Fortuna</td><td><span class="state-chip warn">建议写法</span></td><td>中</td><td>比 `Fortune` 更自然，也比直译更柔和。</td></tr>
+              <tr><td>法语</td><td>Fortune</td><td><span class="state-chip warn">建议写法</span></td><td>中</td><td>可直接承接英语主名，但角色感偏抽象。</td></tr>
+              <tr><td>韩语</td><td>복이</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>更像“福气来了”的亲切叫法。</td></tr>
+              <tr><td>阿拉伯语</td><td>بركة</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>优先保留祝福、丰盛、被照拂的含义。</td></tr>
+              <tr><td>印地语</td><td>बरकत</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>比直接谈钱更自然，更像福气和丰盛。</td></tr>
+              <tr><td>印尼语</td><td>Rezeki</td><td><span class="state-chip warn">建议写法</span></td><td>中</td><td>更像好运与收获，而不是硬谈金钱。</td></tr>
+              <tr><td>土耳其语</td><td>Bereket</td><td><span class="state-chip warn">建议写法</span></td><td>中</td><td>更接近丰盛、充盈、日子更顺。</td></tr>
+              <tr><td>意大利语</td><td>Fortuna</td><td><span class="state-chip warn">建议写法</span></td><td>中</td><td>自然、经典，也带好运来到的语感。</td></tr>
+              <tr><td>越南语</td><td>Phát Tài</td><td><span class="state-chip warn">建议写法</span></td><td>高</td><td>与中文语义最接近，也有文化接受度。</td></tr>
+              <tr><td>泰语</td><td>เฮงมา</td><td><span class="state-chip warn">文化化候选</span></td><td>中</td><td>更像“好运来了”，比直译更顺口。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="core">
+      <div class="wrap">
+        <div class="section-kicker">中英主口径</div>
+        <h2 class="section-title">中文和英文先定。</h2>
+        <div class="core-grid">
+          <article class="core-card">
+            <strong>发财</strong>
+            <p>简体中文主显示名。短、直接、吉利。更像华人市场里的主视觉名字，也更容易留下记忆点。</p>
+          </article>
+          <article class="core-card">
+            <strong>Fortune</strong>
+            <p>默认英文主写法。直接、好记、商业意图明确。风险也要一并看清，词义更偏命运、财运和品牌大词，不天然像陪伴角色小名。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="languages">
+      <div class="wrap">
+        <div class="section-kicker">各语种</div>
+        <h2 class="section-title">按语种展开。</h2>
+
+        <div class="language-group">
+          <h3 class="subhead">非拉丁字母语言</h3>
+          <div class="language-grid">
+            <article class="language-card">
+              <div class="language-head"><h3>简体中文</h3><div class="latin">发财</div></div>
+              <span class="state-chip good">主显示名</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>发财</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>吉利感最强，也最直接。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>招福、招财、好运落进生活。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>语义很强，海外传播不宜照搬字面。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>日语</h3><div class="latin">福来</div></div>
+              <span class="state-chip warn">文化化候选</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>福来</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>把“福来了”压成短名。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>福气来到身边，像好运轻轻落下。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>更偏文化化写法，不是固定常用词。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>韩语</h3><div class="latin">복이</div></div>
+              <span class="state-chip warn">文化化候选</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>복이</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>更像“福气来了”的亲切昵称。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运贴近身边，被幸运照顾。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>更偏可爱昵称，正式品牌感略弱。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>阿拉伯语</h3><div class="latin">بركة</div></div>
+              <span class="state-chip warn">文化化候选</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>بركة</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>优先保留祝福、丰盛和被照拂。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>祝福来到，生活更稳、更足。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>宗教语感较强，传播时要控制语气。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>印地语</h3><div class="latin">बरकत</div></div>
+              <span class="state-chip warn">文化化候选</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>बरकत</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>更偏福气和丰盛，不只谈钱。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>福气来到家里，日子更顺。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>偏祝福语境，不宜写成夸张发财口号。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>泰语</h3><div class="latin">เฮงมา</div></div>
+              <span class="state-chip warn">文化化候选</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>เฮงมา</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>用“好运来了”代替生硬直译。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运来到，顺势变好。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>偏口语和传播语感，不是正式词典词。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>越南语</h3><div class="latin">Phát Tài</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Phát Tài</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>与中文语义最接近，也有文化接受度。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>招财、好运、日子更旺。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>语义偏强，使用时要避免太功利。</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="language-group">
+          <h3 class="subhead">拉丁字母语言</h3>
+          <div class="language-grid">
+            <article class="language-card">
+              <div class="language-head"><h3>英语</h3><div class="latin">Fortune</div></div>
+              <span class="state-chip good">主显示名</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Fortune</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>直接、好记、商业意图清楚。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运、财运、机会来到身边。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>更像概念词，不天然像可爱角色名。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>西班牙语</h3><div class="latin">Fortuna</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Fortuna</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>比直谈“赚钱”更自然。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运降临，丰盛慢慢来到。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>写得太硬，容易像命运口号。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>葡萄牙语</h3><div class="latin">Fortuna</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Fortuna</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>顺口，也带好运与富足感。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运、富足、生活顺流。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>更适合品牌名，不宜写成金融口吻。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>德语</h3><div class="latin">Fortuna</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Fortuna</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>比 `Fortune` 更自然，也比直译更柔和。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>幸运、丰盛、机遇站到身边。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>更偏经典词，不像年轻角色名。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>法语</h3><div class="latin">Fortune</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Fortune</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>直接承接英语主名，也保留财富和机运双义。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运、顺势、丰盛感。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>会偏抽象名词，角色感不强。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>印尼语</h3><div class="latin">Rezeki</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Rezeki</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>更像好运与收获，而不是硬谈金钱。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运、收获、被眷顾。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>文化语境较深，文案要保持温和。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>土耳其语</h3><div class="latin">Bereket</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Bereket</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>更接近丰盛、充盈、日子更顺。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>丰盛来到，生活更稳。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>偏成熟、偏概念，不像拟人角色名。</span></div>
+              </div>
+            </article>
+            <article class="language-card">
+              <div class="language-head"><h3>意大利语</h3><div class="latin">Fortuna</div></div>
+              <span class="state-chip warn">建议写法</span>
+              <div class="lang-body">
+                <div class="lang-row"><strong>建议名</strong><span>Fortuna</span></div>
+                <div class="lang-row"><strong>命名逻辑</strong><span>自然、经典，也带好运来到的语感。</span></div>
+                <div class="lang-row"><strong>适合怎么讲</strong><span>好运、丰盛、被眷顾。</span></div>
+                <div class="lang-row"><strong>风险提示</strong><span>更像品牌或象征词，不像陪伴角色小名。</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="risk">
+      <div class="wrap">
+        <div class="section-kicker">风险</div>
+        <h2 class="section-title">风险先看三类。</h2>
+        <div class="risk-grid">
+          <article class="risk-card">
+            <strong>过于功利</strong>
+            <p>部分语言里如果把“发财”直译成只谈钱，品牌会变得太硬，也容易失掉陪伴和吉祥感。</p>
+          </article>
+          <article class="risk-card">
+            <strong>偏命运或占卜</strong>
+            <p>`Fortune` 在一些市场更像命运、财运或算命语境，传播时要防止过度神秘化。</p>
+          </article>
+          <article class="risk-card">
+            <strong>更适合传播</strong>
+            <p>部分写法更适合营销和传播，不一定适合直接拿去做正式角色名或法务注册名。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sources">
+      <div class="wrap">
+        <div class="section-kicker">来源</div>
+        <h2 class="section-title">来源与备注。</h2>
+        <div class="source-grid">
+          <article class="source-card">
+            <strong>语言与转译依据</strong>
+            <ul class="source-list">
+              <li>围绕好运、丰盛、招福、财运流入这条线做品牌转译。</li>
+              <li>优先看本地自然度、语感和文化接受度。</li>
+            </ul>
+          </article>
+          <article class="source-card">
+            <strong>使用说明</strong>
+            <ul class="source-list">
+              <li>这是命名与传播方案。</li>
+              <li>不是法律注册结论。</li>
+              <li>不是本地用户测试结论。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../assets/js/deck.js"></script>
+</body>
+</html>

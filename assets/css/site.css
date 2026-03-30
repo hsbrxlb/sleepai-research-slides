@@ -122,12 +122,12 @@ h1 {
   line-height: 0.96;
   letter-spacing: -0.05em;
   color: var(--text-strong);
-  max-width: 9ch;
+  max-width: 26ch;
 }
 
 .hero-copy {
   margin: 0;
-  max-width: 33ch;
+  max-width: 56ch;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.72;

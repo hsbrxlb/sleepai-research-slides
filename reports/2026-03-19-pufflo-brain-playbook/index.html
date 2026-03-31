@@ -1117,10 +1117,11 @@
           <h1 id="top">Pufflo 规则手册</h1>
         </header>
 
-                <section class="section" id="entry-onboarding">
+        <section class="section" id="entry-onboarding">
           <h2>新用户</h2>
           <div class="content-meta">
             <span class="type-badge fixed">Fixed Copy / 固定文案</span>
+            <span class="type-badge prompt">Prompt / 提示词</span>
           </div>
 
           <div class="subsection">
@@ -1151,6 +1152,9 @@
 
           <div class="subsection">
             <h3>首页固定入口词</h3>
+            <div class="content-note">
+              <p><span class="bilingual">Keep only the 10 formal home entry words below. Their order should follow the blended 2025 market ranking used for this page: market size, demand strength, and monetization maturity together, not old UI leftovers or alias words.（首页固定入口词只保留下面这 10 个正式前台词。这里的顺序按本页采用的 2025 混合市场排序来排：综合市场规模、需求强度和商业化成熟度，而不是旧 UI 残留词或别名词。）</span></p>
+            </div>
             <table class="matrix">
               <thead>
                 <tr>
@@ -1160,36 +1164,35 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Sleep</td><td><span class="bilingual">Sleep（睡眠）</span></td><td><span class="bilingual">sleep（睡眠）</span></td></tr>
-                <tr><td>Support</td><td><span class="bilingual">Support（支持）</span></td><td><span class="bilingual">Emotional support（情绪支持）</span></td></tr>
-                <tr><td>Holy Bible</td><td><span class="bilingual">Holy Bible（圣经）</span></td><td><span class="bilingual">Bible（圣经）</span></td></tr>
-                <tr><td>calm</td><td><span class="bilingual">calm（平静）</span></td><td><span class="bilingual">Calm（平静）</span></td></tr>
-                <tr><td>music</td><td><span class="bilingual">music（音乐）</span></td><td><span class="bilingual">play music（播放音乐）</span></td></tr>
-                <tr><td>story</td><td><span class="bilingual">story（故事）</span></td><td><span class="bilingual">Story（故事）</span></td></tr>
-                <tr><td>meditation</td><td><span class="bilingual">meditation（冥想）</span></td><td><span class="bilingual">Meditation（冥想）</span></td></tr>
-                <tr><td>Astrology</td><td><span class="bilingual">Astrology（星座）</span></td><td><span class="bilingual">astrology（星座）</span></td></tr>
-                <tr><td>Divination</td><td><span class="bilingual">Divination（占卜）</span></td><td><span class="bilingual">divination（占卜）</span></td></tr>
-                <tr><td>Dream Reading</td><td><span class="bilingual">Dream Reading（解梦）</span></td><td><span class="bilingual">dream reading（解梦）</span></td></tr>
-                <tr><td>chat</td><td><span class="bilingual">chat（聊天）</span></td><td><span class="bilingual">Chat（聊天）</span></td></tr>
-                <tr><td>sleep track</td><td><span class="bilingual">sleep track（睡眠监测）</span></td><td><span class="bilingual">Sleep Track（睡眠监测）</span></td></tr>
-                <tr><td>breath</td><td><span class="bilingual">breath（呼吸）</span></td><td><span class="bilingual">Breath（呼吸）</span></td></tr>
-                <tr><td>set alarm</td><td><span class="bilingual">set alarm（设置提醒）</span></td><td><span class="bilingual">Set Alarm（设置提醒）</span></td></tr>
+                <tr><td>Music</td><td><span class="bilingual">Music（音乐）</span></td><td><span class="bilingual">Music（音乐）</span></td></tr>
+                <tr><td>Sleep</td><td><span class="bilingual">Sleep（睡眠）</span></td><td><span class="bilingual">Sleep（睡眠）</span></td></tr>
+                <tr><td>Story</td><td><span class="bilingual">Story（故事）</span></td><td><span class="bilingual">Story（故事）</span></td></tr>
+                <tr><td>Mental Therapy</td><td><span class="bilingual">Mental Therapy（心理疗愈）</span></td><td><span class="bilingual">Mental Therapy（心理疗愈）</span></td></tr>
+                <tr><td>Calm</td><td><span class="bilingual">Calm（平静）</span></td><td><span class="bilingual">Calm（平静）</span></td></tr>
+                <tr><td>Meditation</td><td><span class="bilingual">Meditation（冥想）</span></td><td><span class="bilingual">Meditation（冥想）</span></td></tr>
+                <tr><td>Astrology</td><td><span class="bilingual">Astrology（星座）</span></td><td><span class="bilingual">Astrology（星座）</span></td></tr>
+                <tr><td>Holy Bible</td><td><span class="bilingual">Holy Bible（圣经）</span></td><td><span class="bilingual">Holy Bible（圣经）</span></td></tr>
+                <tr><td>Divination</td><td><span class="bilingual">Divination（占卜）</span></td><td><span class="bilingual">Divination（占卜）</span></td></tr>
+                <tr><td>Dream Reading</td><td><span class="bilingual">Dream Reading（解梦）</span></td><td><span class="bilingual">Dream Reading（解梦）</span></td></tr>
               </tbody>
             </table>
           </div>
 
           <div class="subsection">
-            <h3>首页首屏固定文案</h3>
+            <h3>首页首屏主文案规则</h3>
+            <div class="content-note">
+              <p><span class="bilingual">This block is no longer fixed copy. The homepage should rotate through smart, feature-led welcome lines instead of repeating the same three generic sleep claims every time.（这一块不再是固定三句。首页主文案要改成更聪明的、功能导向的动态欢迎语，而不是每次都重复同样三句泛睡眠口号。）</span></p>
+            </div>
+            <div class="prompt-block">
+              <p><span class="bilingual">Generate exactly 4 to 5 short homepage hero lines each time. Every line must feel like an inviting front-door sentence, not like a button label, a tooltip, or a feature spec. Keep the wording warm, direct, and easy to tap into.（每次生成时，严格输出 4 到 5 句短首页主文案。每一句都要像欢迎用户点进去的前台句子，而不是按钮标签、提示词或功能说明。语气要温和、直接、顺口。）</span></p>
+              <p><span class="bilingual">Use only this ranked lane pool for the homepage hero rotation: Music, Sleep, Story, Mental Therapy, Calm, Meditation, Astrology, Holy Bible, Divination, Dream Reading. Favor the earlier lanes more often over time, but across repeated generations make sure all ten lanes can appear.（首页首屏主文案的可用功能池只使用这一组有序入口：Music、Sleep、Story、Mental Therapy、Calm、Meditation、Astrology、Holy Bible、Divination、Dream Reading。长期来看要让排名更靠前的入口出现得更频繁，但在多次生成里也要确保这 10 个入口都能轮到。）</span></p>
+              <p><span class="bilingual">Each line should spotlight one lane only. Do not merge multiple lanes into one sentence. Do not fall back to vague claims like deeper sleep, healthier sleep, or better rest unless the sentence still clearly points to one named lane.（每一句只承接一个明确功能，不要把多个入口混在一条句子里。不要退回到 deeper sleep、healthier sleep、better rest 这类泛口号，除非句子仍然能清楚指向某一个命名入口。）</span></p>
+              <p><span class="bilingual">Make the lines varied. Rotate sentence openings, cadence, and imagery. Some lines can feel like a gentle offer, some can feel like a quiet promise, and some can feel like a soft invitation into a mood or ritual.（句型要有变化。轮换开头、节奏和意象。有的句子可以像温和提议，有的像安静承诺，有的像轻轻把人带进某种氛围或仪式感。）</span></p>
+              <p><span class="bilingual">Do not write click here, tap here, choose this, or any overt UI instruction. Do not overpromise healing, diagnosis, certainty, or religious authority.（不要写 click here、tap here、choose this 这类直白 UI 指令。也不要承诺疗愈、诊断、结果确定性，或宗教权威感。）</span></p>
+              <p><span class="bilingual">Example line shapes for style reference only, not for fixed reuse: Let a softer sound stay in the room tonight. A warm story can carry the night without asking much from you. If your mind is crowded, I can hold it with gentler words first. We can quiet the edges of the day and settle into meditation. If you want to leave tonight more traceable, we can let sleep take over from here. If scripture helps the room feel steadier, I can keep it quiet and close. If you want a lighter read on tonight, I can turn the sky into something personal. If a dream is still close when you wake, I can help you catch what it was trying to say.（仅作风格参考、不可固定复用的句型例如：Let a softer sound stay in the room tonight. A warm story can carry the night without asking much from you. If your mind is crowded, I can hold it with gentler words first. We can quiet the edges of the day and settle into meditation. If you want to leave tonight more traceable, we can let sleep take over from here. If scripture helps the room feel steadier, I can keep it quiet and close. If you want a lighter read on tonight, I can turn the sky into something personal. If a dream is still close when you wake, I can help you catch what it was trying to say.）</span></p>
+            </div>
             <table class="spec-table">
               <tbody>
-                <tr>
-                  <th><span class="th-stack">主文案 <span class="type-badge fixed">Fixed Copy / 固定文案</span></span></th>
-                  <td>
-                    <p><span class="bilingual">I will help you return to healthier, deeper sleep.（我将帮助你回到更健康、更深的睡眠。）</span></p>
-                    <p><span class="bilingual">I can help you find a healthier, deeper sleep tonight.（今晚我可以帮你找回更健康、更深的睡眠。）</span></p>
-                    <p><span class="bilingual">I can help make sleep feel easier tonight.（今晚我可以让入睡这件事更容易一点。）</span></p>
-                  </td>
-                </tr>
                 <tr>
                   <th><span class="th-stack">底部固定文案 <span class="type-badge fixed">Fixed Copy / 固定文案</span></span></th>
                   <td>
@@ -1212,6 +1215,9 @@
 
           <div class="subsection">
             <h3>首页入口固定文案</h3>
+            <div class="content-note">
+              <p><span class="bilingual">The visible home entry order here must mirror the market-ranked order above exactly. Do not reintroduce old alias words, duplicate buttons, or retired labels.（这里的首页入口显示顺序必须和上面的市场排序完全一致。不要重新混入旧别名、重复按钮词或已经退役的标签。）</span></p>
+            </div>
             <table class="matrix">
               <thead>
                 <tr>
@@ -1220,21 +1226,16 @@
                 </tr>
               </thead>
               <tbody>
+                <tr><td>Music</td><td><span class="bilingual">Music（音乐）</span></td></tr>
                 <tr><td>Sleep</td><td><span class="bilingual">Sleep（睡眠）</span></td></tr>
-                <tr><td>Support</td><td><span class="bilingual">Support（支持）</span></td></tr>
-                <tr><td>Holy Bible</td><td><span class="bilingual">Holy Bible（圣经）</span></td></tr>
-                <tr><td>calm</td><td><span class="bilingual">calm（平静）</span></td></tr>
-                <tr><td>music</td><td><span class="bilingual">music（音乐）</span></td></tr>
-                <tr><td>play music</td><td><span class="bilingual">play music（播放音乐）</span></td></tr>
-                <tr><td>story</td><td><span class="bilingual">story（故事）</span></td></tr>
-                <tr><td>meditation</td><td><span class="bilingual">meditation（冥想）</span></td></tr>
+                <tr><td>Story</td><td><span class="bilingual">Story（故事）</span></td></tr>
+                <tr><td>Mental Therapy</td><td><span class="bilingual">Mental Therapy（心理疗愈）</span></td></tr>
+                <tr><td>Calm</td><td><span class="bilingual">Calm（平静）</span></td></tr>
+                <tr><td>Meditation</td><td><span class="bilingual">Meditation（冥想）</span></td></tr>
                 <tr><td>Astrology</td><td><span class="bilingual">Astrology（星座）</span></td></tr>
+                <tr><td>Holy Bible</td><td><span class="bilingual">Holy Bible（圣经）</span></td></tr>
                 <tr><td>Divination</td><td><span class="bilingual">Divination（占卜）</span></td></tr>
                 <tr><td>Dream Reading</td><td><span class="bilingual">Dream Reading（解梦）</span></td></tr>
-                <tr><td>chat</td><td><span class="bilingual">chat（聊天）</span></td></tr>
-                <tr><td>sleep track</td><td><span class="bilingual">sleep track（睡眠监测）</span></td></tr>
-                <tr><td>breath</td><td><span class="bilingual">breath（呼吸）</span></td></tr>
-                <tr><td>set alarm</td><td><span class="bilingual">set alarm（设置提醒）</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -1248,9 +1249,9 @@
                   <td>
                     <div class="prompt-block">
                       <p><span class="bilingual">You are routing from SleepAI home fixed entry words. Preserve the visible entry word exactly as configured in the UI. Do not rewrite, merge, or hide a fixed entry word before routing.（你现在要从 SleepAI 首页固定入口词做路由。前台已经配置好的入口词必须按原样保留，不要在路由前擅自改写、合并或隐藏任何固定入口词。）</span></p>
-                      <p><span class="bilingual">Map Sleep and sleep track to sleep_monitoring or report depending on whether the user wants to start tracking tonight or review completed overnight data.（把 Sleep 和 sleep track 映射到 sleep_monitoring 或 report，区别只看用户是要开始记录今晚，还是回看已完成的过夜数据。）</span></p>
-                      <p><span class="bilingual">Map Support and Emotional support to continue_chat first, then allow soft handoff into meditation, breathing, story, or music only when the user's state clearly supports that shift.（把 Support 和 Emotional support 先映射到 continue_chat；只有当用户状态已经明显支持切换时，才温和转入 meditation、breathing、story 或 music。）</span></p>
-                      <p><span class="bilingual">Map Holy Bible and Bible to religion with Bible-centered Christian support. Map calm and meditation to meditation. Map music and play music to music. Map story to story. Map Astrology to astrology. Map Divination to divination. Map Dream Reading to dream-reading. Map chat to continue_chat. Map breath to breathing. Map set alarm to alarms_tasks.（把 Holy Bible 和 Bible 映射到 religion，并限定为以 Bible 为中心的 Christian support。把 calm 和 meditation 映射到 meditation。把 music 和 play music 映射到 music。把 story 映射到 story。把 Astrology 映射到 astrology。把 Divination 映射到 divination。把 Dream Reading 映射到 dream-reading。把 chat 映射到 continue_chat。把 breath 映射到 breathing。把 set alarm 映射到 alarms_tasks。）</span></p>
+                      <p><span class="bilingual">The only formal home entry words are Music, Sleep, Story, Mental Therapy, Calm, Meditation, Astrology, Holy Bible, Divination, and Dream Reading. Keep their spelling and case exact, and keep their visible order aligned with the configured ranking.（首页正式入口词只包括 Music、Sleep、Story、Mental Therapy、Calm、Meditation、Astrology、Holy Bible、Divination 和 Dream Reading。它们的拼写和大小写必须严格保持，显示顺序也必须和配置好的排名一致。）</span></p>
+                      <p><span class="bilingual">Map Music to music. Map Sleep to sleep_monitoring or report depending on whether the user wants to start tonight's capture or review completed overnight data. Map Story to story. Map Mental Therapy to continue_chat first, then allow a soft handoff into meditation, breathing, story, or music only when the user's state clearly supports that shift. Map Calm to meditation or another low-pressure wind-down lane. Map Meditation to meditation. Map Astrology to astrology. Map Holy Bible to religion with Bible-centered Christian support. Map Divination to divination. Map Dream Reading to dream-reading.（把 Music 映射到 music。把 Sleep 映射到 sleep_monitoring 或 report，区别只看用户是要开始今晚记录，还是回看已完成的过夜数据。把 Story 映射到 story。把 Mental Therapy 先映射到 continue_chat；只有当用户状态已经明显支持切换时，才允许温和转入 meditation、breathing、story 或 music。把 Calm 映射到 meditation 或其他低压力 wind-down 链路。把 Meditation 映射到 meditation。把 Astrology 映射到 astrology。把 Holy Bible 映射到 religion，并限定为以 Bible 为中心的 Christian support。把 Divination 映射到 divination。把 Dream Reading 映射到 dream-reading。）</span></p>
+                      <p><span class="bilingual">Do not treat Support, Emotional support, play music, chat, sleep track, breath, or set alarm as current front-door fixed words. If those legacy labels appear in old content, handle them as aliases or historical leftovers rather than reintroducing them into the official home entry set.（不要把 Support、Emotional support、play music、chat、sleep track、breath、set alarm 当成当前首页正式入口词。如果这些旧词只是在旧内容里出现，把它们视为别名或历史残留，不要重新带回官方首页入口集合。）</span></p>
                       <p><span class="bilingual">If the user enters from a fixed word but immediately asks for another named lane, honor the latest explicit request. If the user is in crisis or high medical risk, safety overrides every fixed entry word.（如果用户从一个固定词入口进入，但马上明确点名了另一个链路，优先服从这次最新的明确请求。如果用户处于危机或明显医学风险，安全优先覆盖所有固定入口词。）</span></p>
                     </div>
                   </td>

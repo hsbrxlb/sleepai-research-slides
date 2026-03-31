@@ -1064,6 +1064,7 @@
             <div class="toc-parent" role="heading" aria-level="2">03. 模块规则</div>
             <div class="toc-sub">
               <a href="#onboarding">首页对话 / 登录订阅</a>
+              <a href="#sleep-companion-handoff">助眠收束 / 睡眠陪伴承接</a>
               <a href="#personas">人设与提示词</a>
               <a href="#story">AI 故事</a>
               <a href="#meditation">AI 冥想</a>
@@ -1093,6 +1094,7 @@
           <div class="toc-parent" role="heading" aria-level="2">03. 模块规则</div>
           <div class="toc-sub">
             <a href="#onboarding">首页对话 / 登录订阅</a>
+            <a href="#sleep-companion-handoff">助眠收束 / 睡眠陪伴承接</a>
             <a href="#personas">人设与提示词</a>
             <a href="#story">AI 故事</a>
             <a href="#meditation">AI 冥想</a>
@@ -1300,10 +1302,11 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><span class="th-stack">睡眠监测承接 <span class="type-badge fixed">Fixed Copy / 固定文案</span></span></th>
+                  <th><span class="th-stack">睡眠陪伴承接 <span class="type-badge fixed">Fixed Copy / 固定文案</span></span></th>
                   <td>
-                    <p><span class="bilingual">The story is almost done. Sleep tracking starts in 5 seconds.（故事快结束了，睡眠监测将在 5 秒后开始。）</span></p>
-                    <p><span class="bilingual">Sleep Track（睡眠监测）</span></p>
+                    <p><span class="bilingual">This can taper into Sleep Companion now. It can keep tonight's sleep cues for you, and your morning report will be ready to open.（这一段可以慢慢收住了，现在可以直接接上睡眠陪伴。它会继续留下今晚的睡眠线索，明早你可以直接打开报告。）</span></p>
+                    <p><span class="bilingual">Sleep Companion（睡眠陪伴）</span></p>
+                    <p><span class="bilingual">Sleep Track（旧入口映射）</span></p>
                   </td>
                 </tr>
               </tbody>
@@ -1349,7 +1352,7 @@
                   <td>
                     <div class="prompt-block">
                       <p><span class="bilingual">On the home conversation screen, answer first in chat voice before handing off into story, meditation, breathing, music, religion, divination, astrology, dream-reading, alarms_tasks, sleep_monitoring, or report. Keep the handoff to one light bridge sentence.（在首页对话态里，先用聊天口吻接住，再决定是否切进 story、meditation、breathing、music、religion、divination、astrology、dream-reading、alarms_tasks、sleep_monitoring 或 report。任何切换都只留一句轻过渡。）</span></p>
-                      <p><span class="bilingual">If a feature card is inserted into chat, make the card title and subtitle match the fixed copy exactly. Do not rewrite Story, Meditation, Breath, Sleep Track, or any configured plan label on the fly.（如果对话中插入功能卡片，卡片标题和副标题必须严格匹配固定文案。不要临时改写 Story、Meditation、Breath、Sleep Track，或任何已配置好的订阅方案词。）</span></p>
+                      <p><span class="bilingual">If a feature card is inserted into chat, make the card title and subtitle match the fixed copy exactly. Do not rewrite Story, Meditation, Breath, Sleep Companion, or any configured plan label on the fly. If an older surface still says Sleep Track, treat it as the same lane's legacy label rather than a new product.（如果对话中插入功能卡片，卡片标题和副标题必须严格匹配固定文案。不要临时改写 Story、Meditation、Breath、Sleep Companion，或任何已配置好的订阅方案词。如果旧界面仍然写 Sleep Track，把它视为同一链路的旧入口词，不要当成另一个产品。）</span></p>
                       <p><span class="bilingual">When voice recording starts, keep the overlay language short and operational. When voice recording ends, return to the shared chat context without re-asking confirmed information.（当语音录制开始时，覆盖文案要短、要操作化。录制结束后，直接回到共享对话上下文，不要重复追问已经确认过的信息。）</span></p>
                     </div>
                   </td>
@@ -1412,6 +1415,84 @@
                     <p><span class="bilingual">All paid plans keep the same core benefits. The difference is billing length and commitment rhythm.（所有付费方案的核心权益一致，差别只在订阅时长和支付节奏。）</span></p>
                   </td>
                 </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="sleep-companion-handoff">
+          <h2>助眠收束 / 睡眠陪伴承接</h2>
+          <div class="content-meta">
+            <span class="type-badge fixed">Fixed Copy / 固定文案</span>
+            <span class="type-badge spec">Spec / 规则</span>
+            <span class="type-badge prompt">Prompt / 提示词</span>
+          </div>
+
+          <div class="content-note">
+            <p><span class="bilingual">Use Sleep Companion as the front-facing user phrase after Story, Meditation, Breathing, or Music has genuinely happened. Do not lead with monitoring, listening, or recording language in that first touch.（当 Story、Meditation、Breathing 或 Music 已经真实执行并自然收束后，前台用户侧优先使用 Sleep Companion 作为第一触达词。第一触达不要直接上 monitoring、listening 或 recording 这类表达。）</span></p>
+            <p><span class="bilingual">The explanation layer must still stay honest: mention one real value such as keeping tonight's sleep cues, making the night more continuous, or opening a morning report later.（解释层仍然必须保持诚实：每次至少自然带出一个真实价值，例如留下今晚的睡眠线索、让这一晚更连续，或明早可以打开睡眠报告。）</span></p>
+            <p><span class="bilingual">Sleep Track may stay on the page as a legacy mapping only. It should not be the primary phrase in the final line that closes a soothing feature.（Sleep Track 只作为旧入口映射保留。它不应该再成为助眠功能收束最后一句里的主表达。）</span></p>
+          </div>
+
+          <div class="subsection">
+            <h3>共享承接规则</h3>
+            <table class="spec-table">
+              <tbody>
+                <tr>
+                  <th><span class="th-stack">触发条件 <span class="type-badge spec">Spec / 规则</span></span></th>
+                  <td>
+                    <p><span class="bilingual">Trigger this rule only after Story, Meditation, Breathing, or Music has already started and reached a real ending or natural taper. It is a finishing handoff, not an opening pitch.（只有当 Story、Meditation、Breathing 或 Music 已经开始，并且走到真正结尾或自然收束时，才触发这条规则。它是收尾承接，不是开场推销。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <th><span class="th-stack">必须包含 <span class="type-badge spec">Spec / 规则</span></span></th>
+                  <td>
+                    <p><span class="bilingual">The handoff must do three things in one short finish: acknowledge the just-finished experience or the user's sleepy state, invite Sleep Companion in a low-pressure way, and name at least one concrete benefit.（这句承接必须在一个简短收尾里同时完成三件事：承接刚完成的体验或当前睡意、低压力地邀请进入 Sleep Companion，以及点出至少一个具体收益。）</span></p>
+                    <p><span class="bilingual">Concrete benefit options include: keeping tonight's sleep cues, helping the night continue more smoothly, showing what happened overnight, or opening a sleep report in the morning.（具体收益可选项包括：留下今晚的睡眠线索、让这一晚接得更顺、帮助看到夜里发生了什么，或明早打开睡眠报告。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <th><span class="th-stack">语气要求 <span class="type-badge spec">Spec / 规则</span></span></th>
+                  <td>
+                    <p><span class="bilingual">Keep it to one sentence by default and at most two short sentences when needed. Sound like a soft continuation, not a product announcement. Do not reopen the conversation or ask another setup question.（默认只写一句，必要时最多两句短句。听起来要像柔和延续，不像产品广播。不要重新拉起对话，也不要再追问设定。）</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <th><span class="th-stack">禁止事项 <span class="type-badge spec">Spec / 规则</span></span></th>
+                  <td>
+                    <p><span class="bilingual">Do not say listen to you, record you, monitor you, or start tracking in five seconds. Do not imply diagnosis, healing promises, or that Pufflo will actively keep chatting all night.（不要说 listen to you、record you、monitor you，也不要说五秒后开始跟踪。不要暗示诊断、疗效承诺，或暗示 Pufflo 会整晚持续主动聊天。）</span></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="subsection">
+            <h3>共享 Prompt</h3>
+            <div class="prompt-block">
+              <p><span class="bilingual">Use this shared sleep-companion handoff rule after Story, Meditation, Breathing, or Music has genuinely happened and is ready to close. Output one short finishing line by default, or at most two short sentences if one sentence cannot carry the value clearly.（在 Story、Meditation、Breathing 或 Music 已真实发生并准备收尾时，使用这条共享的睡眠陪伴承接规则。默认输出一句短收尾；如果一句放不下关键价值，最多两句短句。）</span></p>
+              <p><span class="bilingual">The line must first echo the state that now exists, such as the room getting quieter, the body softening, the story fading, the breath slowing, or the user sounding ready to drift. Then invite Sleep Companion in a gentle, optional, low-pressure way. Then naturally include one honest benefit: it can keep tonight's sleep cues, help the night continue without a hard break, help the user understand what happened overnight, or make a morning sleep report available later.（这句话必须先顺着当前已经形成的状态走，比如房间更安静了、身体放软了、故事在变轻、呼吸慢下来了，或用户已经像是能慢慢漂下去。然后用温和、可选、低压力的方式邀请进入 Sleep Companion。接着自然带出一个真实收益：它会留下今晚的睡眠线索、让这一晚不中断地接下去、帮助用户了解夜里发生了什么，或让明早的睡眠报告可用。）</span></p>
+              <p><span class="bilingual">Vary the wording every time. Do not reuse the same opening, the same CTA, or the same closing cadence. Stay inside the same meaning, but rotate the phrasing, rhythm, and imagery so it never sounds scripted.（每次都要换说法。不要重复同一个开头、同一个 CTA、或同一种结尾节奏。意义保持一致，但措辞、节拍和意象要轮换，避免听起来像固定脚本。）</span></p>
+              <p><span class="bilingual">Never make Sleep Companion sound deceptive. Avoid phrases that foreground surveillance. Keep the explanation honest but soft. Do not use countdowns, pressure, or command language.（不要把 Sleep Companion 写得像在规避真实能力。避免把 surveillance 感放在前台。解释要诚实，但要柔和。不要使用倒计时、施压或命令式语言。）</span></p>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>示例话术方向</h3>
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th><span class="th-stack">场景</span></th>
+                  <th><span class="th-stack">示例方向 <span class="type-badge fixed">Fixed Copy / 固定文案</span></span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Story</td><td><span class="bilingual">That story can fade the rest of the way with Sleep Companion now, so tonight's small sleep cues can stay with us and your morning report will be ready later.（这个故事可以顺着睡眠陪伴继续慢慢淡下去，这样今晚的小线索会留下来，明早你也能直接看到报告。）</span></td></tr>
+                <tr><td>Meditation</td><td><span class="bilingual">You do not need more guidance now. We can let Sleep Companion hold the rest of the night and leave a clearer trail for your morning report.（你现在不需要更多引导了。接下来可以把这一晚交给睡眠陪伴，它会为明早的报告留下更清晰的线索。）</span></td></tr>
+                <tr><td>Breathing</td><td><span class="bilingual">Your body sounds softer now, so we can let Sleep Companion take over quietly and keep tonight's rhythm for later review.（你现在的身体已经更软下来了，可以安静地接上睡眠陪伴，把今晚的节奏留下来，明早再看。）</span></td></tr>
+                <tr><td>Music</td><td><span class="bilingual">I can leave this in the background and let Sleep Companion carry the rest, so the night stays continuous and tomorrow's report has something real to read from.（我可以把这层背景轻轻留着，再让睡眠陪伴接住后半夜，这样这一晚会更连贯，明早的报告也会有真实线索可看。）</span></td></tr>
+                <tr><td>更温柔</td><td><span class="bilingual">This feels quiet enough to slip straight into Sleep Companion now. It will keep tonight's sleep cues without making you do anything more.（现在已经安静到可以直接滑进睡眠陪伴了。它会继续留下今晚的睡眠线索，不需要你再多做什么。）</span></td></tr>
+                <tr><td>更结果导向</td><td><span class="bilingual">We can stop here and let Sleep Companion take the night from this point, so you can open tomorrow with a fuller sleep report instead of a hard stop now.（我们可以在这里停住，接下来交给睡眠陪伴往后接，这样明早打开的会是一份更完整的睡眠报告，而不是现在生硬地断掉。）</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -1602,7 +1683,7 @@
                     <p><span class="bilingual">Never claim treatment, diagnosis, or guaranteed sleep. Never re-activate the user with questions near the end.（绝不能做治疗、诊断或保证睡着的承诺。结尾附近绝不能重新把用户拉回问答模式。）</span></p>
                     <p><span class="bilingual">If the user says the story feels too plot-heavy, too vivid, too stimulating, or too awake-making, immediately lower plot density, shorten sentences, reduce novelty, and continue in a lighter version instead of defending the original tone.（如果用户说故事太有剧情、太鲜活、太刺激或越听越清醒，就立刻降低剧情密度、缩短句子、减少新信息，并直接切到更轻的版本，不要解释或坚持原风格。）</span></p>
                     <p><span class="bilingual">Choose or imply one low-stimulation sound bed that fits the mood, and thin it further in the second half. Background should support the narration without competing for attention.（要选择或隐含一个匹配情绪的低刺激声景，并在后半段继续变薄。背景只能托住故事，不能和叙述抢注意力。）</span></p>
-                    <p><span class="bilingual">If the user already sounds settled or drowsy, use one very light bridge into sleep-monitoring playback or quiet continuation, then stop adding new content.（如果用户已经明显安静下来或开始发困，就用一句很轻的过渡把当前内容接向睡眠监测播放或静音延续，然后停止继续加新内容。）</span></p>
+                    <p><span class="bilingual">If the user already sounds settled or drowsy, finish with the shared sleep-companion handoff rule, then stop adding new content.（如果用户已经明显安静下来或开始发困，就按共享的睡眠陪伴承接规则收束，然后停止继续加新内容。）</span></p>
                   </div>
                 </td>
               </tr>
@@ -1705,7 +1786,7 @@
                     <p><span class="bilingual">Do not sound abstract, spiritual by default, or performance-based. Avoid long theory and avoid asking the user to report progress.（不要默认抽象化、灵修化或成绩化。避免长理论，也不要在过程中要求用户汇报进度。）</span></p>
                     <p><span class="bilingual">Make the pacing slower over time, and let the ending dissolve rather than conclude.（节奏要逐步放慢，让结尾像融掉，而不是像正式结束。）</span></p>
                     <p><span class="bilingual">If the user becomes quieter or more settled mid-way, reduce explanation, reduce steps, and remove unnecessary choices. Let the guidance become lighter instead of keeping the same instruction density.（如果用户在中段已经更安静了，就自动减少解释、减少步骤、减少选择题，让引导本身变轻，而不是维持原来的指令密度。）</span></p>
-                    <p><span class="bilingual">If the user sounds ready to drift, use one light line to move into sleep monitoring or quiet background continuation, then step back instead of reopening the conversation.（如果用户已经像是可以慢慢漂下去，就用一句轻的话转入睡眠监测或安静背景延续，然后退后，不要重新把对话拉起来。）</span></p>
+                    <p><span class="bilingual">If the user sounds ready to drift, finish with the shared sleep-companion handoff rule, then step back instead of reopening the conversation.（如果用户已经像是可以慢慢漂下去，就按共享的睡眠陪伴承接规则收束，然后退后，不要重新把对话拉起来。）</span></p>
                     <p><span class="bilingual">Keep any sound bed extremely light, lyric-free, and low-presence. It should never become a new attention target.（任何背景声都必须极轻、无歌词、低存在感，不能变成新的注意力焦点。）</span></p>
                   </div>
                 </td>
@@ -1810,7 +1891,7 @@
                     <p><span class="bilingual">Do not over-explain the science. Let the body feel led, not managed.（不要过度解释“科学原理”。要让身体感到被带着走，而不是被管理。）</span></p>
                     <p><span class="bilingual">Structure each breathing output as: one opening line, a short breathing loop, and one closing line. Do not turn it into free-form reflective prose.（每次呼吸输出都要维持固定结构：一句开场白、一段简短呼吸循环、一句结束词。不要把它写成自由散文。）</span></p>
                     <p><span class="bilingual">If the user reacts badly to counting, immediately switch to non-count breathing cues without debating, persuading, or retrying the counted version.（如果用户对计数反应更差，就立刻切到无计数版本，不要解释、说服，也不要再试一次原节奏。）</span></p>
-                    <p><span class="bilingual">Once the user's state softens, use one very short transition into sleep monitoring or quiet continuation and stop coaching.（一旦用户状态明显放软，就用一句很短的过渡接向睡眠监测或静音延续，然后停止继续指导。）</span></p>
+                    <p><span class="bilingual">Once the user's state softens, finish with the shared sleep-companion handoff rule and stop coaching.（一旦用户状态明显放软，就按共享的睡眠陪伴承接规则收束，并停止继续指导。）</span></p>
                   </div>
                 </td>
               </tr>
@@ -1918,6 +1999,7 @@
                     <p><span class="bilingual">Use emotional-equivalent ambience or soundscape tags rather than vague phrasing like play something. The output should imply a clear texture and mood.（输出要落到情绪等价的 ambience / soundscape 标签上，不要只说“放点东西”。要让人能感到明确的质地和氛围。）</span></p>
                     <p><span class="bilingual">If the user wants background only and no talking, speak once, then stop speaking and let the sound carry the rest.（如果用户明确只要背景、不要说话，就只说一句，然后停下，让声音接手后面的部分。）</span></p>
                     <p><span class="bilingual">If the music is continuing from another module, inherit the current mood and do not pull the user back into a new selection flow.（如果音乐只是从其他模块后半段延续过来，就沿用当前情绪，不要把用户重新拉回一轮选择流程。）</span></p>
+                    <p><span class="bilingual">When the user is ready to drift or the background has already done its job, finish with the shared sleep-companion handoff rule, then stop speaking.（当用户已经可以慢慢漂下去，或背景本身已经完成任务时，就按共享的睡眠陪伴承接规则收束，然后停止说话。）</span></p>
                   </div>
                 </td>
               </tr>
@@ -2021,7 +2103,7 @@
                     <p><span class="bilingual">If you include scripture or sacred text, separate the output into two clearly distinguishable blocks: Quote and Reflection. Do not blend the quote and the assistant's soothing language into one paragraph.（如果输出经文或经典内容，必须把结果拆成两个清晰可分的区块：Quote 与 Reflection。不要把引文和助手自己的安抚语混写成同一段。）</span></p>
                     <p><span class="bilingual">If structured blocks are unavailable, label them with stable markers such as Quote: and Reflection: so the frontend can distinguish them reliably.（如果当前不能输出结构化区块，就用稳定标签例如 Quote: 和 Reflection: 分开，方便前端可靠识别。）</span></p>
                     <p><span class="bilingual">If exact approved text is unavailable, explicitly fall back to gentle reflection or prayerful wording and never present it as a direct quotation. Keep any quote short, careful, and non-preachy.（如果没有准确可用的核准文本，就明确退回 gentle reflection 或 prayerful wording，绝不能伪装成直接引文。任何引文都要短、谨慎、不过度说教。）</span></p>
-                    <p><span class="bilingual">If the user already sounds settled, use one light transition into sleep monitoring or quiet continuation instead of extending the religious content.（如果用户已经明显安静下来，就用一句轻量过渡接向睡眠监测或静音延续，不要继续拉长宗教内容。）</span></p>
+                    <p><span class="bilingual">If the user already sounds settled, finish with the shared sleep-companion handoff rule instead of extending the religious content.（如果用户已经明显安静下来，就按共享的睡眠陪伴承接规则收束，不要继续拉长宗教内容。）</span></p>
                   </div>
                 </td>
               </tr>

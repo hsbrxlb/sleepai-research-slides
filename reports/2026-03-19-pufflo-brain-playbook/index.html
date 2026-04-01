@@ -179,6 +179,17 @@
       font-size: 14px;
     }
 
+    .mobile-toc .toc-sub .toc-sub {
+      margin: 2px 0 2px 10px;
+      padding-left: 10px;
+      border-left: 1px dashed #dfe5ee;
+    }
+
+    .mobile-toc .toc-sub .toc-sub a {
+      padding: 4px 0;
+      font-size: 13px;
+    }
+
     .layout {
       display: grid;
       grid-template-columns: var(--toc) minmax(0, 1fr);
@@ -241,6 +252,17 @@
       margin-left: -10px;
       font-size: 14px;
       border-left-width: 1.5px;
+    }
+
+    .toc-sub .toc-sub {
+      margin: 2px 0 2px 12px;
+      padding-left: 10px;
+      border-left: 1px dashed #e3e8f1;
+    }
+
+    .toc-sub .toc-sub a {
+      padding: 4px 0 4px 10px;
+      font-size: 13px;
     }
 
     .toc-group.is-active > .toc-parent {
@@ -1065,6 +1087,14 @@
             <div class="toc-sub">
               <a href="#onboarding">首页对话 / 登录订阅</a>
               <a href="#personas">人设与提示词</a>
+              <div class="toc-sub">
+                <a href="#persona-sleep-advisor">睡眠顾问</a>
+                <a href="#persona-emotional-companion">情绪陪伴师</a>
+                <a href="#persona-family-elder">家族长辈</a>
+                <a href="#persona-night-supervisor">夜间督导</a>
+                <a href="#persona-quiet-companion">静夜同行者</a>
+                <a href="#persona-night-confidant">夜谈知己</a>
+              </div>
               <a href="#story">AI 故事</a>
               <a href="#meditation">AI 冥想</a>
               <a href="#breathing">AI 呼吸</a>
@@ -1094,6 +1124,14 @@
           <div class="toc-sub">
             <a href="#onboarding">首页对话 / 登录订阅</a>
             <a href="#personas">人设与提示词</a>
+            <div class="toc-sub">
+              <a href="#persona-sleep-advisor">睡眠顾问</a>
+              <a href="#persona-emotional-companion">情绪陪伴师</a>
+              <a href="#persona-family-elder">家族长辈</a>
+              <a href="#persona-night-supervisor">夜间督导</a>
+              <a href="#persona-quiet-companion">静夜同行者</a>
+              <a href="#persona-night-confidant">夜谈知己</a>
+            </div>
             <a href="#story">AI 故事</a>
             <a href="#meditation">AI 冥想</a>
             <a href="#breathing">AI 呼吸</a>
@@ -1374,7 +1412,7 @@
             </div>
           </div>
 
-          <div class="subsection">
+          <div class="subsection" id="persona-sleep-advisor">
             <h3>睡眠顾问补充提示词</h3>
             <div class="prompt-block">
               <p><span class="bilingual">Use this persona when the user wants body based explanation, sleep science framing, or practical habit guidance. Core stance: explain what the system is likely doing, reduce panic, and keep the focus on mechanisms rather than on identity or comfort theater.（当用户需要身体层面的解释、睡眠科学 framing，或实用习惯建议时，使用这个人设。核心姿态是解释身体系统大概率在发生什么，先降恐慌，并把重点放在机制上，而不是身份安慰或过度抚慰。）</span></p>
@@ -1391,7 +1429,7 @@
             </div>
           </div>
 
-          <div class="subsection">
+          <div class="subsection" id="persona-emotional-companion">
             <h3>情绪陪伴师补充提示词</h3>
             <div class="prompt-block">
               <p><span class="bilingual">Use this persona when the user is overwhelmed, ashamed, lonely, stuck in rumination, or emotionally flooded before sleep. Core stance: receive the feeling first, reduce the felt weight of tonight, and do not rush toward fixing, teaching, or analysis.（当用户在睡前情绪过载、羞耻、孤独、反刍停不下来时，使用这个人设。核心姿态是先接住感受，降低今晚的体感重量，不急着修复、教育或分析。）</span></p>
@@ -1408,7 +1446,7 @@
             </div>
           </div>
 
-          <div class="subsection">
+          <div class="subsection" id="persona-family-elder">
             <h3>家族长辈补充提示词</h3>
             <div class="prompt-block">
               <p><span class="bilingual">Use this persona when the user needs steady care, grounded common sense, and the feeling that the night is being held together by calm experience. Core stance: plain care, human dignity, and practical home wisdom without any role announcement.（当用户需要稳稳的照看、朴素常识，以及一种这个夜晚正被沉稳经验托住的感觉时，使用这个人设。核心姿态是朴素照看、护住体面，以及接地气的居家经验，但绝不自报身份。）</span></p>
@@ -1425,7 +1463,7 @@
             </div>
           </div>
 
-          <div class="subsection">
+          <div class="subsection" id="persona-night-supervisor">
             <h3>夜间督导补充提示词</h3>
             <div class="prompt-block">
               <p><span class="bilingual">Use this persona when the user is scattered, procrastinating, doomscrolling, or needs calm accountability instead of comfort alone. Core stance: cut noise, reduce leakage, and protect energy before the night gets worse.（当用户分散、拖延、刷手机停不下来，或需要一点温柔但有边界的督导时，使用这个人设。核心姿态是先截断噪音、止住泄漏，再保护精力，别让夜晚继续恶化。）</span></p>
@@ -1442,7 +1480,7 @@
             </div>
           </div>
 
-          <div class="subsection">
+          <div class="subsection" id="persona-quiet-companion">
             <h3>静夜同行者补充提示词</h3>
             <div class="prompt-block">
               <p><span class="bilingual">Use this persona when the user wants a gentle spiritual atmosphere that is inclusive, respectful, and quiet, but never doctrinal. Core stance: offer space and witness, not certainty, control, or teaching.（当用户想要一种温和、包容、安静的灵性气氛时，使用这个人设，但绝不教条。核心姿态是给空间与见证，而不是给确定性、控制感或教导。）</span></p>
@@ -1459,7 +1497,7 @@
             </div>
           </div>
 
-          <div class="subsection">
+          <div class="subsection" id="persona-night-confidant">
             <h3>夜谈知己补充提示词</h3>
             <div class="prompt-block">
               <p><span class="bilingual">Use this persona when the user feels most honest after midnight and needs closeness without romance or dependency. Core stance: be near, be direct, and make the messy version sayable without turning the exchange into flirting or rescue.（当用户在深夜最诚实、需要靠近感但不能变成暧昧或依赖时，使用这个人设。核心姿态是更近、更直，让那个乱糟糟的版本可以说出口，但绝不变成调情或拯救。）</span></p>
@@ -2692,6 +2730,12 @@
       const moduleIds = new Set([
         'onboarding',
         'personas',
+        'persona-sleep-advisor',
+        'persona-emotional-companion',
+        'persona-family-elder',
+        'persona-night-supervisor',
+        'persona-quiet-companion',
+        'persona-night-confidant',
         'story',
         'meditation',
         'breathing',

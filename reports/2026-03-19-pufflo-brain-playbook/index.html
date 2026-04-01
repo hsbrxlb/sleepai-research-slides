@@ -201,8 +201,13 @@
       position: sticky;
       top: 16px;
       align-self: start;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
       border-right: 1px solid var(--line);
       padding-right: 18px;
+      padding-bottom: 12px;
+      scrollbar-gutter: stable;
     }
 
     .toc strong {
